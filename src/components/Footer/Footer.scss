@@ -1,0 +1,12 @@
+@import '../../styles/variables.scss';
+
+.Footer {
+  display: flex;
+  justify-content: space-between;
+  .Settings, .Todo, .Quotes {
+    padding: 20px;
+    background-color: $secondary-color;
+    width: 100%;
+    max-width: 300px;
+  }
+}

@@ -1,0 +1,12 @@
+@import '../../styles/variables';
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  .Links, .Weather {
+    padding: 20px;
+    background-color: $secondary-color;
+    width: 100%;
+    max-width: 300px;
+  }
+}
