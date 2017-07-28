@@ -2,8 +2,8 @@
 
 .App {
   display: grid;
-  background-color: $primary-color;
+  background-size: cover;
   grid-template-rows: 100px 1fr 100px;
   height: 100vh;
-  width: 100%;
+  width: 100%
 }
