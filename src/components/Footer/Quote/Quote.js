@@ -3,9 +3,10 @@ import { Icon } from 'semantic-ui-react'
 import './Quote.scss';
 
 const Quote = ({ quote = [], onLikeQuote }) => {
+  const [ text, source, isLiked ] = quote;
   let heartClassName = 'empty heart';
 
-  if (quote[2]) {
+  if (isLiked) {
     heartClassName = 'heart';
   }
   const handleLikeQuote = () => {
@@ -14,9 +15,9 @@ const Quote = ({ quote = [], onLikeQuote }) => {
   return (
     <div className="Quote">
       <blockquote>
-        <p>{quote[0]}</p>
+        <p>{text}</p>
         <div className="quote-source">
-          {quote[1]} <Icon onClick={handleLikeQuote} name={heartClassName} />
+          {source} <Icon onClick={handleLikeQuote} name={heartClassName} />
         </div>
       </blockquote> 
     </div>

@@ -16,25 +16,52 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      backgroundURL: '',
+      // date: '',
+      minutes: '',
+      background: '',
       quote: [] 
     }
 
     this.likeQuote = this.likeQuote.bind(this);
   }
   componentDidMount() {
-    unsplash.photos.getRandomPhoto(/*{ filter photos }*/)
-      .then(toJson)
-      .then(json => {
-        this.setState({
-          backgroundURL: json.urls.regular,
-          // quote: quotes[Math.floor(Math.random() * quotes.length)]
-        });
+    // const today = new Date().toLocaleDateString();
+    const minutes = new Date().getUTCMinutes();
+    const oldMinutes = localStorage.getItem('minutes');
+    const background = localStorage.getItem('background');
+
+    // Change background every 15 minutes (for development) 
+    // OR set background if there isn't one in localStorage
+    // if (today !== this.state.date) { // Change background every day
+    if (minutes >= +oldMinutes + 15 || background === null) { 
+      this.setBackground(minutes);
+    // Get background from localStorage
+    } else {
+      this.setState({
+        // date: '',
+        minutes,
+        background,
       });
-    // NOTE: Temporarily setting quote state here because I hit the hourly limit on unsplash
+    }
+
+    // Set random quote
     this.setState({
       quote: quotes[Math.floor(Math.random() * quotes.length)]
     });
+  }
+  
+  setBackground(minutes) {
+    unsplash.photos.getRandomPhoto(/*{ filter photos }*/)
+      .then(toJson)
+      .then(json => {
+        const { regular: background } = json.urls;
+        this.setState({
+          minutes,
+          background
+        });
+        localStorage.setItem('minutes', minutes);
+        localStorage.setItem('background', background);
+      });
   }
   likeQuote() {
     const { quote } = this.state;
@@ -45,10 +72,10 @@ class App extends Component {
     });
   }
   render() {
-    const { backgroundURL, quote } = this.state;
+    const { background, quote } = this.state;
 
     return (
-      <div className="App" style={{ backgroundImage: `url(${backgroundURL})` }}>
+      <div className="App" style={{ backgroundImage: `url(${background})` }}>
         <Header />
         <Main />
         <Footer quote={quote} onLikeQuote={this.likeQuote}/>
