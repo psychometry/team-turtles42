@@ -6,7 +6,9 @@
   .Settings, .Todo, .Quotes {
     padding: 20px;
     background-color: $secondary-color;
+  }
+  .Quotes {
     width: 100%;
-    max-width: 300px;
+    max-width: 500px;
   }
 }

@@ -1,0 +1,12 @@
+@import '../../../styles/variables.scss';
+
+.Quote {
+  background-color: $secondary-color;
+  text-align: center;
+  font-weight: 300;
+  width: 100%;
+  max-width: 700px;
+  .quote-source {
+    color: rgba(255,255,255,.5);
+  }
+}
