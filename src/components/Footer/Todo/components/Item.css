@@ -1,0 +1,10 @@
+.TodoItem{
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+}
+.TodoItem > span {
+  color:black;
+  margin-left: 1em;
+  flex: 1;
+}

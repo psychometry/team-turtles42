@@ -19,7 +19,7 @@ class App extends Component {
       // date: '',
       time: '',
       background: '',
-      quote: [] 
+      quote: []
     }
 
     this.likeQuote = this.likeQuote.bind(this);
@@ -30,10 +30,10 @@ class App extends Component {
     const oldTime = +localStorage.getItem('time');
     const background = localStorage.getItem('background');
 
-    // Change background every 15 minutes (for development) 
+    // Change background every 15 minutes (for development)
     // OR set background if there isn't one in localStorage
     // if (today !== this.state.date) { // Change background every day
-    if (time - oldTime > 15 * 60 * 1000 || background === null) { 
+    if (time - oldTime > 15 * 60 * 1000 || background === null) {
       this.setBackground(time);
     // Get background from localStorage
     } else {
@@ -49,7 +49,7 @@ class App extends Component {
       quote: quotes[Math.floor(Math.random() * quotes.length)]
     });
   }
-  
+
   setBackground(time) {
     unsplash.photos.getRandomPhoto(/*{ filter photos }*/)
       .then(toJson)
@@ -61,7 +61,11 @@ class App extends Component {
         });
         localStorage.setItem('time', time);
         localStorage.setItem('background', background);
-      });
+      }).catch(
+        err =>{
+          console.log('ajax error');
+        }
+      );
   }
   likeQuote() {
     const { quote } = this.state;

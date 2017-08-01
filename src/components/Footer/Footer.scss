@@ -4,11 +4,22 @@
   display: flex;
   justify-content: space-between;
   .Settings, .Todo, .Quotes {
+    flex:1;
     padding: 20px;
     background-color: $secondary-color;
   }
   .Quotes {
     width: 100%;
     max-width: 500px;
+  }
+  .ListContainer{
+    position: fixed;
+    bottom: 20px;
+    right:20px;
+    .restricted-height{
+      max-height: 320px;
+      height: auto;
+      overflow-y:auto;
+    }
   }
 }
