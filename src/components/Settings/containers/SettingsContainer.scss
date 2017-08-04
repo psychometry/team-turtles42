@@ -1,14 +1,9 @@
-@import '../../../styles/variables.scss';
-
 .SettingsContainer {
   z-index: 100;
   position: fixed;
   bottom: 10px;
   left: 10px;
-  height: 100px;
-  padding: 10px;
-  background-color: $secondary-color;
-  // max-height: 500px;
-  // width: 500px;
-  // overflow-y:auto;
+  .setting.large.icon {
+    cursor: pointer;
+  }
 }
