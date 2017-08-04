@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Unsplash, { toJson } from 'unsplash-js';
-import Header from '../Header/Header';
-import Main from '../Main/Main';
+import BookmarksContainer from '../Bookmarks/BookmarksContainer';
+import WeatherContainer from '../Weather/WeatherContainer';
 import SettingsContainer from '../Settings/containers/SettingsContainer';
 import CurrentQuoteContainer from '../CurrentQuote/CurrentQuoteContainer';
 import ListContainer from '../Todo/containers/ListContainer';
@@ -67,11 +67,22 @@ class App extends Component {
 
     return (
       <div className="App" style={{ backgroundImage: `url(${background})` }}>
-        <Header />
-        <Main />
-        <SettingsContainer />
-        <CurrentQuoteContainer />
-        <ListContainer/> 
+        <header>
+          <BookmarksContainer />
+          <WeatherContainer />
+        </header>
+
+        <main>
+          <div className="Time">Time</div>
+          <div className="Message">Message</div>
+          <div className="Focus">Focus</div>
+        </main>
+
+        <footer>
+          <SettingsContainer />
+          <CurrentQuoteContainer />
+          <ListContainer/> 
+        </footer>
       </div>
     );
   }

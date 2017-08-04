@@ -11,7 +11,7 @@ const CurrentQuote = ({ quote = [], onLikeQuote }) => {
   }
   
   return (
-    <div className="Quote">
+    <div className="CurrentQuote">
       <blockquote>
         <p>{text}</p>
         <div className="quote-source">
