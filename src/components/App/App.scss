@@ -1,15 +1,10 @@
 @import '../../styles/variables.scss';
 
 .App {
+  padding: 10px;
   display: grid;
   background-size: cover;
   grid-template-rows: 100px 1fr 100px;
   height: 100vh;
-  width: 100%
-}
-.Footer {
-  // height: 100px;
-  background-color: pink;
-  display: grid;
-  grid-template-columns: 25% 50% 25%;
+  width: 100%;
 }

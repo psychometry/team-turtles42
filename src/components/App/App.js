@@ -3,9 +3,8 @@ import Unsplash, { toJson } from 'unsplash-js';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import SettingsContainer from '../Settings/containers/SettingsContainer';
-import Quote from '../Quote/Quote';
+import CurrentQuoteContainer from '../CurrentQuote/CurrentQuoteContainer';
 import ListContainer from '../Todo/containers/ListContainer';
-import quotes from '../../quotes.json';
 import './App.scss';
 
 const unsplash = new Unsplash({
@@ -21,10 +20,8 @@ class App extends Component {
       // date: '',
       time: '',
       background: '',
-      quote: []
     }
 
-    this.likeQuote = this.likeQuote.bind(this);
   }
   componentDidMount() {
     // const today = new Date().toLocaleDateString();
@@ -45,11 +42,6 @@ class App extends Component {
         background,
       });
     }
-
-    // Set random quote
-    this.setState({
-      quote: quotes[Math.floor(Math.random() * quotes.length)]
-    });
   }
 
   setBackground(time) {
@@ -69,26 +61,17 @@ class App extends Component {
         }
       );
   }
-  likeQuote() {
-    const { quote } = this.state;
-    quote[2] ? quote[2] = false : quote[2] = true;
-
-    this.setState({
-      quote: quote
-    });
-  }
+  
   render() {
-    const { background, quote } = this.state;
+    const { background } = this.state;
 
     return (
       <div className="App" style={{ backgroundImage: `url(${background})` }}>
         <Header />
         <Main />
-        <div className="Footer">
-          <SettingsContainer />
-          <Quote quote={quote} onLikeQuote={this.LikeQuote} />
-          <ListContainer/>
-        </div>
+        <SettingsContainer />
+        <CurrentQuoteContainer />
+        <ListContainer/> 
       </div>
     );
   }
