@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Unsplash, { toJson } from 'unsplash-js';
-import Header from '../Header/Header';
-import Main from '../Main/Main';
-import Footer from '../Footer/Footer';
-import quotes from '../../quotes.json';
+import BookmarksContainer from '../Bookmarks/BookmarksContainer';
+import WeatherContainer from '../Weather/WeatherContainer';
+import SettingsContainer from '../Settings/containers/SettingsContainer';
+import CurrentQuoteContainer from '../CurrentQuote/CurrentQuoteContainer';
+import ListContainer from '../Todo/containers/ListContainer';
 import './App.scss';
 
 const unsplash = new Unsplash({
@@ -19,10 +20,8 @@ class App extends Component {
       // date: '',
       time: '',
       background: '',
-      quote: []
     }
 
-    this.likeQuote = this.likeQuote.bind(this);
   }
   componentDidMount() {
     // const today = new Date().toLocaleDateString();
@@ -43,11 +42,6 @@ class App extends Component {
         background,
       });
     }
-
-    // Set random quote
-    this.setState({
-      quote: quotes[Math.floor(Math.random() * quotes.length)]
-    });
   }
 
   setBackground(time) {
@@ -67,22 +61,28 @@ class App extends Component {
         }
       );
   }
-  likeQuote() {
-    const { quote } = this.state;
-    quote[2] ? quote[2] = false : quote[2] = true;
-
-    this.setState({
-      quote: quote
-    });
-  }
+  
   render() {
-    const { background, quote } = this.state;
+    const { background } = this.state;
 
     return (
       <div className="App" style={{ backgroundImage: `url(${background})` }}>
-        <Header />
-        <Main />
-        <Footer quote={quote} onLikeQuote={this.likeQuote}/>
+        <header>
+          <BookmarksContainer />
+          <WeatherContainer />
+        </header>
+
+        <main>
+          <div className="Time">Time</div>
+          <div className="Message">Message</div>
+          <div className="Focus">Focus</div>
+        </main>
+
+        <footer>
+          <SettingsContainer />
+          <CurrentQuoteContainer />
+          <ListContainer/> 
+        </footer>
       </div>
     );
   }

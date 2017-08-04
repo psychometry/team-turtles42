@@ -1,0 +1,10 @@
+.SettingsContainer {
+  z-index: 100;
+  position: fixed;
+  bottom: 20px;
+  left: 10px;
+  .setting.large.icon {
+    cursor: pointer;
+  }
+}
+

@@ -1,27 +1,25 @@
 import React from 'react';
 import { Icon } from 'semantic-ui-react'
-import './Quote.scss';
+import './CurrentQuote.scss';
 
-const Quote = ({ quote = [], onLikeQuote }) => {
+const CurrentQuote = ({ quote = [], onLikeQuote }) => {
   const [ text, source, isLiked ] = quote;
   let heartClassName = 'empty heart';
 
   if (isLiked) {
     heartClassName = 'heart';
   }
-  const handleLikeQuote = () => {
-    onLikeQuote();
-  };
+  
   return (
-    <div className="Quote">
+    <div className="CurrentQuote">
       <blockquote>
         <p>{text}</p>
         <div className="quote-source">
-          {source} <Icon onClick={handleLikeQuote} name={heartClassName} />
+          {source} <Icon onClick={onLikeQuote} name={heartClassName} />
         </div>
       </blockquote> 
     </div>
   );
 };
 
-export default Quote;
+export default CurrentQuote;

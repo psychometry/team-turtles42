@@ -1,0 +1,14 @@
+@import '../../../styles/variables.scss';
+
+.Settings {
+  background-color: $secondary-color;
+  z-index: 100;
+  display: none;
+  height: 500px;
+  width: 700px;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+.showing {
+  display: block;
+}
