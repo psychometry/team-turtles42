@@ -1,0 +1,10 @@
+.ListContainer{
+  position: fixed;
+  bottom: 20px;
+  right:20px;
+  .restricted-height{
+    max-height: 320px;
+    height: auto;
+    overflow-y:auto;
+  }
+}

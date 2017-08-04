@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import Unsplash, { toJson } from 'unsplash-js';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
-import Footer from '../Footer/Footer';
+import SettingsContainer from '../Settings/containers/SettingsContainer';
+import Quote from '../Quote/Quote';
+import ListContainer from '../Todo/containers/ListContainer';
 import quotes from '../../quotes.json';
 import './App.scss';
 
@@ -82,7 +84,11 @@ class App extends Component {
       <div className="App" style={{ backgroundImage: `url(${background})` }}>
         <Header />
         <Main />
-        <Footer quote={quote} onLikeQuote={this.likeQuote}/>
+        <div className="Footer">
+          <SettingsContainer />
+          <Quote quote={quote} onLikeQuote={this.LikeQuote} />
+          <ListContainer/>
+        </div>
       </div>
     );
   }
