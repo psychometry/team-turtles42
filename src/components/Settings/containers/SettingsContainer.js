@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Icon } from 'semantic-ui-react';
-import Settings from '../components/Settings';
-import './SettingsContainer.scss';
+import Tabs from '../components/Tabs';
+import QuoteLists from '../../QuoteLists/QuoteLists';
 
 class SettingsContainer extends Component {
   constructor() {
     super();
     this.state = {
-      showing: false
+      showing: false,
     };
   }
 
@@ -17,9 +17,37 @@ class SettingsContainer extends Component {
     });
   }
   render() {
+    const tabs = [
+      {
+       name: 'General',
+       content: 'General' 
+      }, 
+      {
+        name: 'Todo',
+        content: 'Todo'
+      }, 
+      {
+        name: 'Background',
+        content: 'Background'
+      },
+      {
+        name: 'Quotes',
+        content: <QuoteLists />
+      }
+    ];
+    const Pane = (props) => {
+      return <div>{props.children}</div>;
+    };
     return (
       <div className="SettingsContainer">
-        <Settings showing={this.state.showing} />
+        <Tabs
+          selected={tabs.firstSelect || 0}
+          {...this.state} 
+        >
+          {tabs.map(tab =>
+            <Pane label={tab.name}>{tab.content}</Pane>)
+          }
+        </Tabs>
         <Icon onClick={this.toggleSettings} name="setting" size="large" />
       </div>
     );

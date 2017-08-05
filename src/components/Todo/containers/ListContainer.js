@@ -8,7 +8,7 @@ class ListContainer extends Component{
     this.state={
       todo:[],
       viewFilter:null,
-      show:true,
+      show:false,
     }
   }
   addToDo=(name)=>{
