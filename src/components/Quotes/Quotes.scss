@@ -1,0 +1,24 @@
+.tab__content .active.tab {
+  background: transparent;
+}
+.secondary.menu {
+  max-width: 350px;
+  overflow: auto;
+}
+.sub-menu {
+  width: 500px;
+  display: flex;
+  .item {
+    border-width: 4px !important;
+  }
+}
+.new-list {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  input {
+    color: #FFF !important;
+    background: transparent !important;
+  }
+}
+// .ui.input input {

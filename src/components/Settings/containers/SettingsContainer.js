@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Icon } from 'semantic-ui-react';
-import Tabs from '../components/Tabs';
-import QuoteLists from '../../QuoteLists/QuoteLists';
+import Tabs from '../../Tabs/Tabs';
+import Quotes from '../../Quotes/Quotes';
 
 class SettingsContainer extends Component {
   constructor() {
@@ -20,19 +20,19 @@ class SettingsContainer extends Component {
     const tabs = [
       {
        name: 'General',
-       content: 'General' 
-      }, 
+       content: 'General'
+      },
       {
         name: 'Todo',
         content: 'Todo'
-      }, 
+      },
       {
         name: 'Background',
         content: 'Background'
       },
       {
         name: 'Quotes',
-        content: <QuoteLists />
+        content: <Quotes />
       }
     ];
     const Pane = (props) => {
@@ -42,7 +42,7 @@ class SettingsContainer extends Component {
       <div className="SettingsContainer">
         <Tabs
           selected={tabs.firstSelect || 0}
-          {...this.state} 
+          {...this.state}
         >
           {tabs.map(tab =>
             <Pane label={tab.name}>{tab.content}</Pane>)
