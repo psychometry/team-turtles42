@@ -3,8 +3,9 @@ import Unsplash, { toJson } from 'unsplash-js';
 import BookmarksContainer from '../Bookmarks/BookmarksContainer';
 import WeatherContainer from '../Weather/WeatherContainer';
 import SettingsContainer from '../Settings/containers/SettingsContainer';
-import CurrentQuoteContainer from '../CurrentQuote/CurrentQuoteContainer';
+import CurrentQuote from '../CurrentQuote/CurrentQuote';
 import ListContainer from '../Todo/containers/ListContainer';
+import defaultQuotes from '../../quotes.json';
 import './App.scss';
 
 const unsplash = new Unsplash({
@@ -20,10 +21,26 @@ class App extends Component {
       // date: '',
       time: '',
       background: '',
+      quotes: []
     }
 
   }
   componentDidMount() {
+    this.setBackground();
+    this.setQuotes();
+  }
+  setQuotes() {
+    let quotes = JSON.parse(localStorage.getItem('currentQuotes'));
+
+    if (!quotes) {
+      quotes = defaultQuotes;
+    }
+
+    this.setState({
+      quote: defaultQuotes[Math.floor(Math.random() * quotes.length)]
+    });
+  }
+  setBackground() {
     // const today = new Date().toLocaleDateString();
     const time = new Date().getTime();
     const oldTime = +localStorage.getItem('time');
@@ -33,19 +50,7 @@ class App extends Component {
     // OR set background if there isn't one in localStorage
     // if (today !== this.state.date) { // Change background every day
     if (time - oldTime > 15 * 60 * 1000 || background === null) {
-      this.setBackground(time);
-    // Get background from localStorage
-    } else {
-      this.setState({
-        // date: '',
-        time,
-        background,
-      });
-    }
-  }
-
-  setBackground(time) {
-    unsplash.photos.getRandomPhoto(/*{ filter photos }*/)
+      unsplash.photos.getRandomPhoto(/*{ filter photos }*/)
       .then(toJson)
       .then(json => {
         const { regular: background } = json.urls;
@@ -60,6 +65,22 @@ class App extends Component {
           console.log('ajax error');
         }
       );
+    // Get background from localStorage
+    } else {
+      this.setState({
+        // date: '',
+        time,
+        background
+      });
+    }
+  }
+  likeQuote = () => {
+    const { quote } = this.state;
+    quote[2] ? quote[2] = false : quote[2] = true;
+
+    this.setState({
+      quote: quote
+    });
   }
   
   render() {
@@ -80,7 +101,7 @@ class App extends Component {
 
         <footer>
           <SettingsContainer />
-          <CurrentQuoteContainer />
+          <CurrentQuote quote={this.state.quote} onLikeQuote={this.likeQuote} />
           <ListContainer/> 
         </footer>
       </div>

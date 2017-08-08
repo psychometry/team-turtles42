@@ -1,28 +1,32 @@
 import React, { Component } from 'react';
-import { Icon } from 'semantic-ui-react';
-import NewList from '../Quotes/NewList';
-import SubMenu from './SubMenu';
-import './Quotes.scss';
+import NewList from './NewList';
+import QuoteLists from './QuoteLists';
+import Quotes from './Quotes';
+import defaultQuotes from '../../quotes.json';
+import './QuoteSettings.scss';
 
-class Quotes extends Component {
+class QuoteSettings extends Component {
   constructor() {
     super();
     this.state = {
       tabs: [
         {
          name: 'Default',
-         content: 'Default'
+         quotes: defaultQuotes
         },
-        {
-          name: 'Famous',
-          content: 'Famous'
-        },
-      ] 
+      ]
     };
+  }
+  getQuoteList(name) {
+    const quotes = JSON.parse(localStorage.getItem(name));
+    console.log(quotes);
+  }
+  addQuote(text, source) {
+
   }
   addList = (name) => {
     let { tabs } = this.state;
-    tabs.push({ name, content: name });
+    tabs.push({ name, quotes: [] });
     this.setState({ tabs });
   } 
   removeList = (event, i) => {
@@ -33,27 +37,32 @@ class Quotes extends Component {
   render() {
     const { tabs } = this.state;
     const Pane = (props) => {
-      return <div>{props.children}</div>;
+      // console.log(props.children); // quotes array
+      
+      return (
+        <div>
+          <Quotes quotes={props.children}/>
+        </div>
+      );
     };
     return (
       <div className="Quotes">
         <div className="new-list" style={{ display: 'flex', alignItems: 'center' }}>
-          <Icon name='add' />
           <NewList onAddList={this.addList}></NewList>
         </div>
-        <SubMenu
+        <QuoteLists
           onRemoveList={this.removeList}
           onAddList={this.addList}
           selected={tabs.firstSelect || 0}
           {...this.state}
         >
           {tabs.map(tab =>
-            <Pane label={tab.name}>{tab.content}</Pane>)
+            <Pane label={tab.name}>{tab.quotes}</Pane>)
           }
-        </SubMenu>
+        </QuoteLists>
       </div>
     );
   }
 }
 
-export default Quotes;
+export default QuoteSettings;

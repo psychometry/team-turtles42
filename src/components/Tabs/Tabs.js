@@ -47,12 +47,12 @@ class Tabs extends Component {
     return (
       <div className={settingsClassName}>
         <Grid>
-          <Grid.Column width={4}>
+          <Grid.Column className="menu-container" width={4}>
             <Menu size="massive" vertical inverted text>
               {this.renderMenu()}
             </Menu>
           </Grid.Column>
-          <Grid.Column stretched width={12}>
+          <Grid.Column className="current-tab-container" stretched width={12}>
             {this.props.children[this.state.selected]}
           </Grid.Column>
         </Grid>

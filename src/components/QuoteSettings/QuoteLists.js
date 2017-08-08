@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Menu, Icon } from 'semantic-ui-react';
-import './Quotes.scss';
+import './QuoteSettings.scss';
 
 class Tabs extends Component {
   constructor(props) {

@@ -1,8 +1,16 @@
 .tab__content .active.tab {
   background: transparent;
 }
+.Quotes {
+  ul {
+    height: 400px;
+    list-style-type: none;
+    padding: 0;
+  }
+}
 .secondary.menu {
-  max-width: 350px;
+  border: none !important;
+  max-width: 400px;
   overflow: auto;
 }
 .sub-menu {
@@ -14,11 +22,10 @@
 }
 .new-list {
   position: absolute;
-  top: 18px;
-  right: 20px;
+  top: 0;
+  right: 0;
   input {
     color: #FFF !important;
     background: transparent !important;
   }
 }
-// .ui.input input {
