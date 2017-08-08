@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Menu, Icon } from 'semantic-ui-react';
+import NewQuote from './NewQuote';
 import './QuoteSettings.scss';
 
 class Tabs extends Component {
@@ -44,6 +45,7 @@ class Tabs extends Component {
         <Menu inverted pointing secondary>
           {this.renderMenu()}
         </Menu>
+        <NewQuote onAddQuote={this.props.onAddQuote} />
         {this.props.children[this.state.selected]}
       </div>
     );

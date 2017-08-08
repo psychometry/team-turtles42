@@ -5,7 +5,7 @@ import './QuoteSettings.scss';
 
 const Quotes = ({ quotes }) => {
   const quoteItems = quotes.map((quote, i) => {
-    return (<Quote quote={quote} i={i} />);
+    return (<Quote key={i} quote={quote} />);
   });
 
   return (
