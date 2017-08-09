@@ -1,0 +1,20 @@
+.TodoItem{
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  > span {
+    margin-bottom: .3em;
+    margin-top: .3em;
+    margin-left: 1em;
+    flex: 1;
+    &:nth-child(1){
+      flex:0;
+    }
+    button{
+      float: right;
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
+      padding: 0;
+    }
+  }
+}

@@ -1,23 +1,21 @@
 import React from 'react';
-import {Menu} from 'semantic-ui-react';
-
+import './FilterTab.scss'
 const FilterTab=({viewFilter,setFilter})=>{
   return(
-    <Menu attached='bottom' tabular>
-      <Menu.Item name='done' onClick={()=>{setFilter("done")}}
-        active={viewFilter==='done'}>
+    <div className='FilterTab'>
+      <a id='done' onClick={()=>{setFilter("done")}}
+        className={(viewFilter==='done')?'active':null}>
         Done
-      </Menu.Item>
-      <Menu.Item name='not done' onClick={()=>{setFilter("not done")}}
-        active={viewFilter==='not done'}>
+      </a>
+      <a id='not done' onClick={()=>{setFilter("not done")}}
+        className={(viewFilter==='not done')?'active':null}>
         Not Done
-      </Menu.Item>
-      <Menu.Item name='all' onClick={()=>{setFilter("all")}}
-        active={viewFilter==='all'||viewFilter===null}>
+      </a>
+      <a onClick={()=>{setFilter("all")}}
+        className={(viewFilter==='all'||viewFilter===null)?'active':null}>
         All
-      </Menu.Item>
-    </Menu>
+      </a>
+    </div>
   )
 }
 export default FilterTab;
-
