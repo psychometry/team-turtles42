@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import { Menu, Icon } from 'semantic-ui-react';
-import NewQuote from './NewQuote';
+import AddQuoteForm from './AddQuoteForm';
 import './QuoteSettings.scss';
 
 class Tabs extends Component {
   constructor(props) {
     super(props);
-    this.state = { selected: this.props.selected };
+    this.state = {
+      selected: this.props.selected,
+      isCurrentList: false
+    };
+  }
+  handleChange = (event) => {
+    
   }
   renderMenuItems = (child, i) => {
     let activeClass = (this.state.selected === i ? 'active' : '');
@@ -45,7 +51,7 @@ class Tabs extends Component {
         <Menu inverted pointing secondary>
           {this.renderMenu()}
         </Menu>
-        <NewQuote onAddQuote={this.props.onAddQuote} />
+        <AddQuoteForm onAddQuote={this.props.onAddQuote} />
         {this.props.children[this.state.selected]}
       </div>
     );

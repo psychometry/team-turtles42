@@ -45,7 +45,7 @@ class SettingsContainer extends Component {
           {...this.state}
         >
           {tabs.map(tab =>
-            <Pane label={tab.name}>{tab.content}</Pane>)
+            <Pane key={tab.name} label={tab.name}>{tab.content}</Pane>)
           }
         </Tabs>
         <Icon onClick={this.toggleSettings} name="setting" size="large" />
@@ -55,3 +55,6 @@ class SettingsContainer extends Component {
 }
 
 export default SettingsContainer;
+
+
+

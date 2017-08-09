@@ -10,17 +10,19 @@ class NewList extends Component {
   }
   render() {
     return (
-      <Form 
-        onSubmit={(event) => this.handleSubmit(event)} 
-        style={{ width: "100px" }} inverted size="small"
-      >
-        <input
-          ref={(input) => this.listName = input}
-          type="text"
-          placeholder="New list"
-        />
-        {/* <Form.Input ref={(input) => this.input = input} placeholder="New list"/> */}
-      </Form>
+      <div className="new-list" style={{ display: 'flex', alignItems: 'center' }}>
+        <Form 
+          onSubmit={(event) => this.handleSubmit(event)} 
+          inverted size="small"
+        >
+          <input
+            ref={(input) => this.listName = input}
+            type="text"
+            placeholder="New list"
+          />
+          {/* <Form.Input ref={(input) => this.input = input} placeholder="New list"/> */}
+        </Form>
+      </div>
     );
   }
 };

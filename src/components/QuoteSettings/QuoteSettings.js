@@ -4,8 +4,9 @@
 //   };
 // TODO: Pass list name to addQuote()
 import React, { Component } from 'react';
+import SelectList from './SelectList';
 import NewList from './NewList';
-import QuoteLists from './QuoteLists';
+import Tabs from './Tabs';
 import Quotes from './Quotes';
 import defaultQuotes from '../../quotes.json';
 import './QuoteSettings.scss';
@@ -14,17 +15,25 @@ class QuoteSettings extends Component {
   constructor() {
     super();
     this.state = {
-      tabs: this.loadQuoteLists()
+      currentList: this.setCurrentList(),
+      lists: this.loadQuoteLists()
     };
   }
-  // getQuoteList(name) {
-  //   const quotes = JSON.parse(localStorage.getItem(name));
-  //   if (quotes) {
-  //     return quotes;
-  //   } else {
-  //     return defaultQuotes
-  //   }
-  // }
+  setCurrentList(name = '') {
+    let currentList = JSON.parse(localStorage.getItem('currentList'));
+
+    if (name) {
+      currentList = JSON.parse(localStorage.getItem('lists'))
+        .filter(list => {
+          return list.name === name;
+        });
+    } else if (!currentList) {
+      currentList = this.loadQuoteLists()[0];
+    }
+    
+    localStorage.setItem('currentList', JSON.stringify(currentList));
+    return currentList; 
+  }
   loadQuoteLists() {
     const defaultQuoteLists = [
       {
@@ -33,59 +42,72 @@ class QuoteSettings extends Component {
       },
     ];
     
-    let quoteLists = JSON.parse(localStorage.getItem('quoteLists'));
+    let lists = JSON.parse(localStorage.getItem('lists'));
 
-    if (!quoteLists) {
-      console.log('set: ', quoteLists);
-      localStorage.setItem('quoteLists', JSON.stringify(defaultQuoteLists));
-      quoteLists = JSON.parse(localStorage.getItem('quoteLists'));
+    if (!lists) {
+      localStorage.setItem('lists', JSON.stringify(defaultQuoteLists));
+      lists = JSON.parse(localStorage.getItem('lists'));
     }
 
-    return quoteLists;
+    return lists;
   }
   
   addQuote = (list, text, source) => {
-    console.log(list, text, source);
-    const { tabs: quoteLists } = this.state;
+    const { lists } = this.state;
     // const 
   }
   addList = (name) => {
-    let { tabs } = this.state;
-    tabs.push({ name, quotes: [] });
-    this.setState({ tabs });
+    let { lists } = this.state;
+
+    lists.push({ name, quotes: [] });
+
+    localStorage.setItem('lists', JSON.stringify(lists));
+    this.setState({ lists });
   } 
   removeList = (event, i) => {
-    let { tabs } = this.state;
-    tabs.splice(i, 1);
-    this.setState({ tabs });
+    let { lists } = this.state;
+
+    lists.splice(i, 1);
+
+    localStorage.setItem('lists', JSON.stringify(lists));
+    this.setState({ lists });
   }
+
   render() {
-    const { tabs } = this.state;
-    const Pane = (props) => {
-      // console.log(props.children); // quotes array
+    const { lists, currentList } = this.state;
+    // const Pane = (props) => {
+    //   console.log(props.children); // quotes array
       
-      return (
-        <div>
-          <Quotes quotes={props.children}/>
-        </div>
-      );
-    };
+    //   return (
+    //     <div>
+    //       <Quotes quotes={props.children}/>
+    //     </div>
+    //   );
+    // };
     return (
       <div className="Quotes">
-        <div className="new-list" style={{ display: 'flex', alignItems: 'center' }}>
+        <div className="list-settings">
+          <SelectList 
+            lists={lists}
+            currentList={currentList}
+            onSetCurrentList={this.setCurrentList}
+          />
           <NewList onAddList={this.addList}></NewList>
         </div>
-        <QuoteLists
+        <Tabs
           onAddQuote={this.addQuote}
           onRemoveList={this.removeList}
           onAddList={this.addList}
-          selected={tabs.firstSelect || 0}
+          selected={lists.firstSelect || 0}
           {...this.state}
         >
-          {tabs.map(tab =>
+          {lists.map(tab =>
+            <Quotes key={tab.name} label={tab.name} quotes={tab.quotes} />
+          )} 
+          {/* {lists.map(tab =>
             <Pane key={tab.name} label={tab.name}>{tab.quotes}</Pane>)
-          }
-        </QuoteLists>
+          } */}
+        </Tabs>
       </div>
     );
   }
