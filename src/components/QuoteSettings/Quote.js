@@ -4,7 +4,6 @@ import { Form, Icon } from 'semantic-ui-react';
 const Quote = ({ quote }) => {
   const [ text, source, liked ] = quote;
   const handleChange = () => {
-
   };
   return (
     <li>

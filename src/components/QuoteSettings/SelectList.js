@@ -10,7 +10,6 @@ const SelectList = ({ lists, currentList, onSetCurrentList }) => {
     event.preventDefault();
     onSetCurrentList(event.target.value);
   }
-  console.log(currentList);
   return (
     <div className="select-list">
       <label>

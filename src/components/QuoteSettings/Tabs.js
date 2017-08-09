@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Menu, Icon } from 'semantic-ui-react';
-import AddQuoteForm from './AddQuoteForm';
+import NewQuote from './NewQuote';
 import './QuoteSettings.scss';
 
 class Tabs extends Component {
@@ -46,12 +46,13 @@ class Tabs extends Component {
   }
 
   render() {
+    const { selected: listIndex } = this.state;
     return (
       <div>
         <Menu inverted pointing secondary>
           {this.renderMenu()}
         </Menu>
-        <AddQuoteForm onAddQuote={this.props.onAddQuote} />
+        <NewQuote listIndex={listIndex} onAddQuote={this.props.onAddQuote} />
         {this.props.children[this.state.selected]}
       </div>
     );

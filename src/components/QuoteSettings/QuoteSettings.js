@@ -53,7 +53,7 @@ class QuoteSettings extends Component {
   }
   
   addQuote = (list, text, source) => {
-    const { lists } = this.state;
+    
     // const 
   }
   addList = (name) => {
