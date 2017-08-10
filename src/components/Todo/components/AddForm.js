@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Form} from 'semantic-ui-react';
+import './AddForm.scss'
 class AddForm extends Component{
   constructor(props){
     super(props);
@@ -17,15 +17,16 @@ class AddForm extends Component{
   }
   render(){
     return(
-      <Form onSubmit={this.handleSubmit}>
-        <Form.Group>
-          <Form.Input type='text' value={this.state.value} onChange={this.handleChange}/>
-          <Form.Button type='submit'>add</Form.Button>
-        </Form.Group>
-      </Form>
+      <form className='AddForm' onSubmit={this.handleSubmit}>
+          <span className='input'>
+            <input type='text' value={this.state.value} placeholder='New Todo' onChange={this.handleChange}/>
+          </span>
+          <span className='submit'>
+            <button type='submit'><i className='inverted add square icon'></i></button>
+          </span>
+      </form>
     );
   }
 };
 
 export default AddForm;
-
