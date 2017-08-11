@@ -1,11 +1,18 @@
-// TODO: Add, Remove, Edit Quotes
 import React from 'react';
 import Quote from './Quote';
 import './QuoteSettings.scss';
 
-const Quotes = ({  quotes }) => {
-  const quoteItems = quotes.map((quote, i) => {
-    return (<Quote key={i} quote={quote} />);
+const Quotes = ({ quotes, label: listName, onRemoveQuote, onUpdateQuote }) => {
+  const quoteItems = quotes.map((quote) => {
+    return (
+      <Quote 
+        key={quote.id} 
+        quote={quote} 
+        listName={listName}
+        onRemoveQuote={onRemoveQuote}
+        onUpdateQuote={onUpdateQuote}
+      />
+    );
   });
 
   return (

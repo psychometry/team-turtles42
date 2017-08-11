@@ -1,21 +1,21 @@
 import React from 'react';
 import './QuoteSettings.scss';
 
-const SelectList = ({ lists, currentList, onSetCurrentList }) => {
+const SelectList = ({ lists, defaultList, onChangeList }) => {
   const options = lists.map(list => {
     return (<option key={list.name} value={list.name}>{list.name}</option>); 
   });
 
   const handleChange = (event) => {
     event.preventDefault();
-    onSetCurrentList(event.target.value);
+    onChangeList(event.target.value);
   }
   return (
     <div className="select-list">
       <label>
-        Current list: 
+        Show: 
         <select 
-          value={currentList.name}
+          value={defaultList.name}
           onChange={handleChange}
         >
           {options}

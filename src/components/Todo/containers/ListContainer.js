@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import TodoList from '../components/TodoList';
-import {loadFromStorage,saveToStorage} from '../localStorage';
+import {loadFromStorage,saveToStorage} from '../../../localStorage';
 import v4 from 'node-uuid';
 import './ListContainer.scss';
 class ListContainer extends Component{

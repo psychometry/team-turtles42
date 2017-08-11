@@ -1,7 +1,10 @@
+@import '../../styles/variables.scss';
+
 .tab__content .active.tab {
   background: transparent;
 }
-.Quotes {
+.Quotes-Container {
+  width: 500px;
   ul {
     height: 400px;
     list-style-type: none;
@@ -10,8 +13,11 @@
 }
 .secondary.menu {
   border: none !important;
-  max-width: 400px;
+  max-width: 399px;
   overflow: auto;
+  &::-webkit-scrollbar {
+    height: .5em;
+  }
 }
 .sub-menu {
   margin-bottom: 10px;
@@ -26,12 +32,13 @@
   align-items: center;
 }
 .select-list {
+  margin: 17px 0 8px 0;
   font-size: 13px;
-  color: rgba(255,255,255,.7);
+  color: $silver; 
   select {
     margin-left: 20px;
     max-width: 100px;
-    color: #fff;
+    color: $white;
     padding: 0;
     background: transparent;
     outline: none;
@@ -39,36 +46,47 @@
   }
 }
 .new-list {
-  width: 200px;
+  padding: 0 !important;
+  position: absolute;
+  top: 46px;
+  left: 400px;
+  width: 100px;
   input {
     border: none !important;
-    color: #FFF !important;
+    color: $white !important;
     background: transparent !important;
   }
 }
 .new-quote-form {
+  margin: 20px 0 !important;
   input {
+    width: 399px;
     padding: 0 !important;
-    width: 470px !important;
     border: none !important;
     border-radius: 0 !important;
-    color: #fff !important;
+    color: $white !important;
     background: transparent !important;
+    &:focus {
+      outline: none;
+    }
   }
 }
-.quote-form {
-  height: 50px;
-  input {
-    padding: 0 !important;
-    width: 470px !important;
-    border: none !important;
-    border-radius: 0 !important;
-    color: #fff !important;
-    background: transparent !important;
+.Quote {
+  display: flex;
+  align-items: flex-start;
+  .edit-quote {
+    width: 399px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    color: $white;
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid $white !important;
+    }
   }
   .remove.icon {
     position: absolute;
-    top: 0;
-    right: 5px;
+    left: 480px;
+    cursor: pointer;
   }
 }

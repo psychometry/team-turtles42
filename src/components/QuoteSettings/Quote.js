@@ -1,27 +1,27 @@
 import React from 'react';
-import { Form, Icon } from 'semantic-ui-react';
+import { Icon } from 'semantic-ui-react';
+import { parseQuote } from '../../utilities';
+import ContentEditable from 'react-contenteditable';
 
-const Quote = ({ quote }) => {
-  const [ text, source, liked ] = quote;
-  const handleChange = () => {
+const Quote = ({ quote, listName, onRemoveQuote, onUpdateQuote }) => {
+  const { id, text, source, isLiked } = quote;
+  const handleChange = (event, listName) => {
+    const [ text, source ] = parseQuote(event.target.value);
+    onUpdateQuote(listName, id, text, source);
   };
   return (
-    <li>
-      <Form className="quote-form"
-        onSubmit={(event) => this.handleSubmit(event)} 
-        inverted 
-        size="small"
-      >
-        <input
-          ref={(input) => this.listName = input}
-          type="text"
-          onChange={handleChange}
-          defaultValue={`"${text}" ${source}`}
-          placeholder="Quote &mdash; Source"
-        />
-        <Icon name="remove"/>
-        {/* <Form.Input ref={(input) => this.input = input} placeholder="New list"/> */}
-      </Form>
+    <li className="Quote">
+      <ContentEditable
+        className="edit-quote"
+        ref={(input) => this.listName = input}
+        html={`"${text}" \u2014 ${source}`}  // innerHTML of the editable div
+        disabled={false}       // use true to disable edition
+        onChange={(event) => handleChange(event, listName)} // handle innerHTML change
+      />
+      <Icon
+        name="remove" 
+        onClick={() => onRemoveQuote(listName, id)} 
+      />
     </li>
   );
 };

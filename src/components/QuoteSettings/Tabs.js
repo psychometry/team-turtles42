@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import v4 from 'node-uuid';
 import { Menu, Icon } from 'semantic-ui-react';
+import NewList from './NewList';
 import NewQuote from './NewQuote';
 import './QuoteSettings.scss';
 
@@ -23,7 +25,7 @@ class Tabs extends Component {
           aria-controls={`panel${i}`}
           name=""
           className={activeClass}
-          onClick={(event) => this.onClick(event, i)}
+          onClick={(event) => this.handleClick(event, i)}
         >
           {child.props.label} 
           <Icon style={{ marginLeft: '5px' }} name="remove" onClick={(event) => this.props.onRemoveList(event, i)} />
@@ -38,7 +40,7 @@ class Tabs extends Component {
     );
   }
 
-  onClick = (event, index) => {
+  handleClick = (event, index) => {
     event.preventDefault();
     this.setState({
       selected: index
@@ -51,6 +53,7 @@ class Tabs extends Component {
       <div>
         <Menu inverted pointing secondary>
           {this.renderMenu()}
+          <NewList onAddList={this.props.onAddList} />  
         </Menu>
         <NewQuote listIndex={listIndex} onAddQuote={this.props.onAddQuote} />
         {this.props.children[this.state.selected]}
