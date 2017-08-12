@@ -4,7 +4,7 @@ import SelectList from '../components/SelectList';
 import Tabs from '../components/Tabs';
 import Quotes from '../components/Quotes';
 import { loadFromStorage, saveToStorage } from '../../../localStorage';
-import defaultQuotes from '../../../quotes.json';
+import { loadDefaultLists, loadDefaultList } from '../../../utilities';
 import '../Quotes.scss';
 
 class QuoteSettings extends Component {
@@ -13,10 +13,10 @@ class QuoteSettings extends Component {
     this.state = {
       defaultList: loadFromStorage('defaultList') 
         ? loadFromStorage('defaultList') 
-        : this.loadDefaultList(), 
+        : loadDefaultList(), 
       lists: loadFromStorage('lists')
         ? loadFromStorage('lists')
-        : this.loadDefaultLists()
+        : loadDefaultLists()
     };
   }
   
@@ -26,18 +26,7 @@ class QuoteSettings extends Component {
     saveToStorage('lists', lists);
   }
   
-  // Defaults
-  loadDefaultList() {
-    const defaultList = this.loadDefaultLists()[0];
-    return defaultList;
-  }
-  loadDefaultLists() {
-    defaultQuotes.forEach(quote => {
-      quote.id = v4();
-    });
-    const defaultLists = [{ name: 'Default', quotes: defaultQuotes }];
-    return defaultLists;
-  }
+  // Lists
   changeDefaultList = (name) => {
     const defaultList = loadFromStorage('lists').filter(list => list.name === name)[0];
 
@@ -45,8 +34,6 @@ class QuoteSettings extends Component {
       defaultList: Object.assign({}, defaultList)
     });
   }
-  
-  // Lists
   addList = (name) => {
     const { lists } = this.state;
 
@@ -54,18 +41,24 @@ class QuoteSettings extends Component {
       lists: [...lists, { name, quotes: [] }]
     });
   } 
-  removeList = (event, i) => {
+  removeList = (listIndex) => {
     const { lists } = this.state;
     
-    this.setState({
-      lists: [...lists.slice(0, i), ...lists.slice(i + 1)]
-    });
+    if (lists.length > 1) {
+      this.setState({
+        lists: [...lists.slice(0, listIndex), ...lists.slice(listIndex + 1)]
+      });
+    } else {
+      // TODO: Add user notification
+      throw new Error('Can\'t have no lists');
+    }
   }
-  // TODO: // updateList = (listName) => {}
+  // TODO: updateList = (listName) => {}
   
   // Quotes
-  addQuote = (listIndex, listName, text, source) => {
+  addQuote = (listName, text, source) => {
     const { lists } = this.state;
+    const listIndex = lists.findIndex(list => list.name === listName);
     const { quotes } = lists[listIndex];
 
     this.setState({

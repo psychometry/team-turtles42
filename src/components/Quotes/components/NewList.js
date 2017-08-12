@@ -1,26 +1,35 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import '../Quotes.scss';
 
-class NewList extends Component {
-  handleSubmit = (event) => {
+const NewList = ({ onAddList }) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    this.props.onAddList(this.listName.value);
-    this.listName.value = '';
+    onAddList(listName.value);
+    listName.value = '';
   }
-  render() {
-    return (
-      <form
-        className="new-list" 
-        onSubmit={(event) => this.handleSubmit(event)} 
-      >
-        <input
-          ref={(input) => this.listName = input}
-          type="text"
-          placeholder="New list"
-        />
-      </form>
-    );
-  }
+
+  let listName;
+
+  return (
+    <form
+      className="new-list" 
+      onSubmit={(event) => handleSubmit(event)} 
+    >
+      <input
+        ref={(input) => listName = input}
+        type="text"
+        placeholder="New list"
+      />
+    </form>
+  );
 };
 
+NewList.propTypes = {
+  onAddList: PropTypes.func.isRequired
+};
+
+
 export default NewList;
+
+

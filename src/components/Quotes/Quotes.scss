@@ -1,8 +1,5 @@
 @import '../../styles/variables.scss';
 
-.tab__content .active.tab {
-  background: transparent;
-}
 .Quotes-Container {
   width: 500px;
   ul {
@@ -37,6 +34,8 @@
     }
   }
 }
+
+// Lists
 .list-settings {
   margin: 10px 0;
   display: flex;
@@ -71,6 +70,8 @@
     }
   }
 }
+
+// Quotes
 .new-quote-form {
   input {
     width: 399px;

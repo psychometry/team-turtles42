@@ -9,12 +9,11 @@ class Tabs extends Component {
     super(props);
     this.state = {
       selected: this.props.selected,
+      listName: '',
       isCurrentList: false
     };
   }
-  handleChange = (event) => {
-    
-  }
+ 
   renderMenuItems = (child, i) => {
     const { label: listName } = child.props;
     let activeClass = (this.state.selected === i ? 'active' : '');
@@ -28,7 +27,7 @@ class Tabs extends Component {
           onClick={(event) => this.handleClick(event, i, listName)}
         >
           {child.props.label} 
-          <Icon className="remove-list" name="remove" onClick={(event) => this.props.onRemoveList(event, i)} />
+          <Icon className="remove-list" name="remove" onClick={() => this.props.onRemoveList(i)} />
         </Menu.Item>
     );
   }
@@ -49,14 +48,15 @@ class Tabs extends Component {
   }
 
   render() {
-    const { selected: listIndex, listName } = this.state;
+    const { listName } = this.state;
+    
     return (
       <div>
         <Menu inverted pointing secondary>
           {this.renderMenu()}
           <NewList onAddList={this.props.onAddList} />  
         </Menu>
-        <NewQuote listIndex={listIndex} listName={listName} onAddQuote={this.props.onAddQuote} />
+        <NewQuote listName={listName} onAddQuote={this.props.onAddQuote} />
         {this.props.children[this.state.selected]}
       </div>
     );

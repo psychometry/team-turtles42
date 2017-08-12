@@ -1,5 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../Quotes.scss';
+
+const propTypes = {
+  lists: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    quotes: PropTypes.array.isRequired
+  })),
+  defaultList: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    quotes: PropTypes.array.isRequired
+  }),
+  onChangeList: PropTypes.func.isRequired
+};
 
 const SelectList = ({ lists, defaultList, onChangeList }) => {
   const options = lists.map(list => {
@@ -24,5 +37,7 @@ const SelectList = ({ lists, defaultList, onChangeList }) => {
     </div>
   )
 };
+
+SelectList.propTypes = propTypes;
 
 export default SelectList;

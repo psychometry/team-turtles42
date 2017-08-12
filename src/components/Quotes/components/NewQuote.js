@@ -1,35 +1,41 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { parseQuote } from '../../../utilities';
 import '../Quotes.scss';
 
-class NewQuote extends Component {
-  handleSubmit = (event, listIndex, listName) => {
+const propTypes = {
+  listName: PropTypes.string,
+  onAddQuote: PropTypes.func.isRequired
+}
+const NewQuote = ({ listName, onAddQuote }) => {
+  const handleSubmit = (event, listName) => {
     event.preventDefault();
-    let { value: quote } = this.quote;
-    const [text, source] = parseQuote(quote);
+    const [text, source] = parseQuote(inputRef.value);
     
     if (text && source) {
-      this.props.onAddQuote(listIndex, listName, text, source);
-      this.quote.value = '';
+      onAddQuote(listName, text, source);
+      inputRef.value = '';
     } else {
-      console.log("Invalid quote");
+      // TODO: Add user notification
+      throw new Error('Invalid quote. Format should be "text - source"');
     }
   }
-  render() {
-    const { listIndex, listName } = this.props;
 
-    return (
-      <form className="new-quote-form"
-        onSubmit={(event) => this.handleSubmit(event, listIndex, listName)} 
-      >
-        <input
-          ref={(input) => this.quote = input}
-          type="text"
-          placeholder="New quote"
-        />
-      </form>
-    );
-  }
-};
+  let inputRef;
+
+  return (
+    <form className="new-quote-form"
+      onSubmit={(event) => handleSubmit(event, listName)} 
+    >
+      <input
+        ref={(input) => inputRef = input}
+        type="text"
+        placeholder="New quote - source"
+      />
+    </form>
+  );
+}
+
+NewQuote.propTypes = propTypes;
 
 export default NewQuote;
