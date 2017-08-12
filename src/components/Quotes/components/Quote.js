@@ -22,15 +22,6 @@ class Quote extends Component {
     }
   }
   
-  // componentWillUnmount() {
-  //   if (this.state.listName) {
-  //     console.log('unmount');
-  //     // console.log(this.state);
-  //     const { listName, quote } = this.state;
-  //     this.props.onUpdateQuote(listName, quote);
-  //   }
-  // }
-  
   render() {
     const { quote, listName, onRemoveQuote } = this.props;
     const { id, text, source, liked } = quote;
