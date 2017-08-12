@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Icon } from 'semantic-ui-react';
-import Tabs from '../../Tabs/Tabs';
-import QuoteSettings from '../../QuoteSettings/QuoteSettings';
+import Tabs from '../components/Tabs';
+import QuotesContainer from '../../Quotes/containers/QuotesContainer';
 
 class SettingsContainer extends Component {
   constructor() {
@@ -32,7 +32,7 @@ class SettingsContainer extends Component {
       },
       {
         name: 'Quotes',
-        content: <QuoteSettings />
+        content: <QuotesContainer />
       }
     ];
     const Pane = (props) => {

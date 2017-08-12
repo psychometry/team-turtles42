@@ -3,10 +3,10 @@ import { Icon } from 'semantic-ui-react'
 import './CurrentQuote.scss';
 
 const CurrentQuote = ({ quote = [], onLikeQuote }) => {
-  const { text, source, isLiked } = quote;
+  const { text, source, liked } = quote;
   let heartClassName = 'empty heart';
   
-  if (isLiked) {
+  if (liked) {
     heartClassName = 'heart';
   }
   

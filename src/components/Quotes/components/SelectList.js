@@ -1,5 +1,5 @@
 import React from 'react';
-import './QuoteSettings.scss';
+import '../Quotes.scss';
 
 const SelectList = ({ lists, defaultList, onChangeList }) => {
   const options = lists.map(list => {

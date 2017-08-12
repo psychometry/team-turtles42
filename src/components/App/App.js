@@ -3,9 +3,8 @@ import Unsplash, { toJson } from 'unsplash-js';
 import BookmarksContainer from '../Bookmarks/BookmarksContainer';
 import WeatherContainer from '../Weather/WeatherContainer';
 import SettingsContainer from '../Settings/containers/SettingsContainer';
-import CurrentQuote from '../CurrentQuote/CurrentQuote';
+import CurrentQuoteContainer from '../CurrentQuote/CurrentQuoteContainer';
 import ListContainer from '../Todo/containers/ListContainer';
-import defaultQuotes from '../../quotes.json';
 import './App.scss';
 
 const unsplash = new Unsplash({
@@ -21,25 +20,13 @@ class App extends Component {
       // date: '',
       time: '',
       background: '',
-      quotes: []
     }
 
   }
   componentDidMount() {
     this.setBackground();
-    this.setQuotes();
   }
-  setQuotes() {
-    let quotes = JSON.parse(localStorage.getItem('currentQuotes'));
-
-    if (!quotes) {
-      quotes = defaultQuotes;
-    }
-
-    this.setState({
-      quote: defaultQuotes[Math.floor(Math.random() * quotes.length)]
-    });
-  }
+  
   setBackground() {
     // const today = new Date().toLocaleDateString();
     const time = new Date().getTime();
@@ -74,14 +61,6 @@ class App extends Component {
       });
     }
   }
-  likeQuote = () => {
-    const { quote } = this.state;
-    quote[2] ? quote[2] = false : quote[2] = true;
-
-    this.setState({
-      quote: quote
-    });
-  }
   
   render() {
     const { background } = this.state;
@@ -101,7 +80,7 @@ class App extends Component {
 
         <footer>
           <SettingsContainer />
-          <CurrentQuote quote={this.state.quote} onLikeQuote={this.likeQuote} />
+          <CurrentQuoteContainer />
           <ListContainer/> 
         </footer>
       </div>

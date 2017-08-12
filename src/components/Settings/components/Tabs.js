@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Menu } from 'semantic-ui-react';
-import './Settings.scss';
+import '../Settings.scss';
 
 class Tabs extends Component {
   constructor(props) {
@@ -52,7 +52,11 @@ class Tabs extends Component {
               {this.renderMenu()}
             </Menu>
           </Grid.Column>
-          <Grid.Column className="current-tab-container" stretched width={12}>
+          <Grid.Column 
+            className="current-tab-container" 
+            stretched 
+            width={12}
+          >
             {this.props.children[this.state.selected]}
           </Grid.Column>
         </Grid>

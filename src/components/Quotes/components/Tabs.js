@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import v4 from 'node-uuid';
 import { Menu, Icon } from 'semantic-ui-react';
 import NewList from './NewList';
 import NewQuote from './NewQuote';
-import './QuoteSettings.scss';
+import '../Quotes.scss';
 
 class Tabs extends Component {
   constructor(props) {
@@ -17,18 +16,19 @@ class Tabs extends Component {
     
   }
   renderMenuItems = (child, i) => {
+    const { label: listName } = child.props;
     let activeClass = (this.state.selected === i ? 'active' : '');
     return (
         <Menu.Item
           role="tab"
           key={i}
           aria-controls={`panel${i}`}
-          name=""
+          name={listName}
           className={activeClass}
-          onClick={(event) => this.handleClick(event, i)}
+          onClick={(event) => this.handleClick(event, i, listName)}
         >
           {child.props.label} 
-          <Icon style={{ marginLeft: '5px' }} name="remove" onClick={(event) => this.props.onRemoveList(event, i)} />
+          <Icon className="remove-list" name="remove" onClick={(event) => this.props.onRemoveList(event, i)} />
         </Menu.Item>
     );
   }
@@ -40,22 +40,23 @@ class Tabs extends Component {
     );
   }
 
-  handleClick = (event, index) => {
+  handleClick = (event, index, listName) => {
     event.preventDefault();
     this.setState({
-      selected: index
+      selected: index,
+      listName
     });
   }
 
   render() {
-    const { selected: listIndex } = this.state;
+    const { selected: listIndex, listName } = this.state;
     return (
       <div>
         <Menu inverted pointing secondary>
           {this.renderMenu()}
           <NewList onAddList={this.props.onAddList} />  
         </Menu>
-        <NewQuote listIndex={listIndex} onAddQuote={this.props.onAddQuote} />
+        <NewQuote listIndex={listIndex} listName={listName} onAddQuote={this.props.onAddQuote} />
         {this.props.children[this.state.selected]}
       </div>
     );

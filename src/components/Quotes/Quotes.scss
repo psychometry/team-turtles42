@@ -13,6 +13,7 @@
 }
 .secondary.menu {
   border: none !important;
+  margin: 0;
   max-width: 399px;
   overflow: auto;
   &::-webkit-scrollbar {
@@ -23,7 +24,18 @@
   margin-bottom: 10px;
   width: 500px;
   display: flex;
- 
+  .item {
+    border: none !important;
+    padding-left: 0 !important;
+    margin-right: 20px !important;
+    .remove-list {
+      padding-left: 10px;
+      visibility: hidden;
+    }
+    &:hover .remove-list {
+      visibility: visible;
+    }
+  }
 }
 .list-settings {
   margin: 10px 0;
@@ -46,28 +58,30 @@
   }
 }
 .new-list {
-  padding: 0 !important;
   position: absolute;
-  top: 46px;
-  left: 400px;
-  width: 100px;
+  top: 52px;
+  left: 415px;
   input {
-    border: none !important;
-    color: $white !important;
-    background: transparent !important;
+    width: 80px;
+    color: $white;
+    border: none;
+    background: transparent;
+    &:focus {
+      outline: none;
+    }
   }
 }
 .new-quote-form {
-  margin: 20px 0 !important;
   input {
     width: 399px;
-    padding: 0 !important;
-    border: none !important;
-    border-radius: 0 !important;
-    color: $white !important;
-    background: transparent !important;
+    padding: 10px 0;
+    margin-bottom: -10px;
+    border: none;
+    color: $white;
+    background: transparent;
     &:focus {
       outline: none;
+      border-bottom: 1px solid $white;
     }
   }
 }
@@ -76,17 +90,20 @@
   align-items: flex-start;
   .edit-quote {
     width: 399px;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+    padding: 10px 0;
     color: $white;
     &:focus {
       outline: none;
       border-bottom: 1px solid $white !important;
     }
   }
-  .remove.icon {
+  .remove-quote {
+    visibility: hidden;
     position: absolute;
     left: 480px;
     cursor: pointer;
+  }
+  &:hover .remove-quote {
+    visibility: visible;
   }
 }

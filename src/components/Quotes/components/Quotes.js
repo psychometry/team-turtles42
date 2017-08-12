@@ -1,6 +1,6 @@
 import React from 'react';
 import Quote from './Quote';
-import './QuoteSettings.scss';
+import '../Quotes.scss';
 
 const Quotes = ({ quotes, label: listName, onRemoveQuote, onUpdateQuote }) => {
   const quoteItems = quotes.map((quote) => {
