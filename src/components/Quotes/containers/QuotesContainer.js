@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import v4 from 'node-uuid';
 import SelectList from '../components/SelectList';
 import Tabs from '../components/Tabs';
-import Quotes from '../components/Quotes';
 import { loadFromStorage, saveToStorage } from '../../../localStorage';
 import { loadDefaultLists, loadDefaultList } from '../../../utilities';
 import '../Quotes.scss';
 
-class QuoteSettings extends Component {
+class QuotesContainer extends Component {
   constructor() {
     super();
     this.state = {
@@ -41,8 +40,9 @@ class QuoteSettings extends Component {
       lists: [...lists, { name, quotes: [] }]
     });
   } 
-  removeList = (listIndex) => {
+  removeList = (listName) => {
     const { lists } = this.state;
+    const listIndex = lists.findIndex(list => list.name === listName);
     
     if (lists.length > 1) {
       this.setState({
@@ -128,27 +128,19 @@ class QuoteSettings extends Component {
           defaultList={defaultList}
           onChangeList={this.changeDefaultList}
         />
-        <Tabs
-          onAddQuote={this.addQuote}
-          onRemoveList={this.removeList}
+        <Tabs 
+          lists={lists} 
+          defaultList={defaultList} 
           onAddList={this.addList}
-          selected={lists.firstSelect || 0}
-          {...this.state}
-        >
-          {lists.map((list) =>
-            <Quotes 
-              key={list.name} 
-              label={list.name} 
-              quotes={list.quotes}
-              onRemoveQuote={this.removeQuote}
-              onUpdateQuote={this.updateQuote}
-            />
-          )} 
-        </Tabs>
+          onRemoveList={this.removeList}
+          onAddQuote={this.addQuote}
+          onRemoveQuote={this.removeQuote}
+          onUpdateQuote={this.updateQuote}
+        />
       </div>
     );
   }
 
 }
 
-export default QuoteSettings;
+export default QuotesContainer;

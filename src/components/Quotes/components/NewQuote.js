@@ -4,11 +4,11 @@ import { parseQuote } from '../../../utilities';
 import '../Quotes.scss';
 
 const propTypes = {
-  listName: PropTypes.string,
+  listName: PropTypes.string.isRequired,
   onAddQuote: PropTypes.func.isRequired
 }
 const NewQuote = ({ listName, onAddQuote }) => {
-  const handleSubmit = (event, listName) => {
+  const handleSubmit = (event, listIndex) => {
     event.preventDefault();
     const [text, source] = parseQuote(inputRef.value);
     

@@ -8,30 +8,30 @@
     padding: 0;
   }
 }
-.secondary.menu {
-  border: none !important;
-  margin: 0;
-  max-width: 399px;
-  overflow: auto;
-  &::-webkit-scrollbar {
-    height: .5em;
-  }
+.Quote-Lists {
+  height: 20px;
+  width: 400px;
 }
-.sub-menu {
-  margin-bottom: 10px;
-  width: 500px;
+.tab-menu {
+  height: inherit;
   display: flex;
+  margin: 20px 0 10px 0;
   .item {
-    border: none !important;
-    padding-left: 0 !important;
-    margin-right: 20px !important;
+    color: $silver;
+    margin-right: 40px;
     .remove-list {
       padding-left: 10px;
       visibility: hidden;
     }
+    &:hover {
+      color: $white;
+    }
     &:hover .remove-list {
       visibility: visible;
     }
+  }
+  .active {
+    color: $white;
   }
 }
 
@@ -89,6 +89,7 @@
 .Quote {
   display: flex;
   align-items: flex-start;
+  width: 500px;
   .edit-quote {
     width: 399px;
     padding: 10px 0;

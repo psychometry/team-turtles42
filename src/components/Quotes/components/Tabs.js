@@ -1,66 +1,72 @@
 import React, { Component } from 'react';
-import { Menu, Icon } from 'semantic-ui-react';
+import PropTypes from 'prop-types';
+import Menu from './Menu';
 import NewList from './NewList';
 import NewQuote from './NewQuote';
+import Quotes from './Quotes';
 import '../Quotes.scss';
+
+const propTypes = {
+  lists: PropTypes.array.isRequired,
+  onAddList: PropTypes.func.isRequired,
+  onRemoveList: PropTypes.func.isRequired,
+  // TODO: onUpdateList: Proptypes.func.isRequired,
+  onAddQuote: PropTypes.func.isRequired,
+  onRemoveQuote: PropTypes.func.isRequired,
+  onUpdateQuote: PropTypes.func.isRequired
+}
 
 class Tabs extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected: this.props.selected,
-      listName: '',
-      isCurrentList: false
+      active: props.defaultList.name
     };
   }
- 
-  renderMenuItems = (child, i) => {
-    const { label: listName } = child.props;
-    let activeClass = (this.state.selected === i ? 'active' : '');
-    return (
-        <Menu.Item
-          role="tab"
-          key={i}
-          aria-controls={`panel${i}`}
-          name={listName}
-          className={activeClass}
-          onClick={(event) => this.handleClick(event, i, listName)}
-        >
-          {child.props.label} 
-          <Icon className="remove-list" name="remove" onClick={() => this.props.onRemoveList(i)} />
-        </Menu.Item>
-    );
-  }
-  renderMenu() {
-   return (
-        <div className="sub-menu tabs__labels" role="tab list">
-          {this.props.children.map(this.renderMenuItems)}
-        </div>
-    );
-  }
+  setList() {
+    const list = this.props.lists.filter(list => {
+      return list.name === this.state.active;
+    })[0];
 
-  handleClick = (event, index, listName) => {
-    event.preventDefault();
-    this.setState({
-      selected: index,
-      listName
-    });
+    return list ? list : this.props.defaultList;
   }
-
+  changeList = (listName) => {
+    this.setState({ active: listName });
+  }
   render() {
-    const { listName } = this.state;
+    const { 
+      lists, 
+      onAddList,
+      onRemoveList, 
+      // onUpdateList, 
+      onAddQuote,
+      onRemoveQuote, 
+      onUpdateQuote 
+    } = this.props;
+
+    const { active } = this.state;
     
     return (
-      <div>
-        <Menu inverted pointing secondary>
-          {this.renderMenu()}
-          <NewList onAddList={this.props.onAddList} />  
-        </Menu>
-        <NewQuote listName={listName} onAddQuote={this.props.onAddQuote} />
-        {this.props.children[this.state.selected]}
+      <div className="Quote-Lists">
+        <Menu
+          active={active}
+          onChangeList={this.changeList}
+          lists={lists} 
+          onAddList={onAddList}
+          onRemoveList={onRemoveList}
+        /> 
+        <NewList onAddList={onAddList} />  
+        <NewQuote listName={active} onAddQuote={onAddQuote} />
+        <Quotes 
+          list={this.setList()} 
+          onRemoveQuote={onRemoveQuote}
+          onUpdateQuote={onUpdateQuote}  
+        />  
       </div>
     );
   }
 }
+
+Tabs.propTypes = propTypes;
 
 export default Tabs;

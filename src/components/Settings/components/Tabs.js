@@ -5,11 +5,11 @@ import '../Settings.scss';
 class Tabs extends Component {
   constructor(props) {
     super(props);
-    this.state = { selected: this.props.selected };
+    this.state = { active: props.active };
   }
 
   labels = (child, i) => {
-    let activeClass = (this.state.selected === i ? 'active' : '');
+    let activeClass = (this.state.active === i ? 'active' : '');
     return (
       <Menu.Item
         role="tab"
@@ -34,7 +34,7 @@ class Tabs extends Component {
   onClick = (event, index) => {
     event.preventDefault();
     this.setState({
-      selected: index
+      active: index
     });
   }
 
@@ -57,7 +57,7 @@ class Tabs extends Component {
             stretched 
             width={12}
           >
-            {this.props.children[this.state.selected]}
+            {this.props.children[this.state.active]}
           </Grid.Column>
         </Grid>
       </div>

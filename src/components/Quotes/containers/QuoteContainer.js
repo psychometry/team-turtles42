@@ -10,7 +10,7 @@ class QuoteContainer extends Component {
       quote: {}
     }
   }
-  handleChange(event, listName, id) {
+  handleChange = (event, listName, id) => {
     const [ text, source ] = parseQuote(event.target.value);
     this.setState({ listName, quote: { id, text, source } });
   };
@@ -29,6 +29,8 @@ class QuoteContainer extends Component {
         listName={listName}
         onRemoveQuote={onRemoveQuote}
         quote={quote}
+        onChange={this.handleChange}
+        onBlur={this.handleBlur}
       />
     );
   }

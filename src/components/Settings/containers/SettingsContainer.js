@@ -3,6 +3,29 @@ import { Icon } from 'semantic-ui-react';
 import Tabs from '../components/Tabs';
 import QuotesContainer from '../../Quotes/containers/QuotesContainer';
 
+const tabs = [
+  {
+   name: 'General',
+   content: 'General'
+  },
+  {
+    name: 'Todo',
+    content: 'Todo'
+  },
+  {
+    name: 'Background',
+    content: 'Background'
+  },
+  {
+    name: 'Quotes',
+    content: <QuotesContainer />
+  }
+];
+
+const Pane = (props) => {
+  return <div>{props.children}</div>;
+};
+
 class SettingsContainer extends Component {
   constructor() {
     super();
@@ -17,35 +40,17 @@ class SettingsContainer extends Component {
     });
   }
   render() {
-    const tabs = [
-      {
-       name: 'General',
-       content: 'General'
-      },
-      {
-        name: 'Todo',
-        content: 'Todo'
-      },
-      {
-        name: 'Background',
-        content: 'Background'
-      },
-      {
-        name: 'Quotes',
-        content: <QuotesContainer />
-      }
-    ];
-    const Pane = (props) => {
-      return <div>{props.children}</div>;
-    };
+    
     return (
       <div className="SettingsContainer">
         <Tabs
-          selected={tabs.firstSelect || 0}
+          active={0}
           {...this.state}
         >
           {tabs.map(tab =>
-            <Pane key={tab.name} label={tab.name}>{tab.content}</Pane>)
+            <Pane key={tab.name} label={tab.name}>
+              {tab.content}
+            </Pane>)
           }
         </Tabs>
         <Icon onClick={this.toggleSettings} name="setting" size="large" />
