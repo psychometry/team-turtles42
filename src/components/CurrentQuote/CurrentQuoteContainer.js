@@ -1,26 +1,43 @@
+// TODO: save quote to localStorage
 import React, { Component } from 'react';
+import { loadFromStorage, saveToStorage } from '../../localStorage';
+import { loadDefaultList } from '../../utilities';
 import CurrentQuote from './CurrentQuote';
-import quotes from './quotes.json';
 
 class CurrentQuoteContainer extends Component {
   constructor() {
     super();
     this.state = {
-      quote: []
+      quote: {} 
     };
   }
+
   componentDidMount() {
-    this.setState({
-      quote: quotes[Math.floor(Math.random() * quotes.length)]
-    });
+    this.setCurrentQuote();
   }
-  likeQuote = () => {
-    const { quote } = this.state;
-    quote[2] ? quote[2] = false : quote[2] = true;
+  
+  setCurrentQuote() {
+    const defaultList = loadFromStorage('defaultList') 
+      ? loadFromStorage('defaultList')
+      : loadDefaultList();
+
+    const { quotes } = defaultList;
+    const defaultQuote = { text: "One love", source: "Bob Marley", liked: false };
 
     this.setState({
-      quote: quote
+      quote: quotes[Math.floor(Math.random() * quotes.length)] || defaultQuote
     });
+  }
+  
+  likeQuote = () => {
+    const { quote } = this.state;
+    
+    this.setState({
+      quote: Object.assign({}, quote, {
+        liked: quote.liked ? false : true
+      })
+    });
+    
   }
   render() {
     return (
@@ -29,4 +46,4 @@ class CurrentQuoteContainer extends Component {
   }
 }
 
-export default CurrentQuoteContainer;
+export default CurrentQuoteContainer; 

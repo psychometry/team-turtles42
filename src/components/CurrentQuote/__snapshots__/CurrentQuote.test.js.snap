@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render CurrentQuote 1`] = `
+<div
+  className="CurrentQuote"
+>
+  <blockquote>
+    <p />
+    <div
+      className="quote-source"
+    >
+       
+      <i
+        aria-hidden="true"
+        className="empty heart icon"
+        onClick={undefined}
+      />
+    </div>
+  </blockquote>
+</div>
+`;

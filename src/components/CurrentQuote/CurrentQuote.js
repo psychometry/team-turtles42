@@ -1,17 +1,27 @@
 import React from 'react';
-import { Icon } from 'semantic-ui-react'
+import PropTypes from 'prop-types';
+import { Icon } from 'semantic-ui-react';
 import './CurrentQuote.scss';
 
-const CurrentQuote = ({ quote = [], onLikeQuote }) => {
-  const [ text, source, isLiked ] = quote;
-  let heartClassName = 'empty heart';
+const propTypes = {
+  quote: PropTypes.shape({
+    text: PropTypes.string, 
+    source: PropTypes.string, 
+    liked: PropTypes.bool
+  }),
+  onLikeQuote: PropTypes.func.isRequired 
+};
 
-  if (isLiked) {
+const CurrentQuote = ({ quote, onLikeQuote }) => {
+  const { text, source, liked } = quote;
+  let heartClassName = 'empty heart';
+  
+  if (liked) {
     heartClassName = 'heart';
   }
   
   return (
-    <div className="CurrentQuote">
+    <div className="Current-Quote">
       <blockquote>
         <p>{text}</p>
         <div className="quote-source">
@@ -22,4 +32,9 @@ const CurrentQuote = ({ quote = [], onLikeQuote }) => {
   );
 };
 
+CurrentQuote.propTypes = propTypes;
+
 export default CurrentQuote;
+
+  
+
