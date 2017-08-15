@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import TodoList from '../components/TodoList';
-import {loadFromStorage,saveToStorage} from '../localStorage';
+import {loadFromStorage,saveToStorage} from '../../../localStorage';
 import v4 from 'node-uuid';
 import './ListContainer.scss';
 class ListContainer extends Component{
@@ -9,7 +9,7 @@ class ListContainer extends Component{
     this.state={
       todo:(loadFromStorage('todo'))?loadFromStorage('todo'):[],
       viewFilter:null,
-      show:true,
+      show:false,
     }
   }
   addToDo=(name)=>{

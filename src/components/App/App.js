@@ -24,6 +24,10 @@ class App extends Component {
 
   }
   componentDidMount() {
+    this.setBackground();
+  }
+  
+  setBackground() {
     // const today = new Date().toLocaleDateString();
     const time = new Date().getTime();
     const oldTime = +localStorage.getItem('time');
@@ -33,19 +37,7 @@ class App extends Component {
     // OR set background if there isn't one in localStorage
     // if (today !== this.state.date) { // Change background every day
     if (time - oldTime > 15 * 60 * 1000 || background === null) {
-      this.setBackground(time);
-    // Get background from localStorage
-    } else {
-      this.setState({
-        // date: '',
-        time,
-        background,
-      });
-    }
-  }
-
-  setBackground(time) {
-    unsplash.photos.getRandomPhoto(/*{ filter photos }*/)
+      unsplash.photos.getRandomPhoto(/*{ filter photos }*/)
       .then(toJson)
       .then(json => {
         const { regular: background } = json.urls;
@@ -60,6 +52,14 @@ class App extends Component {
           console.log('ajax error');
         }
       );
+    // Get background from localStorage
+    } else {
+      this.setState({
+        // date: '',
+        time,
+        background
+      });
+    }
   }
   
   render() {
