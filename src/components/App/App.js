@@ -6,6 +6,7 @@ import WeatherContainer from '../Weather/WeatherContainer';
 import SettingsContainer from '../Settings/containers/SettingsContainer';
 import CurrentQuoteContainer from '../CurrentQuote/CurrentQuoteContainer';
 import ListContainer from '../Todo/containers/ListContainer';
+import backgrounds from '../../background.json';
 import './App.scss';
 
 const unsplash = new Unsplash({
@@ -50,7 +51,9 @@ class App extends Component {
       }).catch(
         err =>{
           console.log(err);
-          this.setState({background:process.env.PUBLIC_URL+'./img/the_starry_night.jpg'});
+          const bgList=backgrounds.backgrounds;
+          const rand=Math.floor(Math.random()*(bgList.length));
+          this.setState({background:process.env.PUBLIC_URL+'./img/'+bgList[rand].filename});
         }
       );
     // Get background from localStorage
