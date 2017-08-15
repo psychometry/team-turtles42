@@ -3,7 +3,7 @@ import ListContext from './ListContext';
 import AddForm from './AddForm';
 import FilterTab from './FilterTab';
 import './TodoList.scss';
-const TodoList=({todo, viewFilter,show, addToDo, toggleItem, deleteItem, updateTodo, toggleList, setFilter})=>{
+const TodoList=({todo, viewFilter,show, addToDo, toggleList, setFilter,...rest})=>{
   let renderList=todo;
   if(viewFilter==='done'){
     renderList=todo.filter(item=>{return item.done});
@@ -15,11 +15,9 @@ const TodoList=({todo, viewFilter,show, addToDo, toggleItem, deleteItem, updateT
     <div>
         <ListContext
           renderList={renderList}
-          toggleItem={toggleItem}
-          deleteItem={deleteItem}
-          updateTodo={updateTodo}
+          {...rest}
         />
-        <AddForm add={addToDo}/>
+        <AddForm submit={addToDo} placeholder='New Todo'/>
         <FilterTab viewFilter={viewFilter} setFilter={setFilter}/>
       </div>
   ):(

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Unsplash, { toJson } from 'unsplash-js';
+import Focus from '../Focus/Focus';
 import BookmarksContainer from '../Bookmarks/BookmarksContainer';
 import WeatherContainer from '../Weather/WeatherContainer';
 import SettingsContainer from '../Settings/containers/SettingsContainer';
@@ -28,7 +29,6 @@ class App extends Component {
     const time = new Date().getTime();
     const oldTime = +localStorage.getItem('time');
     const background = localStorage.getItem('background');
-
     // Change background every 15 minutes (for development)
     // OR set background if there isn't one in localStorage
     // if (today !== this.state.date) { // Change background every day
@@ -57,11 +57,12 @@ class App extends Component {
         localStorage.setItem('background', background);
       }).catch(
         err =>{
-          console.log('ajax error');
+          console.log(err);
+          this.setState({background:process.env.PUBLIC_URL+'./img/the_starry_night.jpg'});
         }
       );
   }
-  
+
   render() {
     const { background } = this.state;
 
@@ -75,13 +76,13 @@ class App extends Component {
         <main>
           <div className="Time">Time</div>
           <div className="Message">Message</div>
-          <div className="Focus">Focus</div>
+          <div className="Focus"><Focus/></div>
         </main>
 
         <footer>
           <SettingsContainer />
           <CurrentQuoteContainer />
-          <ListContainer/> 
+          <ListContainer/>
         </footer>
       </div>
     );

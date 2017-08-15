@@ -11,7 +11,7 @@ class AddForm extends Component{
   handleSubmit=e=>{
     e.preventDefault();
     if(this.state.value!==''){
-      this.props.add(this.state.value);
+      this.props.submit(this.state.value);
     }
     this.setState({value:''});
   }
@@ -19,7 +19,12 @@ class AddForm extends Component{
     return(
       <form className='AddForm' onSubmit={this.handleSubmit}>
           <span className='input'>
-            <input type='text' value={this.state.value} placeholder='New Todo' onChange={this.handleChange}/>
+            <input
+              type='text'
+              value={this.state.value}
+              placeholder={this.props.placeholder}
+              onChange={this.handleChange}
+            />
           </span>
           <span className='submit'>
             <button type='submit'><i className='inverted add square icon'></i></button>
