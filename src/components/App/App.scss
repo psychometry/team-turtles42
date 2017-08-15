@@ -1,0 +1,23 @@
+@import '../../styles/variables.scss';
+.App {
+  display: grid;
+  line-height: normal;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+// Temporary
+.Time, .Message, .Focus {
+  // background-color: $transparent;
+  width: 100%;
+  max-width: 700px;
+  max-height: 100px;
+  text-align: center;
+}

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './AddForm.scss'
 class AddForm extends Component{
   constructor(props){
     super(props);
@@ -17,7 +16,7 @@ class AddForm extends Component{
   }
   render(){
     return(
-      <form className='AddForm' onSubmit={this.handleSubmit}>
+      <form className={this.props.className} onSubmit={this.handleSubmit}>
           <span className='input'>
             <input
               type='text'

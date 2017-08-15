@@ -3,6 +3,7 @@ import ListContext from './ListContext';
 import AddForm from './AddForm';
 import FilterTab from './FilterTab';
 import './TodoList.scss';
+import './AddForm.scss'
 const TodoList=({todo, viewFilter,show, addToDo, toggleList, setFilter,...rest})=>{
   let renderList=todo;
   if(viewFilter==='done'){
@@ -10,14 +11,13 @@ const TodoList=({todo, viewFilter,show, addToDo, toggleList, setFilter,...rest})
   }else if(viewFilter==='not done'){
     renderList=todo.filter(item=>{return !item.done});
   }
-
   const display=show?(
     <div>
         <ListContext
           renderList={renderList}
           {...rest}
         />
-        <AddForm submit={addToDo} placeholder='New Todo'/>
+        <AddForm className='AddForm' submit={addToDo} placeholder='New Todo'/>
         <FilterTab viewFilter={viewFilter} setFilter={setFilter}/>
       </div>
   ):(

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Unsplash, { toJson } from 'unsplash-js';
-import Focus from '../Focus/Focus';
+import FocusContainer from '../Focus/FocusContainer';
 import BookmarksContainer from '../Bookmarks/BookmarksContainer';
 import WeatherContainer from '../Weather/WeatherContainer';
 import SettingsContainer from '../Settings/containers/SettingsContainer';
@@ -27,7 +27,7 @@ class App extends Component {
   componentDidMount() {
     this.setBackground();
   }
-  
+
   setBackground() {
     // const today = new Date().toLocaleDateString();
     const time = new Date().getTime();
@@ -76,7 +76,7 @@ class App extends Component {
         <main>
           <div className="Time">Time</div>
           <div className="Message">Message</div>
-          <div className="Focus"><Focus/></div>
+          <div className="Focus"><FocusContainer/></div>
         </main>
 
         <footer>
