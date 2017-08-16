@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import Unsplash, { toJson } from 'unsplash-js';
+import FocusContainer from '../Focus/FocusContainer';
 import BookmarksContainer from '../Bookmarks/BookmarksContainer';
 import WeatherContainer from '../Weather/WeatherContainer';
 import SettingsContainer from '../Settings/containers/SettingsContainer';
 import CurrentQuoteContainer from '../CurrentQuote/CurrentQuoteContainer';
 import ListContainer from '../Todo/containers/ListContainer';
+import backgrounds from '../../background.json';
 import './App.scss';
 
 const unsplash = new Unsplash({
@@ -26,13 +28,12 @@ class App extends Component {
   componentDidMount() {
     this.setBackground();
   }
-  
+
   setBackground() {
     // const today = new Date().toLocaleDateString();
     const time = new Date().getTime();
     const oldTime = +localStorage.getItem('time');
     const background = localStorage.getItem('background');
-
     // Change background every 15 minutes (for development)
     // OR set background if there isn't one in localStorage
     // if (today !== this.state.date) { // Change background every day
@@ -49,7 +50,10 @@ class App extends Component {
         localStorage.setItem('background', background);
       }).catch(
         err =>{
-          console.log('ajax error');
+          console.log(err);
+          const bgList=backgrounds.backgrounds;
+          const rand=Math.floor(Math.random()*(bgList.length));
+          this.setState({background:process.env.PUBLIC_URL+'./img/'+bgList[rand].filename});
         }
       );
     // Get background from localStorage
@@ -61,7 +65,7 @@ class App extends Component {
       });
     }
   }
-  
+
   render() {
     const { background } = this.state;
 
@@ -75,13 +79,13 @@ class App extends Component {
         <main>
           <div className="Time">Time</div>
           <div className="Message">Message</div>
-          <div className="Focus">Focus</div>
+          <div className="Focus"><FocusContainer/></div>
         </main>
 
         <footer>
           <SettingsContainer />
           <CurrentQuoteContainer />
-          <ListContainer/> 
+          <ListContainer/>
         </footer>
       </div>
     );
