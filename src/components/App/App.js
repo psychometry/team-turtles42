@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import Unsplash, { toJson } from 'unsplash-js';
-import Header from '../Header/Header';
-import Main from '../Main/Main';
-import Footer from '../Footer/Footer';
-import quotes from '../../quotes.json';
+import FocusContainer from '../Focus/FocusContainer';
+import BookmarksContainer from '../Bookmarks/BookmarksContainer';
+import WeatherContainer from '../Weather/WeatherContainer';
+import SettingsContainer from '../Settings/containers/SettingsContainer';
+import CurrentQuoteContainer from '../CurrentQuote/CurrentQuoteContainer';
+import ListContainer from '../Todo/containers/ListContainer';
+import backgrounds from '../../background.json';
 import './App.scss';
 
 const unsplash = new Unsplash({
@@ -19,39 +22,23 @@ class App extends Component {
       // date: '',
       time: '',
       background: '',
-      quote: []
     }
 
-    this.likeQuote = this.likeQuote.bind(this);
   }
   componentDidMount() {
+    this.setBackground();
+  }
+
+  setBackground() {
     // const today = new Date().toLocaleDateString();
     const time = new Date().getTime();
     const oldTime = +localStorage.getItem('time');
     const background = localStorage.getItem('background');
-
     // Change background every 15 minutes (for development)
     // OR set background if there isn't one in localStorage
     // if (today !== this.state.date) { // Change background every day
     if (time - oldTime > 15 * 60 * 1000 || background === null) {
-      this.setBackground(time);
-    // Get background from localStorage
-    } else {
-      this.setState({
-        // date: '',
-        time,
-        background,
-      });
-    }
-
-    // Set random quote
-    this.setState({
-      quote: quotes[Math.floor(Math.random() * quotes.length)]
-    });
-  }
-
-  setBackground(time) {
-    unsplash.photos.getRandomPhoto(/*{ filter photos }*/)
+      unsplash.photos.getRandomPhoto(/*{ filter photos }*/)
       .then(toJson)
       .then(json => {
         const { regular: background } = json.urls;
@@ -63,26 +50,43 @@ class App extends Component {
         localStorage.setItem('background', background);
       }).catch(
         err =>{
-          console.log('ajax error');
+          console.log(err);
+          const bgList=backgrounds.backgrounds;
+          const rand=Math.floor(Math.random()*(bgList.length));
+          this.setState({background:process.env.PUBLIC_URL+'./img/'+bgList[rand].filename});
         }
       );
+    // Get background from localStorage
+    } else {
+      this.setState({
+        // date: '',
+        time,
+        background
+      });
+    }
   }
-  likeQuote() {
-    const { quote } = this.state;
-    quote[2] ? quote[2] = false : quote[2] = true;
 
-    this.setState({
-      quote: quote
-    });
-  }
   render() {
-    const { background, quote } = this.state;
+    const { background } = this.state;
 
     return (
       <div className="App" style={{ backgroundImage: `url(${background})` }}>
-        <Header />
-        <Main />
-        <Footer quote={quote} onLikeQuote={this.likeQuote}/>
+        <header>
+          <BookmarksContainer />
+          <WeatherContainer />
+        </header>
+
+        <main>
+          <div className="Time">Time</div>
+          <div className="Message">Message</div>
+          <div className="Focus"><FocusContainer/></div>
+        </main>
+
+        <footer>
+          <SettingsContainer />
+          <CurrentQuoteContainer />
+          <ListContainer/>
+        </footer>
       </div>
     );
   }

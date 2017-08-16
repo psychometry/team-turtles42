@@ -1,0 +1,12 @@
+@import '../../../styles/variables.scss';
+.TodoList{
+  background-color: $transparent;
+}
+ul{
+  list-style-type: none;
+  padding: 0;
+}
+h4{
+  margin: 0;
+  border-bottom: 1px solid $white;
+}
