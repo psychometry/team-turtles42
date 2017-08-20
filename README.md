@@ -17,7 +17,7 @@
 * Todo List functionality.
 * Random landscape photography as background.
 
-##Contributors
+## Contributors
 
 * @bantuist
 * @GR4296
