@@ -1,21 +1,54 @@
 import React, { Component } from 'react';
 import v4 from 'uuid/v4';
-import SelectList from '../components/SelectList';
+import styled from 'styled-components';
+import SelectFeed from '../components/SelectFeed';
+import NewFeed from '../components/NewFeed';
 import Tabs from '../components/Tabs';
 import { loadFromStorage, saveToStorage } from '../../../localStorage';
 import { loadDefaultLists, loadDefaultList } from '../../../quotesHelpers';
-import '../Quotes.scss';
+
+const Container = styled.div`
+  width: 510px;
+`;
+
+const Settings = styled.div`
+  width: 460px;
+  display: flex;
+  justify-content: space-between;
+  .feeds {
+    display: flex;
+    justify-content: space-between;
+  }
+`;
+
+const AddQuote = styled.a`
+  height: 30px;
+  border: none;
+  color: ${({showingNewQuote}) => showingNewQuote ? 'white' : 'rgba(255,255,255,.5)'};
+  background: transparent;
+  .plus.icon {
+    font-size: .9em;
+  }
+  &:hover {
+    color: white;
+    cursor: pointer;
+  }
+  &:focus {
+    outline: none;
+  }
+`;
 
 class QuotesContainer extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       defaultList: loadFromStorage('defaultList') 
         ? loadFromStorage('defaultList') 
         : loadDefaultList(), 
       lists: loadFromStorage('lists')
         ? loadFromStorage('lists')
-        : loadDefaultLists()
+        : loadDefaultLists(),
+      showingNewQuote: false
     };
   }
   
@@ -28,10 +61,12 @@ class QuotesContainer extends Component {
   // Lists
   changeDefaultList = (name) => {
     const defaultList = loadFromStorage('lists').filter(list => list.name === name)[0];
-
-    this.setState({ 
-      defaultList: Object.assign({}, defaultList)
-    });
+    if (defaultList.quotes.length) {
+      this.setState({ 
+        defaultList: Object.assign({}, defaultList)
+      });
+    } else {
+      throw new Error('Can\'t set default list without quotes.');    }
   }
   addList = (name) => {
     const { lists } = this.state;
@@ -50,12 +85,17 @@ class QuotesContainer extends Component {
       });
     } else {
       // TODO: Add user notification
-      throw new Error('Can\'t have no lists');
+      throw new Error('Can\'t have no lists.');
     }
   }
   // TODO: updateList = (listName) => {}
   
   // Quotes
+  toggleNewQuote = () => {
+    const { showingNewQuote } = this.state;
+    this.setState({ showingNewQuote: showingNewQuote ? false : true });
+  }
+
   addQuote = (listName, text, source) => {
     const { lists } = this.state;
     const listIndex = lists.findIndex(list => list.name === listName);
@@ -75,6 +115,7 @@ class QuotesContainer extends Component {
       ]
     });
   }
+
   removeQuote = (listName, id) => {
     const { lists } = this.state;
     const listIndex = lists.findIndex(list => list.name === listName);
@@ -96,6 +137,7 @@ class QuotesContainer extends Component {
       ]
     });
   }
+  
   updateQuote = (listName, updatedQuote) => {
     const { lists } = this.state;
     const listIndex = lists.findIndex(list => list.name === listName);
@@ -119,25 +161,35 @@ class QuotesContainer extends Component {
   }
 
   render() {
-    const { lists, defaultList } = this.state;
+    const { lists, defaultList, showingNewQuote } = this.state;
     
     return (
-      <div className="Quotes-Container">
-        <SelectList 
-          lists={lists}
-          defaultList={defaultList}
-          onChangeList={this.changeDefaultList}
-        />
+      <Container>
+        <Settings> 
+          <div className="feeds">
+            <SelectFeed 
+              lists={lists}
+              defaultList={defaultList}
+              onChangeList={this.changeDefaultList}
+            />
+            <NewFeed onAddList={this.addList} />  
+          </div>
+          <AddQuote showingNewQuote={showingNewQuote} onClick={this.toggleNewQuote}>
+            <i className="plus icon" />
+            Add Quote
+          </AddQuote>
+        </Settings>
         <Tabs 
           lists={lists} 
           defaultList={defaultList} 
           onAddList={this.addList}
           onRemoveList={this.removeList}
+          showingNewQuote={showingNewQuote}
           onAddQuote={this.addQuote}
           onRemoveQuote={this.removeQuote}
           onUpdateQuote={this.updateQuote}
         />
-      </div>
+      </Container>
     );
   }
 
