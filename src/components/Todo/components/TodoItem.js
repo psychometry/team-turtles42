@@ -30,7 +30,7 @@ function collectDrop(connect){
     connectDropTarget: connect.dropTarget(),
   }
 }
-const TodoItem = ({...rest, isDragging, connectDragSource, connectDropTarget})=>{
+const TodoItem = ({isDragging, connectDragSource, connectDropTarget, ...rest})=>{
   return(
     <Item
       className='TodoItem'
