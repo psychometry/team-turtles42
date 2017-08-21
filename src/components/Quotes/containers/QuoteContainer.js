@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { parseQuote } from '../../../utilities';
+import { parseQuote } from '../../../quotesHelpers';
 import Quote from '../components/Quote';
 
 class QuoteContainer extends Component {
@@ -23,7 +23,6 @@ class QuoteContainer extends Component {
   
   render() {
     const { quote, listName, onRemoveQuote } = this.props;
-
     return (
       <Quote
         listName={listName}

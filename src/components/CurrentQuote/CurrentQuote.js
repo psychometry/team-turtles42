@@ -12,6 +12,12 @@ const propTypes = {
   onLikeQuote: PropTypes.func.isRequired 
 };
 
+const defaultProps = {
+  quote: { text: "One love", source: "Bob Marley", liked: false },
+  onLikeQuote: () => {}
+};
+
+
 const CurrentQuote = ({ quote, onLikeQuote }) => {
   const { text, source, liked } = quote;
   let heartClassName = 'empty heart';
@@ -33,6 +39,7 @@ const CurrentQuote = ({ quote, onLikeQuote }) => {
 };
 
 CurrentQuote.propTypes = propTypes;
+CurrentQuote.defaultProps = defaultProps;
 
 export default CurrentQuote;
 

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import TodoList from '../components/TodoList';
 import {loadFromStorage,saveToStorage} from '../../../localStorage';
-import v4 from 'node-uuid';
+import v4 from 'uuid/v4';
 import './ListContainer.scss';
 class ListContainer extends Component{
   constructor(){

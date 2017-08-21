@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import v4 from 'node-uuid';
+import v4 from 'uuid/v4';
 import SelectList from '../components/SelectList';
 import Tabs from '../components/Tabs';
 import { loadFromStorage, saveToStorage } from '../../../localStorage';
-import { loadDefaultLists, loadDefaultList } from '../../../utilities';
+import { loadDefaultLists, loadDefaultList } from '../../../quotesHelpers';
 import '../Quotes.scss';
 
 class QuotesContainer extends Component {

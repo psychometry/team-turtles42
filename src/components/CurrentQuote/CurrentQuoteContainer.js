@@ -1,7 +1,6 @@
-// TODO: save quote to localStorage
 import React, { Component } from 'react';
 import { loadFromStorage, saveToStorage } from '../../localStorage';
-import { loadDefaultList } from '../../utilities';
+import { loadDefaultList } from '../../quotesHelpers';
 import CurrentQuote from './CurrentQuote';
 
 class CurrentQuoteContainer extends Component {
@@ -22,10 +21,9 @@ class CurrentQuoteContainer extends Component {
       : loadDefaultList();
 
     const { quotes } = defaultList;
-    const defaultQuote = { text: "One love", source: "Bob Marley", liked: false };
 
     this.setState({
-      quote: quotes[Math.floor(Math.random() * quotes.length)] || defaultQuote
+      quote: quotes[Math.floor(Math.random() * quotes.length)]
     });
   }
   

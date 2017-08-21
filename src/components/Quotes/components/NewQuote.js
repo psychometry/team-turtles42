@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { parseQuote } from '../../../utilities';
+import { parseQuote } from '../../../quotesHelpers';
 import '../Quotes.scss';
 
 const propTypes = {
