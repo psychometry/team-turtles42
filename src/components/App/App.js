@@ -7,6 +7,7 @@ import SettingsContainer from '../Settings/containers/SettingsContainer';
 import CurrentQuoteContainer from '../CurrentQuote/CurrentQuoteContainer';
 import ListContainer from '../Todo/containers/ListContainer';
 import backgrounds from '../../background.json';
+import Clock from '../Clock/Clock';
 import './App.scss';
 
 const unsplash = new Unsplash({
@@ -77,7 +78,7 @@ class App extends Component {
         </header>
 
         <main>
-          <div className="Time">Time</div>
+          <div className="Time"><Clock/></div>
           <div className="Message">Message</div>
           <div className="Focus"><FocusContainer/></div>
         </main>
