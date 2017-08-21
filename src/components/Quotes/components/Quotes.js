@@ -10,8 +10,14 @@ const propTypes = {
   // TODO: // onLikeQuote: PropTypes.func.isRequired 
 }
 
+const defaultProps = {
+  list: {},
+  onRemoveQuote: () => {},
+  onUpdateQuote: () => {}
+};
+
 const Quotes = ({ list, onRemoveQuote, onUpdateQuote }) => {
-  const { name, quotes } = list;
+  const { name = '', quotes = [] } = list;
   const quoteItems = quotes.map((quote) => {
     return (
       <QuoteContainer 
@@ -34,5 +40,6 @@ const Quotes = ({ list, onRemoveQuote, onUpdateQuote }) => {
 }
 
 Quotes.propTypes = propTypes;
+Quotes.defaultProps = defaultProps;
 
 export default Quotes;

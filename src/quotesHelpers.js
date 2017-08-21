@@ -1,6 +1,5 @@
-import v4 from 'node-uuid';
+import v4 from 'uuid/v4';
 import defaultQuotes from './quotes.json';
-
 
 // Quotes helpers
 export const parseQuote = (quote) => {
