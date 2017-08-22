@@ -1,9 +1,12 @@
-import React, {Component} from 'react';
+//import React, {Component} from 'react';
 import TodoList from '../components/TodoList';
-import {loadFromStorage,saveToStorage} from '../../../localStorage';
-import v4 from 'node-uuid';
-import './ListContainer.scss';
-class ListContainer extends Component{
+//import {loadFromStorage,saveToStorage} from '../../../localStorage';
+//import v4 from 'node-uuid';
+import * as TodoActionCreators from '../../../actions/TodoActionCreators';
+import * as AppActionCreators from '../../../actions/AppActionCreators';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+/*class ListContainer extends Component{
   constructor(){
     super();
     this.state={
@@ -58,6 +61,15 @@ class ListContainer extends Component{
       </div>
     );
   }
+}*/
+const mapStateToProps=(state)=>{
+  return {
+    todo:state.todo,
+    show:state.app.todo,
+  }
 }
-
+const mapDispatchToProps=(dispatch)=>{
+  return Object.assign({},bindActionCreators(TodoActionCreators,dispatch), bindActionCreators(AppActionCreators,dispatch));
+}
+const ListContainer=connect(mapStateToProps,mapDispatchToProps)(TodoList);
 export default ListContainer;

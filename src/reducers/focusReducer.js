@@ -3,9 +3,9 @@ import {SET_FOCUS, DELETE_FOCUS, TOGGLE_FOCUS} from '../actions/FocusActionCreat
 function focusReducer(state={}, action){
   switch(action.type){
     case SET_FOCUS:
-      return {name:action.text,done:false,set:true};
+      return {text:action.text,done:false,set:true};
     case DELETE_FOCUS:
-      return {...state, name:null, set:false};
+      return {...state, text:null, set:false};
     case TOGGLE_FOCUS:
       return {...state, done:!state.done};
     default:

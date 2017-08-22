@@ -1,11 +1,13 @@
-import {SHOW, HIDE} from '../actions/actions';
+import {DISPLAY, HIDE, TOGGLE} from '../actions/AppActionCreators';
 
 function appReducer(state={},action){
   switch(action.type){
-    case SHOW:
+    case DISPLAY:
       return {...state, [action.app]:true};
     case HIDE:
       return {...state, [action.app]:false};
+    case TOGGLE:
+      return {...state,[action.app]:!state[action.app]};
     default:
       return state;
   }

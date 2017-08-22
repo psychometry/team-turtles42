@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO, TOGGLE_TODO, UPDATE_TODO, SET_FILTER} from '../actions/actions';
+import { ADD_TODO, DELETE_TODO, TOGGLE_TODO, UPDATE_TODO, SET_FILTER} from '../actions/TodoActionCreators';
 import v4 from 'node-uuid';
 import {combineReducers} from 'redux';
 function todo(state=[],action){
@@ -10,13 +10,14 @@ function todo(state=[],action){
       return state.filter(item=>item.id!==action.id);
     case TOGGLE_TODO:
       let i=state.findIndex(item=>{return item.id===action.id});
-      return state.slice().splice(i,1,{...state[i],done:!state[i].done});
+      return [...state.slice(0,i),{...state[i],done:!state[i].done},...state.slice(i+1)];
     case UPDATE_TODO:
-      let todo=state.splice();
+      let todo=state.slice();
       let j=state.findIndex(item=>{return item.id===action.id});
       let k=state.findIndex(item=>{return item.id===action.newId});
-      let removed=todo.splice(j,1);
-      return todo.splice(k,0,removed[0]);
+      todo[k]=state[j];
+      todo[j]=state[k];
+      return todo;
     default:
       return state;
   }

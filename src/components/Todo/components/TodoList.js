@@ -3,13 +3,14 @@ import ListContext from './ListContext';
 import AddForm from './AddForm';
 import FilterTab from './FilterTab';
 import './TodoList.scss';
+import '../containers/ListContainer.scss';
 import './AddForm.scss'
-const TodoList=({todo, viewFilter,show, addToDo, toggleList, setFilter,...rest})=>{
-  let renderList=todo;
+const TodoList=({todo, viewFilter,show, addTodo, toggle, setFilter,...rest})=>{
+  let renderList=todo.todo;
   if(viewFilter==='done'){
-    renderList=todo.filter(item=>{return item.done});
+    renderList=todo.todo.filter(item=>{return item.done});
   }else if(viewFilter==='not done'){
-    renderList=todo.filter(item=>{return !item.done});
+    renderList=todo.todo.filter(item=>{return !item.done});
   }
   const display=show?(
     <div>
@@ -17,7 +18,7 @@ const TodoList=({todo, viewFilter,show, addToDo, toggleList, setFilter,...rest})
           renderList={renderList}
           {...rest}
         />
-        <AddForm className='AddForm' submit={addToDo} placeholder='New Todo'/>
+        <AddForm className='AddForm' submit={addTodo} placeholder='New Todo'/>
         <FilterTab viewFilter={viewFilter} setFilter={setFilter}/>
       </div>
   ):(
@@ -25,9 +26,9 @@ const TodoList=({todo, viewFilter,show, addToDo, toggleList, setFilter,...rest})
     </div>
   );
   return(
-    <div className='TodoList'>
-      <h4 onClick={()=>{toggleList()}}>
-        Todo:{todo.length}
+    <div className='TodoList ListContainer'>
+      <h4 onClick={()=>{toggle("todo")}}>
+        Todo:{todo.todo.length}
       </h4>
       {display}
     </div>

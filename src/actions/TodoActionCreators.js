@@ -1,16 +1,9 @@
-export const SHOW='SHOW',
-  HIDE='HIDE',
-  ADD_TODO='ADD_TODO',
-  DELETE_TODO='DELETE_TODO',
-  TOGGLE_TODO='TOGGLE_TODO',
-  UPDATE_TODO='UPDATE_TODO',
-  SET_FILTER='SET_FILTER';
-export function show(app){
-  return{type:SHOW, app};
-}
-export function hide(app){
-  return{type:HIDE, app};
-}
+export const ADD_TODO='ADD_TODO',
+DELETE_TODO='DELETE_TODO',
+TOGGLE_TODO='TOGGLE_TODO',
+UPDATE_TODO='UPDATE_TODO',
+SET_FILTER='SET_FILTER';
+
 export function addTodo(text){
   return{type:ADD_TODO,text};
 }

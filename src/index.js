@@ -4,12 +4,12 @@ import App from './components/App/App';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import rootReducer from './reducers';
-import {loadFromStorage} from './localStorage';
+import {loadFromStorage,saveToStorage} from './localStorage';
 import './index.scss';
 //import registerServiceWorker from './registerServiceWorker';
 const defaultState={
   app:{todo:false},
-  focus:loadFromStorage('focus')||{name:null,
+  focus:loadFromStorage('focus')||{text:null,
     done:false,
     set:false,
   },
@@ -19,6 +19,11 @@ const defaultState={
   }
 };
 const store=createStore(rootReducer,defaultState);
-console.log(store.getState());
+store.subscribe(
+  function saveAll(){
+      saveToStorage('focus',store.getState().focus);
+      saveToStorage('todo',store.getState().todo.todo);
+  }
+);
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 //registerServiceWorker();
