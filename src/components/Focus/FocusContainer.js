@@ -1,10 +1,16 @@
-import React, {Component} from 'react';
-import AddForm from '../Todo/components/AddForm';
-import Item from '../Todo/components/Item';
-import {loadFromStorage, saveToStorage} from '../../localStorage';
-import './Focus.scss';
-class FocusContainer extends Component{
-  constructor(props){
+import * as FocusActionCreators from '../../actions/FocusActionCreators'
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import Focus from './Focus'
+//import {loadFromStorage, saveToStorage} from '../../localStorage';
+
+const mapStateToProps=(state)=>{
+  return {focus:state.focus};
+}
+const mapDispatchToProps=(dispatch)=>{
+  return bindActionCreators(FocusActionCreators,dispatch);
+}
+/*  constructor(props){
     super(props);
     this.state=loadFromStorage('focus')||{
       name:null,
@@ -23,23 +29,6 @@ class FocusContainer extends Component{
   }
   componentDidUpdate(){
     saveToStorage('focus',this.state);
-  }
-  render(){
-    const display=this.state.set?(
-      <Item className='FocusItem' item={this.state} toggleItem={this.Done} deleteItem={this.DeleteFocus} />
-    ):(
-      <div className='Focus'>
-        <span>What is your main focus for today?</span>
-      </div>
-    );
-    return(
-      <div>
-        {display}
-        {
-          this.state.set?null:(<AddForm className='AddFocus' placeholder='' submit={this.AddFocus}/>)
-        }
-      </div>
-    );
-  }
-}
+  }*/
+const FocusContainer=connect(mapStateToProps,mapDispatchToProps)(Focus);
 export default FocusContainer;

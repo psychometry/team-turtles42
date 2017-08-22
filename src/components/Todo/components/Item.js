@@ -9,7 +9,7 @@ class Item extends Component{
           <input type='Checkbox' checked={item.done} onChange={()=>toggleItem(item.id)}/>
         </span>
         <span className={item.done?'checked':''}>
-          {item.name}
+          {item.text}
         </span>
         <span className='delete'>
           <button onClick={()=>deleteItem(item.id)}><i className='inverted remove icon'></i></button>
