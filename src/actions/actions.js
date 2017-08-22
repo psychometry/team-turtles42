@@ -4,10 +4,7 @@ export const SHOW='SHOW',
   DELETE_TODO='DELETE_TODO',
   TOGGLE_TODO='TOGGLE_TODO',
   UPDATE_TODO='UPDATE_TODO',
-  SET_FILTER='SET_FILTER',
-  SET_FOCUS='SET_FOCUS',
-  DELETE_FOCUS='DELETE_FOCUS',
-  TOGGLE_FOCUS='TOGGLE_FOCUS';
+  SET_FILTER='SET_FILTER';
 export function show(app){
   return{type:SHOW, app};
 }
@@ -28,13 +25,4 @@ export function updateTodo(id,newId){
 }
 export function setFilter(filter){
   return {type:SET_FILTER, filter};
-}
-export function setFocus(text){
-  return{type:SET_FOCUS,text};
-}
-export function deleteFocus(id){
-  return{type:DELETE_FOCUS,id};
-}
-export function toggleFocus(id){
-  return{type:TOGGLE_FOCUS,id};
 }

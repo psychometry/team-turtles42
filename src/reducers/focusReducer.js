@@ -1,4 +1,4 @@
-import {SET_FOCUS, DELETE_FOCUS, TOGGLE_FOCUS} from '../actions/actions';
+import {SET_FOCUS, DELETE_FOCUS, TOGGLE_FOCUS} from '../actions/FocusActionCreators';
 
 function focusReducer(state={}, action){
   switch(action.type){

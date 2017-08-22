@@ -14,7 +14,7 @@ const defaultState={
     set:false,
   },
   todo:{
-    todo:(loadFromStorage('todo'))?loadFromStorage('todo'):[],
+    todo:(loadFromStorage('todo'))||[],
     viewFilter:null,
   }
 };

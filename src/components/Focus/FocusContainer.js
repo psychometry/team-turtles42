@@ -1,10 +1,19 @@
 import React, {Component} from 'react';
 import AddForm from '../Todo/components/AddForm';
 import Item from '../Todo/components/Item';
-import {loadFromStorage, saveToStorage} from '../../localStorage';
+import * as FocusActionCreators from '../../actions/FocusActionCreators'
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+//import {loadFromStorage, saveToStorage} from '../../localStorage';
 import './Focus.scss';
+const mapStateToProps=(state)=>{
+  return {focus:state.focus};
+}
+const mapDispatchToProps=(dispatch)=>{
+  return bindActionCreators(FocusActionCreators,dispatch);
+}
 class FocusContainer extends Component{
-  constructor(props){
+/*  constructor(props){
     super(props);
     this.state=loadFromStorage('focus')||{
       name:null,
@@ -23,10 +32,11 @@ class FocusContainer extends Component{
   }
   componentDidUpdate(){
     saveToStorage('focus',this.state);
-  }
+  }*/
   render(){
-    const display=this.state.set?(
-      <Item className='FocusItem' item={this.state} toggleItem={this.Done} deleteItem={this.DeleteFocus} />
+    const {focus, setFocus, deleteFocus, toggleFocus}=this.props;
+    const display=focus.set?(
+      <Item className='FocusItem' item={focus} toggleItem={toggleFocus} deleteItem={deleteFocus} />
     ):(
       <div className='Focus'>
         <span>What is your main focus for today?</span>
@@ -36,10 +46,10 @@ class FocusContainer extends Component{
       <div>
         {display}
         {
-          this.state.set?null:(<AddForm className='AddFocus' placeholder='' submit={this.AddFocus}/>)
+          focus.set?null:(<AddForm className='AddFocus' placeholder='' submit={setFocus}/>)
         }
       </div>
-    );
+    )
   }
 }
-export default FocusContainer;
+export default connect(mapStateToProps,mapDispatchToProps)(FocusContainer);
