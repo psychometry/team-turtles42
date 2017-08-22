@@ -1,7 +1,7 @@
+import Focus from './Focus';
 import * as FocusActionCreators from '../../actions/FocusActionCreators'
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import Focus from './Focus'
 //import {loadFromStorage, saveToStorage} from '../../localStorage';
 
 const mapStateToProps=(state)=>{
