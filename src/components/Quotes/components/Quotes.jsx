@@ -1,7 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import QuoteContainer from '../containers/QuoteContainer';
-import '../Quotes.scss';
+
+const Ul = styled.ul`
+  margin: 0;
+`;
 
 const propTypes = {
   list: PropTypes.object.isRequired,
@@ -30,13 +34,7 @@ const Quotes = ({ list, onRemoveQuote, onUpdateQuote }) => {
     );
   });
 
-  return (
-    <div className="Quotes">
-      <ul>
-        {quoteItems}
-      </ul>
-    </div>
-  );
+  return (<Ul>{quoteItems}</Ul>);
 }
 
 Quotes.propTypes = propTypes;

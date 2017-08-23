@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { loadFromStorage, saveToStorage } from '../../localStorage';
+import { loadFromStorage } from '../../localStorage';
 import { loadDefaultList } from '../../quotesHelpers';
 import CurrentQuote from './CurrentQuote';
 
 class CurrentQuoteContainer extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      quote: {} 
+      quote: {}
     };
   }
 
@@ -29,7 +29,6 @@ class CurrentQuoteContainer extends Component {
   
   likeQuote = () => {
     const { quote } = this.state;
-    
     this.setState({
       quote: Object.assign({}, quote, {
         liked: quote.liked ? false : true
@@ -37,6 +36,7 @@ class CurrentQuoteContainer extends Component {
     });
     
   }
+  
   render() {
     return (
       <CurrentQuote quote={this.state.quote} onLikeQuote={this.likeQuote} />

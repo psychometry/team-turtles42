@@ -2,2311 +2,2214 @@
 
 exports[`should render CurrentQuote 1`] = `
 <div
-  className="Quotes-Container"
+  className="sc-htoDjs daYDct"
 >
   <div
-    className="select-list"
-  >
-    <label>
-      Show:
-      <select
-        onChange={[Function]}
-        value="Default"
-      >
-        <option
-          value="Default"
-        >
-          Default
-        </option>
-      </select>
-    </label>
-  </div>
-  <div
-    className="Quote-Lists"
+    className="sc-dnqmqq bhTNrb"
   >
     <div
-      className="tab-menu"
+      className="feeds"
+    >
+      <div
+        className="sc-bdVaJa leKagW"
+      >
+        <label>
+          Feed:
+          <select
+            onChange={[Function]}
+            value="Default"
+          >
+            <option
+              value="Default"
+            >
+              Default
+            </option>
+          </select>
+        </label>
+      </div>
+      <form
+        className="sc-bwzfXH etJyjU"
+        onSubmit={[Function]}
+      >
+        <input
+          placeholder="New feed"
+          type="text"
+        />
+      </form>
+    </div>
+    <a
+      className="sc-iwsKbI izYgjE"
+      onClick={[Function]}
+    >
+      <i
+        className="plus icon"
+      />
+      Add Quote
+    </a>
+  </div>
+  <div
+    className="sc-gzVnrw iyXGyH"
+  >
+    <div
+      className="sc-htpNat dBlZeE"
     >
       <a
-        className="active item"
+        className="sc-bxivhb bdpbxr"
         onClick={[Function]}
       >
         Default
         <i
-          aria-hidden="true"
-          className="remove icon remove-list"
+          className=""
           onClick={[Function]}
         />
       </a>
     </div>
-    <form
-      className="new-list"
-      onSubmit={[Function]}
+    <ul
+      className="sc-bZQynM hySncT"
     >
-      <input
-        placeholder="New list"
-        type="text"
-      />
-    </form>
-    <form
-      className="new-quote-form"
-      onSubmit={[Function]}
-    >
-      <input
-        placeholder="New quote - source"
-        type="text"
-      />
-    </form>
-    <div
-      className="Quotes"
-    >
-      <ul>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Life isn’t about getting and having, it’s about giving and being. — Kevin Kruse",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Whatever the mind of man can conceive and believe, it can achieve. — Napoleon Hill",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Strive not to be a success, but rather to be of value. — Albert Einstein",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Two roads diverged in a wood, and I—I took the one less traveled by, And that has made all the difference. — Robert Frost",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "I attribute my success to this: I never gave or took any excuse. — Florence Nightingale",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "You miss 100% of the shots you don’t take. — Wayne Gretzky",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "I’ve missed more than 9000 shots in my career. I’ve lost almost 300 games. 26 times I’ve been trusted to take the game winning shot and missed. I’ve failed over and over and over again in my life. And that is why I succeed. — Michael Jordan",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "The most difficult thing is the decision to act, the rest is merely tenacity. — Amelia Earhart",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Every strike brings me closer to the next home run. — Babe Ruth",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Definiteness of purpose is the starting point of all achievement. — W. Clement Stone",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "We must balance conspicuous consumption with conscious capitalism. — Kevin Kruse",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Life is what happens to you while you’re busy making other plans. — John Lennon",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "We become what we think about. — Earl Nightingale",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Twenty years from now you will be more disappointed by the things that you didn’t do than by the ones you did do, so throw off the bowlines, sail away from safe harbor, catch the trade winds in your sails.  Explore, Dream, Discover. — Mark Twain",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Life is 10% what happens to me and 90% of how I react to it. — Charles Swindoll",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "The most common way people give up their power is by thinking they don’t have any. — Alice Walker",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "The mind is everything. What you think you become. — Buddha",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "The best time to plant a tree was 20 years ago. The second best time is now. — Chinese Proverb",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "An unexamined life is not worth living. — Socrates",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Eighty percent of success is showing up. — Woody Allen",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Your time is limited, so don’t waste it living someone else’s life. — Steve Jobs",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Winning isn’t everything, but wanting to win is. — Vince Lombardi",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "I am not a product of my circumstances. I am a product of my decisions. — Stephen Covey",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Every child is an artist.  The problem is how to remain an artist once he grows up. — Pablo Picasso",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "You can never cross the ocean until you have the courage to lose sight of the shore. — Christopher Columbus",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "I’ve learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel. — Maya Angelou",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Either you run the day, or the day runs you. — Jim Rohn",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Whether you think you can or you think you can’t, you’re right. — Henry Ford",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "The two most important days in your life are the day you are born and the day you find out why. — Mark Twain",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Whatever you can do, or dream you can, begin it.  Boldness has genius, power and magic in it. — Johann Wolfgang von Goethe",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "The best revenge is massive success. — Frank Sinatra",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "People often say that motivation doesn’t last. Well, neither does bathing.  That’s why we recommend it daily. — Zig Ziglar",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Life shrinks or expands in proportion to one’s courage. — Anais Nin",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "If you hear a voice within you say “you cannot paint,” then by all means paint and that voice will be silenced. — Vincent Van Gogh",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "There is only one way to avoid criticism: do nothing, say nothing, and be nothing. — Aristotle",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Ask and it will be given to you; search, and you will find; knock and the door will be opened for you. — Jesus",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "The only person you are destined to become is the person you decide to be. — Ralph Waldo Emerson",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Go confidently in the direction of your dreams.  Live the life you have imagined. — Henry David Thoreau",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "When I stand before God at the end of my life, I would hope that I would not have a single bit of talent left and could say, I used everything you gave me. — Erma Bombeck",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Few things can help an individual more than to place responsibility on him, and to let him know that you trust him. — Booker T. Washington",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Certain things catch your eye, but pursue only those that capture the heart. —  Ancient Indian Proverb",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Believe you can and you’re halfway there. — Theodore Roosevelt",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Everything you’ve ever wanted is on the other side of fear. — George Addair",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "We can easily forgive a child who is afraid of the dark; the real tragedy of life is when men are afraid of the light. — Plato",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Teach thy tongue to say, “I do not know,” and thous shalt progress. — Maimonides",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Start where you are. Use what you have.  Do what you can. — Arthur Ashe",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "When I was 5 years old, my mother always told me that happiness was the key to life.  When I went to school, they asked me what I wanted to be when I grew up.  I wrote down ‘happy’.  They told me I didn’t understand the assignment, and I told them they didn’t understand life. — John Lennon",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Fall seven times and stand up eight. — Japanese Proverb",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "When one door of happiness closes, another opens, but often we look so long at the closed door that we do not see the one that has been opened for us. — Helen Keller",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Everything has beauty, but not everyone can see. — Confucius",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "How wonderful it is that nobody need wait a single moment before starting to improve the world. — Anne Frank",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "When I let go of what I am, I become what I might be. — Lao Tzu",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Life is not measured by the number of breaths we take, but by the moments that take our breath away. — Maya Angelou",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Happiness is not something readymade.  It comes from your own actions. — Dalai Lama",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "If you’re offered a seat on a rocket ship, don’t ask what seat! Just get on. — Sheryl Sandberg",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "First, have a definite, clear practical ideal; a goal, an objective. Second, have the necessary means to achieve your ends; wisdom, money, materials, and methods. Third, adjust all your means to that end. — Aristotle",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "If the wind will not serve, take to the oars. — Latin Proverb",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "You can’t fall if you don’t climb.  But there’s no joy in living your whole life on the ground. — Unknown",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "We must believe that we are gifted for something, and that this thing, at whatever cost, must be attained. — Marie Curie",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Too many of us are not living our dreams because we are living our fears. — Les Brown",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Challenges are what make life interesting and overcoming them is what makes life meaningful. — Joshua J. Marine",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "If you want to lift yourself up, lift up someone else. — Booker T. Washington",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "I have been impressed with the urgency of doing. Knowing is not enough; we must apply. Being willing is not enough; we must do. — Leonardo da Vinci",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Limitations live only in our minds.  But if we use our imaginations, our possibilities become limitless. — Jamie Paolinetti",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "You take your life in your own hands, and what happens? A terrible thing, no one to blame. — Erica Jong",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "What’s money? A man is a success if he gets up in the morning and goes to bed at night and in between does what he wants to do. — Bob Dylan",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "I didn’t fail the test. I just found 100 ways to do it wrong. — Benjamin Franklin",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "In order to succeed, your desire for success should be greater than your fear of failure. — Bill Cosby",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "A person who never made a mistake never tried anything new. —  Albert Einstein",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "The person who says it cannot be done should not interrupt the person who is doing it. — Chinese Proverb",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "There are no traffic jams along the extra mile. — Roger Staubach",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "It is never too late to be what you might have been. — George Eliot",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "You become what you believe. — Oprah Winfrey",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "I would rather die of passion than of boredom. — Vincent van Gogh",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "A truly rich man is one whose children run into his arms when his hands are empty. — Unknown",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "It is not what you do for your children, but what you have taught them to do for themselves, that will make them successful human beings. — Ann Landers",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "If you want your children to turn out well, spend twice as much time with them, and half as much money. — Abigail Van Buren",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Build your own dreams, or someone else will hire you to build theirs. — Farrah Gray",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "The battles that count aren’t the ones for gold medals. The struggles within yourself–the invisible battles inside all of us–that’s where it’s at. — Jesse Owens",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Education costs money.  But then so does ignorance. — Sir Claus Moser",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "I have learned over the years that when one’s mind is made up, this diminishes fear. — Rosa Parks",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "It does not matter how slowly you go as long as you do not stop. — Confucius",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "If you look at what you have in life, you’ll always have more. If you look at what you don’t have in life, you’ll never have enough. — Oprah Winfrey",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Remember that not getting what you want is sometimes a wonderful stroke of luck. — Dalai Lama",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "You can’t use up creativity.  The more you use, the more you have. — Maya Angelou",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Dream big and dare to fail. — Norman Vaughan",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Our lives begin to end the day we become silent about things that matter. — Martin Luther King Jr.",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Do what you can, where you are, with what you have. — Teddy Roosevelt",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "If you do what you’ve always done, you’ll get what you’ve always gotten. — Tony Robbins",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Dreaming, after all, is a form of planning. — Gloria Steinem",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "It’s your place in the world; it’s your life. Go on and do all you can with it, and make it the life you want to live. — Mae Jemison",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "You may be disappointed if you fail, but you are doomed if you don’t try. — Beverly Sills",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Remember no one can make you feel inferior without your consent. — Eleanor Roosevelt",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Life is what we make it, always has been, always will be. — Grandma Moses",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "The question isn’t who is going to let me; it’s who is going to stop me. — Ayn Rand",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "When everything seems to be going against you, remember that the airplane takes off against the wind, not with it. — Henry Ford",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "It’s not the years in your life that count. It’s the life in your years. — Abraham Lincoln",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Change your thoughts and you change your world. — Norman Vincent Peale",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Either write something worth reading or do something worth writing. — Benjamin Franklin",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Nothing is impossible, the word itself says, “I’m possible!” — Audrey Hepburn",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "The only way to do great work is to love what you do. — Steve Jobs",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-        <li
-          className="Quote"
-        >
-          <div
-            className="edit-quote"
-            contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "If you can dream it, you can achieve it. — Zig Ziglar",
-              }
-            }
-            disabled={false}
-            onBlur={[Function]}
-            onChange={[Function]}
-            onInput={[Function]}
-          />
-          <i
-            aria-hidden="true"
-            className="remove icon remove-quote"
-            onClick={[Function]}
-          />
-        </li>
-      </ul>
-    </div>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Life isn’t about getting and having, it’s about giving and being. — Kevin Kruse",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Whatever the mind of man can conceive and believe, it can achieve. — Napoleon Hill",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Strive not to be a success, but rather to be of value. — Albert Einstein",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Two roads diverged in a wood, and I—I took the one less traveled by, And that has made all the difference. — Robert Frost",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "I attribute my success to this: I never gave or took any excuse. — Florence Nightingale",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "You miss 100% of the shots you don’t take. — Wayne Gretzky",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "I’ve missed more than 9000 shots in my career. I’ve lost almost 300 games. 26 times I’ve been trusted to take the game winning shot and missed. I’ve failed over and over and over again in my life. And that is why I succeed. — Michael Jordan",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "The most difficult thing is the decision to act, the rest is merely tenacity. — Amelia Earhart",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Every strike brings me closer to the next home run. — Babe Ruth",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Definiteness of purpose is the starting point of all achievement. — W. Clement Stone",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "We must balance conspicuous consumption with conscious capitalism. — Kevin Kruse",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Life is what happens to you while you’re busy making other plans. — John Lennon",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "We become what we think about. — Earl Nightingale",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Twenty years from now you will be more disappointed by the things that you didn’t do than by the ones you did do, so throw off the bowlines, sail away from safe harbor, catch the trade winds in your sails.  Explore, Dream, Discover. — Mark Twain",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Life is 10% what happens to me and 90% of how I react to it. — Charles Swindoll",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "The most common way people give up their power is by thinking they don’t have any. — Alice Walker",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "The mind is everything. What you think you become. — Buddha",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "The best time to plant a tree was 20 years ago. The second best time is now. — Chinese Proverb",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "An unexamined life is not worth living. — Socrates",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Eighty percent of success is showing up. — Woody Allen",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Your time is limited, so don’t waste it living someone else’s life. — Steve Jobs",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Winning isn’t everything, but wanting to win is. — Vince Lombardi",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "I am not a product of my circumstances. I am a product of my decisions. — Stephen Covey",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Every child is an artist.  The problem is how to remain an artist once he grows up. — Pablo Picasso",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "You can never cross the ocean until you have the courage to lose sight of the shore. — Christopher Columbus",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "I’ve learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel. — Maya Angelou",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Either you run the day, or the day runs you. — Jim Rohn",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Whether you think you can or you think you can’t, you’re right. — Henry Ford",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "The two most important days in your life are the day you are born and the day you find out why. — Mark Twain",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Whatever you can do, or dream you can, begin it.  Boldness has genius, power and magic in it. — Johann Wolfgang von Goethe",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "The best revenge is massive success. — Frank Sinatra",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "People often say that motivation doesn’t last. Well, neither does bathing.  That’s why we recommend it daily. — Zig Ziglar",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Life shrinks or expands in proportion to one’s courage. — Anais Nin",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "If you hear a voice within you say “you cannot paint,” then by all means paint and that voice will be silenced. — Vincent Van Gogh",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "There is only one way to avoid criticism: do nothing, say nothing, and be nothing. — Aristotle",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Ask and it will be given to you; search, and you will find; knock and the door will be opened for you. — Jesus",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "The only person you are destined to become is the person you decide to be. — Ralph Waldo Emerson",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Go confidently in the direction of your dreams.  Live the life you have imagined. — Henry David Thoreau",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "When I stand before God at the end of my life, I would hope that I would not have a single bit of talent left and could say, I used everything you gave me. — Erma Bombeck",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Few things can help an individual more than to place responsibility on him, and to let him know that you trust him. — Booker T. Washington",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Certain things catch your eye, but pursue only those that capture the heart. —  Ancient Indian Proverb",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Believe you can and you’re halfway there. — Theodore Roosevelt",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Everything you’ve ever wanted is on the other side of fear. — George Addair",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "We can easily forgive a child who is afraid of the dark; the real tragedy of life is when men are afraid of the light. — Plato",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Teach thy tongue to say, “I do not know,” and thous shalt progress. — Maimonides",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Start where you are. Use what you have.  Do what you can. — Arthur Ashe",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "When I was 5 years old, my mother always told me that happiness was the key to life.  When I went to school, they asked me what I wanted to be when I grew up.  I wrote down ‘happy’.  They told me I didn’t understand the assignment, and I told them they didn’t understand life. — John Lennon",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Fall seven times and stand up eight. — Japanese Proverb",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "When one door of happiness closes, another opens, but often we look so long at the closed door that we do not see the one that has been opened for us. — Helen Keller",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Everything has beauty, but not everyone can see. — Confucius",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "How wonderful it is that nobody need wait a single moment before starting to improve the world. — Anne Frank",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "When I let go of what I am, I become what I might be. — Lao Tzu",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Life is not measured by the number of breaths we take, but by the moments that take our breath away. — Maya Angelou",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Happiness is not something readymade.  It comes from your own actions. — Dalai Lama",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "If you’re offered a seat on a rocket ship, don’t ask what seat! Just get on. — Sheryl Sandberg",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "First, have a definite, clear practical ideal; a goal, an objective. Second, have the necessary means to achieve your ends; wisdom, money, materials, and methods. Third, adjust all your means to that end. — Aristotle",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "If the wind will not serve, take to the oars. — Latin Proverb",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "You can’t fall if you don’t climb.  But there’s no joy in living your whole life on the ground. — Unknown",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "We must believe that we are gifted for something, and that this thing, at whatever cost, must be attained. — Marie Curie",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Too many of us are not living our dreams because we are living our fears. — Les Brown",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Challenges are what make life interesting and overcoming them is what makes life meaningful. — Joshua J. Marine",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "If you want to lift yourself up, lift up someone else. — Booker T. Washington",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "I have been impressed with the urgency of doing. Knowing is not enough; we must apply. Being willing is not enough; we must do. — Leonardo da Vinci",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Limitations live only in our minds.  But if we use our imaginations, our possibilities become limitless. — Jamie Paolinetti",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "You take your life in your own hands, and what happens? A terrible thing, no one to blame. — Erica Jong",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "What’s money? A man is a success if he gets up in the morning and goes to bed at night and in between does what he wants to do. — Bob Dylan",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "I didn’t fail the test. I just found 100 ways to do it wrong. — Benjamin Franklin",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "In order to succeed, your desire for success should be greater than your fear of failure. — Bill Cosby",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "A person who never made a mistake never tried anything new. —  Albert Einstein",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "The person who says it cannot be done should not interrupt the person who is doing it. — Chinese Proverb",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "There are no traffic jams along the extra mile. — Roger Staubach",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "It is never too late to be what you might have been. — George Eliot",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "You become what you believe. — Oprah Winfrey",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "I would rather die of passion than of boredom. — Vincent van Gogh",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "A truly rich man is one whose children run into his arms when his hands are empty. — Unknown",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "It is not what you do for your children, but what you have taught them to do for themselves, that will make them successful human beings. — Ann Landers",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "If you want your children to turn out well, spend twice as much time with them, and half as much money. — Abigail Van Buren",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Build your own dreams, or someone else will hire you to build theirs. — Farrah Gray",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "The battles that count aren’t the ones for gold medals. The struggles within yourself–the invisible battles inside all of us–that’s where it’s at. — Jesse Owens",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Education costs money.  But then so does ignorance. — Sir Claus Moser",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "I have learned over the years that when one’s mind is made up, this diminishes fear. — Rosa Parks",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "It does not matter how slowly you go as long as you do not stop. — Confucius",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "If you look at what you have in life, you’ll always have more. If you look at what you don’t have in life, you’ll never have enough. — Oprah Winfrey",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Remember that not getting what you want is sometimes a wonderful stroke of luck. — Dalai Lama",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "You can’t use up creativity.  The more you use, the more you have. — Maya Angelou",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Dream big and dare to fail. — Norman Vaughan",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Our lives begin to end the day we become silent about things that matter. — Martin Luther King Jr.",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Do what you can, where you are, with what you have. — Teddy Roosevelt",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "If you do what you’ve always done, you’ll get what you’ve always gotten. — Tony Robbins",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Dreaming, after all, is a form of planning. — Gloria Steinem",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "It’s your place in the world; it’s your life. Go on and do all you can with it, and make it the life you want to live. — Mae Jemison",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "You may be disappointed if you fail, but you are doomed if you don’t try. — Beverly Sills",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Remember no one can make you feel inferior without your consent. — Eleanor Roosevelt",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Life is what we make it, always has been, always will be. — Grandma Moses",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "The question isn’t who is going to let me; it’s who is going to stop me. — Ayn Rand",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "When everything seems to be going against you, remember that the airplane takes off against the wind, not with it. — Henry Ford",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "It’s not the years in your life that count. It’s the life in your years. — Abraham Lincoln",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Change your thoughts and you change your world. — Norman Vincent Peale",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Either write something worth reading or do something worth writing. — Benjamin Franklin",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Nothing is impossible, the word itself says, “I’m possible!” — Audrey Hepburn",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "The only way to do great work is to love what you do. — Steve Jobs",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+      <li
+        className="sc-EHOje etNHJh"
+      >
+        <div
+          className="edit-quote"
+          contentEditable={true}
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "If you can dream it, you can achieve it. — Zig Ziglar",
+            }
+          }
+          disabled={false}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onInput={[Function]}
+        />
+        <i
+          className="remove icon"
+          onClick={[Function]}
+        />
+      </li>
+    </ul>
   </div>
 </div>
 `;
