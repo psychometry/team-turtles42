@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import AddForm from '../Todo/components/AddForm';
 import Item from '../Todo/components/Item';
 import './Focus.scss';
