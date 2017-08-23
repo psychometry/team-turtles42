@@ -30,11 +30,13 @@ function collectDrop(connect){
     connectDropTarget: connect.dropTarget(),
   }
 }
-const TodoItem = ({isDragging, connectDragSource, connectDropTarget, ...rest})=>{
+const TodoItem = ({isDragging, connectDragSource, connectDropTarget, item, toggleTodo, deleteTodo})=>{
   return(
     <Item
       className='TodoItem'
-      {...rest}
+      item={item}
+      toggleItem={toggleTodo}
+      deleteItem={deleteTodo}
       ref={
         instance=>{
           connectDragSource(findDOMNode(instance));
