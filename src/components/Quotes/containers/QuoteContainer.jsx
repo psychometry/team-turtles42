@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { parseQuote } from '../../../quotesHelpers';
 import Quote from '../components/Quote';
 
 class QuoteContainer extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       listName: '',
       quote: {}
@@ -33,6 +34,12 @@ class QuoteContainer extends Component {
       />
     );
   }
+}
+
+QuoteContainer.propTypes = {
+  quote: PropTypes.object.isRequired,
+  listName: PropTypes.string.isRequired,
+  onRemoveQuote: PropTypes.func.isRequired
 }
 
 export default QuoteContainer;

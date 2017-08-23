@@ -2,23 +2,24 @@
 
 exports[`should render CurrentQuote 1`] = `
 <div
-  className="Current-Quote"
+  className="sc-bdVaJa iMTDGv"
 >
   <blockquote>
-    <p>
+    <p
+      className="sc-bwzfXH ffjyNP"
+    >
       One love
     </p>
-    <div
-      className="quote-source"
+    <p
+      className="sc-htpNat kUuuSH"
     >
       Bob Marley
        
       <i
-        aria-hidden="true"
         className="empty heart icon"
         onClick={[Function]}
       />
-    </div>
+    </p>
   </blockquote>
 </div>
 `;

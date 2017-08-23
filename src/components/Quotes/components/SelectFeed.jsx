@@ -1,6 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../Quotes.scss';
+import styled from 'styled-components';
+
+const Div = styled.div`
+  margin-right: 20px;
+  margin-bottom: 20px;
+  font-size: 1em;
+  color: silver; 
+  label select {
+    margin-left: 10px;
+    max-width: 100px;
+    color: white;
+    padding: 0;
+    background: transparent;
+    outline: none;
+    border: none;
+  }
+`;
 
 const propTypes = {
   lists: PropTypes.arrayOf(PropTypes.shape({
@@ -14,7 +30,7 @@ const propTypes = {
   onChangeList: PropTypes.func.isRequired
 };
 
-const SelectList = ({ lists, defaultList, onChangeList }) => {
+const SelectFeed = ({ lists, defaultList, onChangeList }) => {
   const options = lists.map(list => {
     return (<option key={list.name} value={list.name}>{list.name}</option>); 
   });
@@ -24,9 +40,9 @@ const SelectList = ({ lists, defaultList, onChangeList }) => {
     onChangeList(event.target.value);
   }
   return (
-    <div className="select-list">
+    <Div>
       <label>
-        Show: 
+        Feed: 
         <select 
           value={defaultList.name}
           onChange={handleChange}
@@ -34,10 +50,10 @@ const SelectList = ({ lists, defaultList, onChangeList }) => {
           {options}
         </select>
       </label>
-    </div>
+    </Div>
   )
 };
 
-SelectList.propTypes = propTypes;
+SelectFeed.propTypes = propTypes;
 
-export default SelectList;
+export default SelectFeed;

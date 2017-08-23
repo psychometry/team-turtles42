@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Menu from './Menu';
-import NewList from './NewList';
 import NewQuote from './NewQuote';
 import Quotes from './Quotes';
-import '../Quotes.scss';
+
+const Container = styled.div`
+  height: 30px;
+  width: 100%;
+`;
 
 const propTypes = {
   lists: PropTypes.array.isRequired,
@@ -20,18 +24,18 @@ class Tabs extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      active: props.defaultList.name
+      activeTab: props.defaultList.name
     };
   }
   setList() {
     const list = this.props.lists.filter(list => {
-      return list.name === this.state.active;
+      return list.name === this.state.activeTab;
     })[0];
 
     return list ? list : this.props.defaultList;
   }
   changeList = (listName) => {
-    this.setState({ active: listName });
+    this.setState({ activeTab: listName });
   }
   render() {
     const { 
@@ -39,30 +43,32 @@ class Tabs extends Component {
       onAddList,
       onRemoveList, 
       // onUpdateList, 
+      showingNewQuote,
       onAddQuote,
       onRemoveQuote, 
       onUpdateQuote 
     } = this.props;
 
-    const { active } = this.state;
+    const { activeTab } = this.state;
     
     return (
-      <div className="Quote-Lists">
+      <Container>
         <Menu
-          active={active}
+          activeTab={activeTab}
           onChangeList={this.changeList}
           lists={lists} 
           onAddList={onAddList}
           onRemoveList={onRemoveList}
         /> 
-        <NewList onAddList={onAddList} />  
-        <NewQuote listName={active} onAddQuote={onAddQuote} />
+        {showingNewQuote && 
+          <NewQuote listName={activeTab} onAddQuote={onAddQuote} />
+        }
         <Quotes 
           list={this.setList()} 
           onRemoveQuote={onRemoveQuote}
           onUpdateQuote={onUpdateQuote}  
         />  
-      </div>
+      </Container>
     );
   }
 }
