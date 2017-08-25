@@ -1,0 +1,38 @@
+@import '../../styles/variables.scss';
+.Welcome_text{
+  font-size:3em;
+}
+.Welcome_Add{
+  font-size: 3em;
+  display: flex;
+  border:1px solid $white;
+  span.input{
+    flex:4;
+  }
+  span.submit{
+    flex:1;
+  }
+  button{
+    padding: 0;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    border-left: 1px solid white;
+    width: 100%;
+    &:focus{
+      outline: none;
+    }
+  }
+  input{
+    &::placeholder{
+      color: rgba(255, 255, 255, 0.5);
+    }
+    background-color: rgba(0,0,0,0);
+    border:none;
+    width: 100%;
+    &:focus{
+      outline: none;
+      background-color: rgba(255, 255, 255, 0.5);
+      color: $white;
+    }
+  }
+}
