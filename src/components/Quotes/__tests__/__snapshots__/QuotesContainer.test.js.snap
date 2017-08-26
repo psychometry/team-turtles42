@@ -1,11 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render CurrentQuote 1`] = `
-<div
-  className="sc-htoDjs daYDct"
->
+<div>
   <div
-    className="sc-dnqmqq bhTNrb"
+    className="sc-htpNat bNcoau"
   >
     <div
       className="feeds"
@@ -38,8 +36,7 @@ exports[`should render CurrentQuote 1`] = `
       </form>
     </div>
     <a
-      className="sc-iwsKbI izYgjE"
-      onClick={[Function]}
+      className="sc-bxivhb kVpaKh"
     >
       <i
         className="plus icon"
@@ -48,13 +45,13 @@ exports[`should render CurrentQuote 1`] = `
     </a>
   </div>
   <div
-    className="sc-gzVnrw iyXGyH"
+    className="sc-dnqmqq hXzvRt"
   >
     <div
-      className="sc-htpNat dBlZeE"
+      className="sc-ifAKCX eDmXkM"
     >
       <a
-        className="sc-bxivhb bdpbxr"
+        className="sc-EHOje binnvs"
         onClick={[Function]}
       >
         Default
@@ -65,10 +62,10 @@ exports[`should render CurrentQuote 1`] = `
       </a>
     </div>
     <ul
-      className="sc-bZQynM hySncT"
+      className="sc-htoDjs jyxWJe"
     >
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -89,7 +86,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -110,7 +107,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -131,7 +128,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -152,7 +149,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -173,7 +170,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -194,7 +191,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -215,7 +212,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -236,7 +233,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -257,7 +254,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -278,7 +275,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -299,7 +296,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -320,7 +317,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -341,7 +338,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -362,7 +359,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -383,7 +380,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -404,7 +401,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -425,7 +422,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -446,7 +443,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -467,7 +464,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -488,7 +485,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -509,7 +506,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -530,7 +527,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -551,7 +548,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -572,7 +569,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -593,7 +590,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -614,7 +611,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -635,7 +632,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -656,7 +653,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -677,7 +674,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -698,7 +695,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -719,7 +716,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -740,7 +737,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -761,7 +758,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -782,7 +779,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -803,7 +800,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -824,7 +821,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -845,7 +842,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -866,7 +863,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -887,7 +884,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -908,7 +905,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -929,7 +926,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -950,7 +947,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -971,7 +968,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -992,7 +989,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1013,7 +1010,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1034,7 +1031,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1055,7 +1052,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1076,7 +1073,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1097,7 +1094,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1118,7 +1115,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1139,7 +1136,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1160,7 +1157,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1181,7 +1178,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1202,7 +1199,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1223,7 +1220,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1244,7 +1241,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1265,7 +1262,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1286,7 +1283,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1307,7 +1304,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1328,7 +1325,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1349,7 +1346,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1370,7 +1367,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1391,7 +1388,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1412,7 +1409,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1433,7 +1430,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1454,7 +1451,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1475,7 +1472,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1496,7 +1493,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1517,7 +1514,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1538,7 +1535,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1559,7 +1556,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1580,7 +1577,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1601,7 +1598,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1622,7 +1619,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1643,7 +1640,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1664,7 +1661,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1685,7 +1682,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1706,7 +1703,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1727,7 +1724,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1748,7 +1745,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1769,7 +1766,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1790,7 +1787,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1811,7 +1808,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1832,7 +1829,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1853,7 +1850,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1874,7 +1871,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1895,7 +1892,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1916,7 +1913,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1937,7 +1934,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1958,7 +1955,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -1979,7 +1976,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -2000,7 +1997,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -2021,7 +2018,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -2042,7 +2039,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -2063,7 +2060,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -2084,7 +2081,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -2105,7 +2102,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -2126,7 +2123,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -2147,7 +2144,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -2168,7 +2165,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"
@@ -2189,7 +2186,7 @@ exports[`should render CurrentQuote 1`] = `
         />
       </li>
       <li
-        className="sc-EHOje etNHJh"
+        className="sc-gzVnrw fZhKKC"
       >
         <div
           className="edit-quote"

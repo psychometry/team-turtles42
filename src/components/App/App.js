@@ -102,11 +102,11 @@ class App extends Component {
           </header>
 
           <main>
-            <Clock
+            {/* <Clock
                 time={time}
                 updateTime={updateTime}
-            />
-            <Message time={time} name={name}/>
+            /> */}
+            {/* <Message time={time} name={name}/> */}
             <Focus
               focus={focus}
               setFocus={setFocus}
@@ -117,7 +117,7 @@ class App extends Component {
 
           <footer>
             <SettingsContainer />
-            <CurrentQuoteContainer />
+            {/* <CurrentQuoteContainer /> */}
             <ListContainer/>
           </footer>
         </div>

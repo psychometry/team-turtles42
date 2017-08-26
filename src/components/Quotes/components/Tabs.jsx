@@ -11,38 +11,37 @@ const Container = styled.div`
 `;
 
 const propTypes = {
-  lists: PropTypes.array.isRequired,
-  onAddList: PropTypes.func.isRequired,
-  onRemoveList: PropTypes.func.isRequired,
+  quoteFeeds: PropTypes.array.isRequired,
+  onRemoveFeed: PropTypes.func.isRequired,
   // TODO: onUpdateList: Proptypes.func.isRequired,
-  onAddQuote: PropTypes.func.isRequired,
-  onRemoveQuote: PropTypes.func.isRequired,
-  onUpdateQuote: PropTypes.func.isRequired
+  // onAddQuote: PropTypes.func.isRequired,
+  // onRemoveQuote: PropTypes.func.isRequired,
+  // onUpdateQuote: PropTypes.func.isRequired
 }
 
 class Tabs extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeTab: props.defaultList.name
+      activeTab: props.currentFeed.name
     };
   }
-  setList() {
-    const list = this.props.lists.filter(list => {
-      return list.name === this.state.activeTab;
-    })[0];
+  // setList() {
+  //   const feed = this.props.quoteFeeds.filter(feed => {
+  //     return feed.name === this.state.activeTab;
+  //   })[0];
 
-    return list ? list : this.props.defaultList;
+  //   return feed ? feed : this.props.defaultList;
+  // }
+  changeTab = (name) => {
+    this.setState({ activeTab: name });
   }
-  changeList = (listName) => {
-    this.setState({ activeTab: listName });
-  }
+
   render() {
     const { 
-      lists, 
-      onAddList,
-      onRemoveList, 
-      // onUpdateList, 
+      quoteFeeds, 
+      onRemoveFeed,
+      onChangeFeed, 
       showingNewQuote,
       onAddQuote,
       onRemoveQuote, 
@@ -55,19 +54,18 @@ class Tabs extends Component {
       <Container>
         <Menu
           activeTab={activeTab}
-          onChangeList={this.changeList}
-          lists={lists} 
-          onAddList={onAddList}
-          onRemoveList={onRemoveList}
+          onChangeTab={this.changeTab}
+          quoteFeeds={quoteFeeds} 
+          onRemoveFeed={onRemoveFeed}
         /> 
-        {showingNewQuote && 
-          <NewQuote listName={activeTab} onAddQuote={onAddQuote} />
+        {/* {showingNewQuote && 
+          <NewQuote feedName={activeTab} onAddQuote={onAddQuote} />
         }
         <Quotes 
-          list={this.setList()} 
+          feed={this.setList()} 
           onRemoveQuote={onRemoveQuote}
           onUpdateQuote={onUpdateQuote}  
-        />  
+        />   */}
       </Container>
     );
   }

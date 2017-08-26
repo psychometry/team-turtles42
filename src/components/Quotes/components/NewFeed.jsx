@@ -14,10 +14,10 @@ const Form = styled.form`
   }
 `;
 
-const NewFeed = ({ onAddList }) => {
+const NewFeed = ({ onAddFeed }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
-    onAddList(listName.value);
+    onAddFeed(listName.value);
     listName.value = '';
   }
 
@@ -35,7 +35,7 @@ const NewFeed = ({ onAddList }) => {
 };
 
 NewFeed.propTypes = {
-  onAddList: PropTypes.func.isRequired
+  onAddFeed: PropTypes.func.isRequired
 };
 
 export default NewFeed;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Tabs from '../components/Tabs';
-import QuotesContainer from '../../Quotes/containers/QuotesContainer';
+import QuoteSettingsContainer from '../../Quotes/containers/QuoteSettingsContainer';
 
 const Container = styled.div`
   z-index: 100;
@@ -54,7 +54,7 @@ const tabs = [
   },
   {
     name: 'Quotes',
-    content: <QuotesContainer />
+    content: <QuoteSettingsContainer />
   },
   {
     name: 'Links',

@@ -35,36 +35,35 @@ const Link = styled.a`
   }
 `;
 
-const Menu = ({ lists, activeTab, onChangeList, onAddList, onRemoveList }) => {
-  // Prevent lists from reordering after adding a quote
-  // Find a better solution
-  lists = lists.sort((a, b) => {
-    return a.name > b.name;
-  });
-
-  const handleClick = (event, name) => {
+const Menu = ({ 
+  quoteFeeds, 
+  activeTab, 
+  onChangeTab, 
+  onRemoveFeed 
+}) => {
+  const handleChangeTab = (event, name) => {
     event.preventDefault();
-    onChangeList(name);
+    onChangeTab(name);
   }
-  const handleRemoveClick = (event, name) => {
+  const handleRemoveFeed = (event, name) => {
     event.preventDefault();
-    onRemoveList(name);
+    onRemoveFeed(name);
   }
 
-  const menuItems = lists.map(list => {
-    const active = activeTab === list.name ? true : false;
-    const { name } = list;
+  const menuItems = quoteFeeds.map(feed => {
+    const active = activeTab === feed.name ? true : false;
+    const { name } = feed;
 
     return (
       <Link
         active={active}
         key={name}
-        onClick={(event) => handleClick(event, name)}
+        onClick={(event) => handleChangeTab(event, name)}
       >
         {name}
         <i 
-          className={lists.length === 1 ? '' : 'remove icon'}
-          onClick={(event) => handleRemoveClick(event, name)} 
+          className={feed.name === 'Default' ? '' : 'remove icon'}
+          onClick={(event) => handleRemoveFeed(event, name)} 
         />
       </Link>
     );
@@ -78,8 +77,9 @@ const Menu = ({ lists, activeTab, onChangeList, onAddList, onRemoveList }) => {
 };
 
 Menu.propTypes = {
+  quoteFeeds: PropTypes.array.isRequired,
   activeTab: PropTypes.string.isRequired,
-  onChangeList: PropTypes.func.isRequired,
+  onRemoveFeed: PropTypes.func.isRequired
 }
 
 export default Menu;
