@@ -5,7 +5,7 @@
   background-size: cover;
   background-position: center;
   //background-color: $testing-color;
-  grid-template-rows: 150px 1fr 150px;
+  grid-template-rows: 25% 50% 25%;
   height: 100vh;
   text-shadow:0 1px 5px rgba(0,0,0,.1);
 }
@@ -14,13 +14,11 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-// Temporary
-.Time, .Message, .Focus {
-  // background-color: $transparent;
-  width: 100%;
-  max-width: 700px;
-  //max-height: 100px;
-  text-align: center;
+  div {
+    // background-color: $transparent;
+    width: 100%;
+    max-width: 700px;
+    //max-height: 100px;
+    text-align: center;
+  }
 }

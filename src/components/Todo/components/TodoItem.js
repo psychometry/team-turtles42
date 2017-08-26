@@ -32,6 +32,8 @@ function collectDrop(connect){
 }
 const TodoItem = ({isDragging, connectDragSource, connectDropTarget, item, toggleTodo, deleteTodo})=>{
   return(
+    // React Drag and Drop Connect* methods requires DOM components
+    // ref = instance=>findDOMNode(instance) is a hack to grab the DOM node of Item
     <Item
       className='TodoItem'
       item={item}
