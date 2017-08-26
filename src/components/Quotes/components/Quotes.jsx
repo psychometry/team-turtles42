@@ -1,33 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import QuoteContainer from '../containers/QuoteContainer';
+import Quote from './Quote';
 
 const Ul = styled.ul`
   margin: 0;
 `;
 
 const propTypes = {
-  list: PropTypes.object.isRequired,
+  feed: PropTypes.object.isRequired,
   onRemoveQuote: PropTypes.func.isRequired,
   onUpdateQuote: PropTypes.func.isRequired
   // TODO: // onLikeQuote: PropTypes.func.isRequired 
 }
 
 const defaultProps = {
-  list: {},
+  feed: {},
   onRemoveQuote: () => {},
   onUpdateQuote: () => {}
 };
 
-const Quotes = ({ list, onRemoveQuote, onUpdateQuote }) => {
-  const { name = '', quotes = [] } = list;
+const Quotes = ({ feed, onRemoveQuote, onUpdateQuote }) => {
+  const { name = '', quotes = [] } = feed;
   const quoteItems = quotes.map((quote) => {
+    
     return (
-      <QuoteContainer 
+      <Quote 
         key={quote.id} 
         quote={quote} 
-        listName={name}
+        feedName={name}
         onRemoveQuote={onRemoveQuote}
         onUpdateQuote={onUpdateQuote}
       />

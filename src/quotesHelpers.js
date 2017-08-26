@@ -22,12 +22,9 @@ export const loadDefaultFeeds= () => {
 };
 
 export const loadDefaultFeed = () => {
-  
-  const defaultFeed =  { 
+  return { 
     name: 'Default', 
     quotes: defaultQuotes,
   };
-  console.log(defaultFeed);
-  return defaultFeed;
 };
 

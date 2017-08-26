@@ -20,7 +20,7 @@ const Form = styled.form`
 `;
 
 const propTypes = {
-  listName: PropTypes.string.isRequired,
+  feedName: PropTypes.string.isRequired,
   onAddQuote: PropTypes.func.isRequired
 }
 
@@ -30,11 +30,11 @@ class NewQuote extends Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    const { listName, onAddQuote } = this.props;
+    const { feedName, onAddQuote } = this.props;
     const [text, source] = parseQuote(this.newQuote.value);
     
     if (text && source) {
-      onAddQuote(listName, text, source);
+      onAddQuote(feedName, text, source);
       this.newQuote.value = '';
     } else {
       // TODO: Add user notification

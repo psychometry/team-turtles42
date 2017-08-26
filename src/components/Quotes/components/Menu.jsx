@@ -48,6 +48,7 @@ const Menu = ({
   const handleRemoveFeed = (event, name) => {
     event.preventDefault();
     onRemoveFeed(name);
+    // TODO: Change current feed to next feed or Default if removing it
   }
 
   const menuItems = quoteFeeds.map(feed => {

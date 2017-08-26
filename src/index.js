@@ -25,11 +25,12 @@ const defaultState={
     viewFilter:null,
   },
   quoteFeeds: loadFromStorage('feeds')
-    ? loadFromStorage('feeds')
-    : loadDefaultFeeds(),
+  ? loadFromStorage('feeds')
+  : loadDefaultFeeds(),
   currentFeed: loadFromStorage('currentFeed')
-    ? loadFromStorage('currentFeed')
-    : loadDefaultFeed()
+  ? loadFromStorage('currentFeed')
+  : loadDefaultFeed(),
+  showNewQuote: false
 };
 
 const store=createStore(rootReducer,defaultState,applyMiddleware(thunk));

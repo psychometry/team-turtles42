@@ -13,7 +13,7 @@ const Div = styled.div`
   }
 `;
 
-const AddQuote = styled.a`
+const NewQuote = styled.a`
   height: 30px;
   border: none;
   color: ${({showingNewQuote}) => showingNewQuote ? 'white' : 'rgba(255,255,255,.5)'};
@@ -34,10 +34,13 @@ const FeedSettings = ({
   onAddFeed,
   currentFeed, 
   onChangeFeed, 
-  onToggleNewQuote,
-  onNewQuoteClick 
+  showNewQuote,
+  onToggleNewQuote
 }) => {
 
+  const handleNewQuoteClick = () => {
+    onToggleNewQuote();
+  }
   return (
     <Div>
       <div className="feeds">
@@ -48,10 +51,10 @@ const FeedSettings = ({
         />
         <NewFeed onAddFeed={onAddFeed} />  
       </div>
-      {/* <AddQuote showingNewQuote={showingNewQuote} onNewQuoteClick={onNewQuoteClick}>
+      <NewQuote showNewQuote={showNewQuote} onClick={handleNewQuoteClick}>
         <i className="plus icon" />
         Add Quote
-      </AddQuote> */}
+      </NewQuote>
     </Div>
   );
 };
