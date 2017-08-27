@@ -19,33 +19,31 @@ const Div = styled.div`
 `;
 
 const propTypes = {
-  lists: PropTypes.arrayOf(PropTypes.shape({
+  currentFeed: PropTypes.string.isRequired,
+  onChangeFeed: PropTypes.func.isRequired,
+  quoteFeeds: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
-    quotes: PropTypes.array.isRequired
-  })),
-  defaultList: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    quotes: PropTypes.array.isRequired
-  }),
-  onChangeList: PropTypes.func.isRequired
+    quotes: PropTypes.array.isRequired,
+  }))
 };
 
-const SelectFeed = ({ lists, defaultList, onChangeList }) => {
-  const options = lists.map(list => {
-    return (<option key={list.name} value={list.name}>{list.name}</option>); 
+const SelectFeed = ({ quoteFeeds, currentFeed, onChangeFeed }) => {
+  const options = quoteFeeds.map(feed => {
+    return (<option key={feed.name} value={feed.name}>{feed.name}</option>); 
   });
-
-  const handleChange = (event) => {
+  const handleFeedChange = (event) => {
     event.preventDefault();
-    onChangeList(event.target.value);
-  }
+    const newFeed = quoteFeeds.find(feed => feed.name === event.target.value);
+    onChangeFeed(newFeed);
+  };
+
   return (
     <Div>
       <label>
         Feed: 
         <select 
-          value={defaultList.name}
-          onChange={handleChange}
+          value={currentFeed}
+          onChange={handleFeedChange}
         >
           {options}
         </select>

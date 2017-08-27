@@ -1,14 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import ContentEditable from 'react-contenteditable';
-
-const propTypes = {
-  listName: PropTypes.string.isRequired,
-  quote: PropTypes.object.isRequired,
-  onChange: PropTypes.func.isRequired,
-  onBlur: PropTypes.func.isRequired
-};
+import PropTypes from 'prop-types';
+import { parseQuote } from '../../../quotesHelpers';
 
 const Li = styled.li`
   display: flex;
@@ -34,25 +28,51 @@ const Li = styled.li`
   }
 `;
 
-const Quote = ({ listName, quote, onRemoveQuote, onChange, onBlur }) => {
-  const { id, text, source, /*liked*/ } = quote;
+class Quote extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      feedName: '',
+      quote: {}
+    }
+  }
 
-  return (
-    <Li>
-      <ContentEditable
-        className="edit-quote"
-        html={`${text} \u2014 ${source}`} 
-        disabled={false} 
-        onBlur={onBlur}
-        onChange={(event) => onChange(event, listName, id)} 
-      />
-      {/* <i className="empty heart icon" onClick={} /> */}
-      <i className="remove icon" onClick={() => onRemoveQuote(listName, id)} />
-    </Li>
-  );
+  handleUpdateQuote(event, feedName, id) {
+    const [ text, source ] = parseQuote(event.target.value);
+    this.setState({ feedName, quote: { id, text, source } });
+  };
 
-};
+  handleBlur = () => {
+    if (this.state.feedName) {
+      const { feedName, quote } = this.state;
+      this.props.onUpdateQuote(feedName, quote);
+    }
+  }
+  
+  render() {
+    const { quote, feedName, onRemoveQuote } = this.props;
+    const { id, text, source, /*liked*/ } = quote;
 
-Quote.propTypes = propTypes;
+    return (
+      <Li>
+        <ContentEditable
+          className="edit-quote"
+          html={`${text} \u2014 ${source}`} 
+          disabled={false} 
+          onBlur={this.handleBlur}
+          onChange={(event) => this.handleUpdateQuote(event, feedName, id)} 
+        />
+        {/* <i className="empty heart icon" onClick={} /> */}
+        <i className="remove icon" onClick={() => onRemoveQuote(feedName, id)} />
+      </Li>
+    );
+  }
+}
+
+Quote.propTypes = {
+  quote: PropTypes.object.isRequired,
+  feedName: PropTypes.string.isRequired,
+  onRemoveQuote: PropTypes.func.isRequired
+}
 
 export default Quote;

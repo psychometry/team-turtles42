@@ -6,17 +6,25 @@ export const parseQuote = (quote) => {
   return quote
     .split(/-|\u2014/) // hyphen or &mdash;
     .map(item => typeof item === 'string' ? item.trim() : item);
-}
+};
 
-export const loadDefaultLists = () => {
+export const loadDefaultFeeds= () => {
   defaultQuotes.forEach(quote => {
     quote.id = v4();
   });
 
-  return [{ name: 'Default', quotes: defaultQuotes }];
-}
+  return [
+    { 
+      name: 'Default', 
+      quotes: defaultQuotes,
+    }
+  ];
+};
 
-export const loadDefaultList = () => {
-  return loadDefaultLists()[0];
-}
+export const loadDefaultFeed = () => {
+  return { 
+    name: 'Default', 
+    quotes: defaultQuotes,
+  };
+};
 

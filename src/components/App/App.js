@@ -117,7 +117,7 @@ class App extends Component {
 
           <footer>
             <SettingsContainer />
-            <CurrentQuoteContainer />
+            {/* <CurrentQuoteContainer /> */}
             <ListContainer/>
           </footer>
         </div>

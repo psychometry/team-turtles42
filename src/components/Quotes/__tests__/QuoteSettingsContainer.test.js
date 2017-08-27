@@ -1,10 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import QuotesContainer from '../containers/QuotesContainer';
+import QuoteSettingsContainer from '../containers/QuoteSettingsContainer';
 
 // console.log(localStorage.getItem);
 
 it('should render CurrentQuote', () => {
-  const tree = renderer.create(<QuotesContainer />).toJSON();
+  const tree = renderer.create(<QuoteSettingsContainer />).toJSON();
   expect(tree).toMatchSnapshot();
 });

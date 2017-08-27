@@ -4,13 +4,15 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   display: flex;
-  `;
-  const Menu = styled.div`
+`;
+
+const Menu = styled.div`
   display: flex;
   flex-direction: column;
   margin-right: 40px;
-  `;
-  const Pane = styled.div`
+`;
+
+const Pane = styled.div`
   height: 460px;
   width: 100%;
   overflow-y: auto;
@@ -37,7 +39,12 @@ const propTypes = {
   onChangeTab: PropTypes.func.isRequired
 };
 
-const Tabs = ({ children: tabs, activeTab: index, onChangeTab }) => {
+const Tabs = ({ 
+  children: tabs, 
+  activeTab: index, 
+  onChangeTab,
+  onAddFeed
+}) => {
   
   const handleClick = (event, index) => {
     event.preventDefault();
@@ -56,14 +63,14 @@ const Tabs = ({ children: tabs, activeTab: index, onChangeTab }) => {
         </Link>
       );
     });
-  };
+  }
   
   const renderPane = ({ name, content }) => <Pane key={name}>{content}</Pane>;
 
   return (
     <Container>
       <Menu>{renderMenu(tabs)}</Menu>
-      <Pane>{renderPane(tabs[index])}</Pane>
+      {renderPane(tabs[index])}
     </Container>
   );
 }

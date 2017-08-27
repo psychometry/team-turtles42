@@ -4,7 +4,9 @@ import focusReducer from './focusReducer';
 import appReducer from './appReducer';
 import timeReducer from './timeReducer';
 import bgReducer from './bgReducer';
-import nameReducer from './nameReducer'
+import nameReducer from './nameReducer';
+import { currentFeed, quoteFeeds, showNewQuote } from './quoteFeedReducers';
+
 const rootReducer=combineReducers(
   {
     app:appReducer,
@@ -12,7 +14,10 @@ const rootReducer=combineReducers(
     focus:focusReducer,
     todo:todoReducers,
     background:bgReducer,
-    name:nameReducer
+    name:nameReducer,
+    currentFeed,
+    quoteFeeds,
+    showNewQuote,
   }
 );
 

@@ -7,7 +7,12 @@ import * as BgActionCreators from '../../actions/BgActionCreators';
 import * as NameActionCreators from '../../actions/NameActionCreators';
 
 const mapStateToProps=(state)=>{
-  return {focus:state.focus,time:state.time, background:state.background, name:state.name};
+  return {
+    focus:state.focus,
+    time:state.time,
+    background:state.background,
+    name:state.name,
+  };
 }
 const mapDispatchToProps=(dispatch)=>{
   return Object.assign(
@@ -15,7 +20,7 @@ const mapDispatchToProps=(dispatch)=>{
     bindActionCreators(FocusActionCreators,dispatch),
     bindActionCreators(TimeActionCreators,dispatch),
     bindActionCreators(BgActionCreators,dispatch),
-    bindActionCreators(NameActionCreators,dispatch)
+    bindActionCreators(NameActionCreators,dispatch),
   );
 }
 

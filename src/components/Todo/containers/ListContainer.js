@@ -69,7 +69,11 @@ const mapStateToProps=(state)=>{
   }
 }
 const mapDispatchToProps=(dispatch)=>{
-  return Object.assign({},bindActionCreators(TodoActionCreators,dispatch), bindActionCreators(AppActionCreators,dispatch));
+  return Object.assign(
+    {},
+    bindActionCreators(TodoActionCreators,dispatch),
+    bindActionCreators(AppActionCreators,dispatch)
+  );
 }
 const ListContainer=connect(mapStateToProps,mapDispatchToProps)(TodoList);
 export default ListContainer;

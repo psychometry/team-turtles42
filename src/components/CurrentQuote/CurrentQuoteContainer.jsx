@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { loadFromStorage } from '../../localStorage';
-import { loadDefaultList } from '../../quotesHelpers';
+import { loadDefaultFeed } from '../../quotesHelpers';
 import CurrentQuote from './CurrentQuote';
 
 class CurrentQuoteContainer extends Component {
@@ -18,7 +18,7 @@ class CurrentQuoteContainer extends Component {
   setCurrentQuote() {
     const defaultList = loadFromStorage('defaultList') 
       ? loadFromStorage('defaultList')
-      : loadDefaultList();
+      : loadDefaultFeed();
 
     const { quotes } = defaultList;
 
