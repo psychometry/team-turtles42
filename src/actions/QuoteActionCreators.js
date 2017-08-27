@@ -1,7 +1,8 @@
 export const TOGGLE_NEW_QUOTE = 'TOGGLE_NEW_QUOTE',
 ADD_QUOTE = 'ADD_QUOTE', 
 REMOVE_QUOTE = 'REMOVE_QUOTE',
-UPDATE_QUOTE = 'UPDATE_QUOTE';
+UPDATE_QUOTE = 'UPDATE_QUOTE',
+TOGGLE_LIKE = 'TOGGLE_LIKE';
 
 export const toggleNewQuote = () => {
   return {
@@ -9,28 +10,38 @@ export const toggleNewQuote = () => {
   }
 };
 
-export const addQuote = (name, text, source) => {
+export const addQuote = (feedName, text, source) => {
   return {
     type: ADD_QUOTE,
-    name,
+    feedName,
     text,
     source
   };
 };
 
-export const removeQuote = (name, id) => {
+export const removeQuote = (feedName, id) => {
+  console.log(feedName);
   return {
     type: REMOVE_QUOTE,
-    name,
+    feedName,
     id
   }
 };
 
-export const updateQuote = (name, quote) => {
+export const updateQuote = (feedName, quote) => {
   return {
     type: UPDATE_QUOTE,
-    name,
-    quote
+    feedName,
+    quote,
+    id: quote.id
+  }
+};
+
+export const toggleLike = (feedName, id) => {
+  return {
+    type: TOGGLE_LIKE,
+    feedName,
+    id
   }
 };
 

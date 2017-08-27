@@ -22,18 +22,18 @@ const propTypes = {
   currentFeed: PropTypes.string.isRequired,
   onChangeFeed: PropTypes.func.isRequired,
   quoteFeeds: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string.isRequired,
+    feedName: PropTypes.string.isRequired,
     quotes: PropTypes.array.isRequired,
   }))
 };
 
 const SelectFeed = ({ quoteFeeds, currentFeed, onChangeFeed }) => {
   const options = quoteFeeds.map(feed => {
-    return (<option key={feed.name} value={feed.name}>{feed.name}</option>); 
+    return (<option key={feed.feedName} value={feed.feedName}>{feed.feedName}</option>); 
   });
   const handleFeedChange = (event) => {
     event.preventDefault();
-    const newFeed = quoteFeeds.find(feed => feed.name === event.target.value);
+    const newFeed = quoteFeeds.find(feed => feed.feedName === event.target.value);
     onChangeFeed(newFeed);
   };
 

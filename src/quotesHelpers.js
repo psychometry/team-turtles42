@@ -1,5 +1,5 @@
-import v4 from 'uuid/v4';
-import defaultQuotes from './quotes.json';
+import { loadFromStorage } from './localStorage';
+import defaultQuoteFeeds from './defaultQuoteFeeds.json';
 
 // Quotes helpers
 export const parseQuote = (quote) => {
@@ -8,23 +8,16 @@ export const parseQuote = (quote) => {
     .map(item => typeof item === 'string' ? item.trim() : item);
 };
 
-export const loadDefaultFeeds= () => {
-  defaultQuotes.forEach(quote => {
-    quote.id = v4();
-  });
+export const loadDefaultQuoteFeeds = () => defaultQuoteFeeds;
 
-  return [
-    { 
-      name: 'Default', 
-      quotes: defaultQuotes,
-    }
-  ];
-};
+export const loadDefaultQuoteFeed = () => defaultQuoteFeeds[0];
 
-export const loadDefaultFeed = () => {
-  return { 
-    name: 'Default', 
-    quotes: defaultQuotes,
+export const loadCurrentQuote = () => {
+  const currentFeed = loadFromStorage('currentFeed') || defaultQuoteFeeds[0];
+  const { quotes } = currentFeed;
+
+  return {
+    quote: quotes[Math.floor(Math.random() * quotes.length)],
+    feedName: currentFeed.feedName
   };
 };
-

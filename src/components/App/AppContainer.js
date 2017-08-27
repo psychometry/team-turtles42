@@ -15,13 +15,14 @@ const mapStateToProps=(state)=>{
   };
 }
 const mapDispatchToProps=(dispatch)=>{
-  return Object.assign(
+  const dispatchObj = Object.assign(
     {},
     bindActionCreators(FocusActionCreators,dispatch),
     bindActionCreators(TimeActionCreators,dispatch),
     bindActionCreators(BgActionCreators,dispatch),
     bindActionCreators(NameActionCreators,dispatch),
   );
+  return dispatchObj;
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(App);

@@ -21,14 +21,14 @@ const defaultProps = {
 };
 
 const Quotes = ({ feed, onRemoveQuote, onUpdateQuote }) => {
-  const { name = '', quotes = [] } = feed;
+  const { feedName = '', quotes = [] } = feed;
   const quoteItems = quotes.map((quote) => {
     
     return (
       <Quote 
         key={quote.id} 
         quote={quote} 
-        feedName={name}
+        feedName={feedName}
         onRemoveQuote={onRemoveQuote}
         onUpdateQuote={onUpdateQuote}
       />

@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers/index';
 import throttle from 'lodash/throttle';
 import {loadFromStorage,saveToStorage} from './localStorage';
-import { loadDefaultFeeds, loadDefaultFeed } from '../src/quotesHelpers';
+import { loadDefaultQuoteFeeds, loadDefaultQuoteFeed, loadCurrentQuote } from '../src/quotesHelpers';
 import './index.scss';
 //import registerServiceWorker from './registerServiceWorker';
 
@@ -24,13 +24,12 @@ const defaultState={
     todo:(loadFromStorage('todo'))||[],
     viewFilter:null,
   },
-  quoteFeeds: loadFromStorage('feeds')
-  ? loadFromStorage('feeds')
-  : loadDefaultFeeds(),
-  currentFeed: loadFromStorage('currentFeed')
-  ? loadFromStorage('currentFeed')
-  : loadDefaultFeed(),
-  showNewQuote: false
+  quotes: {
+    quoteFeeds: loadFromStorage('quoteFeeds') || loadDefaultQuoteFeeds(),
+    currentFeed: loadFromStorage('currentFeed') || loadDefaultQuoteFeed(),
+    currentQuote: loadCurrentQuote(),
+    showNewQuote: false
+  }
 };
 
 const store=createStore(rootReducer,defaultState,applyMiddleware(thunk));
@@ -39,8 +38,8 @@ store.subscribe(
       saveToStorage('focus',store.getState().focus);
       saveToStorage('todo',store.getState().todo.todo);
       saveToStorage('name',store.getState().name);
-      saveToStorage('feeds', store.getState().quoteFeeds);
-      saveToStorage('currentFeed', store.getState().currentFeed);
+      saveToStorage('quoteFeeds', store.getState().quotes.quoteFeeds);
+      saveToStorage('currentFeed', store.getState().quotes.currentFeed);
       console.log('ran');
   },5000));
 

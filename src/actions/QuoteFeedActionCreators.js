@@ -2,17 +2,17 @@ export const ADD_FEED = 'ADD_FEED',
              REMOVE_FEED = 'REMOVE_FEED',
              CHANGE_FEED = 'CHANGE_FEED';
 
-export const addFeed = name => {
+export const addFeed = feedName => {
   return {
     type: ADD_FEED,
-    name
+    feedName
   };
 };
 
-export const removeFeed = name => {
+export const removeFeed = feedName => {
   return {
     type: REMOVE_FEED,
-    name
+    feedName
   }
 };
 

@@ -7,34 +7,33 @@ import * as QuoteFeedActionCreators from '../../../actions/QuoteFeedActionCreato
 import * as QuoteActionCreators from '../../../actions/QuoteActionCreators.js';
 
 const QuoteSettings = ({ 
-  quoteFeeds,
-  currentFeed, 
+  quotes,
   addFeed,
   removeFeed,
   changeFeed,
-  showNewQuote,
   toggleNewQuote,
   addQuote,
   removeQuote,
   updateQuote
 }) => {
-
+  console.log(quotes);
+  
   return (
     <div>
       <FeedSettings
         onAddFeed={addFeed}
-        quoteFeeds={quoteFeeds}
+        quoteFeeds={quotes.quoteFeeds}
         onChangeFeed={changeFeed}
-        currentFeed={currentFeed.name}
-        showNewQuote={showNewQuote}
+        currentFeed={quotes.currentFeed.feedName}
+        showNewQuote={quotes.showNewQuote}
         onToggleNewQuote={toggleNewQuote}
       /> 
       <Tabs 
-        quoteFeeds={quoteFeeds}
+        quoteFeeds={quotes.quoteFeeds}
         onChangeFeed={changeFeed} 
-        currentFeed={currentFeed}
-        activeTab={currentFeed.name} 
-        showNewQuote={showNewQuote}
+        currentFeed={quotes.currentFeed}
+        activeTab={quotes.currentFeed.feedName} 
+        showNewQuote={quotes.showNewQuote}
         onRemoveFeed={removeFeed}
         onToggleNewQuote={toggleNewQuote}
         onAddQuote={addQuote}
@@ -47,9 +46,7 @@ const QuoteSettings = ({
 
 const mapStateToProps = state => {
   return {
-    quoteFeeds: state.quoteFeeds,
-    currentFeed: state.currentFeed,
-    showNewQuote: state.showNewQuote
+    quotes: state.quotes,
   };
 };
 
@@ -57,7 +54,8 @@ const mapDispatchToProps = dispatch => {
   return Object.assign(
     {},
     bindActionCreators(QuoteFeedActionCreators, dispatch),
-    bindActionCreators(QuoteActionCreators, dispatch)
+    bindActionCreators(QuoteActionCreators, dispatch),
+    // { toggleLike: (feedName, id) => dispatch(toggleLike(feedName, id)) }
   );
 };
 const QuoteSettingsContainer = connect(mapStateToProps, mapDispatchToProps)(QuoteSettings);
