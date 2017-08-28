@@ -31,10 +31,10 @@ const NewQuote = styled.a`
 `;
 const FeedSettings = ({ 
   quoteFeeds, 
-  onAddFeed,
-  currentFeed, 
-  onChangeFeed, 
+  currentFeed,
   showNewQuote,
+  onAddFeed,
+  onChangeFeed, 
   onToggleNewQuote
 }) => {
 

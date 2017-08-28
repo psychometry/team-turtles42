@@ -52,19 +52,19 @@ const Menu = ({
   }
 
   const menuItems = quoteFeeds.map(feed => {
-    const active = activeTab === feed.name ? true : false;
-    const { name } = feed;
+    const { feedName } = feed;
+    const active = activeTab === feedName ? true : false;
 
     return (
       <Link
         active={active}
-        key={name}
-        onClick={(event) => handleChangeTab(event, name)}
+        key={feedName}
+        onClick={(event) => handleChangeTab(event, feedName)}
       >
-        {name}
+        {feedName}
         <i 
           className={feed.name === 'Default' ? '' : 'remove icon'}
-          onClick={(event) => handleRemoveFeed(event, name)} 
+          onClick={(event) => handleRemoveFeed(event, feedName)} 
         />
       </Link>
     );

@@ -2,20 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const propTypes = {
-  quote: PropTypes.shape({
-    text: PropTypes.string, 
-    source: PropTypes.string, 
-    liked: PropTypes.bool
-  }),
-  onLikeQuote: PropTypes.func.isRequired 
-}
-
-const defaultProps = {
-  quote: { text: "One love", source: "Bob Marley", liked: false },
-  onLikeQuote: () => {}
-};
-
 const Container = styled.div`
   color: white;
   position: fixed;
@@ -41,21 +27,33 @@ const Source = styled.p`
     }
   }
 `;
+const propTypes = {
+  quotes: PropTypes.object.isRequired,
+  toggleLike: PropTypes.func.isRequired 
+};
 
-const CurrentQuote = ({ quote, onLikeQuote }) => {
-  const { text, source, liked } = quote;
+const CurrentQuote = ({ quotes, toggleLike }) => {
+  // Get updated current quote state from quote feeds:
+  const { quoteFeeds, randomQuote } = quotes;
+  const { feedName, quoteId } = randomQuote;
+
+  const feedIndex = quoteFeeds.findIndex(feed => feed.feedName === feedName);
+  const currentFeed = quoteFeeds[feedIndex];
+  
+  const quoteIndex = currentFeed.quotes.findIndex(quote => quote.id === quoteId);
+  const currentQuote = currentFeed.quotes[quoteIndex];
+
+  const { id, text, source, liked } = currentQuote;
+  
   let heart = 'empty heart icon';
-  
-  if (liked) {
-    heart = 'heart icon';
-  }
-  
+  if (liked) heart = 'heart icon';
+
   return (
     <Container>
       <blockquote>
         <Quote>{text}</Quote>
         <Source>
-          {source} <i onClick={onLikeQuote} className={heart} />
+          {source} <i onClick={() => toggleLike(feedName, id)} className={heart} />
         </Source>
       </blockquote> 
     </Container>
@@ -63,6 +61,5 @@ const CurrentQuote = ({ quote, onLikeQuote }) => {
 };
 
 CurrentQuote.propTypes = propTypes;
-CurrentQuote.defaultProps = defaultProps;
 
 export default CurrentQuote;

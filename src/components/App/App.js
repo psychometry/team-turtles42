@@ -81,8 +81,9 @@ class App extends Component {
       toggleFocus,
       updateTime,
       name,
-      setName
+      setName,
     } = this.props;
+
     if(!name||name===''){
       return (
         <div className="App" style={{ backgroundImage: `url(${background})` }}>
@@ -117,7 +118,7 @@ class App extends Component {
 
           <footer>
             <SettingsContainer />
-            {/* <CurrentQuoteContainer /> */}
+            <CurrentQuoteContainer />
             <ListContainer/>
           </footer>
         </div>

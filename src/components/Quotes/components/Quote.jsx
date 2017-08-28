@@ -19,11 +19,14 @@ const Li = styled.li`
       outline: none;
     }
   }
-  i {
-    visibility: hidden;
+  .remove, .heart {
     cursor: pointer;
   }
-  &:hover i {
+  .remove {
+    margin-left: 5px;
+    visibility: hidden;
+  }
+  &:hover .remove {
     visibility: visible;
   }
 `;
@@ -50,8 +53,11 @@ class Quote extends Component {
   }
   
   render() {
-    const { quote, feedName, onRemoveQuote } = this.props;
-    const { id, text, source, /*liked*/ } = quote;
+    const { quote, feedName, onRemoveQuote, onToggleLike } = this.props;
+    const { id, text, source, liked } = quote;
+
+    let heart = 'empty heart icon';
+    if (liked) heart = 'heart icon';
 
     return (
       <Li>
@@ -62,7 +68,7 @@ class Quote extends Component {
           onBlur={this.handleBlur}
           onChange={(event) => this.handleUpdateQuote(event, feedName, id)} 
         />
-        {/* <i className="empty heart icon" onClick={} /> */}
+        <i className={heart} onClick={() => onToggleLike(feedName, id)} />
         <i className="remove icon" onClick={() => onRemoveQuote(feedName, id)} />
       </Li>
     );
