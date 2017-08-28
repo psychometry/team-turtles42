@@ -23,6 +23,7 @@ const defaultState={
   todo:{
     todo:(loadFromStorage('todo'))||[],
     viewFilter:null,
+    showList:false,
   },
   quotes: {
     quoteFeeds: loadQuoteFeeds(),
@@ -46,7 +47,7 @@ store.subscribe(
 ReactDOM.render(
   <Provider store={store}>
     <AppContainer />
-  </Provider>, 
+  </Provider>,
   document.getElementById('root')
 );
 

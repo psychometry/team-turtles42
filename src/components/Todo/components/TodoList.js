@@ -6,14 +6,14 @@ import FilterTab from './FilterTab';
 import './TodoList.scss';
 import '../containers/ListContainer.scss';
 import './AddForm.scss'
-const TodoList=({todo,show, addTodo, toggle, setFilter,...rest})=>{
+const TodoList=({todo, addTodo, setFilter, toggleList,...rest})=>{
   let renderList=todo.todo;
   if(todo.viewFilter==='done'){
     renderList=todo.todo.filter(item=>{return item.done});
   }else if(todo.viewFilter==='not done'){
     renderList=todo.todo.filter(item=>{return !item.done});
   }
-  const display=show?(
+  const display=todo.showList?(
     <div>
         <ListContext
           renderList={renderList}
@@ -28,7 +28,7 @@ const TodoList=({todo,show, addTodo, toggle, setFilter,...rest})=>{
   );
   return(
     <div className='TodoList ListContainer'>
-      <h4 onClick={()=>{toggle("todo")}}>
+      <h4 onClick={()=>{toggleList()}}>
         Todo:{todo.todo.length}
       </h4>
       {display}

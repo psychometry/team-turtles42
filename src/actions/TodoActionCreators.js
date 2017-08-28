@@ -2,7 +2,8 @@ export const ADD_TODO='ADD_TODO',
 DELETE_TODO='DELETE_TODO',
 TOGGLE_TODO='TOGGLE_TODO',
 UPDATE_TODO='UPDATE_TODO',
-SET_FILTER='SET_FILTER';
+SET_FILTER='SET_FILTER',
+TOGGLE_LIST='TOGGLE_LIST';
 
 export function addTodo(text){
   return{type:ADD_TODO,text};
@@ -18,4 +19,7 @@ export function updateTodo(id,newId){
 }
 export function setFilter(filter){
   return {type:SET_FILTER, filter};
+}
+export function toggleList(){
+  return {type:TOGGLE_LIST};
 }

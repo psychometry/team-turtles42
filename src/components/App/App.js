@@ -69,7 +69,7 @@ class App extends Component {
     }
   }*/
   componentDidMount() {
-    this.props.fetchBackground();
+      this.props.fetchBackground();
   }
   render() {
     const {
