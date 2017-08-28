@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers/index';
 import throttle from 'lodash/throttle';
 import {loadFromStorage,saveToStorage} from './localStorage';
-import { loadDefaultQuoteFeeds, loadDefaultQuoteFeed, loadCurrentQuote } from '../src/quotesHelpers';
+import { loadQuoteFeeds, loadCurrentFeed, loadRandomQuote } from '../src/quotesHelpers';
 import './index.scss';
 //import registerServiceWorker from './registerServiceWorker';
 
@@ -25,9 +25,9 @@ const defaultState={
     viewFilter:null,
   },
   quotes: {
-    quoteFeeds: loadFromStorage('quoteFeeds') || loadDefaultQuoteFeeds(),
-    currentFeed: loadFromStorage('currentFeed') || loadDefaultQuoteFeed(),
-    currentQuote: loadCurrentQuote(),
+    quoteFeeds: loadQuoteFeeds(),
+    currentFeed: loadCurrentFeed(),
+    randomQuote: loadRandomQuote(),
     showNewQuote: false
   }
 };

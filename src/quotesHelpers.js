@@ -8,16 +8,21 @@ export const parseQuote = (quote) => {
     .map(item => typeof item === 'string' ? item.trim() : item);
 };
 
-export const loadDefaultQuoteFeeds = () => defaultQuoteFeeds;
+export const loadQuoteFeeds = () => {
+  return loadFromStorage('quoteFeeds') || defaultQuoteFeeds;
+};
 
-export const loadDefaultQuoteFeed = () => defaultQuoteFeeds[0];
+export const loadCurrentFeed = () => {
+  return loadFromStorage('currentFeed') || defaultQuoteFeeds[0];
+};
 
-export const loadCurrentQuote = () => {
+export const loadRandomQuote = () => {
   const currentFeed = loadFromStorage('currentFeed') || defaultQuoteFeeds[0];
   const { quotes } = currentFeed;
+  const quote = quotes[Math.floor(Math.random() * quotes.length)];
 
   return {
-    quote: quotes[Math.floor(Math.random() * quotes.length)],
+    quoteId: quote.id,
     feedName: currentFeed.feedName
   };
 };

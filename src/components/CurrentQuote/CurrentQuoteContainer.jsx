@@ -1,47 +1,24 @@
-import React, { Component } from 'react';
-import { loadFromStorage } from '../../localStorage';
-import { loadDefaultFeed } from '../../quotesHelpers';
+import { connect } from 'react-redux';
 import CurrentQuote from './CurrentQuote';
+import { toggleLike } from '../../actions/QuotesActionCreators.js';
 
-class CurrentQuoteContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      quote: {}
-    };
-  }
+const mapStateToProps = state => {
+  return {
+    quotes: state.quotes
+  };
+};
 
-  componentDidMount() {
-    this.setCurrentQuote();
-  }
-  
-  setCurrentQuote() {
-    const defaultList = loadFromStorage('defaultList') 
-      ? loadFromStorage('defaultList')
-      : loadDefaultFeed();
+const mapDispatchToProps = dispatch => {
+  return {
+    toggleLike: (feedName, id) => {
+      dispatch(toggleLike(feedName, id));
+    }
+  };
+};
 
-    const { quotes } = defaultList;
+const CurrentQuoteContainer = connect(
+  mapStateToProps, 
+  mapDispatchToProps
+)(CurrentQuote);
 
-    this.setState({
-      quote: quotes[Math.floor(Math.random() * quotes.length)]
-    });
-  }
-  
-  likeQuote = () => {
-    const { quote } = this.state;
-    this.setState({
-      quote: Object.assign({}, quote, {
-        liked: quote.liked ? false : true
-      })
-    });
-    
-  }
-  
-  render() {
-    return (
-      <CurrentQuote quote={this.state.quote} onLikeQuote={this.likeQuote} />
-    );
-  }
-}
-
-export default CurrentQuoteContainer; 
+export default CurrentQuoteContainer;

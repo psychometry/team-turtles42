@@ -52,8 +52,8 @@ const Menu = ({
   }
 
   const menuItems = quoteFeeds.map(feed => {
-    const active = activeTab === feed.feedName ? true : false;
     const { feedName } = feed;
+    const active = activeTab === feedName ? true : false;
 
     return (
       <Link

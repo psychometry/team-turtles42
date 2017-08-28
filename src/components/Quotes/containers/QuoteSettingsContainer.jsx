@@ -3,8 +3,7 @@ import FeedSettings from '../components/FeedSettings';
 import Tabs from '../components/Tabs';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as QuoteFeedActionCreators from '../../../actions/QuoteFeedActionCreators.js';
-import * as QuoteActionCreators from '../../../actions/QuoteActionCreators.js';
+import * as QuotesActionCreators from '../../../actions/QuotesActionCreators.js';
 
 const QuoteSettings = ({ 
   quotes,
@@ -14,9 +13,9 @@ const QuoteSettings = ({
   toggleNewQuote,
   addQuote,
   removeQuote,
-  updateQuote
+  updateQuote,
+  toggleLike
 }) => {
-  console.log(quotes);
   
   return (
     <div>
@@ -39,6 +38,7 @@ const QuoteSettings = ({
         onAddQuote={addQuote}
         onRemoveQuote={removeQuote}
         onUpdateQuote={updateQuote}
+        onToggleLike={toggleLike}
       />
     </div>
   );
@@ -53,9 +53,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return Object.assign(
     {},
-    bindActionCreators(QuoteFeedActionCreators, dispatch),
-    bindActionCreators(QuoteActionCreators, dispatch),
-    // { toggleLike: (feedName, id) => dispatch(toggleLike(feedName, id)) }
+    bindActionCreators(QuotesActionCreators, dispatch),
   );
 };
 const QuoteSettingsContainer = connect(mapStateToProps, mapDispatchToProps)(QuoteSettings);

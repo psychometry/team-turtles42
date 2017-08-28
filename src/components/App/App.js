@@ -4,7 +4,7 @@ import Focus from '../Focus/Focus';
 import BookmarksContainer from '../Bookmarks/BookmarksContainer';
 import WeatherContainer from '../Weather/WeatherContainer';
 import SettingsContainer from '../Settings/containers/SettingsContainer';
-// import CurrentQuoteContainer from '../CurrentQuote/CurrentQuoteContainer';
+import CurrentQuoteContainer from '../CurrentQuote/CurrentQuoteContainer';
 import ListContainer from '../Todo/containers/ListContainer';
 //import backgrounds from '../../background.json';
 import Clock from '../Clock/Clock';
@@ -103,11 +103,11 @@ class App extends Component {
           </header>
 
           <main>
-            {/* <Clock
+            <Clock
                 time={time}
                 updateTime={updateTime}
-            /> */}
-            {/* <Message time={time} name={name}/> */}
+            />
+            <Message time={time} name={name}/>
             <Focus
               focus={focus}
               setFocus={setFocus}
@@ -118,7 +118,7 @@ class App extends Component {
 
           <footer>
             <SettingsContainer />
-            {/* <CurrentQuoteContainer /> */}
+            <CurrentQuoteContainer />
             <ListContainer/>
           </footer>
         </div>

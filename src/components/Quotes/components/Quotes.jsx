@@ -20,7 +20,7 @@ const defaultProps = {
   onUpdateQuote: () => {}
 };
 
-const Quotes = ({ feed, onRemoveQuote, onUpdateQuote }) => {
+const Quotes = ({ feed, onRemoveQuote, onUpdateQuote, onToggleLike }) => {
   const { feedName = '', quotes = [] } = feed;
   const quoteItems = quotes.map((quote) => {
     
@@ -31,6 +31,7 @@ const Quotes = ({ feed, onRemoveQuote, onUpdateQuote }) => {
         feedName={feedName}
         onRemoveQuote={onRemoveQuote}
         onUpdateQuote={onUpdateQuote}
+        onToggleLike={onToggleLike}
       />
     );
   });

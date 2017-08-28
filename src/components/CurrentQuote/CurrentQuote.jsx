@@ -27,23 +27,27 @@ const Source = styled.p`
     }
   }
 `;
-
 const propTypes = {
-  currentQuote: PropTypes.object.isRequired,
-  quoteFeeds: PropTypes.array.isRequired,
+  quotes: PropTypes.object.isRequired,
   toggleLike: PropTypes.func.isRequired 
 };
 
-const CurrentQuote = ({ currentQuote, quoteFeeds, toggleLike }) => {
-  const { feedName, quote } = currentQuote;
-  const { id, text, source, liked } = quote;
+const CurrentQuote = ({ quotes, toggleLike }) => {
+  // Get updated current quote state from quote feeds:
+  const { quoteFeeds, randomQuote } = quotes;
+  const { feedName, quoteId } = randomQuote;
+
+  const feedIndex = quoteFeeds.findIndex(feed => feed.feedName === feedName);
+  const currentFeed = quoteFeeds[feedIndex];
+  
+  const quoteIndex = currentFeed.quotes.findIndex(quote => quote.id === quoteId);
+  const currentQuote = currentFeed.quotes[quoteIndex];
+
+  const { id, text, source, liked } = currentQuote;
   
   let heart = 'empty heart icon';
-  
-  if (liked) {
-    heart = 'heart icon';
-  }
-  
+  if (liked) heart = 'heart icon';
+
   return (
     <Container>
       <blockquote>

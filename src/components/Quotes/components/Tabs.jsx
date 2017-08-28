@@ -14,9 +14,10 @@ const propTypes = {
   quoteFeeds: PropTypes.array.isRequired,
   onRemoveFeed: PropTypes.func.isRequired,
   onAddQuote: PropTypes.func.isRequired,
-  // onRemoveQuote: PropTypes.func.isRequired,
-  // onUpdateQuote: PropTypes.func.isRequired
-}
+  onRemoveQuote: PropTypes.func.isRequired,
+  onUpdateQuote: PropTypes.func.isRequired,
+  onToggleLike: PropTypes.func.isRequired,
+};
 
 class Tabs extends Component {
   constructor(props) {
@@ -45,7 +46,8 @@ class Tabs extends Component {
       showNewQuote,
       onAddQuote,
       onRemoveQuote, 
-      onUpdateQuote 
+      onUpdateQuote,
+      onToggleLike 
     } = this.props;
 
     const { activeTab } = this.state;
@@ -65,6 +67,7 @@ class Tabs extends Component {
           feed={this.setList()} 
           onRemoveQuote={onRemoveQuote}
           onUpdateQuote={onUpdateQuote}  
+          onToggleLike={onToggleLike}
         />  
       </Container>
     );
