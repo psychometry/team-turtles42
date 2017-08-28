@@ -63,7 +63,7 @@ const Menu = ({
       >
         {feedName}
         <i 
-          className={feed.name === 'Default' ? '' : 'remove icon'}
+          className={feed.feedName === 'Default' ? '' : 'remove icon'}
           onClick={(event) => handleRemoveFeed(event, feedName)} 
         />
       </Link>
