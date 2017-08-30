@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Tabs from '../components/Tabs';
+import GeneralSettingContainer from '../../GeneralSetting/GeneralSettingContainer';
 import QuoteSettingsContainer from '../../Quotes/containers/QuoteSettingsContainer';
 
 const Container = styled.div`
@@ -33,8 +34,8 @@ const Pointer = styled.i`
   position: relative;
   top: -20px;
   left: 20px;
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-top: 10px solid rgba(15, 15, 15, 0.925);
@@ -42,7 +43,7 @@ const Pointer = styled.i`
 const tabs = [
   {
    name: 'General',
-   content: 'General'
+   content: <GeneralSettingContainer />
   },
   {
     name: 'Todo',

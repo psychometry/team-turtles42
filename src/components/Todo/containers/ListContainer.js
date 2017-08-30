@@ -64,7 +64,6 @@ import {connect} from 'react-redux';
 const mapStateToProps=(state)=>{
   return {
     todo:state.todo,
-    show:state.app.todo,
   }
 }
 const mapDispatchToProps=(dispatch)=>{

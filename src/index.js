@@ -12,7 +12,13 @@ import './index.scss';
 //import registerServiceWorker from './registerServiceWorker';
 
 const defaultState={
-  app:{todo:false},
+  apps:{
+    todo:true,
+    focus:true,
+    message:true,
+    weather:true,
+    quote:true,
+  },
   time:new Date(),
   background:null,
   focus:loadFromStorage('focus')||{text:null,
@@ -41,7 +47,6 @@ store.subscribe(
       saveToStorage('name',store.getState().name);
       saveToStorage('quoteFeeds', store.getState().quotes.quoteFeeds);
       saveToStorage('currentFeed', store.getState().quotes.currentFeed);
-      console.log('ran');
   },5000));
 
 ReactDOM.render(
