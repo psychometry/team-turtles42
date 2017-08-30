@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import CurrentQuote from './CurrentQuote';
-import { toggleLike } from '../../actions/QuotesActionCreators.js';
+import { toggleLike, setCurrentQuote } from '../../actions/QuotesActionCreators.js';
 
 const mapStateToProps = state => {
   return {
@@ -12,6 +12,9 @@ const mapDispatchToProps = dispatch => {
   return {
     toggleLike: (feedName, id) => {
       dispatch(toggleLike(feedName, id));
+    },
+    setCurrentQuote: id => {
+      dispatch(setCurrentQuote(id));
     }
   };
 };

@@ -7,7 +7,8 @@ import {
   ADD_QUOTE, 
   REMOVE_QUOTE, 
   UPDATE_QUOTE, 
-  TOGGLE_LIKE 
+  TOGGLE_LIKE,
+  SET_CURRENT_QUOTE 
 } from '../actions/QuotesActionCreators';
 
 const quote = (state, action) => {
@@ -165,6 +166,10 @@ const quotesReducer = (state = {}, action) => {
     case TOGGLE_LIKE:
       return Object.assign({}, state, {
         quoteFeeds: quoteFeeds(state.quoteFeeds, action)
+      });
+    case SET_CURRENT_QUOTE:
+      return Object.assign({}, state, {
+        currentQuoteId: action.id
       });
     default:
       return state;

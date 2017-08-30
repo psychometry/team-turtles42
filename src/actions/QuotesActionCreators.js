@@ -5,7 +5,8 @@ TOGGLE_NEW_QUOTE = 'TOGGLE_NEW_QUOTE',
 ADD_QUOTE = 'ADD_QUOTE', 
 REMOVE_QUOTE = 'REMOVE_QUOTE',
 UPDATE_QUOTE = 'UPDATE_QUOTE',
-TOGGLE_LIKE = 'TOGGLE_LIKE';
+TOGGLE_LIKE = 'TOGGLE_LIKE',
+SET_CURRENT_QUOTE = 'SET_CURRENT_QUOTE';
 
 export const addFeed = feedName => {
   return {
@@ -63,6 +64,13 @@ export const toggleLike = (feedName, id) => {
   return {
     type: TOGGLE_LIKE,
     feedName,
+    id
+  }
+};
+
+export const setCurrentQuote = id => {
+  return {
+    type: SET_CURRENT_QUOTE,
     id
   }
 };

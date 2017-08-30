@@ -27,6 +27,7 @@ const defaultState={
   quotes: {
     quoteFeeds: loadQuoteFeeds(),
     currentFeed: loadCurrentFeed(),
+    currentQuoteId: undefined,
     showingNewQuote: false
   }
 };
