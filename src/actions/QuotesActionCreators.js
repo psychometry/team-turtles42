@@ -21,10 +21,10 @@ export const removeFeed = feedName => {
   }
 };
 
-export const changeFeed = (newFeed) => {
+export const changeFeed = (feedName) => {
   return {
     type: CHANGE_FEED,
-    newFeed
+    feedName
   };
 };
 export const toggleNewQuote = () => {

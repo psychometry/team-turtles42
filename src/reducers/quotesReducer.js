@@ -132,6 +132,7 @@ const quoteFeeds = (state, action) => {
 };
 
 const quotesReducer = (state = {}, action) => {
+  console.log(state, action);
   switch (action.type) {
     case ADD_FEED:
       return Object.assign({}, state, {
@@ -143,11 +144,11 @@ const quotesReducer = (state = {}, action) => {
       });
     case CHANGE_FEED:
       return Object.assign({}, state, {
-        currentFeed: action.newFeed 
+        currentFeed: action.feedName 
       }); 
     case TOGGLE_NEW_QUOTE:
       return Object.assign({}, state, {
-        showNewQuote: !state.showNewQuote
+        showingNewQuote: !state.showingNewQuote
       });
     case ADD_QUOTE:
       return Object.assign({}, state, {
@@ -171,4 +172,3 @@ const quotesReducer = (state = {}, action) => {
 };
 
 export default quotesReducer;
-

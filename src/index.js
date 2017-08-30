@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers/index';
 import throttle from 'lodash/throttle';
 import {loadFromStorage,saveToStorage} from './localStorage';
-import { loadQuoteFeeds, loadCurrentFeed, loadRandomQuote } from '../src/quotesHelpers';
+import { loadQuoteFeeds, loadCurrentFeed } from '../src/quoteHelpers';
 import './index.scss';
 //import registerServiceWorker from './registerServiceWorker';
 
@@ -27,8 +27,7 @@ const defaultState={
   quotes: {
     quoteFeeds: loadQuoteFeeds(),
     currentFeed: loadCurrentFeed(),
-    randomQuote: loadRandomQuote(),
-    showNewQuote: false
+    showingNewQuote: false
   }
 };
 

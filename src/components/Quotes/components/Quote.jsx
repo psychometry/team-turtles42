@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import ContentEditable from 'react-contenteditable';
 import PropTypes from 'prop-types';
-import { parseQuote } from '../../../quotesHelpers';
+import { parseQuote } from '../../../quoteHelpers';
 
 const Li = styled.li`
   display: flex;

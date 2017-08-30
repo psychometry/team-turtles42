@@ -16,6 +16,7 @@ const QuoteSettings = ({
   updateQuote,
   toggleLike
 }) => {
+  console.log(quotes);
   
   return (
     <div>
@@ -23,16 +24,16 @@ const QuoteSettings = ({
         onAddFeed={addFeed}
         quoteFeeds={quotes.quoteFeeds}
         onChangeFeed={changeFeed}
-        currentFeed={quotes.currentFeed.feedName}
-        showNewQuote={quotes.showNewQuote}
+        currentFeed={quotes.currentFeed}
+        showingNewQuote={quotes.showingNewQuote}
         onToggleNewQuote={toggleNewQuote}
       /> 
       <Tabs 
         quoteFeeds={quotes.quoteFeeds}
         onChangeFeed={changeFeed} 
         currentFeed={quotes.currentFeed}
-        activeTab={quotes.currentFeed.feedName} 
-        showNewQuote={quotes.showNewQuote}
+        activeTab={quotes.currentFeed} 
+        showingNewQuote={quotes.showingNewQuote}
         onRemoveFeed={removeFeed}
         onToggleNewQuote={toggleNewQuote}
         onAddQuote={addQuote}

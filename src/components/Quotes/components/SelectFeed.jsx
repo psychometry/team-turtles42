@@ -29,13 +29,16 @@ const propTypes = {
 
 const SelectFeed = ({ quoteFeeds, currentFeed, onChangeFeed }) => {
   const options = quoteFeeds.map(feed => {
-    return (<option key={feed.feedName} value={feed.feedName}>{feed.feedName}</option>); 
+    return (
+      <option key={feed.feedName} value={feed.feedName}>
+        {feed.feedName}
+      </option>
+    ); 
   });
-  const handleFeedChange = (event) => {
-    event.preventDefault();
-    const newFeed = quoteFeeds.find(feed => feed.feedName === event.target.value);
-    onChangeFeed(newFeed);
-  };
+  // const handleFeedChange = (event) => {
+  //   event.preventDefault();
+  //   onChangeFeed(event.target.value);
+  // };
 
   return (
     <Div>
@@ -43,7 +46,7 @@ const SelectFeed = ({ quoteFeeds, currentFeed, onChangeFeed }) => {
         Feed: 
         <select 
           value={currentFeed}
-          onChange={handleFeedChange}
+          onChange={event => onChangeFeed(event.target.value)}
         >
           {options}
         </select>

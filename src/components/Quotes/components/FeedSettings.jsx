@@ -32,7 +32,7 @@ const NewQuote = styled.a`
 const FeedSettings = ({ 
   quoteFeeds, 
   currentFeed,
-  showNewQuote,
+  showingNewQuote,
   onAddFeed,
   onChangeFeed, 
   onToggleNewQuote
@@ -51,7 +51,7 @@ const FeedSettings = ({
         />
         <NewFeed onAddFeed={onAddFeed} />  
       </div>
-      <NewQuote showNewQuote={showNewQuote} onClick={handleNewQuoteClick}>
+      <NewQuote showingNewQuote={showingNewQuote} onClick={handleNewQuoteClick}>
         <i className="plus icon" />
         Add Quote
       </NewQuote>

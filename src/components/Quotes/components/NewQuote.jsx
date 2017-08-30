@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { parseQuote } from '../../../quotesHelpers';
+import { parseQuote } from '../../../quoteHelpers';
 
 const Form = styled.form`
   input {
-    width: 470px;
+    width: 454px;
     margin-top: 20px;
     padding-bottom: 20px;
     border: 0;
