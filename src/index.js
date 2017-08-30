@@ -39,7 +39,7 @@ store.subscribe(
       saveToStorage('name',store.getState().name);
       saveToStorage('quoteFeeds', store.getState().quotes.quoteFeeds);
       saveToStorage('currentFeed', store.getState().quotes.currentFeed);
-      console.log('ran');
+      // console.log('ran');
   },5000));
 
 ReactDOM.render(

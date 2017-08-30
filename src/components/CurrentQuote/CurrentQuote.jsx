@@ -37,12 +37,18 @@ const CurrentQuote = ({ quotes, toggleLike }) => {
   
   // Load random quote
   const currentFeed = quoteFeeds.find(feed => {
-    return feed.feedName === feedName;
-  });
+    // Return currentFeed for Default if no quotes in currentFeed
+    return feed.feedName === feedName && feed.quotes.length;
+  }) || quoteFeeds[0];
+
   const { quotes: currentQuotes } = currentFeed;
-  const randomQuote = currentQuotes[Math.floor(Math.random() * currentQuotes.length)];
+
+  const randomQuote = currentQuotes[
+    Math.floor(Math.random() * currentQuotes.length)
+  ];
+
   const { id, text, source, liked } = randomQuote;
-  
+
   let heart = 'empty heart icon';
   if (liked) heart = 'heart icon';
 
@@ -52,7 +58,7 @@ const CurrentQuote = ({ quotes, toggleLike }) => {
         <Quote>{text}</Quote>
         <Source>
           {source}
-          <i onClick={() => toggleLike(feedName, id)} className={heart} />
+          {' '}<i onClick={() => toggleLike(feedName, id)} className={heart} />
         </Source>
       </blockquote> 
     </Container>

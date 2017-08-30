@@ -35,10 +35,6 @@ const SelectFeed = ({ quoteFeeds, currentFeed, onChangeFeed }) => {
       </option>
     ); 
   });
-  // const handleFeedChange = (event) => {
-  //   event.preventDefault();
-  //   onChangeFeed(event.target.value);
-  // };
 
   return (
     <Div>

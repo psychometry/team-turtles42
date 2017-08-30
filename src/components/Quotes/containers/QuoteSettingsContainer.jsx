@@ -16,7 +16,6 @@ const QuoteSettings = ({
   updateQuote,
   toggleLike
 }) => {
-  console.log(quotes);
   
   return (
     <div>

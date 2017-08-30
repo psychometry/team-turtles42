@@ -39,17 +39,18 @@ const Menu = ({
   quoteFeeds, 
   activeTab, 
   onChangeTab, 
-  onRemoveFeed 
+  onRemoveFeed,
+  onChangeFeed
 }) => {
   const handleChangeTab = (event, name) => {
     event.preventDefault();
     onChangeTab(name);
-  }
+  };
   const handleRemoveFeed = (event, name) => {
     event.preventDefault();
     onRemoveFeed(name);
-    // TODO: Change current feed to next feed or Default if removing it
-  }
+    onChangeFeed('Default');
+  };
 
   const menuItems = quoteFeeds.map(feed => {
     const { feedName } = feed;

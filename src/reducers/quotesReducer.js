@@ -132,7 +132,7 @@ const quoteFeeds = (state, action) => {
 };
 
 const quotesReducer = (state = {}, action) => {
-  console.log(state, action);
+  // console.log(state, action);
   switch (action.type) {
     case ADD_FEED:
       return Object.assign({}, state, {

@@ -14,6 +14,7 @@ const propTypes = {
   quoteFeeds: PropTypes.array.isRequired,
   currentFeed: PropTypes.string.isRequired,
   onRemoveFeed: PropTypes.func.isRequired,
+  onChangeFeed: PropTypes.func.isRequired,
   onAddQuote: PropTypes.func.isRequired,
   onRemoveQuote: PropTypes.func.isRequired,
   onUpdateQuote: PropTypes.func.isRequired,
@@ -40,6 +41,7 @@ class Tabs extends Component {
     const { 
       quoteFeeds, 
       onRemoveFeed,
+      onChangeFeed,
       showingNewQuote,
       onAddQuote,
       onRemoveQuote, 
@@ -56,6 +58,7 @@ class Tabs extends Component {
           onChangeTab={this.changeTab}
           quoteFeeds={quoteFeeds} 
           onRemoveFeed={onRemoveFeed}
+          onChangeFeed={onChangeFeed}
         /> 
         {showingNewQuote && 
           <NewQuote feedName={activeTab} onAddQuote={onAddQuote} />
