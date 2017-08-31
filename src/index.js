@@ -8,6 +8,7 @@ import rootReducer from './reducers/index';
 import throttle from 'lodash/throttle';
 import {loadFromStorage,saveToStorage} from './localStorage';
 import { loadQuoteFeeds, loadCurrentFeed } from '../src/quoteHelpers';
+import 'semantic-ui-css/semantic.min.css';
 import './index.scss';
 //import registerServiceWorker from './registerServiceWorker';
 

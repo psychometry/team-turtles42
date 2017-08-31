@@ -13,25 +13,31 @@ const TodoList=({todo,show, addTodo, toggle, setFilter,...rest})=>{
   }else if(todo.viewFilter==='not done'){
     renderList=todo.todo.filter(item=>{return !item.done});
   }
-  const display=show?(
-    <div>
-        <ListContext
-          renderList={renderList}
-          {...rest}
-        />
-        <AddForm className='AddForm' submit={addTodo} placeholder='New Todo'/>
-        <FilterTab viewFilter={todo.viewFilter} setFilter={setFilter}/>
-      </div>
-  ):(
-    <div>
-    </div>
-  );
+  
   return(
-    <div className='TodoList ListContainer'>
-      <h4 onClick={()=>{toggle("todo")}}>
-        Todo:{todo.todo.length}
-      </h4>
-      {display}
+    <div className='ListContainer'>
+      {show &&
+        <div className="TodoList">
+          <div className="inbox">
+            Inbox
+            <span className="todo-count">{todo.todo.length}</span>
+          </div>
+          <ListContext
+            renderList={renderList}
+            {...rest}
+          />
+          <div className="list-footer">
+            <AddForm className='AddForm' submit={addTodo} placeholder='New Todo'/>
+            <FilterTab viewFilter={todo.viewFilter} setFilter={setFilter}/>
+          </div>
+        </div>  
+      }
+      <div className="todo-toggle" onClick={()=>{toggle("todo")}}>
+        Todo
+        {todo.todo.length > 0 &&
+          <span className="todo-count floating">{todo.todo.length}</span>
+        }
+      </div>
     </div>
   );
 }

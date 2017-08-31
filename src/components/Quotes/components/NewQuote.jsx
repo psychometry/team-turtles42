@@ -9,12 +9,12 @@ const Form = styled.form`
     margin-top: 20px;
     padding-bottom: 20px;
     border: 0;
-    border-bottom: 1px solid silver;
-    color: white;
+    border-bottom: 1px solid ${({ theme }) => theme.grey};
+    color: ${({ theme }) => theme.white};
     background: transparent;
     &:focus {
       outline: none;
-      border-bottom: 1px solid white;
+      border-bottom: 1px solid ${({ theme }) => theme.white};
     }
   }
 `;

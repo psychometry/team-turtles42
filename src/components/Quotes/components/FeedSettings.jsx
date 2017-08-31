@@ -16,13 +16,15 @@ const Div = styled.div`
 const NewQuote = styled.a`
   height: 30px;
   border: none;
-  color: ${({showingNewQuote}) => showingNewQuote ? 'white' : 'rgba(255,255,255,.5)'};
+  color: ${({ theme }) => theme.white};
+  opacity: ${({showingNewQuote}) => showingNewQuote ? '1' : '.75'};
   background: transparent;
   .plus.icon {
     font-size: .9em;
   }
   &:hover {
-    color: white;
+    color: ${({ theme }) => theme.white};
+    opacity: 1;
     cursor: pointer;
   }
   &:focus {

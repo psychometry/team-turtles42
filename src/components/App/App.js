@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ThemeProvider } from 'styled-components';
 //import Unsplash, { toJson } from 'unsplash-js';
 import Focus from '../Focus/Focus';
 import BookmarksContainer from '../Bookmarks/BookmarksContainer';
@@ -18,6 +19,13 @@ import './App.scss';
   callbackUrl: process.env.REACT_APP_UNSPLASH_CALLBACK_URL
 });
 */
+
+const theme = {
+  white: 'rgba(255,255,255,1)',
+  grey: 'rgba(255,255,255,.15)',
+  black: 'rgba(15, 15, 15, 0.925)'
+};
+
 class App extends Component {
   /*
   constructor() {
@@ -96,32 +104,34 @@ class App extends Component {
       );
     }else{
       return(
-        <div className="App" style={{ backgroundImage: `url(${background})` }}>
-          <header>
-            <BookmarksContainer />
-            <WeatherContainer />
-          </header>
+        <ThemeProvider theme={theme}>
+          <div className="App" style={{ backgroundImage: `url(${background})` }}>
+              <header>
+                <BookmarksContainer />
+                <WeatherContainer />
+              </header>
 
-          <main>
-            <Clock
-                time={time}
-                updateTime={updateTime}
-            />
-            <Message time={time} name={name}/>
-            <Focus
-              focus={focus}
-              setFocus={setFocus}
-              deleteFocus={deleteFocus}
-              toggleFocus={toggleFocus}
-            />
-          </main>
+              <main className="main">
+                <Clock
+                    time={time}
+                    updateTime={updateTime}
+                />
+                <Message time={time} name={name}/>
+                <Focus
+                  focus={focus}
+                  setFocus={setFocus}
+                  deleteFocus={deleteFocus}
+                  toggleFocus={toggleFocus}
+                />
+              </main>
 
-          <footer>
-            <SettingsContainer />
-            <CurrentQuoteContainer />
-            <ListContainer/>
-          </footer>
-        </div>
+              <footer className="footer">
+                <SettingsContainer />
+                <CurrentQuoteContainer />
+                <ListContainer/>
+              </footer>
+          </div>
+        </ThemeProvider>
       );
     }
   }

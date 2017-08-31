@@ -5,6 +5,7 @@
   display: flex;
   justify-content: space-between;
   > a{
+    cursor: pointer;
     flex:1;
     text-align: center;
     color: $white;

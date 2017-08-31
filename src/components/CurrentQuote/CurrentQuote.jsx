@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  color: white;
+  color: ${({theme}) => theme.white};
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
@@ -15,12 +15,10 @@ const Container = styled.div`
   `;
 const Quote = styled.p`
   font-size: 1.25em;
-  text-shadow: 0 1px 5px rgba(0,0,0,.1);
   `;
 const Source = styled.p`
-  font-size: 1em;
-  color: white;
-  text-shadow: 0 1px 5px rgba(0,0,0,.1);
+  font-size: 1.15em;
+  opacity: .75;
   .heart {
     &:hover {
       cursor: pointer;
@@ -52,7 +50,7 @@ const CurrentQuote = ({ quotes, toggleLike, setCurrentQuote }) => {
   return (
     <Container>
       <blockquote>
-        <Quote>{text}</Quote>
+        <Quote>“{text}”</Quote>
         <Source>
           {source}
           {' '}<i onClick={() => toggleLike(feedName, id)} className={heart} />

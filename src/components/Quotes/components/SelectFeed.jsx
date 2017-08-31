@@ -6,13 +6,13 @@ const Div = styled.div`
   margin-right: 20px;
   margin-bottom: 20px;
   font-size: 1em;
-  color: silver; 
+  opacity: .75;
   label select {
     margin-left: 10px;
     max-width: 100px;
-    color: white;
+    color: ${({ theme }) => theme.white};
     padding: 0;
-    background: transparent;
+    background: transparent; 
     outline: none;
     border: none;
   }
