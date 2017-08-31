@@ -1,5 +1,5 @@
 import { loadFromStorage } from './localStorage';
-import defaultQuoteFeeds from './defaultQuoteFeeds.json';
+import defaultFeeds from './defaultFeeds.json';
 
 // Quote helpers
 export const parseQuote = (quote) => {
@@ -9,9 +9,9 @@ export const parseQuote = (quote) => {
 };
 
 export const loadQuoteFeeds = () => {
-  return loadFromStorage('quoteFeeds') || defaultQuoteFeeds;
+  return loadFromStorage('quoteFeeds') || defaultFeeds;
 };
 
 export const loadCurrentFeed = () => {
-  return loadFromStorage('currentFeed') || defaultQuoteFeeds[0].feedName;
+  return loadFromStorage('currentFeed') || defaultFeeds[0].feedName;
 };

@@ -1,26 +1,17 @@
+// import { combineReducers } from 'redux';
 import v4 from 'uuid/v4';
-import { 
-  ADD_FEED, 
-  REMOVE_FEED, 
-  CHANGE_FEED,
-  TOGGLE_NEW_QUOTE, 
-  ADD_QUOTE, 
-  REMOVE_QUOTE, 
-  UPDATE_QUOTE, 
-  TOGGLE_LIKE,
-  SET_CURRENT_QUOTE 
-} from '../actions/QuotesActionCreators';
+import * as types from '../actions/QuotesActionCreators';
 
 const quote = (state, action) => {
   switch (action.type) {
-    case ADD_QUOTE:
+    case types.ADD_QUOTE:
       return {
         id: v4(), 
         text: action.text,
         source: action.source, 
         liked: false
       };
-    case TOGGLE_LIKE:
+    case types.TOGGLE_LIKE:
       return Object.assign({}, state, {
         liked: !state.liked
       });
@@ -29,27 +20,27 @@ const quote = (state, action) => {
   }
 };
 
-const quotes = (state, action) => {
+export const quotes = (state, action) => {
   const quoteIndex = state.findIndex(quote => quote.id === action.id);
 
   switch (action.type) {
-    case ADD_QUOTE:
+    case types.ADD_QUOTE:
       return [
-        ...state,
-        quote(undefined, action)
+        quote(undefined, action),
+        ...state
       ]; 
-    case REMOVE_QUOTE:
+    case types.REMOVE_QUOTE:
       return [
         ...state.slice(0, quoteIndex),
         ...state.slice(quoteIndex + 1)
       ];
-    case UPDATE_QUOTE:
+    case types.UPDATE_QUOTE:
       return [
         ...state.slice(0, quoteIndex), 
         action.quote,
         ...state.slice(quoteIndex + 1)
       ];
-    case TOGGLE_LIKE:
+    case types.TOGGLE_LIKE:
       return [
         ...state.slice(0, quoteIndex), 
         quote(state[quoteIndex], action),
@@ -62,24 +53,24 @@ const quotes = (state, action) => {
 
 const quoteFeed = (state, action) => {
   switch (action.type) {
-    case ADD_FEED:
+    case types.ADD_FEED:
       return {
         feedName: action.feedName,
         quotes: [],
       };
-    case ADD_QUOTE:
+    case types.ADD_QUOTE:
       return Object.assign({}, state, {
         quotes: quotes(state.quotes, action)
       });
-    case REMOVE_QUOTE:
+    case types.REMOVE_QUOTE:
       return Object.assign({}, state, {
         quotes: quotes(state.quotes, action)
       });
-    case UPDATE_QUOTE:
+    case types.UPDATE_QUOTE:
       return Object.assign({}, state, {
         quotes: quotes(state.quotes, action)
       });
-    case TOGGLE_LIKE:
+    case types.TOGGLE_LIKE:
       return Object.assign({}, state, {
         quotes: quotes(state.quotes, action)
       });
@@ -88,40 +79,40 @@ const quoteFeed = (state, action) => {
   }
 };
 
-const quoteFeeds = (state, action) => {
+export const quoteFeeds = (state, action) => {
   const feedIndex = state.findIndex(feed => feed.feedName === action.feedName);
 
   switch (action.type) {
-    case ADD_FEED:
+    case types.ADD_FEED:
       return [
         ...state,
         quoteFeed(undefined, action)
       ];
 
-    case REMOVE_FEED:
+    case types.REMOVE_FEED:
       return [
         ...state.slice(0, feedIndex),
         ...state.slice(feedIndex + 1)
       ]
-    case ADD_QUOTE:
+    case types.ADD_QUOTE:
       return [
         ...state.slice(0, feedIndex),
         quoteFeed(state[feedIndex], action),
         ...state.slice(feedIndex + 1)
       ];
-    case REMOVE_QUOTE:
+    case types.REMOVE_QUOTE:
       return [
         ...state.slice(0, feedIndex),
         quoteFeed(state[feedIndex], action),
         ...state.slice(feedIndex + 1)
       ];
-    case UPDATE_QUOTE:
+    case types.UPDATE_QUOTE:
       return [
         ...state.slice(0, feedIndex),
         quoteFeed(state[feedIndex], action),
         ...state.slice(feedIndex + 1)
       ];
-    case TOGGLE_LIKE:
+    case types.TOGGLE_LIKE:
       return [
         ...state.slice(0, feedIndex),
         quoteFeed(state[feedIndex], action),
@@ -135,39 +126,39 @@ const quoteFeeds = (state, action) => {
 const quotesReducer = (state = {}, action) => {
   // console.log(state, action);
   switch (action.type) {
-    case ADD_FEED:
+    case types.ADD_FEED:
       return Object.assign({}, state, {
         quoteFeeds: quoteFeeds(state.quoteFeeds, action)
       });
-    case REMOVE_FEED:
+    case types.REMOVE_FEED:
       return Object.assign({}, state, {
         quoteFeeds: quoteFeeds(state.quoteFeeds, action)
       });
-    case CHANGE_FEED:
+    case types.ADD_QUOTE:
       return Object.assign({}, state, {
-        currentFeed: action.feedName 
-      }); 
-    case TOGGLE_NEW_QUOTE:
+        quoteFeeds: quoteFeeds(state.quoteFeeds, action)
+      });
+    case types.REMOVE_QUOTE:
+      return Object.assign({}, state, {
+        quoteFeeds: quoteFeeds(state.quoteFeeds, action)
+      });
+    case types.UPDATE_QUOTE:
+      return Object.assign({}, state, {
+        quoteFeeds: quoteFeeds(state.quoteFeeds, action)
+      });
+    case types.TOGGLE_LIKE:
+      return Object.assign({}, state, {
+        quoteFeeds: quoteFeeds(state.quoteFeeds, action)
+      });
+    case types.TOGGLE_NEW_QUOTE:
       return Object.assign({}, state, {
         showingNewQuote: !state.showingNewQuote
       });
-    case ADD_QUOTE:
+    case types.CHANGE_FEED:
       return Object.assign({}, state, {
-        quoteFeeds: quoteFeeds(state.quoteFeeds, action)
+        currentFeed: action.feedName 
       });
-    case REMOVE_QUOTE:
-      return Object.assign({}, state, {
-        quoteFeeds: quoteFeeds(state.quoteFeeds, action)
-      });
-    case UPDATE_QUOTE:
-      return Object.assign({}, state, {
-        quoteFeeds: quoteFeeds(state.quoteFeeds, action)
-      });
-    case TOGGLE_LIKE:
-      return Object.assign({}, state, {
-        quoteFeeds: quoteFeeds(state.quoteFeeds, action)
-      });
-    case SET_CURRENT_QUOTE:
+    case types.SET_CURRENT_QUOTE:
       return Object.assign({}, state, {
         currentQuoteId: action.id
       });
@@ -175,5 +166,18 @@ const quotesReducer = (state = {}, action) => {
       return state;
   }
 };
+
+// const showNewQuote = (state = false, action) => {
+//   switch (action.type) {
+//    case types.TOGGLE_NEW_QUOTE:
+//       return Object.assign({}, state, {
+//         showingNewQuote: !state.showingNewQuote
+//       });
+//     default:
+//       return state;
+//   }
+// };
+
+// const quotesReducers = combineReducers({ quotesReducer, showNewQuote });
 
 export default quotesReducer;

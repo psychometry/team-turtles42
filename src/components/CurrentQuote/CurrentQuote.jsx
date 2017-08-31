@@ -27,11 +27,6 @@ const Source = styled.p`
     }
   }
 `;
-const propTypes = {
-  quotes: PropTypes.object.isRequired,
-  toggleLike: PropTypes.func.isRequired 
-};
-
 const CurrentQuote = ({ quotes, toggleLike, setCurrentQuote }) => {
   const handleLike = (feedName, id) => {
     toggleLike(feedName, id);
@@ -65,9 +60,16 @@ const CurrentQuote = ({ quotes, toggleLike, setCurrentQuote }) => {
         </Source>
       </blockquote> 
     </Container>
-  );
+  )
 };
 
-CurrentQuote.propTypes = propTypes;
+CurrentQuote.propTypes = {
+  quotes: PropTypes.object.isRequired,
+  toggleLike: PropTypes.func.isRequired 
+};
+CurrentQuote.defaultProps = {
+  quotes: {},
+  toggleLike: () => {}
+}
 
 export default CurrentQuote;
