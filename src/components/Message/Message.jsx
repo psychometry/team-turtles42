@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import "./Message.scss";
-
+import toggleOnOff from '../../HOC';
 const Message=({time,name})=>{
   const hour=time.getHours();
   let greeting="";
@@ -21,4 +21,4 @@ const Message=({time,name})=>{
 Message.PropTypes={
   name:PropTypes.string.isRequired,
 };
-export default Message
+export default toggleOnOff(Message);

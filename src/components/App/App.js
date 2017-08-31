@@ -82,8 +82,8 @@ class App extends Component {
       updateTime,
       name,
       setName,
+      apps,
     } = this.props;
-
     if(!name||name===''){
       return (
         <div className="App" style={{ backgroundImage: `url(${background})` }}>
@@ -107,8 +107,9 @@ class App extends Component {
                 time={time}
                 updateTime={updateTime}
             />
-            <Message time={time} name={name}/>
+            <Message state={apps.message} time={time} name={name}/>
             <Focus
+              state={apps.focus}
               focus={focus}
               setFocus={setFocus}
               deleteFocus={deleteFocus}
@@ -119,7 +120,7 @@ class App extends Component {
           <footer>
             <SettingsContainer />
             <CurrentQuoteContainer />
-            <ListContainer/>
+            <ListContainer state={apps.todo}/>
           </footer>
         </div>
       );

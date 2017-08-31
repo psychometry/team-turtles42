@@ -2,6 +2,7 @@
 import TodoList from '../components/TodoList';
 //import {loadFromStorage,saveToStorage} from '../../../localStorage';
 //import v4 from 'node-uuid';
+import toggleOnOff from '../../../HOC';
 import * as TodoActionCreators from '../../../actions/TodoActionCreators';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
@@ -70,4 +71,4 @@ const mapDispatchToProps=(dispatch)=>{
   return bindActionCreators(TodoActionCreators,dispatch);
 }
 const ListContainer=connect(mapStateToProps,mapDispatchToProps)(TodoList);
-export default ListContainer;
+export default toggleOnOff(ListContainer);
