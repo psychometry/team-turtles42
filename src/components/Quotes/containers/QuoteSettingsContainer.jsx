@@ -56,6 +56,10 @@ const mapDispatchToProps = dispatch => {
     bindActionCreators(QuotesActionCreators, dispatch),
   );
 };
-const QuoteSettingsContainer = connect(mapStateToProps, mapDispatchToProps)(QuoteSettings);
+
+const QuoteSettingsContainer = connect(
+  mapStateToProps, 
+  mapDispatchToProps
+)(QuoteSettings);
 
 export default QuoteSettingsContainer;

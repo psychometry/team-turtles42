@@ -28,22 +28,21 @@ const Source = styled.p`
   }
 `;
 const CurrentQuote = ({ quotes, toggleLike, setCurrentQuote }) => {
-  const handleLike = (feedName, id) => {
-    toggleLike(feedName, id);
-    setCurrentQuote(id);
-  }
   const { quoteFeeds, currentFeed: feedName, currentQuoteId } = quotes;
   
-  // Load random quote
-  const currentFeed = quoteFeeds.find(feed => {
-    // currentFeed for Default feed if no quotes in currentFeed
+    // Get currentFeed for Default feed if no quotes in currentFeed
+    const currentFeed = quoteFeeds.find(feed => {
     return feed.feedName === feedName && feed.quotes.length;
   }) || quoteFeeds[0];
+
   const { quotes: currentQuotes } = currentFeed;
 
   // Set quote to render currentQuote or a random quote initially
-  const quote = currentQuotes.find(quote => quote.id === currentQuoteId)
-  || currentQuotes[Math.floor(Math.random() * currentQuotes.length)];
+  const currentQuote = currentQuotes.find(quote => quote.id === currentQuoteId);
+  const quote = currentQuote || currentQuotes[Math.floor(Math.random() * currentQuotes.length)];
+  
+  // Set currentQuote if null
+  if (!currentQuote) setCurrentQuote(quote.id);
 
   const { id, text, source, liked } = quote;
 
@@ -56,7 +55,7 @@ const CurrentQuote = ({ quotes, toggleLike, setCurrentQuote }) => {
         <Quote>{text}</Quote>
         <Source>
           {source}
-          {' '}<i onClick={() => handleLike(feedName, id)} className={heart} />
+          {' '}<i onClick={() => toggleLike(feedName, id)} className={heart} />
         </Source>
       </blockquote> 
     </Container>
