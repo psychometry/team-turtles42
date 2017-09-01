@@ -1,12 +1,8 @@
 @import '../../../styles/variables.scss';
+
 .ListContainer{
   z-index: 1000;
   position: fixed;
-  bottom: 20px;
+  bottom: 60px;
   right: 10px;
-  .restricted-height{
-    max-height: 320px;
-    height: auto;
-    overflow-y:auto;
-  }
 }

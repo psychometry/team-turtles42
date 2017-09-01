@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 const Toggle = styled.div`
-  background-color:silver;
+  background-color:grey;
   display:inline-block;
   width:40px;
   height:20px;
@@ -12,12 +12,13 @@ const Toggle = styled.div`
   > div{
     position:relative;
     left:20px;
-    background-color:white;
+    background-color:silver;
     width:20px;
     height:20px;
     border-radius:50%;
   }
   > input:checked + div{
+    background-color:white;
     left:0;
   }
 `;

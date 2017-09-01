@@ -2,24 +2,25 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import ContentEditable from 'react-contenteditable';
 import PropTypes from 'prop-types';
-import { parseQuote } from '../../../quotesHelpers';
+import { parseQuote } from '../../../quoteHelpers';
 
-const Li = styled.li`
+const ListItem = styled.li`
   display: flex;
   justify-content: space-between;
   width: 100%;
   .edit-quote {
-    border-bottom: 1px solid silver;
+    border-bottom: 1px solid ${({ theme }) => theme.grey};
     width: 100%;
     margin-right: 20px;
     padding: 20px 0;
     color: white;
     &:focus {
-      border-bottom: 1px solid white;
+      border-bottom: 1px solid ${({ theme }) => theme.white};
       outline: none;
     }
   }
   .remove, .heart {
+    opacity: .75;
     cursor: pointer;
   }
   .remove {
@@ -30,6 +31,12 @@ const Li = styled.li`
     visibility: visible;
   }
 `;
+
+const propTypes = {
+  quote: PropTypes.object.isRequired,
+  feedName: PropTypes.string.isRequired,
+  onRemoveQuote: PropTypes.func.isRequired
+};
 
 class Quote extends Component {
   constructor(props) {
@@ -60,7 +67,7 @@ class Quote extends Component {
     if (liked) heart = 'heart icon';
 
     return (
-      <Li>
+      <ListItem>
         <ContentEditable
           className="edit-quote"
           html={`${text} \u2014 ${source}`} 
@@ -70,15 +77,11 @@ class Quote extends Component {
         />
         <i className={heart} onClick={() => onToggleLike(feedName, id)} />
         <i className="remove icon" onClick={() => onRemoveQuote(feedName, id)} />
-      </Li>
+      </ListItem>
     );
   }
 }
 
-Quote.propTypes = {
-  quote: PropTypes.object.isRequired,
-  feedName: PropTypes.string.isRequired,
-  onRemoveQuote: PropTypes.func.isRequired
-}
+Quote.propTypes = propTypes;
 
 export default Quote;

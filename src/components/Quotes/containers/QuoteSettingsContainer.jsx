@@ -23,16 +23,16 @@ const QuoteSettings = ({
         onAddFeed={addFeed}
         quoteFeeds={quotes.quoteFeeds}
         onChangeFeed={changeFeed}
-        currentFeed={quotes.currentFeed.feedName}
-        showNewQuote={quotes.showNewQuote}
+        currentFeed={quotes.currentFeed}
+        showingNewQuote={quotes.showingNewQuote}
         onToggleNewQuote={toggleNewQuote}
       /> 
       <Tabs 
         quoteFeeds={quotes.quoteFeeds}
         onChangeFeed={changeFeed} 
         currentFeed={quotes.currentFeed}
-        activeTab={quotes.currentFeed.feedName} 
-        showNewQuote={quotes.showNewQuote}
+        activeTab={quotes.currentFeed} 
+        showingNewQuote={quotes.showingNewQuote}
         onRemoveFeed={removeFeed}
         onToggleNewQuote={toggleNewQuote}
         onAddQuote={addQuote}
@@ -56,6 +56,10 @@ const mapDispatchToProps = dispatch => {
     bindActionCreators(QuotesActionCreators, dispatch),
   );
 };
-const QuoteSettingsContainer = connect(mapStateToProps, mapDispatchToProps)(QuoteSettings);
+
+const QuoteSettingsContainer = connect(
+  mapStateToProps, 
+  mapDispatchToProps
+)(QuoteSettings);
 
 export default QuoteSettingsContainer;

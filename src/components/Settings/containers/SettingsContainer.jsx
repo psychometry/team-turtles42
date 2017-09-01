@@ -10,17 +10,16 @@ const Container = styled.div`
   bottom: 20px;
   left: 10px;
   .setting.icon {
-    color: white;
+    color: ${({ theme }) => theme.white};
     position: absolute;
     bottom: 0;
     left: 14px;
-    text-shadow: 0 1px 5px rgba(0,0,0,.1);
     font-size: 2em;
     cursor: pointer;
   }
 `;
 const Settings = styled.div`
-  background-color: rgba(15, 15, 15, 0.925);
+  background-color: ${({ theme }) => theme.black};
   z-index: 100;
   display: ${props => props.showing ? 'block' : 'none'};
   height: 500px;
@@ -38,7 +37,7 @@ const Pointer = styled.i`
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 10px solid rgba(15, 15, 15, 0.925);
+  border-top: 10px solid ${({ theme }) => theme.black};
 `;
 const tabs = [
   {
@@ -93,7 +92,7 @@ class SettingsContainer extends Component {
           </Tabs>
         </Settings>
         <Pointer showing={showing} />
-        <i onClick={this.toggleSettings} className="setting icon" />
+        <i onClick={this.toggleSettings} className="setting icon"/>
       </Container>
     );
   }

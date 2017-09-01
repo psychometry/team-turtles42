@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import {ThemeProvider} from 'styled-components';
 //import Unsplash, { toJson } from 'unsplash-js';
 import Focus from '../Focus/Focus';
 import BookmarksContainer from '../Bookmarks/BookmarksContainer';
@@ -18,6 +19,13 @@ import './App.scss';
   callbackUrl: process.env.REACT_APP_UNSPLASH_CALLBACK_URL
 });
 */
+
+const theme = {
+  white: 'rgba(255,255,255,1)',
+  grey: 'rgba(255,255,255,.15)',
+  black: 'rgba(15, 15, 15, 0.925)'
+};
+
 class App extends Component {
   /*
   constructor() {
@@ -69,7 +77,7 @@ class App extends Component {
     }
   }*/
   componentDidMount() {
-      this.props.fetchBackground();
+    this.props.fetchBackground();
   }
   render() {
     const {
@@ -82,11 +90,13 @@ class App extends Component {
       updateTime,
       name,
       setName,
-      apps,
+      apps
     } = this.props;
-    if(!name||name===''){
+    if (!name || name === '') {
       return (
-        <div className="App" style={{ backgroundImage: `url(${background})` }}>
+        <div className="App" style={{
+          backgroundImage: `url(${background})`
+        }}>
           <header/>
           <main>
             <Welcome setName={setName}/>
@@ -94,35 +104,30 @@ class App extends Component {
           <footer/>
         </div>
       );
-    }else{
-      return(
-        <div className="App" style={{ backgroundImage: `url(${background})` }}>
-          <header>
-            <BookmarksContainer />
-            <WeatherContainer />
-          </header>
+    } else {
+      return (
+        <ThemeProvider theme={theme}>
+          <div className="App" style={{
+            backgroundImage: `url(${background})`
+          }}>
+            <header>
+              <BookmarksContainer/>
+              <WeatherContainer/>
+            </header>
 
-          <main>
-            <Clock
-                time={time}
-                updateTime={updateTime}
-            />
-            <Message state={apps.message} time={time} name={name}/>
-            <Focus
-              state={apps.focus}
-              focus={focus}
-              setFocus={setFocus}
-              deleteFocus={deleteFocus}
-              toggleFocus={toggleFocus}
-            />
-          </main>
+            <main className="main">
+              <Clock time={time} updateTime={updateTime}/>
+              <Message state={apps.message} time={time} name={name}/>
+              <Focus state={apps.focus} focus={focus} setFocus={setFocus} deleteFocus={deleteFocus} toggleFocus={toggleFocus}/>
+            </main>
 
-          <footer>
-            <SettingsContainer />
-            <CurrentQuoteContainer />
-            <ListContainer state={apps.todo}/>
-          </footer>
-        </div>
+            <footer>
+              <SettingsContainer/>
+              <CurrentQuoteContainer/>
+              <ListContainer state={apps.todo}/>
+            </footer>
+          </div>
+        </ThemeProvider>
       );
     }
   }

@@ -1,12 +1,23 @@
 import React from 'react';
 import Slider from '../Settings/components/Slider';
 import styled from 'styled-components';
+const Container=styled.div`
+  height:100%;
+  display:flex;
+  flex-flow:column nowrap;
+  justify-content:space between;
+  > div{
+    margin-bottom:20px;
+  }
+`;
 const Cell=styled.div`
   display:flex;
   flex-flow:row nowrap;
   justify-content: space-between;
+  border-bottom:1px solid white;
   & :nth-child(odd){
     flex:3 1 inherited;
+    text-transform:capitalize;
   }
   & :nth-child(even){
     flex:1 1 inherited;
@@ -14,7 +25,8 @@ const Cell=styled.div`
 `;
 const GeneralSetting=({apps,toggle})=>{
   return (
-    <div>
+    <Container>
+      <div>Show:</div>
       {
         Object.keys(apps).map(
           (app, i)=>{
@@ -33,7 +45,7 @@ const GeneralSetting=({apps,toggle})=>{
           }
         )
       }
-    </div>
+    </Container>
   )
 }
 

@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Quote from './Quote';
 
-const Ul = styled.ul`
+const QuoteList = styled.ul`
   margin: 0;
 `;
 
 const propTypes = {
   feed: PropTypes.object.isRequired,
   onRemoveQuote: PropTypes.func.isRequired,
-  onUpdateQuote: PropTypes.func.isRequired
-  // TODO: // onLikeQuote: PropTypes.func.isRequired 
+  onUpdateQuote: PropTypes.func.isRequired,
+  onToggleLike: PropTypes.func.isRequired
 }
 
 const defaultProps = {
@@ -36,7 +36,7 @@ const Quotes = ({ feed, onRemoveQuote, onUpdateQuote, onToggleLike }) => {
     );
   });
 
-  return (<Ul>{quoteItems}</Ul>);
+  return (<QuoteList>{quoteItems}</QuoteList>);
 }
 
 Quotes.propTypes = propTypes;

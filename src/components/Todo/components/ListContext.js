@@ -7,7 +7,7 @@ class ListContext extends Component{
   render(){
     const {renderList,...rest}=this.props;
     return(
-      <ul className='restricted-height'>
+      <ul className='list-items'>
         {
           renderList.map((item, i)=>{
             return (

@@ -6,13 +6,13 @@ const Div = styled.div`
   margin-right: 20px;
   margin-bottom: 20px;
   font-size: 1em;
-  color: silver; 
+  opacity: .75;
   label select {
     margin-left: 10px;
     max-width: 100px;
-    color: white;
+    color: ${({ theme }) => theme.white};
     padding: 0;
-    background: transparent;
+    background: transparent; 
     outline: none;
     border: none;
   }
@@ -29,13 +29,12 @@ const propTypes = {
 
 const SelectFeed = ({ quoteFeeds, currentFeed, onChangeFeed }) => {
   const options = quoteFeeds.map(feed => {
-    return (<option key={feed.feedName} value={feed.feedName}>{feed.feedName}</option>); 
+    return (
+      <option key={feed.feedName} value={feed.feedName}>
+        {feed.feedName}
+      </option>
+    ); 
   });
-  const handleFeedChange = (event) => {
-    event.preventDefault();
-    const newFeed = quoteFeeds.find(feed => feed.feedName === event.target.value);
-    onChangeFeed(newFeed);
-  };
 
   return (
     <Div>
@@ -43,7 +42,7 @@ const SelectFeed = ({ quoteFeeds, currentFeed, onChangeFeed }) => {
         Feed: 
         <select 
           value={currentFeed}
-          onChange={handleFeedChange}
+          onChange={event => onChangeFeed(event.target.value)}
         >
           {options}
         </select>

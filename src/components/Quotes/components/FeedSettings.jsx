@@ -16,13 +16,15 @@ const Div = styled.div`
 const NewQuote = styled.a`
   height: 30px;
   border: none;
-  color: ${({showingNewQuote}) => showingNewQuote ? 'white' : 'rgba(255,255,255,.5)'};
+  color: ${({ theme }) => theme.white};
+  opacity: ${({showingNewQuote}) => showingNewQuote ? '1' : '.75'};
   background: transparent;
   .plus.icon {
     font-size: .9em;
   }
   &:hover {
-    color: white;
+    color: ${({ theme }) => theme.white};
+    opacity: 1;
     cursor: pointer;
   }
   &:focus {
@@ -32,7 +34,7 @@ const NewQuote = styled.a`
 const FeedSettings = ({ 
   quoteFeeds, 
   currentFeed,
-  showNewQuote,
+  showingNewQuote,
   onAddFeed,
   onChangeFeed, 
   onToggleNewQuote
@@ -51,7 +53,7 @@ const FeedSettings = ({
         />
         <NewFeed onAddFeed={onAddFeed} />  
       </div>
-      <NewQuote showNewQuote={showNewQuote} onClick={handleNewQuoteClick}>
+      <NewQuote showingNewQuote={showingNewQuote} onClick={handleNewQuoteClick}>
         <i className="plus icon" />
         Add Quote
       </NewQuote>

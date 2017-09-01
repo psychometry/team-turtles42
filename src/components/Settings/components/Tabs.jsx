@@ -17,17 +17,19 @@ const Pane = styled.div`
   width: 100%;
   overflow-y: auto;
   &::-webkit-scrollbar-thumb {
-    background-color: rgba(255,255,255,.3);
+    background-color: ${({ theme }) => theme.grey};
     background-clip: padding-box;
     border: 3px solid transparent;
     border-radius: 7px;
   }
 `;
 const Link = styled.a`
-  color: ${({ active }) => active ? '#fff' : 'rgba(255,255,255,.5)'};
+  color: ${({ theme }) => theme.white};
+  opacity: ${({ active }) => active ?  '1' : '.75'};
   &:hover {
-    color: silver;
     cursor: pointer;
+    color: ${({ theme }) => theme.white};
+    opacity: 1;
   }
   font-size: 1.25em;
   margin-bottom: 20px;

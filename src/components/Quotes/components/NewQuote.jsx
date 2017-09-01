@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { parseQuote } from '../../../quotesHelpers';
+import { parseQuote } from '../../../quoteHelpers';
 
 const Form = styled.form`
   input {
-    width: 470px;
+    width: 454px;
     margin-top: 20px;
     padding-bottom: 20px;
     border: 0;
-    border-bottom: 1px solid silver;
-    color: white;
+    border-bottom: 1px solid ${({ theme }) => theme.grey};
+    color: ${({ theme }) => theme.white};
     background: transparent;
     &:focus {
       outline: none;
-      border-bottom: 1px solid white;
+      border-bottom: 1px solid ${({ theme }) => theme.white};
     }
   }
 `;
