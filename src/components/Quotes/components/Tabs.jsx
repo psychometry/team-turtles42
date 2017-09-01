@@ -12,7 +12,9 @@ const Container = styled.div`
 
 const propTypes = {
   quoteFeeds: PropTypes.array.isRequired,
+  currentFeed: PropTypes.string.isRequired,
   onRemoveFeed: PropTypes.func.isRequired,
+  onChangeFeed: PropTypes.func.isRequired,
   onAddQuote: PropTypes.func.isRequired,
   onRemoveQuote: PropTypes.func.isRequired,
   onUpdateQuote: PropTypes.func.isRequired,
@@ -23,27 +25,24 @@ class Tabs extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeTab: props.currentFeed.feedName
+      activeTab: props.currentFeed
     };
   }
 
-  setList() {
-    const feed = this.props.quoteFeeds.filter(feed => {
-      return feed.feedName === this.state.activeTab;
+  loadFeed() {
+    return this.props.quoteFeeds.filter(feed => {
+      return feed.feedName === this.state.activeTab
     })[0];
-
-    return feed ? feed : this.props.defaultList;
   }
 
-  changeTab = (feedName) => {
-    this.setState({ activeTab: feedName });
-  }
+  changeTab = (feedName) => this.setState({ activeTab: feedName });
 
   render() {
     const { 
       quoteFeeds, 
       onRemoveFeed,
-      showNewQuote,
+      onChangeFeed,
+      showingNewQuote,
       onAddQuote,
       onRemoveQuote, 
       onUpdateQuote,
@@ -59,12 +58,13 @@ class Tabs extends Component {
           onChangeTab={this.changeTab}
           quoteFeeds={quoteFeeds} 
           onRemoveFeed={onRemoveFeed}
+          onChangeFeed={onChangeFeed}
         /> 
-        {showNewQuote && 
+        {showingNewQuote && 
           <NewQuote feedName={activeTab} onAddQuote={onAddQuote} />
         }
         <Quotes 
-          feed={this.setList()} 
+          feed={this.loadFeed()} 
           onRemoveQuote={onRemoveQuote}
           onUpdateQuote={onUpdateQuote}  
           onToggleLike={onToggleLike}

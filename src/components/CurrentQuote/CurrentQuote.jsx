@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  color: white;
+  color: ${({theme}) => theme.white};
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
@@ -15,51 +15,58 @@ const Container = styled.div`
   `;
 const Quote = styled.p`
   font-size: 1.25em;
-  text-shadow: 0 1px 5px rgba(0,0,0,.1);
   `;
 const Source = styled.p`
-  font-size: 1em;
-  color: white;
-  text-shadow: 0 1px 5px rgba(0,0,0,.1);
+  font-size: 1.15em;
+  opacity: .75;
   .heart {
     &:hover {
       cursor: pointer;
     }
   }
 `;
-const propTypes = {
-  quotes: PropTypes.object.isRequired,
-  toggleLike: PropTypes.func.isRequired 
-};
-
-const CurrentQuote = ({ quotes, toggleLike }) => {
-  // Get updated current quote state from quote feeds:
-  const { quoteFeeds, randomQuote } = quotes;
-  const { feedName, quoteId } = randomQuote;
-
-  const feedIndex = quoteFeeds.findIndex(feed => feed.feedName === feedName);
-  const currentFeed = quoteFeeds[feedIndex];
+const CurrentQuote = ({ quotes, toggleLike, setCurrentQuote }) => {
+  const { quoteFeeds, currentFeed: feedName, currentQuoteId } = quotes;
   
-  const quoteIndex = currentFeed.quotes.findIndex(quote => quote.id === quoteId);
-  const currentQuote = currentFeed.quotes[quoteIndex];
+    // Get currentFeed for Default feed if no quotes in currentFeed
+    const currentFeed = quoteFeeds.find(feed => {
+    return feed.feedName === feedName && feed.quotes.length;
+  }) || quoteFeeds[0];
 
-  const { id, text, source, liked } = currentQuote;
+  const { quotes: currentQuotes } = currentFeed;
+
+  // Set quote to render currentQuote or a random quote initially
+  const currentQuote = currentQuotes.find(quote => quote.id === currentQuoteId);
+  const quote = currentQuote || currentQuotes[Math.floor(Math.random() * currentQuotes.length)];
   
+  // Set currentQuote if null
+  if (!currentQuote) setCurrentQuote(quote.id);
+
+  const { id, text, source, liked } = quote;
+
   let heart = 'empty heart icon';
   if (liked) heart = 'heart icon';
 
   return (
     <Container>
       <blockquote>
-        <Quote>{text}</Quote>
+        <Quote>“{text}”</Quote>
         <Source>
-          {source} <i onClick={() => toggleLike(feedName, id)} className={heart} />
+          {source}
+          {' '}<i onClick={() => toggleLike(feedName, id)} className={heart} />
         </Source>
       </blockquote> 
     </Container>
-  );
+  )
 };
 
-CurrentQuote.propTypes = propTypes;
+CurrentQuote.propTypes = {
+  quotes: PropTypes.object.isRequired,
+  toggleLike: PropTypes.func.isRequired 
+};
+CurrentQuote.defaultProps = {
+  quotes: {},
+  toggleLike: () => {}
+}
 
 export default CurrentQuote;

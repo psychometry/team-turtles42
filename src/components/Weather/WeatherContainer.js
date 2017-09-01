@@ -32,7 +32,7 @@ class WeatherContainer extends Component {
           icon: "wi wi-forecast-io-" + result.icon,
           oldTime: time,
 
-        }), this.setStateCallback); console.log(result)}); 
+        }), this.setStateCallback); /*console.log(result)*/}); 
         
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const Form = styled.form`
   input {
     width: 200px;
-    color: white;
+    color: ${({ theme }) => theme.white};
     border: none;
     background: transparent;
     &:focus {

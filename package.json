@@ -46,7 +46,7 @@
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
-    "semantic-ui-react": "^0.71.3",
+    "semantic-ui-css": "^2.2.12",
     "source-map-explorer": "^1.4.0",
     "style-loader": "0.18.2",
     "styled-components": "^2.1.2",

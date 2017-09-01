@@ -8,7 +8,7 @@ const Div = styled.div`
   display: flex;
   overflow-x: scroll;
   &::-webkit-scrollbar-thumb {
-    background-color: rgba(255,255,255,.3);
+    background-color: ${({ theme }) => theme.grey};
     background-clip: adding-box;
     border: 3px solid transparent;
     border-radius: 7px;
@@ -18,16 +18,18 @@ const Link = styled.a`
   display: flex;
   align-items: center;
   white-space: nowrap;
-  color: ${({ active }) => active ? '#fff' : 'silver'};
+  color: ${({ theme }) => theme.white};
+  opacity: ${({ active }) => active ? '1' : '.75'};
   margin-right: 20px;
   i {
-    color: white;
+    color: ${({ theme }) => theme.white};
     display: block;
     margin-left: 10px;
     visibility: hidden;
   }
   &:hover {
-    color: white;
+    color: ${({ theme }) => theme.white};
+    opacity: 1;
     cursor: pointer;
   }
   &:hover i {
@@ -39,17 +41,18 @@ const Menu = ({
   quoteFeeds, 
   activeTab, 
   onChangeTab, 
-  onRemoveFeed 
+  onRemoveFeed,
+  onChangeFeed
 }) => {
   const handleChangeTab = (event, name) => {
     event.preventDefault();
     onChangeTab(name);
-  }
+  };
   const handleRemoveFeed = (event, name) => {
     event.preventDefault();
     onRemoveFeed(name);
-    // TODO: Change current feed to next feed or Default if removing it
-  }
+    onChangeFeed('Default');
+  };
 
   const menuItems = quoteFeeds.map(feed => {
     const { feedName } = feed;
@@ -63,7 +66,7 @@ const Menu = ({
       >
         {feedName}
         <i 
-          className={feed.name === 'Default' ? '' : 'remove icon'}
+          className={feed.feedName === 'Default' ? '' : 'remove icon'}
           onClick={(event) => handleRemoveFeed(event, feedName)} 
         />
       </Link>

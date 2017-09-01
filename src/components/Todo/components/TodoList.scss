@@ -1,12 +1,49 @@
 @import '../../../styles/variables.scss';
-.TodoList{
-  background-color: $transparent;
+
+.TodoList {
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 300px;
+  background-color: $black;
+  padding:.5em .5em 0 .5em;
+  .inbox {
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+  }
+  .list-items {
+    margin: 10px 0;
+    padding: 0;
+    list-style-type: none;
+    max-height: 150px;
+    height: auto;
+    overflow-y:auto;
+  }
 }
-ul{
-  list-style-type: none;
-  padding: 0;
-}
-h4{
+
+.todo-toggle {
+  z-index: 1000;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  cursor: pointer;
+  font-size: 1.2em;
   margin: 0;
-  border-bottom: 1px solid $white;
+}
+.todo-count {
+  background-color: $grey;
+  margin-left: 5px;
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  font-size: .75em;
+  border-radius: 50%;
+  text-align: center;
+  padding: 2px;
+}
+.floating {
+  position: relative;
+  top: -15px;
 }

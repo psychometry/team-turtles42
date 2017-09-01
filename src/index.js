@@ -7,7 +7,8 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers/index';
 import throttle from 'lodash/throttle';
 import {loadFromStorage,saveToStorage} from './localStorage';
-import { loadQuoteFeeds, loadCurrentFeed, loadRandomQuote } from '../src/quotesHelpers';
+import { loadQuoteFeeds, loadCurrentFeed } from '../src/quoteHelpers';
+import 'semantic-ui-css/semantic.min.css';
 import './index.scss';
 //import registerServiceWorker from './registerServiceWorker';
 
@@ -27,8 +28,8 @@ const defaultState={
   quotes: {
     quoteFeeds: loadQuoteFeeds(),
     currentFeed: loadCurrentFeed(),
-    randomQuote: loadRandomQuote(),
-    showNewQuote: false
+    currentQuoteId: null,
+    showingNewQuote: false
   }
 };
 
@@ -40,7 +41,7 @@ store.subscribe(
       saveToStorage('name',store.getState().name);
       saveToStorage('quoteFeeds', store.getState().quotes.quoteFeeds);
       saveToStorage('currentFeed', store.getState().quotes.currentFeed);
-      console.log('ran');
+      // console.log('ran');
   },5000));
 
 ReactDOM.render(
