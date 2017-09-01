@@ -116,7 +116,7 @@ class App extends Component {
             </header>
 
             <main className="main">
-              <Clock time={time} updateTime={updateTime}/>
+              <Clock state={apps.time} time={time} updateTime={updateTime}/>
               <Message state={apps.message} time={time} name={name}/>
               <Focus state={apps.focus} focus={focus} setFocus={setFocus} deleteFocus={deleteFocus} toggleFocus={toggleFocus}/>
             </main>

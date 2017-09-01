@@ -16,6 +16,7 @@ const defaultState={
   apps:{
     todo:true,
     focus:true,
+    time:true,
     message:true,
     weather:true,
     quote:true,

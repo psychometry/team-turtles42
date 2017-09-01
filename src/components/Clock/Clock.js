@@ -1,23 +1,9 @@
 import React,{Component} from 'react';
-//import {bindActionCreators} from 'redux';
-//import {connect} from 'react-redux';
-//import * as TimeActionCreator from '../../actions/TimeActionCreator';
+import toggleOnOff from '../../HOC';
+
 import './Clock.scss';
-/*const mapStateToProps=(state)=>{
-  return {time:state.time};
-}
-const mapDispatchToProps=(dispatch)=>{
-  return bindActionCreators(TimeActionCreator,dispatch);
-}*/
+
 class Clock extends Component{
-/*  constructor(props){
-    super(props);
-    this.state={Time:new Date()};
-  }
-  getTime=()=>{
-    const  today= new Date();
-    this.setState({Time:today});
-  }*/
   componentDidMount(){
     this.timer=setInterval(()=>{this.props.updateTime()},1000);
   }
@@ -31,4 +17,4 @@ class Clock extends Component{
     );
   }
 }
-export default Clock;
+export default toggleOnOff(Clock);
