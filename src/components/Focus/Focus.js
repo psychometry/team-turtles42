@@ -1,6 +1,7 @@
 import React from 'react';
 import AddForm from '../Todo/components/AddForm';
 import Item from '../Todo/components/Item';
+import toggleOnOff from '../../HOC';
 import './Focus.scss';
 const Focus=({focus, setFocus, deleteFocus, toggleFocus})=>{
   const display=focus.set?(
@@ -19,4 +20,4 @@ const Focus=({focus, setFocus, deleteFocus, toggleFocus})=>{
     </div>
   )
 }
-export default Focus;
+export default toggleOnOff(Focus);

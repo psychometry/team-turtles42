@@ -2,8 +2,8 @@
 import TodoList from '../components/TodoList';
 //import {loadFromStorage,saveToStorage} from '../../../localStorage';
 //import v4 from 'node-uuid';
+import toggleOnOff from '../../../HOC';
 import * as TodoActionCreators from '../../../actions/TodoActionCreators';
-import * as AppActionCreators from '../../../actions/AppActionCreators';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 /*class ListContainer extends Component{
@@ -65,15 +65,10 @@ import {connect} from 'react-redux';
 const mapStateToProps=(state)=>{
   return {
     todo:state.todo,
-    show:state.app.todo,
   }
 }
 const mapDispatchToProps=(dispatch)=>{
-  return Object.assign(
-    {},
-    bindActionCreators(TodoActionCreators,dispatch),
-    bindActionCreators(AppActionCreators,dispatch)
-  );
+  return bindActionCreators(TodoActionCreators,dispatch);
 }
 const ListContainer=connect(mapStateToProps,mapDispatchToProps)(TodoList);
-export default ListContainer;
+export default toggleOnOff(ListContainer);

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { ThemeProvider } from 'styled-components';
+import React, {Component} from 'react';
+import {ThemeProvider} from 'styled-components';
 //import Unsplash, { toJson } from 'unsplash-js';
 import Focus from '../Focus/Focus';
 import BookmarksContainer from '../Bookmarks/BookmarksContainer';
@@ -90,11 +90,13 @@ class App extends Component {
       updateTime,
       name,
       setName,
+      apps
     } = this.props;
-
-    if(!name||name===''){
+    if (!name || name === '') {
       return (
-        <div className="App" style={{ backgroundImage: `url(${background})` }}>
+        <div className="App" style={{
+          backgroundImage: `url(${background})`
+        }}>
           <header/>
           <main>
             <Welcome setName={setName}/>
@@ -102,34 +104,28 @@ class App extends Component {
           <footer/>
         </div>
       );
-    }else{
-      return(
+    } else {
+      return (
         <ThemeProvider theme={theme}>
-          <div className="App" style={{ backgroundImage: `url(${background})` }}>
-              <header>
-                <BookmarksContainer />
-                <WeatherContainer />
-              </header>
+          <div className="App" style={{
+            backgroundImage: `url(${background})`
+          }}>
+            <header>
+              <BookmarksContainer/>
+              <WeatherContainer/>
+            </header>
 
-              <main className="main">
-                <Clock
-                    time={time}
-                    updateTime={updateTime}
-                />
-                <Message time={time} name={name}/>
-                <Focus
-                  focus={focus}
-                  setFocus={setFocus}
-                  deleteFocus={deleteFocus}
-                  toggleFocus={toggleFocus}
-                />
-              </main>
+            <main className="main">
+              <Clock time={time} updateTime={updateTime}/>
+              <Message state={apps.message} time={time} name={name}/>
+              <Focus state={apps.focus} focus={focus} setFocus={setFocus} deleteFocus={deleteFocus} toggleFocus={toggleFocus}/>
+            </main>
 
-              <footer className="footer">
-                <SettingsContainer />
-                <CurrentQuoteContainer />
-                <ListContainer/>
-              </footer>
+            <footer>
+              <SettingsContainer/>
+              <CurrentQuoteContainer/>
+              <ListContainer state={apps.todo}/>
+            </footer>
           </div>
         </ThemeProvider>
       );

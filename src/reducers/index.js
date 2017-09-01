@@ -9,7 +9,7 @@ import quotesReducers from './quotesReducers';
 
 const rootReducer=combineReducers(
   {
-    app:appReducer,
+    apps:appReducer,
     time:timeReducer,
     focus:focusReducer,
     todo:todoReducers,
