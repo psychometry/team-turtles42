@@ -45,7 +45,6 @@ const Tabs = ({
   children: tabs, 
   activeTab: index, 
   onChangeTab,
-  onAddFeed
 }) => {
   
   const handleClick = (event, index) => {

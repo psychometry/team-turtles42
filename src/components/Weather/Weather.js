@@ -1,40 +1,30 @@
 import React from 'react';
 import './Weather.scss';
-import './styles/weather-icons.css'
-import './styles/weather-icons.scss'
+import Skycons from 'react-skycons';
 
-
-var initialState = {
-  temperature:  'test',
-  location: 'Not Found',
-  icon: null,  
-  oldTime: null
-}
-
-const Weather = ({ weatherData = initialState }) => {
- 
-	
+const Weather = ({ temperature, location, icon }) => {
   return (
     <div className="Weather">
-      
       <div style = {{height: '50px'}}>
- 
       <table style={{ width:"100%"}}>
         <tbody>
           <tr>
-            <td style = {{textAlign: 'right'}}><i className = { weatherData.icon } style = {{fontSize: "2em"}}></i>
-            <b style = {{fontSize: "2em", marginLeft: '0.3em'}}> { weatherData.temperature }</b></td>
+            <td style = {{textAlign: 'right'}}>
+              <i className={icon} style={{fontSize: "2em"}}/>
+              <Skycons style={{ height: '2em'}} color='white' icon='CLOUDY' autoplay={false}/>
+              <b style={{fontSize: "2em", marginLeft: '0.3em'}}>
+                {temperature}
+              </b>
+            </td>
           </tr>
           <tr>
-            <td style = {{textAlign: 'right'}}>{ weatherData.location }</td>
+            <td style = {{textAlign: 'right'}}>{location}</td>
           </tr>
         </tbody>
       </table>
-
       </div> 
-      </div>
-      );
-   
+    </div>
+  );
 };
 
 export default Weather;

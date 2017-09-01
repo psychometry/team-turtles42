@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Weather from './Weather';
 import DarkSkyApi from 'dark-sky-api';
+
 DarkSkyApi.apiKey = '3222a84582786377ec5360ddf8c2e178';
 var cityReverseGeocoder = require("city-reverse-geocoder");
 
@@ -12,8 +13,8 @@ class WeatherContainer extends Component {
       temperature: null,
       location: null,
       oldTime: null,
-      lat: null,
-      lng: null
+      // lat: null,
+      // lng: null
     };
 
   }
@@ -29,7 +30,7 @@ class WeatherContainer extends Component {
       DarkSkyApi.loadCurrent()
         .then(result => {this.setState((state) => ({
           temperature: Math.round(result.temperature) + '°',
-          icon: "wi wi-forecast-io-" + result.icon,
+          icon: "wi wi-" + result.icon,
           oldTime: time,
 
         }), this.setStateCallback); /*console.log(result)*/}); 
@@ -49,9 +50,7 @@ class WeatherContainer extends Component {
   
   
   render() {
-    return (
-      <Weather weatherData ={this.state} />
-    );
+    return <Weather {...this.state} />;
   }
 }
 
