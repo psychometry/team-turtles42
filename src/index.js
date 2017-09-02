@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers/index';
 import throttle from 'lodash/throttle';
 import {loadFromStorage,saveToStorage} from './localStorage';
-import { loadQuoteFeeds, loadCurrentFeed } from '../src/quoteHelpers';
+import { loadQuoteFeeds, loadCurrentFeed } from '../src/utilities';
 import 'semantic-ui-css/semantic.min.css';
 import './index.scss';
 //import registerServiceWorker from './registerServiceWorker';
@@ -46,8 +46,8 @@ store.subscribe(
       saveToStorage('focus',store.getState().focus);
       saveToStorage('todo',store.getState().todo.todo);
       saveToStorage('name',store.getState().name);
-      saveToStorage('quoteFeeds', store.getState().quotes.quoteFeeds);
-      saveToStorage('currentFeed', store.getState().quotes.currentFeed);
+      saveToStorage('react-dash-quoteFeeds', store.getState().quotes.quoteFeeds);
+      saveToStorage('react-dash-currentFeed', store.getState().quotes.currentFeed);
   },5000));
 
 ReactDOM.render(

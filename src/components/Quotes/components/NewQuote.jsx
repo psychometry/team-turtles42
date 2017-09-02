@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { parseQuote } from '../../../quoteHelpers';
+import { parseQuote } from '../../../utilities';
 
 const Form = styled.form`
   input {
