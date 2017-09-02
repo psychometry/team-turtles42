@@ -111,20 +111,20 @@ class App extends Component {
             backgroundImage: `url(${background})`
           }}>
             <header>
-              <BookmarksContainer/>
-              <WeatherContainer/>
+              <BookmarksContainer />
+              {/* <WeatherContainer/> */}
             </header>
 
             <main className="main">
-              <Clock time={time} updateTime={updateTime}/>
-              <Message state={apps.message} time={time} name={name}/>
+              {/* <Clock time={time} updateTime={updateTime}/> */}
+              {/* <Message state={apps.message} time={time} name={name}/> */}
               <Focus state={apps.focus} focus={focus} setFocus={setFocus} deleteFocus={deleteFocus} toggleFocus={toggleFocus}/>
             </main>
 
             <footer>
-              <SettingsContainer/>
-              <CurrentQuoteContainer/>
-              <ListContainer state={apps.todo}/>
+              <SettingsContainer />
+              <CurrentQuoteContainer />
+              <ListContainer state={apps.todo} />
             </footer>
           </div>
         </ThemeProvider>

@@ -25,24 +25,49 @@ const Source = styled.p`
     }
   }
 `;
-const CurrentQuote = ({ quotes, toggleLike, setCurrentQuote }) => {
-  const { quoteFeeds, currentFeed: feedName, currentQuoteId } = quotes;
+
+const propTypes = {
+  quotes: PropTypes.object.isRequired,
+  quotesUi: PropTypes.object.isRequired,
+  toggleFavorite: PropTypes.func.isRequired,
+  setCurrentQuote: PropTypes.func.isRequired
+};
+
+// const defaultProps = {
+//   quotes: {},
+//   toggleFavorite: () => {}
+// }
+
+const CurrentQuote = ({ 
+  quotes, 
+  quotesUi,
+  toggleFavorite, 
+  setCurrentQuote 
+}) => {
+  const { quotesById, currentFeed } = quotes;
+  const { currentQuoteId } = quotesUi;
   
-    // Get currentFeed for Default feed if no quotes in currentFeed
-    const currentFeed = quoteFeeds.find(feed => {
-    return feed.feedName === feedName && feed.quotes.length;
-  }) || quoteFeeds[0];
+  // TODO: Move/Create selector in reducer
+  const currentQuoteIds = Object.keys(quotesById);
+  const currentQuotes = currentQuoteIds
+    .filter(quoteId => quotesById[quoteId].feedId === currentFeed.feedId)
+    .reduce((nextState, quoteId) => {
+      quotesById[quoteId].quoteId = quoteId;
+      nextState[quoteId] = quotesById[quoteId];
+      return nextState;
+    }, {});
 
-  const { quotes: currentQuotes } = currentFeed;
-
-  // Set quote to render currentQuote or a random quote initially
-  const currentQuote = currentQuotes.find(quote => quote.id === currentQuoteId);
-  const quote = currentQuote || currentQuotes[Math.floor(Math.random() * currentQuotes.length)];
+  // Set quote to render currentQuote or a random quote
+  const currentQuote = currentQuoteId 
+    ? currentQuotes[currentQuoteId]
+    : currentQuotes[
+      currentQuoteIds[Math.floor(Math.random() * currentQuoteIds.length)]
+    ];
   
   // Set currentQuote if null
-  if (!currentQuote) setCurrentQuote(quote.id);
+  if (!currentQuoteId) setCurrentQuote(currentQuote.quoteId);
 
-  const { id, text, source, liked } = quote;
+  const { quoteId, feedId, text, source, liked } = currentQuote;
 
   let heart = 'empty heart icon';
   if (liked) heart = 'heart icon';
@@ -53,20 +78,13 @@ const CurrentQuote = ({ quotes, toggleLike, setCurrentQuote }) => {
         <Quote>“{text}”</Quote>
         <Source>
           {source}
-          {' '}<i onClick={() => toggleLike(feedName, id)} className={heart} />
+          {' '}<i onClick={() => toggleFavorite(feedId, quoteId)} className={heart} />
         </Source>
       </blockquote> 
     </Container>
   )
 };
 
-CurrentQuote.propTypes = {
-  quotes: PropTypes.object.isRequired,
-  toggleLike: PropTypes.func.isRequired 
-};
-CurrentQuote.defaultProps = {
-  quotes: {},
-  toggleLike: () => {}
-}
+CurrentQuote.propTypes = propTypes;
 
 export default CurrentQuote;

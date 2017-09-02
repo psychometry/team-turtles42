@@ -4,41 +4,43 @@ import Tabs from '../components/Tabs';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as QuotesActionCreators from '../../../actions/QuotesActionCreators.js';
+import * as QuotesUiActionCreators from '../../../actions/QuotesUiActionCreators.js';
 
 const QuoteSettings = ({ 
   quotes,
+  quotesUi,
   addFeed,
   removeFeed,
   changeFeed,
+  changeTab,
   toggleNewQuote,
   addQuote,
   removeQuote,
+  editQuote,
   updateQuote,
-  toggleLike
+  toggleFavorite
 }) => {
   
   return (
     <div>
       <FeedSettings
+        quotes={quotes}
+        showNewQuote={quotesUi.showNewQuote}
+        activeTab={quotesUi.activeTab}
         onAddFeed={addFeed}
-        quoteFeeds={quotes.quoteFeeds}
         onChangeFeed={changeFeed}
-        currentFeed={quotes.currentFeed}
-        showingNewQuote={quotes.showingNewQuote}
         onToggleNewQuote={toggleNewQuote}
       /> 
       <Tabs 
-        quoteFeeds={quotes.quoteFeeds}
-        onChangeFeed={changeFeed} 
-        currentFeed={quotes.currentFeed}
-        activeTab={quotes.currentFeed} 
-        showingNewQuote={quotes.showingNewQuote}
+        quotes={quotes}
+        quotesUi={quotesUi}
+        onChangeTab={changeTab} 
         onRemoveFeed={removeFeed}
         onToggleNewQuote={toggleNewQuote}
         onAddQuote={addQuote}
         onRemoveQuote={removeQuote}
         onUpdateQuote={updateQuote}
-        onToggleLike={toggleLike}
+        onToggleFavorite={toggleFavorite}
       />
     </div>
   );
@@ -47,6 +49,7 @@ const QuoteSettings = ({
 const mapStateToProps = state => {
   return {
     quotes: state.quotes,
+    quotesUi: state.quotesUi
   };
 };
 
@@ -54,6 +57,7 @@ const mapDispatchToProps = dispatch => {
   return Object.assign(
     {},
     bindActionCreators(QuotesActionCreators, dispatch),
+    bindActionCreators(QuotesUiActionCreators, dispatch),
   );
 };
 

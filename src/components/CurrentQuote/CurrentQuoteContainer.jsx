@@ -1,20 +1,22 @@
 import { connect } from 'react-redux';
 import CurrentQuote from './CurrentQuote';
-import { toggleLike, setCurrentQuote } from '../../actions/QuotesActionCreators.js';
+import { toggleFavorite } from '../../actions/QuotesActionCreators.js';
+import { setCurrentQuote } from '../../actions/QuotesUiActionCreators.js';
 
 const mapStateToProps = state => {
   return {
-    quotes: state.quotes
+    quotes: state.quotes,
+    quotesUi: state.quotesUi
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    toggleLike: (feedName, id) => {
-      dispatch(toggleLike(feedName, id));
+    toggleFavorite: (feedId, quoteId) => {
+      dispatch(toggleFavorite(feedId, quoteId));
     },
-    setCurrentQuote: id => {
-      dispatch(setCurrentQuote(id));
+    setCurrentQuote: quoteId => {
+      dispatch(setCurrentQuote(quoteId));
     }
   };
 };

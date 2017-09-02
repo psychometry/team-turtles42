@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Menu from './Menu';
@@ -11,69 +11,79 @@ const Container = styled.div`
 `;
 
 const propTypes = {
-  quoteFeeds: PropTypes.array.isRequired,
-  currentFeed: PropTypes.string.isRequired,
+  quotes: PropTypes.object.isRequired,
+  quotesUi: PropTypes.shape({
+    activeTab: PropTypes.string,
+    currentQuoteId: PropTypes.string,
+    showNewQuote: PropTypes.bool
+  }),
   onRemoveFeed: PropTypes.func.isRequired,
   onChangeFeed: PropTypes.func.isRequired,
+  onChangeTab: PropTypes.func.isRequired,
   onAddQuote: PropTypes.func.isRequired,
   onRemoveQuote: PropTypes.func.isRequired,
   onUpdateQuote: PropTypes.func.isRequired,
-  onToggleLike: PropTypes.func.isRequired,
+  onToggleFavorite: PropTypes.func.isRequired,
 };
 
-class Tabs extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeTab: props.currentFeed
-    };
-  }
+const defaultProps = {
+  onRemoveFeed: () => {},
+  onChangeFeed: () => {},
+  onChangeTab: () => {},
+  onAddQuote: () => {},
+  onRemoveQuote: () => {},
+  onUpdateQuote: () => {},
+  onToggleFavorite: () => {}
+};
 
-  loadFeed() {
-    return this.props.quoteFeeds.filter(feed => {
-      return feed.feedName === this.state.activeTab
-    })[0];
-  }
+const Tabs = ({
+  quotes,
+  quotesUi,
+  onRemoveFeed,
+  onChangeTab,
+  onAddQuote,
+  onRemoveQuote, 
+  onUpdateQuote,
+  onToggleFavorite,
+}) => {
+  const { activeTab, showNewQuote } = quotesUi;
+  // TODO: Create selector in quotes reducer
+  const filterQuotes = () => {
+    const { quotesById } = quotes;
+    const filtered = Object.keys(quotesById).filter(quoteId => {
+      const quote = quotesById[quoteId];
+      return quote.feedId === activeTab;
+    });
+    return filtered.map(quoteId => {
+      const quote = quotesById[quoteId];
+      quote.quoteId = quoteId;
+      return quote;
+    });
+  };
 
-  changeTab = (feedName) => this.setState({ activeTab: feedName });
-
-  render() {
-    const { 
-      quoteFeeds, 
-      onRemoveFeed,
-      onChangeFeed,
-      showingNewQuote,
-      onAddQuote,
-      onRemoveQuote, 
-      onUpdateQuote,
-      onToggleLike 
-    } = this.props;
-
-    const { activeTab } = this.state;
-    
-    return (
-      <Container>
-        <Menu
-          activeTab={activeTab}
-          onChangeTab={this.changeTab}
-          quoteFeeds={quoteFeeds} 
-          onRemoveFeed={onRemoveFeed}
-          onChangeFeed={onChangeFeed}
-        /> 
-        {showingNewQuote && 
-          <NewQuote feedName={activeTab} onAddQuote={onAddQuote} />
-        }
-        <Quotes 
-          feed={this.loadFeed()} 
-          onRemoveQuote={onRemoveQuote}
-          onUpdateQuote={onUpdateQuote}  
-          onToggleLike={onToggleLike}
-        />  
-      </Container>
-    );
-  }
+  return (
+    <Container>
+      <Menu
+        quotes={quotes} 
+        activeTab={activeTab}
+        onRemoveFeed={onRemoveFeed}
+        onChangeTab={onChangeTab}
+      /> 
+      {showNewQuote &&
+        <NewQuote activeTab={activeTab} onAddQuote={onAddQuote} />
+      }
+      <Quotes 
+        filteredQuotes={filterQuotes()} 
+        activeTab={activeTab}
+        onRemoveQuote={onRemoveQuote}
+        onUpdateQuote={onUpdateQuote}  
+        onToggleFavorite={onToggleFavorite}
+      />  
+    </Container>
+  );
 }
 
 Tabs.propTypes = propTypes;
+Tabs.defaultProps = defaultProps;
 
 export default Tabs;

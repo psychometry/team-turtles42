@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers/index';
 import throttle from 'lodash/throttle';
 import {loadFromStorage,saveToStorage} from './localStorage';
-import { loadQuoteFeeds, loadCurrentFeed } from '../src/quoteHelpers';
+import { feedsById, quotesById, currentFeed } from '../src/utilities';
 import 'semantic-ui-css/semantic.min.css';
 import './index.scss';
 //import registerServiceWorker from './registerServiceWorker';
@@ -33,10 +33,14 @@ const defaultState={
     showList:false,
   },
   quotes: {
-    quoteFeeds: loadQuoteFeeds(),
-    currentFeed: loadCurrentFeed(),
+    feedsById,
+    quotesById,
+    currentFeed
+  },
+  quotesUi: {
+    activeTab: 'Default',
     currentQuoteId: null,
-    showingNewQuote: false
+    showNewQuote: false
   }
 };
 
@@ -46,8 +50,7 @@ store.subscribe(
       saveToStorage('focus',store.getState().focus);
       saveToStorage('todo',store.getState().todo.todo);
       saveToStorage('name',store.getState().name);
-      saveToStorage('quoteFeeds', store.getState().quotes.quoteFeeds);
-      saveToStorage('currentFeed', store.getState().quotes.currentFeed);
+      saveToStorage('react-dash-quotes', store.getState().quotes);
   },5000));
 
 ReactDOM.render(

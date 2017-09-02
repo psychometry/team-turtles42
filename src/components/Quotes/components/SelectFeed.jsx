@@ -19,18 +19,20 @@ const Div = styled.div`
 `;
 
 const propTypes = {
-  currentFeed: PropTypes.string.isRequired,
-  onChangeFeed: PropTypes.func.isRequired,
-  quoteFeeds: PropTypes.arrayOf(PropTypes.shape({
-    feedName: PropTypes.string.isRequired,
-    quotes: PropTypes.array.isRequired,
-  }))
+  quotes: PropTypes.object.isRequired,
 };
 
-const SelectFeed = ({ quoteFeeds, currentFeed, onChangeFeed }) => {
-  const options = quoteFeeds.map(feed => {
+const SelectFeed = ({ quotes, onChangeFeed }) => {
+  const { feedsById, currentFeed } = quotes;
+  const options = Object.keys(feedsById).map(feedId => {
+    const feed = feedsById[feedId];
+
     return (
-      <option key={feed.feedName} value={feed.feedName}>
+      <option 
+        key={feedId} 
+        data-feed-id={feedId} 
+        value={feed.feedName}
+      >
         {feed.feedName}
       </option>
     ); 
@@ -41,8 +43,11 @@ const SelectFeed = ({ quoteFeeds, currentFeed, onChangeFeed }) => {
       <label>
         Feed: 
         <select 
-          value={currentFeed}
-          onChange={event => onChangeFeed(event.target.value)}
+          value={currentFeed.feedName}
+          onChange={event => {
+            const feedId = event.target.options[event.target.selectedIndex].dataset.feedId;
+            onChangeFeed(feedId, event.target.value)}
+          }
         >
           {options}
         </select>

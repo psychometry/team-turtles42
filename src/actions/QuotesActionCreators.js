@@ -1,78 +1,68 @@
-export const ADD_FEED = 'ADD_FEED',
-REMOVE_FEED = 'REMOVE_FEED',
-CHANGE_FEED = 'CHANGE_FEED',
-TOGGLE_NEW_QUOTE = 'TOGGLE_NEW_QUOTE',
-ADD_QUOTE = 'ADD_QUOTE', 
-REMOVE_QUOTE = 'REMOVE_QUOTE',
-UPDATE_QUOTE = 'UPDATE_QUOTE',
-TOGGLE_LIKE = 'TOGGLE_LIKE',
-SET_CURRENT_QUOTE = 'SET_CURRENT_QUOTE';
+export const types = {
+  ADD_FEED: 'ADD_FEED',
+  REMOVE_FEED: 'REMOVE_FEED',
+  CHANGE_FEED: 'CHANGE_FEED',
+  TOGGLE_NEW_QUOTE: 'TOGGLE_NEW_QUOTE',
+  FILTER_QUOTES: 'FILTER_QUOTES',
+  ADD_QUOTE: 'ADD_QUOTE', 
+  REMOVE_QUOTE: 'REMOVE_QUOTE',
+  UPDATE_QUOTE: 'UPDATE_QUOTE',
+  TOGGLE_FAVORITE: 'TOGGLE_FAVORITE'
+};
+
+export default types;
 
 export const addFeed = feedName => {
   return {
-    type: ADD_FEED,
+    type: types.ADD_FEED,
     feedName
   };
 };
 
-export const removeFeed = feedName => {
+export const removeFeed = feedId => {
   return {
-    type: REMOVE_FEED,
-    feedName
+    type: types.REMOVE_FEED,
+    feedId
   }
 };
 
-export const changeFeed = (feedName) => {
+export const changeFeed = (feedId, feedName) => {
   return {
-    type: CHANGE_FEED,
+    type: types.CHANGE_FEED,
+    feedId,
     feedName
   };
 };
-export const toggleNewQuote = () => {
-  return {
-    type: TOGGLE_NEW_QUOTE
-  }
-};
 
-export const addQuote = (feedName, text, source) => {
+export const addQuote = (feedId, text, source) => {
   return {
-    type: ADD_QUOTE,
-    feedName,
+    type: types.ADD_QUOTE,
+    feedId,
     text,
     source
   };
 };
 
-export const removeQuote = (feedName, id) => {
+export const removeQuote = (feedId, quoteId) => {
   return {
-    type: REMOVE_QUOTE,
-    feedName,
-    id
+    type: types.REMOVE_QUOTE,
+    feedId,
+    quoteId
   }
 };
 
-export const updateQuote = (feedName, quote) => {
+export const updateQuote = (quoteId, quote) => {
   return {
-    type: UPDATE_QUOTE,
-    feedName,
-    quote,
-    id: quote.id
-  }
+    type: types.UPDATE_QUOTE,
+    quoteId,
+    quote
+  };
 };
 
-export const toggleLike = (feedName, id) => {
+export const toggleFavorite = (feedId, quoteId) => {
   return {
-    type: TOGGLE_LIKE,
-    feedName,
-    id
+    type: types.TOGGLE_FAVORITE,
+    feedId,
+    quoteId
   }
 };
-
-export const setCurrentQuote = id => {
-  return {
-    type: SET_CURRENT_QUOTE,
-    id
-  }
-};
-
-

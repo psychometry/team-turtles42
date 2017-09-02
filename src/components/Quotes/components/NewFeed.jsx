@@ -15,16 +15,14 @@ const Form = styled.form`
 `;
 
 const NewFeed = ({ onAddFeed }) => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    onAddFeed(listName.value);
-    listName.value = '';
-  }
-
   let listName;
-
+  
   return (
-    <Form onSubmit={(event) => handleSubmit(event)}>
+    <Form onSubmit={(event) => {
+      event.preventDefault();
+      onAddFeed(listName.value);
+      listName.value = '';
+    }}>
       <input
         ref={(input) => listName = input}
         type="text"
@@ -32,10 +30,6 @@ const NewFeed = ({ onAddFeed }) => {
       />
     </Form>
   );
-};
-
-NewFeed.propTypes = {
-  onAddFeed: PropTypes.func.isRequired
 };
 
 export default NewFeed;
