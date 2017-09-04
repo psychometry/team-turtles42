@@ -98,7 +98,7 @@ class App extends Component {
           backgroundImage: `url(${background})`
         }}>
           <header/>
-          <main>
+          <main className="main">
             <Welcome setName={setName}/>
           </main>
           <footer/>
