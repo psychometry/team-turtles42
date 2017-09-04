@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import CurrentQuote from './CurrentQuote';
-import { toggleFavorite } from '../../actions/QuotesActionCreators.js';
-import { setCurrentQuote } from '../../actions/QuotesUiActionCreators.js';
+import { toggleFavorite, setCurrentQuote } from '../../actions/QuotesActionCreators.js';
 
 const mapStateToProps = state => {
   return {

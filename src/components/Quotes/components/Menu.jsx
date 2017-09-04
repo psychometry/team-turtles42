@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Div = styled.div`
@@ -55,7 +54,7 @@ const Menu = ({
       <Link
         active={active}
         key={feedId}
-        onClick={(event) => onChangeTab(feedId, feedName)}
+        onClick={() => onChangeTab(feedId, feedName)}
       >
         {feedName}
         <i 

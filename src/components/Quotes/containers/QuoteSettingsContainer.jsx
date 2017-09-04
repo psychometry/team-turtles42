@@ -4,7 +4,6 @@ import Tabs from '../components/Tabs';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as QuotesActionCreators from '../../../actions/QuotesActionCreators.js';
-import * as QuotesUiActionCreators from '../../../actions/QuotesUiActionCreators.js';
 
 const QuoteSettings = ({ 
   quotes,
@@ -57,7 +56,6 @@ const mapDispatchToProps = dispatch => {
   return Object.assign(
     {},
     bindActionCreators(QuotesActionCreators, dispatch),
-    bindActionCreators(QuotesUiActionCreators, dispatch),
   );
 };
 

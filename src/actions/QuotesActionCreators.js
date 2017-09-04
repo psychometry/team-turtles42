@@ -7,10 +7,37 @@ export const types = {
   ADD_QUOTE: 'ADD_QUOTE', 
   REMOVE_QUOTE: 'REMOVE_QUOTE',
   UPDATE_QUOTE: 'UPDATE_QUOTE',
-  TOGGLE_FAVORITE: 'TOGGLE_FAVORITE'
+  TOGGLE_FAVORITE: 'TOGGLE_FAVORITE',
+  SET_CURRENT_QUOTE: 'SET_CURRENT_QUOTE',
+  CHANGE_TAB: 'CHANGE_TAB',
 };
 
 export default types;
+
+// QuotesUi
+
+export const changeTab = (feedId, feedName) => {
+  return {
+    type: types.CHANGE_TAB,
+    feedId,
+    feedName
+  };
+};
+
+export const toggleNewQuote = () => {
+  return {
+    type: types.TOGGLE_NEW_QUOTE
+  };
+};
+
+export const setCurrentQuote = quoteId => {
+  return {
+    type: types.SET_CURRENT_QUOTE,
+    quoteId
+  }
+};
+
+// Quotes
 
 export const addFeed = feedName => {
   return {

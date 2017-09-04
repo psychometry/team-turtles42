@@ -20,7 +20,6 @@ const Quotes = ({
   onUpdateQuote, 
   onToggleFavorite 
 }) => {
-  
   const quotes = filteredQuotes.map(quote => {
     return (
       <Quote 

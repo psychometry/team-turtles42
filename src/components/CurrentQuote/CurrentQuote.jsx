@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { randomIndex } from '../../utilities.js';
 
 const Container = styled.div`
   color: ${({theme}) => theme.white};
@@ -33,11 +34,6 @@ const propTypes = {
   setCurrentQuote: PropTypes.func.isRequired
 };
 
-// const defaultProps = {
-//   quotes: {},
-//   toggleFavorite: () => {}
-// }
-
 const CurrentQuote = ({ 
   quotes, 
   quotesUi,
@@ -47,40 +43,46 @@ const CurrentQuote = ({
   const { quotesById, currentFeed } = quotes;
   const { currentQuoteId } = quotesUi;
   
-  // TODO: Move/Create selector in reducer
-  const currentQuoteIds = Object.keys(quotesById);
-  const currentQuotes = currentQuoteIds
+  // TODO: Move selector to quotesById reducer
+  // Filter and reduce currentQuotes object from quotesById
+  const currentQuotes = Object.keys(quotesById)
     .filter(quoteId => quotesById[quoteId].feedId === currentFeed.feedId)
     .reduce((nextState, quoteId) => {
       quotesById[quoteId].quoteId = quoteId;
       nextState[quoteId] = quotesById[quoteId];
       return nextState;
-    }, {});
+  }, {});
+  
+  // Get currentQuoteIds array to generate random quote index
+  const currentQuoteIds = Object.keys(currentQuotes);
+  const randomQuoteId = currentQuoteIds[randomIndex(currentQuoteIds.length)]; 
 
   // Set quote to render currentQuote or a random quote
   const currentQuote = currentQuoteId 
     ? currentQuotes[currentQuoteId]
-    : currentQuotes[
-      currentQuoteIds[Math.floor(Math.random() * currentQuoteIds.length)]
-    ];
-  
+    : currentQuotes[randomQuoteId];
+
   // Set currentQuote if null
-  if (!currentQuoteId) setCurrentQuote(currentQuote.quoteId);
-
-  const { quoteId, feedId, text, source, liked } = currentQuote;
-
-  let heart = 'empty heart icon';
-  if (liked) heart = 'heart icon';
+  if (!currentQuoteId && currentQuote) setCurrentQuote(currentQuote.quoteId);
 
   return (
     <Container>
-      <blockquote>
-        <Quote>“{text}”</Quote>
-        <Source>
-          {source}
-          {' '}<i onClick={() => toggleFavorite(feedId, quoteId)} className={heart} />
-        </Source>
-      </blockquote> 
+      {currentQuote &&
+        <blockquote>
+          <Quote>“{currentQuote.text}”</Quote>
+          <Source>
+            {currentQuote.source + ' '}
+              <i 
+                onClick={() => {
+                  toggleFavorite(currentQuote.feedId, currentQuote.quoteId)
+                }} 
+                className={
+                  currentQuote.liked ? 'heart icon' : 'empty heart icon'
+                } 
+              />
+          </Source>
+        </blockquote> 
+      }
     </Container>
   )
 };

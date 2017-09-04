@@ -18,7 +18,7 @@ const quotesById = (state = {}, action) => {
     case types.REMOVE_QUOTE:
       const { [action.quoteId]: removed, ...rest } = state;
       return rest;
-    // Remove all quotes in feed
+    // Remove all quotes in feed on remove feed
     case types.REMOVE_FEED: 
       // filter and reduce quotes to those that are not in removed feed 
       return Object.keys(state)

@@ -27,4 +27,7 @@ export const loadWeatherSettings = () => {
   return loadFromStorage('react-dash-weather-settings') || {};
 };
 
+// Random
+export const randomIndex = length => Math.floor(Math.random() * length);
+
 

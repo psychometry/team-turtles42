@@ -16,8 +16,8 @@ const rootReducer=combineReducers(
     todo:todoReducers,
     background:bgReducer,
     name:nameReducer,
-    quotes,
-    quotesUi
+    quotesUi,
+    quotes
   }
 );
 
