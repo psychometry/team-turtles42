@@ -77,7 +77,15 @@ class App extends Component {
     }
   }*/
   componentDidMount() {
-    this.props.fetchBackground();
+    const {option, updateTime}= this.props;
+    if(!option||option==='unsplash'){
+      this.props.fetchBackground();
+    }else if(option==='local'){
+      this.props.fetchBackgroundLocal();
+    }
+    if(!updateTime){
+      this.props.update(new Date());
+    }
   }
   render() {
     const {
@@ -95,7 +103,7 @@ class App extends Component {
     if (!name || name === '') {
       return (
         <div className="App" style={{
-          backgroundImage: `url(${background})`
+          backgroundImage: `url(${background.bg})`
         }}>
           <header/>
           <main className="main">
@@ -108,7 +116,7 @@ class App extends Component {
       return (
         <ThemeProvider theme={theme}>
           <div className="App" style={{
-            backgroundImage: `url(${background})`
+            backgroundImage: `url(${background.bg})`
           }}>
             <header>
               <BookmarksContainer/>

@@ -22,7 +22,11 @@ const defaultState={
     quote:true,
   },
   time:new Date(),
-  background:null,
+  background:{
+    bg:null,
+    updateTime:null,
+    option:null,
+  },
   focus:loadFromStorage('focus')||{text:null,
     done:false,
     set:false,
@@ -50,7 +54,6 @@ store.subscribe(
       saveToStorage('quoteFeeds', store.getState().quotes.quoteFeeds);
       saveToStorage('currentFeed', store.getState().quotes.currentFeed);
   },5000));
-
 ReactDOM.render(
   <Provider store={store}>
     <AppContainer />

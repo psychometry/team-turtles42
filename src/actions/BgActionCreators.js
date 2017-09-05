@@ -3,7 +3,10 @@ import backgrounds from '../background.json';
 export const SET_BACKGROUND = 'SET_BACKGROUND',
 FETCH_BACKGROUND='FETCH_BACKGROUND',
 FETCH_BACKGROUND_SUCCESS='FETCH_BACKGROUND_SUCCESS',
-FETCH_BACKGROUND_FAILURE='FETCH_BACKGROUND_FAILURE';
+FETCH_BACKGROUND_FAILURE='FETCH_BACKGROUND_FAILURE',
+SET_UPDATE_TIME='SET_UPDATE_TIME',
+SET_OPTION='SET_OPTION';
+
 
 const unsplash = new Unsplash({
   applicationId: process.env.REACT_APP_UNSPLASH_APP_ID,
@@ -18,7 +21,7 @@ export function fetchBackgroundSuccess(url){
     dispatch(setBackground(url));
   }
 }
-export function fetchBackgroundFailure(){
+export function fetchBackgroundLocal(){
   return function(dispatch){
     const bgList=backgrounds.backgrounds;
     const rand=Math.floor(Math.random()*(bgList.length));
@@ -35,8 +38,14 @@ export function fetchBackground(){
       err=>{
         console.log('error');
         console.log(err);
-        dispatch(fetchBackgroundFailure());
+        dispatch(fetchBackgroundLocal());
       }
     );
   }
+}
+export function setOption(option){
+  return {type:SET_OPTION,option}
+}
+export function update(time){
+  return {type:SET_UPDATE_TIME,time}
 }
