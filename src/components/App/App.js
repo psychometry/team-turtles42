@@ -119,7 +119,7 @@ class App extends Component {
             backgroundImage: `url(${background.bg})`
           }}>
             <header>
-              <BookmarksContainer/>
+              <BookmarksContainer />
               <WeatherContainer/>
             </header>
 
@@ -130,9 +130,9 @@ class App extends Component {
             </main>
 
             <footer>
-              <SettingsContainer/>
-              <CurrentQuoteContainer/>
-              <ListContainer state={apps.todo}/>
+              <SettingsContainer />
+              <CurrentQuoteContainer />
+              <ListContainer state={apps.todo} />
             </footer>
           </div>
         </ThemeProvider>

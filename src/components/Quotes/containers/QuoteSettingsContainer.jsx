@@ -10,35 +10,38 @@ const QuoteSettings = ({
   addFeed,
   removeFeed,
   changeFeed,
+  changeTab,
   toggleNewQuote,
   addQuote,
   removeQuote,
+  editQuote,
   updateQuote,
-  toggleLike
+  toggleFavorite
 }) => {
   
   return (
     <div>
       <FeedSettings
-        onAddFeed={addFeed}
-        quoteFeeds={quotes.quoteFeeds}
-        onChangeFeed={changeFeed}
+        feedsById={quotes.feedsById}
         currentFeed={quotes.currentFeed}
-        showingNewQuote={quotes.showingNewQuote}
+        showNewQuote={quotes.quotesUi.showNewQuote}
+        activeTab={quotes.quotesUi.activeTab}
+        onAddFeed={addFeed}
+        onChangeFeed={changeFeed}
         onToggleNewQuote={toggleNewQuote}
       /> 
       <Tabs 
-        quoteFeeds={quotes.quoteFeeds}
-        onChangeFeed={changeFeed} 
-        currentFeed={quotes.currentFeed}
-        activeTab={quotes.currentFeed} 
-        showingNewQuote={quotes.showingNewQuote}
+        feedsById={quotes.feedsById}
+        quotesById={quotes.quotesById}
+        activeTab={quotes.quotesUi.activeTab}
+        showNewQuote={quotes.quotesUi.showNewQuote}
+        onChangeTab={changeTab} 
         onRemoveFeed={removeFeed}
         onToggleNewQuote={toggleNewQuote}
         onAddQuote={addQuote}
         onRemoveQuote={removeQuote}
         onUpdateQuote={updateQuote}
-        onToggleLike={toggleLike}
+        onToggleFavorite={toggleFavorite}
       />
     </div>
   );
@@ -47,6 +50,7 @@ const QuoteSettings = ({
 const mapStateToProps = state => {
   return {
     quotes: state.quotes,
+    quotesUi: state.quotesUi
   };
 };
 

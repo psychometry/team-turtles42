@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -19,37 +19,48 @@ const Div = styled.div`
 `;
 
 const propTypes = {
-  currentFeed: PropTypes.string.isRequired,
-  onChangeFeed: PropTypes.func.isRequired,
-  quoteFeeds: PropTypes.arrayOf(PropTypes.shape({
-    feedName: PropTypes.string.isRequired,
-    quotes: PropTypes.array.isRequired,
-  }))
+  feedsById: PropTypes.object.isRequired,
+  currentFeed: PropTypes.object.isRequired
 };
 
-const SelectFeed = ({ quoteFeeds, currentFeed, onChangeFeed }) => {
-  const options = quoteFeeds.map(feed => {
-    return (
-      <option key={feed.feedName} value={feed.feedName}>
-        {feed.feedName}
-      </option>
-    ); 
-  });
+class SelectFeed extends Component {
+  componentWillMount() {
 
-  return (
-    <Div>
-      <label>
-        Feed: 
-        <select 
-          value={currentFeed}
-          onChange={event => onChangeFeed(event.target.value)}
+  }
+
+  handleChange = (event) => {
+    const feedId = event.target.options[event.target.selectedIndex].dataset.feedId;
+    this.props.onChangeFeed(feedId, event.target.value)
+  }
+
+  render() {
+    const { feedsById, currentFeed } = this.props;
+    const options = Object.keys(feedsById).map(feedId => {
+      const feed = feedsById[feedId];
+      
+      return (
+        <option 
+          key={feedId} 
+          data-feed-id={feedId} 
+          value={feed.feedName}
         >
-          {options}
-        </select>
-      </label>
-    </Div>
-  )
-};
+          {feed.feedName}
+        </option>
+      );
+    }); 
+    
+    return (
+      <Div>
+        <label>
+          Feed: 
+          <select value={currentFeed.feedName} onChange={event => this.handleChange(event)}>
+            {options}
+          </select>
+        </label>
+      </Div>
+    );
+  }
+}
 
 SelectFeed.propTypes = propTypes;
 

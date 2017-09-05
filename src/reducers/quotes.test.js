@@ -1,5 +1,6 @@
-import quotesReducer, { quoteFeeds, quotes } from './quotesReducers';
-import * as types from '../actions/QuotesActionCreators';
+// TODO: Refactor tests
+// import { quoteFeeds, currentFeed, quotes } from './quotes';
+import types from '../actions/QuotesActionCreators';
 import defaultFeeds from '../defaultFeeds.json';
 
 describe('quotes reducer', () => {
@@ -7,7 +8,7 @@ describe('quotes reducer', () => {
     currentFeed: 'Default',
     currentQuoteId: null,
     quoteFeeds: defaultFeeds,
-    showingNewQuote: false
+    showNewQuote: false
   };
   const testFeed = defaultFeeds[0];
   const testQuotes = testFeed.quotes;
@@ -100,13 +101,13 @@ describe('quotes reducer', () => {
       type: types.TOGGLE_NEW_QUOTE
     })).toEqual({
       ...initialState,
-      showingNewQuote: !initialState.showingNewQuote
+      showNewQuote: !initialState.showNewQuote
     });
   });
 
   // it('should toggle a quote like', () => {
   //   expect(quotes(testQuotes, {
-  //     type: types.TOGGLE_LIKE,
+  //     type: types.TOGGLE_FAVORITE,
   //     feedName: testFeed.feedName,
   //     id: testQuote.id
   //   })).toEqual([
