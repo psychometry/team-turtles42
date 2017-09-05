@@ -1,5 +1,6 @@
 import Unsplash, { toJson } from 'unsplash-js';
 import backgrounds from '../background.json';
+import { randomIndex } from '../utilities';
 export const SET_BACKGROUND = 'SET_BACKGROUND',
 FETCH_BACKGROUND='FETCH_BACKGROUND',
 FETCH_BACKGROUND_SUCCESS='FETCH_BACKGROUND_SUCCESS',
@@ -21,7 +22,7 @@ export function fetchBackgroundSuccess(url){
 export function fetchBackgroundFailure(){
   return function(dispatch){
     const bgList=backgrounds.backgrounds;
-    const rand=Math.floor(Math.random()*(bgList.length));
+    const rand=randomIndex(bgList.length);
     dispatch(setBackground(process.env.PUBLIC_URL+'./img/'+bgList[rand].filename));
   }
 }

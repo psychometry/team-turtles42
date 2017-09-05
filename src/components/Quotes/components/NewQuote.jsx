@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { parseQuote } from '../../../quoteHelpers';
+import { parseQuote } from '../../../utilities';
 
 const Form = styled.form`
   input {
@@ -20,9 +20,8 @@ const Form = styled.form`
 `;
 
 const propTypes = {
-  feedName: PropTypes.string.isRequired,
-  onAddQuote: PropTypes.func.isRequired
-}
+  activeTab: PropTypes.string.isRequired
+};
 
 class NewQuote extends Component {
   componentDidMount() {
@@ -30,11 +29,11 @@ class NewQuote extends Component {
   }
   handleSubmit(event) {
     event.preventDefault();
-    const { feedName, onAddQuote } = this.props;
+    const { activeTab, onAddQuote } = this.props;
     const [text, source] = parseQuote(this.newQuote.value);
     
     if (text && source) {
-      onAddQuote(feedName, text, source);
+      onAddQuote(activeTab, text, source);
       this.newQuote.value = '';
     } else {
       // TODO: Add user notification

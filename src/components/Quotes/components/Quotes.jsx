@@ -5,41 +5,37 @@ import Quote from './Quote';
 
 const QuoteList = styled.ul`
   margin: 0;
+  padding: 0;
 `;
 
 const propTypes = {
-  feed: PropTypes.object.isRequired,
-  onRemoveQuote: PropTypes.func.isRequired,
-  onUpdateQuote: PropTypes.func.isRequired,
-  onToggleLike: PropTypes.func.isRequired
+  filteredQuotes: PropTypes.array.isRequired,
 }
 
-const defaultProps = {
-  feed: {},
-  onRemoveQuote: () => {},
-  onUpdateQuote: () => {}
-};
 
-const Quotes = ({ feed, onRemoveQuote, onUpdateQuote, onToggleLike }) => {
-  const { feedName = '', quotes = [] } = feed;
-  const quoteItems = quotes.map((quote) => {
-    
+const Quotes = ({ 
+  filteredQuotes, 
+  activeTab,
+  onRemoveQuote, 
+  onUpdateQuote, 
+  onToggleFavorite 
+}) => {
+  const quotes = filteredQuotes.map(quote => {
     return (
       <Quote 
-        key={quote.id} 
-        quote={quote} 
-        feedName={feedName}
+        key={quote.quoteId}
+        quote={quote}
+        activeTab={activeTab}
         onRemoveQuote={onRemoveQuote}
         onUpdateQuote={onUpdateQuote}
-        onToggleLike={onToggleLike}
+        onToggleFavorite={onToggleFavorite}
       />
     );
   });
 
-  return (<QuoteList>{quoteItems}</QuoteList>);
-}
+  return <QuoteList>{quotes}</QuoteList>;
+};
 
 Quotes.propTypes = propTypes;
-Quotes.defaultProps = defaultProps;
 
 export default Quotes;

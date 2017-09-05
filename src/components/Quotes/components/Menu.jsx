@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Div = styled.div`
@@ -21,7 +20,8 @@ const Link = styled.a`
   color: ${({ theme }) => theme.white};
   opacity: ${({ active }) => active ? '1' : '.75'};
   margin-right: 20px;
-  i {
+  .remove {
+    margin-left: 5px;
     color: ${({ theme }) => theme.white};
     display: block;
     margin-left: 10px;
@@ -38,36 +38,29 @@ const Link = styled.a`
 `;
 
 const Menu = ({ 
-  quoteFeeds, 
+  feedsById,
   activeTab, 
   onChangeTab, 
   onRemoveFeed,
-  onChangeFeed
 }) => {
-  const handleChangeTab = (event, name) => {
-    event.preventDefault();
-    onChangeTab(name);
-  };
-  const handleRemoveFeed = (event, name) => {
-    event.preventDefault();
-    onRemoveFeed(name);
-    onChangeFeed('Default');
-  };
-
-  const menuItems = quoteFeeds.map(feed => {
+  const menuItems = Object.keys(feedsById).map(feedId => {
+    const feed = feedsById[feedId];
     const { feedName } = feed;
-    const active = activeTab === feedName ? true : false;
+    const active = activeTab === feedId ? true : false;
 
     return (
       <Link
         active={active}
-        key={feedName}
-        onClick={(event) => handleChangeTab(event, feedName)}
+        key={feedId}
+        onClick={() => onChangeTab(feedId, feedName)}
       >
         {feedName}
         <i 
-          className={feed.feedName === 'Default' ? '' : 'remove icon'}
-          onClick={(event) => handleRemoveFeed(event, feedName)} 
+          className={feedName === 'Default' ? '' : 'remove icon'}
+          onClick={(event) => {
+            event.stopPropagation();
+            onRemoveFeed(feedId);
+          }}
         />
       </Link>
     );
@@ -79,11 +72,5 @@ const Menu = ({
     </Div>
   );
 };
-
-Menu.propTypes = {
-  quoteFeeds: PropTypes.array.isRequired,
-  activeTab: PropTypes.string.isRequired,
-  onRemoveFeed: PropTypes.func.isRequired
-}
 
 export default Menu;

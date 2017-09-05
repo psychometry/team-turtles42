@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import SelectFeed from '../components/SelectFeed';
 import NewFeed from '../components/NewFeed';
@@ -17,7 +18,7 @@ const NewQuote = styled.a`
   height: 30px;
   border: none;
   color: ${({ theme }) => theme.white};
-  opacity: ${({showingNewQuote}) => showingNewQuote ? '1' : '.75'};
+  opacity: ${({showNewQuote}) => showNewQuote ? '1' : '.75'};
   background: transparent;
   .plus.icon {
     font-size: .9em;
@@ -31,10 +32,27 @@ const NewQuote = styled.a`
     outline: none;
   }
 `;
+
+const propTypes = {
+  feedsById: PropTypes.object.isRequired,
+  currentFeed: PropTypes.object.isRequired,
+  activeTab: PropTypes.string.isRequired,
+  showNewQuote: PropTypes.bool.isRequired,
+  onAddFeed: PropTypes.func.isRequired,
+  onChangeFeed: PropTypes.func.isRequired,
+  onToggleNewQuote: PropTypes.func.isRequired
+};
+
+const defaultProps = {
+  activeTab: 'Default',
+  showNewQuote: false
+}
+
 const FeedSettings = ({ 
-  quoteFeeds, 
+  feedsById,
   currentFeed,
-  showingNewQuote,
+  activeTab,
+  showNewQuote,
   onAddFeed,
   onChangeFeed, 
   onToggleNewQuote
@@ -47,18 +65,25 @@ const FeedSettings = ({
     <Div>
       <div className="feeds">
         <SelectFeed 
-          quoteFeeds={quoteFeeds}
+          feedsById={feedsById}
           currentFeed={currentFeed}
           onChangeFeed={onChangeFeed}
         />
         <NewFeed onAddFeed={onAddFeed} />  
       </div>
-      <NewQuote showingNewQuote={showingNewQuote} onClick={handleNewQuoteClick}>
+      <NewQuote 
+        showNewQuote={showNewQuote} 
+        activeTab={activeTab} 
+        onClick={handleNewQuoteClick}
+      >
         <i className="plus icon" />
         Add Quote
       </NewQuote>
     </Div>
   );
 };
+
+FeedSettings.propTypes = propTypes;
+FeedSettings.defaultProps = defaultProps;
 
 export default FeedSettings;
