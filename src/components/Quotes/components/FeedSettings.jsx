@@ -34,7 +34,8 @@ const NewQuote = styled.a`
 `;
 
 const propTypes = {
-  quotes: PropTypes.object.isRequired,
+  feedsById: PropTypes.object.isRequired,
+  currentFeed: PropTypes.object.isRequired,
   activeTab: PropTypes.string.isRequired,
   showNewQuote: PropTypes.bool.isRequired,
   onAddFeed: PropTypes.func.isRequired,
@@ -48,7 +49,8 @@ const defaultProps = {
 }
 
 const FeedSettings = ({ 
-  quotes,
+  feedsById,
+  currentFeed,
   activeTab,
   showNewQuote,
   onAddFeed,
@@ -63,7 +65,8 @@ const FeedSettings = ({
     <Div>
       <div className="feeds">
         <SelectFeed 
-          quotes={quotes}
+          feedsById={feedsById}
+          currentFeed={currentFeed}
           onChangeFeed={onChangeFeed}
         />
         <NewFeed onAddFeed={onAddFeed} />  

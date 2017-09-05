@@ -35,12 +35,12 @@ const defaultState={
   quotes: {
     feedsById,
     quotesById,
-    currentFeed
-  },
-  quotesUi: {
-    activeTab: 'Default',
-    currentQuoteId: null,
-    showNewQuote: false
+    currentFeed,
+    quotesUi: {
+      activeTab: 'Default',
+      currentQuoteId: null,
+      showNewQuote: false
+    }
   }
 };
 

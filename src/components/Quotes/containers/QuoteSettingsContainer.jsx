@@ -7,7 +7,6 @@ import * as QuotesActionCreators from '../../../actions/QuotesActionCreators.js'
 
 const QuoteSettings = ({ 
   quotes,
-  quotesUi,
   addFeed,
   removeFeed,
   changeFeed,
@@ -23,16 +22,19 @@ const QuoteSettings = ({
   return (
     <div>
       <FeedSettings
-        quotes={quotes}
-        showNewQuote={quotesUi.showNewQuote}
-        activeTab={quotesUi.activeTab}
+        feedsById={quotes.feedsById}
+        currentFeed={quotes.currentFeed}
+        showNewQuote={quotes.quotesUi.showNewQuote}
+        activeTab={quotes.quotesUi.activeTab}
         onAddFeed={addFeed}
         onChangeFeed={changeFeed}
         onToggleNewQuote={toggleNewQuote}
       /> 
       <Tabs 
-        quotes={quotes}
-        quotesUi={quotesUi}
+        feedsById={quotes.feedsById}
+        quotesById={quotes.quotesById}
+        activeTab={quotes.quotesUi.activeTab}
+        showNewQuote={quotes.quotesUi.showNewQuote}
         onChangeTab={changeTab} 
         onRemoveFeed={removeFeed}
         onToggleNewQuote={toggleNewQuote}

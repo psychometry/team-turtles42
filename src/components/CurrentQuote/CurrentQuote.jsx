@@ -29,19 +29,17 @@ const Source = styled.p`
 
 const propTypes = {
   quotes: PropTypes.object.isRequired,
-  quotesUi: PropTypes.object.isRequired,
   toggleFavorite: PropTypes.func.isRequired,
   setCurrentQuote: PropTypes.func.isRequired
 };
 
 const CurrentQuote = ({ 
   quotes, 
-  quotesUi,
   toggleFavorite, 
   setCurrentQuote 
 }) => {
   const { quotesById, currentFeed } = quotes;
-  const { currentQuoteId } = quotesUi;
+  const { currentQuoteId } = quotes.quotesUi;
   
   // TODO: Move selector to quotesById reducer
   // Filter and reduce currentQuotes object from quotesById

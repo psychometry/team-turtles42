@@ -5,7 +5,6 @@ import { toggleFavorite, setCurrentQuote } from '../../actions/QuotesActionCreat
 const mapStateToProps = state => {
   return {
     quotes: state.quotes,
-    quotesUi: state.quotesUi
   };
 };
 

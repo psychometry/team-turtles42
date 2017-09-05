@@ -11,12 +11,10 @@ const Container = styled.div`
 `;
 
 const propTypes = {
-  quotes: PropTypes.object.isRequired,
-  quotesUi: PropTypes.shape({
-    activeTab: PropTypes.string,
-    currentQuoteId: PropTypes.string,
-    showNewQuote: PropTypes.bool
-  }),
+  feedsById: PropTypes.object.isRequired,
+  quotesById: PropTypes.object.isRequired,
+  activeTab: PropTypes.string.isRequired,
+  showNewQuote: PropTypes.bool.isRequired,
   onRemoveFeed: PropTypes.func.isRequired,
   onChangeFeed: PropTypes.func.isRequired,
   onChangeTab: PropTypes.func.isRequired,
@@ -37,8 +35,10 @@ const defaultProps = {
 };
 
 const Tabs = ({
-  quotes,
-  quotesUi,
+  quotesById,
+  feedsById,
+  activeTab,
+  showNewQuote,
   onRemoveFeed,
   onChangeTab,
   onAddQuote,
@@ -46,10 +46,8 @@ const Tabs = ({
   onUpdateQuote,
   onToggleFavorite,
 }) => {
-  const { activeTab, showNewQuote } = quotesUi;
   // TODO: Create selector in quotes reducer
   const filterQuotes = () => {
-    const { quotesById } = quotes;
     const filtered = Object.keys(quotesById).filter(quoteId => {
       const quote = quotesById[quoteId];
       return quote.feedId === activeTab;
@@ -64,7 +62,7 @@ const Tabs = ({
   return (
     <Container>
       <Menu
-        quotes={quotes} 
+        feedsById={feedsById}
         activeTab={activeTab}
         onRemoveFeed={onRemoveFeed}
         onChangeTab={onChangeTab}

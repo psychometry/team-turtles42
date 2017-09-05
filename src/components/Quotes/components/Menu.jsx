@@ -38,13 +38,11 @@ const Link = styled.a`
 `;
 
 const Menu = ({ 
-  quotes, 
+  feedsById,
   activeTab, 
   onChangeTab, 
   onRemoveFeed,
 }) => {
-  const { feedsById } = quotes;
-
   const menuItems = Object.keys(feedsById).map(feedId => {
     const feed = feedsById[feedId];
     const { feedName } = feed;

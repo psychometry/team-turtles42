@@ -19,7 +19,8 @@ const Div = styled.div`
 `;
 
 const propTypes = {
-  quotes: PropTypes.object.isRequired,
+  feedsById: PropTypes.object.isRequired,
+  currentFeed: PropTypes.object.isRequired
 };
 
 class SelectFeed extends Component {
@@ -33,8 +34,7 @@ class SelectFeed extends Component {
   }
 
   render() {
-    const { quotes } = this.props;
-    const { feedsById, currentFeed } = quotes;
+    const { feedsById, currentFeed } = this.props;
     const options = Object.keys(feedsById).map(feedId => {
       const feed = feedsById[feedId];
       
