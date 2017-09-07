@@ -19,6 +19,7 @@ const Container = styled.div`
 const Condition = styled.div`
   display: flex;
   align-items: center;
+  margin: 0 auto;
   > * {
     font-size: 2em;
     font-style: normal;
@@ -59,9 +60,11 @@ const Weather = ({ code, temp, unit, location }) => {
     '27': 'I', // mostly-cloudy-night
     '28': 'H', // mostly-cloudy-day
     '29': 'E', // partly-cloudy-night
-    '30': 'H', // partly-cloudy (same as 8)
+    '30': 'H', // partly-cloudy
     '31': 'C', // clear-night
     '32': 'B', // sunny
+    '33': 'C', // fair-night
+    '34': 'B', // fair-day
     '3200': ')', // not-available
     'C': '*', // C°
     'F': '+' // F°
