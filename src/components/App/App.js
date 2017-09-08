@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {ThemeProvider} from 'styled-components';
 //import Unsplash, { toJson } from 'unsplash-js';
 import Focus from '../Focus/Focus';
-import BookmarksContainer from '../Bookmarks/BookmarksContainer';
+import LinksContainer from '../Links/LinksContainer';
 import WeatherContainer from '../Weather/WeatherContainer';
 import SettingsContainer from '../Settings/containers/SettingsContainer';
 import CurrentQuoteContainer from '../CurrentQuote/CurrentQuoteContainer';
@@ -21,7 +21,7 @@ import './App.scss';
 */
 
 const theme = {
-  white: 'rgba(255,255,255,1)',
+  white: 'rgb(255,255,255)',
   grey: 'rgba(255,255,255,.15)',
   black: 'rgba(15, 15, 15, 0.925)'
 };
@@ -111,7 +111,7 @@ class App extends Component {
             backgroundImage: `url(${background})`
           }}>
             <header>
-              <BookmarksContainer />
+              <LinksContainer />
               <WeatherContainer/>
             </header>
 

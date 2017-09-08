@@ -1,14 +1,21 @@
 import React,{Component} from 'react';
+import styled from 'styled-components';
 //import {bindActionCreators} from 'redux';
 //import {connect} from 'react-redux';
 //import * as TimeActionCreator from '../../actions/TimeActionCreator';
-import './Clock.scss';
 /*const mapStateToProps=(state)=>{
   return {time:state.time};
 }
 const mapDispatchToProps=(dispatch)=>{
   return bindActionCreators(TimeActionCreator,dispatch);
 }*/
+
+const Container = styled.div`
+  padding: 0 20px;
+  font-size: 13em;
+  letter-spacing: -5px;
+`;
+
 class Clock extends Component{
 /*  constructor(props){
     super(props);
@@ -27,7 +34,10 @@ class Clock extends Component{
   render(){
     const {time} =this.props;
     return(
-        <span className='Clock'>{time.toLocaleTimeString([],{hour: '2-digit', minute:'2-digit'})}</span>
+      // TODO: add 'en-US' option
+      <Container className='Clock'>
+        {time.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'})}
+      </Container>
     );
   }
 }

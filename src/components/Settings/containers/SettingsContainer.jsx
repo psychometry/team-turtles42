@@ -10,12 +10,15 @@ const Container = styled.div`
   bottom: 20px;
   left: 10px;
   .setting.icon {
-    color: ${({ theme }) => theme.white};
+    opacity: .75; 
     position: absolute;
     bottom: 0;
     left: 14px;
-    font-size: 2em;
+    font-size: 1.8em;
     cursor: pointer;
+  }
+  .active {
+    opacity: 1;
   }
 `;
 const Settings = styled.div`
@@ -92,7 +95,7 @@ class SettingsContainer extends Component {
           </Tabs>
         </Settings>
         <Pointer showing={showing} />
-        <i onClick={this.toggleSettings} className="setting icon"/>
+        <i className={showing ? 'active setting icon' : 'setting icon' } onClick={this.toggleSettings}/>
       </Container>
     );
   }
