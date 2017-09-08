@@ -10,9 +10,9 @@ const Container = styled.div`
   width: 100%;
   color: ${({theme}) => theme.white};
   position: fixed;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 10px;
   text-align: center;
   font-weight: 300;
   blockquote {

@@ -37,7 +37,7 @@
 .AddFocus{
   font-size: 3em;
   display: flex;
-  border:1px solid $white;
+  border-bottom: 2px solid $white;
   span.input{
     flex:4;
   }
@@ -55,15 +55,16 @@
     }
   }
   input{
+    text-align: center;
     &::placeholder{
-      color: rgba(255, 255, 255, 0.5);
+      color:rgba(255, 255, 255, 0.5);
     }
     background-color: rgba(0,0,0,0);
     border:none;
     width: 100%;
     &:focus{
       outline: none;
-      background-color: rgba(255, 255, 255, 0.5);
+      // background-color: rgba(255, 255, 255, 0.5);
       color: $white;
     }
   }

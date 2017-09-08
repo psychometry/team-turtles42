@@ -1,11 +1,14 @@
 @import '../../styles/variables.scss';
-.Welcome_text{
-  font-size:3em;
+
+.Welcome {
+  font-size: 4em;
+  max-width: 700px;
+  text-align: center;
+  margin: 0 auto;
 }
 .Welcome_Add{
-  font-size: 3em;
   display: flex;
-  border:1px solid $white;
+  border-bottom: 3px solid $white;
   span.input{
     flex:4;
   }
@@ -23,6 +26,7 @@
     }
   }
   input{
+    text-align: center;
     &::placeholder{
       color: rgba(255, 255, 255, 0.5);
     }
@@ -31,7 +35,7 @@
     width: 100%;
     &:focus{
       outline: none;
-      background-color: rgba(255, 255, 255, 0.5);
+      // background-color: rgba(255, 255, 255, 0.5);
       color: $white;
     }
   }

@@ -65,6 +65,7 @@ const Weather = ({ code, temp, unit, location }) => {
     '32': 'B', // sunny
     '33': 'C', // fair-night
     '34': 'B', // fair-day
+    '39': 'O', // scattered thunderstorms
     '3200': ')', // not-available
     'C': '*', // C°
     'F': '+' // F°
