@@ -1,17 +1,18 @@
 @import '../../styles/variables.scss';
+
 .App {
   display: grid;
   line-height: normal;
   background-size: cover;
   background-position: center;
-  grid-template-rows: 25% 50% 25%;
+  grid-template-rows: 1fr 2fr 1fr;
   height: 100vh;
-  text-shadow: 0 1px 5px rgba(0,0,0,.1);
 }
 .main {
+  height: 500px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   div {
     width: 100%;

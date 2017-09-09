@@ -2,12 +2,15 @@
 .FocusItem{
   width: 100%;
   display: flex;
-  flex-flow: row;
+  justify-content: center;
+  align-items: center;
   > span {
-    margin-bottom: .3em;
-    margin-top: .3em;
+    margin: 0;
     flex: 1;
-    font-size: 2em;
+    font-size: 3em;
+    .checkbox {
+      height: 20px !important;
+    }
     &:nth-child(1),&:nth-last-child(1){
       flex:0 0 1em;
     }
@@ -27,14 +30,18 @@
   }
 }
 .Focus{
-  margin-bottom: .3em;
-  margin-top: .3em;
+  // margin: 10px 0;
+  margin-bottom: 10px;
   text-align: center;
-  span{
-    font-size: 2em;
+  .focus-prompt {
+    margin: 10px auto;
+    font-weight: 300;
+    font-size: 2.5em;
   }
 }
 .AddFocus{
+  width: 100%;
+  margin: 0 auto;
   font-size: 3em;
   display: flex;
   border-bottom: 2px solid $white;
@@ -45,6 +52,7 @@
     flex:1;
   }
   button{
+    margin: 10px 0 !important;
     padding: 0;
     background-color: rgba(0,0,0,0);
     border: none;
@@ -57,7 +65,7 @@
   input{
     text-align: center;
     &::placeholder{
-      color:rgba(255, 255, 255, 0.5);
+      // color:rgba(255, 255, 255, 0.5);
     }
     background-color: rgba(0,0,0,0);
     border:none;

@@ -3,7 +3,12 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import toggleOnOff from '../../HOC';
 
-const Container = styled.div`
+const Greeting = styled.p`
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // height: 200px;
   font-size: 4em;
   white-space: nowrap;
 `;
@@ -24,7 +29,7 @@ const greeting = time => {
 
 const Message=({time,name})=>{
   return (
-    <Container>{greeting(time)}, {name}. </Container>
+    <Greeting>{greeting(time)}, {name}. </Greeting>
   )
 }
 Message.PropTypes={

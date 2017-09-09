@@ -124,20 +124,30 @@ class App extends Component {
             </header>
 
             <main className="main">
-              <TimerIcon timer={timer.showing} onToggleTimer={toggleTimer} />
-              {timer.showing 
-                ? <Timer 
-                    time={timer.time} 
-                    id={timer.id}
-                    active={timer.active} 
-                    onSetTimer={setTimer} 
-                    onResetTimer={resetTimer}
-                    onUpdateTimer={updateTimer} 
-                  />
-                : <Clock time={time} updateTime={updateTime}/> 
-              }
-              <Message state={apps.message} time={time} name={name}/>
-              <Focus state={apps.focus} focus={focus} setFocus={setFocus} deleteFocus={deleteFocus} toggleFocus={toggleFocus}/>
+              <div className="top">
+                <TimerIcon timer={timer.showing} onToggleTimer={toggleTimer} />
+                {timer.showing 
+                  ? <Timer 
+                      time={timer.time} 
+                      id={timer.id}
+                      active={timer.active} 
+                      onSetTimer={setTimer} 
+                      onResetTimer={resetTimer}
+                      onUpdateTimer={updateTimer} 
+                    />
+                  : <Clock time={time} updateTime={updateTime}/> 
+                }
+              </div>
+              <div className="bottom">
+                <Message state={apps.message} time={time} name={name}/>
+                <Focus 
+                  state={apps.focus} 
+                  focus={focus} 
+                  setFocus={setFocus} 
+                  deleteFocus={deleteFocus} 
+                  toggleFocus={toggleFocus}
+                />
+              </div>
             </main>
 
             <footer>

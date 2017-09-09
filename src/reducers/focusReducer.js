@@ -1,6 +1,7 @@
 import {SET_FOCUS, DELETE_FOCUS, TOGGLE_FOCUS} from '../actions/FocusActionCreators';
 
 function focusReducer(state={}, action){
+  console.log(state, action);
   switch(action.type){
     case SET_FOCUS:
       return {text:action.text,done:false,set:true};

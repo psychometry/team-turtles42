@@ -3,24 +3,31 @@ import styled from 'styled-components';
 import TimeField from 'react-simple-timefield';
 
 const Container = styled.div`
-  height: 500px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  `;
+  form .row {
+    // margin-top: -20px;
+  }
+`;
   
 const Time = styled(TimeField)`
-  width: 600px !important;
+  font-family: inherit;
+  width: 100% !important;
+  padding: 0;
   margin: 0 auto;
   text-align: center;
-  font-size: 10em;
+  font-size: 12em;
+  font-weight: 500;
   background: transparent;
   color: ${({ theme}) => theme.white };
   border: none;
   &:focus {
     outline: none;
   }
-  `;
+`;
+
 const Button = styled.button`
   margin: 0 auto !important;
 `;
@@ -105,8 +112,8 @@ const Timer = ({
           onChange={onTimeChange}
           disabled={active} 
         />
-        <div class="one column centered row">
-          <div class="column">
+        <div className="one column centered row">
+          <div className="column">
             {!active && <Button className="ui mini green button" type="submit">Start</Button>}
             {active && <Button className="ui mini red button" onClick={stopTimer}>Stop</Button>}
           </div>

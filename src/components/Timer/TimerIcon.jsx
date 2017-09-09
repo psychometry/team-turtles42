@@ -5,6 +5,7 @@ import timerIcon from '../Timer/timer.svg';
 // import alarmIcon from '../Timer/alarm.svg';
 
 const Container = styled.div`
+  height: 50px;
   max-width: 700px;
   display: flex;
   justify-content: flex-end;

@@ -12,7 +12,8 @@ const mapDispatchToProps=(dispatch)=>{
 
 const Container = styled.div`
   padding: 0 20px;
-  font-size: 13em;
+  font-size: 12em;
+  font-weight: 500;
   letter-spacing: -5px;
 `;
 
@@ -34,9 +35,9 @@ class Clock extends Component{
   render(){
     const {time} =this.props;
     return(
-      // TODO: add 'en-US' option
+      // TODO: add 'en-GB' option
       <Container className='Clock'>
-        {time.toLocaleTimeString('en-GB', {hour: '2-digit', minute:'2-digit'})}
+        {time.toLocaleTimeString('en-US', {hour: '2-digit', minute:'2-digit'})}
       </Container>
     );
   }
