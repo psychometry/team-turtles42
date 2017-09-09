@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import alarmIcon from '../Timer/alarm.svg';
-import clockIcon from '../Timer/clock2.svg';
-// import timerIcon from '../Timer/timer.svg';
+import clockIcon from '../Timer/clock.svg';
+import timerIcon from '../Timer/timer.svg';
+// import alarmIcon from '../Timer/alarm.svg';
 
 const Container = styled.div`
   max-width: 700px;
@@ -23,7 +23,7 @@ const TimerIcon = ({ timer, onToggleTimer }) => {
     <Container>
       <img 
         onClick={onToggleTimer}
-        src={timer ? alarmIcon : clockIcon} 
+        src={timer ? timerIcon : clockIcon} 
         alt={timer ? 'alarm icon' : 'clock icon'} 
       />
     </Container>

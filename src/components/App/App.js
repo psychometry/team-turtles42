@@ -88,6 +88,7 @@ class App extends Component {
       timer,
       toggleTimer,
       setTimer,
+      resetTimer,
       updateTimer,
       focus,
       setFocus,
@@ -98,7 +99,7 @@ class App extends Component {
       setName,
       apps
     } = this.props;
-    
+
     if (!name || name === '') {
       return (
         <div className="App" style={{
@@ -127,11 +128,13 @@ class App extends Component {
               {timer.showing 
                 ? <Timer 
                     time={timer.time} 
+                    id={timer.id}
                     active={timer.active} 
                     onSetTimer={setTimer} 
+                    onResetTimer={resetTimer}
                     onUpdateTimer={updateTimer} 
                   />
-                : <Clock time={time} updateTime={updateTime}/>
+                : <Clock time={time} updateTime={updateTime}/> 
               }
               <Message state={apps.message} time={time} name={name}/>
               <Focus state={apps.focus} focus={focus} setFocus={setFocus} deleteFocus={deleteFocus} toggleFocus={toggleFocus}/>

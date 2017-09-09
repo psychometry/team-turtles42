@@ -3,6 +3,13 @@ import styled from 'styled-components';
 import TimeField from 'react-simple-timefield';
 
 const Container = styled.div`
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  `;
+  
+const Form = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,6 +27,11 @@ const Time = styled(TimeField)`
     outline: none;
   }
   `;
+const Button = styled.button`
+  width: 100px;
+  margin: 0 auto;
+  cursor: pointer;
+`;
 
 class Timer extends Component {
   componentWillUnmount() {
@@ -27,7 +39,8 @@ class Timer extends Component {
 
   onTimeChange = time => this.props.onSetTimer(time);
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
+    // console.log(this.input.state.value);
     event.preventDefault();
     const seconds = this.secondsLeft(this.props.time);
     this.startTimer(seconds);
@@ -42,10 +55,9 @@ class Timer extends Component {
 
   // Convert back to time string to display
   timeLeft(totalSeconds) {
-    if (!totalSeconds || totalSeconds === 0) {
+    if (!totalSeconds) {
       clearInterval(this.timer);
-      // onStopTimer() // TODO: set inactive and reset time
-      return '00:00:00';
+      this.stopTimer();
     }
 
     let hours = Math.floor(totalSeconds / 60 / 60); 
@@ -60,36 +72,51 @@ class Timer extends Component {
   }
 
   startTimer(totalSeconds) {
+    if (!totalSeconds) return;
+
     const start = Date.now();
 
     this.timer = setInterval(() => {
+      const id = this.timer;
+
       // Change in milliseconds
       const delta = Date.now() - start;
 
       // Seconds
       const elapsed = Math.floor(delta / 1000);
       const remaining = totalSeconds - elapsed;
-      // console.log(this.timeLeft(remaining));
+      console.log(this.timeLeft(remaining));
 
       this.props.onUpdateTimer(
         this.timeLeft(remaining),
-        remaining
+        remaining,
+        id
       );
     }, 1000);
   }
+
+  stopTimer = () => {
+    console.log('stop', this.props.id);
+    clearInterval(this.props.id);
+    this.props.onResetTimer();
+  } 
 
   render() {
     const { time, active } = this.props;
     
     return (
       <Container>
-        <form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit}>
           <Time 
             value={time} 
-            showSeconds 
+            showSeconds
+            innerRef={comp => { this.input = comp }}
             onChange={this.onTimeChange}
-            disabled={active} />
-        </form>
+            disabled={active} 
+          />
+          {!active && <Button type="submit">Start</Button>}
+          {active && <Button onClick={this.stopTimer}>Stop</Button>}
+        </Form>
       </Container>
     );
   }

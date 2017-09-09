@@ -25,7 +25,8 @@ const defaultState={
     showing: false,
     active: false,
     time: '00:25:00',
-    seconds: null
+    seconds: null,
+    id: null
   },
   background:null,
   focus:loadFromStorage('focus')||{text:null,

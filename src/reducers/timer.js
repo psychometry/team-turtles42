@@ -9,34 +9,47 @@ export const setTimer = time => {
     time
   };
 }
-export const updateTimer = (time, seconds) => {
+export const resetTimer = () => {
+  return {
+    type: 'RESET_TIMER',
+  };
+}
+export const updateTimer = (time, seconds, id) => {
   return {
     type: 'UPDATE_TIMER',
     time,
-    seconds
+    seconds,
+    id
   };
 }
 
 const timer = (state = {}, action) =>{
+  // console.log(state, action);
   switch (action.type) {
     case 'TOGGLE_TIMER':
       return {
         ...state,
         showing: !state.showing
       };
-    // case 'TOGGLE_ACTIVE':
     case 'SET_TIMER':
-    return {
-      ...state,
-      time: action.time
-    }
-    // case 'STOP_TIMER':
+      return {
+        ...state,
+        time: action.time
+      };
+    case 'RESET_TIMER':
+      return {
+        ...state,
+        active: false,
+        time: '00:00:00',
+        seconds: null
+      };
     case 'UPDATE_TIMER':
       return {
         ...state,
         active: true,
         time: action.time,
-        seconds: action.seconds
+        seconds: action.seconds,
+        id: action.id
       };
     default:
       return state;
