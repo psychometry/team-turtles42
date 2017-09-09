@@ -21,6 +21,13 @@ const defaultState={
     quote:true,
   },
   time:new Date(),
+  timer: {
+    showing: false,
+    active: false,
+    time: '00:25:00',
+    seconds: null,
+    id: null
+  },
   background:null,
   focus:loadFromStorage('focus')||{text:null,
     done:false,

@@ -28,7 +28,7 @@ class Clock extends Component{
   componentDidMount(){
     this.timer=setInterval(()=>{this.props.updateTime()},1000);
   }
-  ComponentWillUnmount(){
+  componentWillUnmount(){
     clearInterval(this.timer);
   }
   render(){
