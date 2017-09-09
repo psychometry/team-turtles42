@@ -1,4 +1,3 @@
-// TODO: set active to false after timeout
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import TimeField from 'react-simple-timefield';
@@ -10,7 +9,6 @@ const Container = styled.div`
 `;
 
 const Time = styled(TimeField)`
-  // visibility: ${({ indicator }) => indicator ? 'visible' : 'hidden' }; 
   width: 600px !important;
   margin: 0 auto;
   text-align: center;
@@ -46,10 +44,7 @@ class Timer extends Component {
   timeLeft(totalSeconds) {
     if (!totalSeconds || totalSeconds === 0) {
       clearInterval(this.timer);
-      // onComplete()
-      // this.setState({
-      //   active: !this.state.active
-      // })
+      // onStopTimer() // TODO: set inactive and reset time
       return '00:00:00';
     }
 
@@ -64,11 +59,21 @@ class Timer extends Component {
     return `${hours}:${minutes}:${seconds}`;
   }
 
-  startTimer(seconds) {
+  startTimer(totalSeconds) {
+    const start = Date.now();
+
     this.timer = setInterval(() => {
+      // Change in milliseconds
+      const delta = Date.now() - start;
+
+      // Seconds
+      const elapsed = Math.floor(delta / 1000);
+      const remaining = totalSeconds - elapsed;
+      // console.log(this.timeLeft(remaining));
+
       this.props.onUpdateTimer(
-        this.timeLeft(seconds),
-        seconds--
+        this.timeLeft(remaining),
+        remaining
       );
     }, 1000);
   }

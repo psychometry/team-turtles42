@@ -26,13 +26,12 @@ const timer = (state = {}, action) =>{
       };
     // case 'TOGGLE_ACTIVE':
     case 'SET_TIMER':
-      console.log(state, action);
-      return {
-        ...state,
-        time: action.time
-      }
+    return {
+      ...state,
+      time: action.time
+    }
+    // case 'STOP_TIMER':
     case 'UPDATE_TIMER':
-      console.log(state, action);
       return {
         ...state,
         active: true,
