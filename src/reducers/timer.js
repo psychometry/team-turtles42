@@ -1,49 +1,26 @@
-export const toggleTimer = () => {
-  return {
-    type: 'TOGGLE_TIMER'
-  };
-}
-export const setTimer = time => {
-  return {
-    type: 'SET_TIMER',
-    time
-  };
-}
-export const resetTimer = () => {
-  return {
-    type: 'RESET_TIMER',
-  };
-}
-export const updateTimer = (time, seconds, id) => {
-  return {
-    type: 'UPDATE_TIMER',
-    time,
-    seconds,
-    id
-  };
-}
+import types from '../actions/TimerActionCreators';
 
 const timer = (state = {}, action) =>{
   // console.log(state, action);
   switch (action.type) {
-    case 'TOGGLE_TIMER':
+    case types.TOGGLE_TIMER:
       return {
         ...state,
         showing: !state.showing
       };
-    case 'SET_TIMER':
+    case types.SET_TIMER:
       return {
         ...state,
         time: action.time
       };
-    case 'RESET_TIMER':
+    case types.RESET_TIMER:
       return {
         ...state,
         active: false,
-        time: '00:00:00',
+        time: '00:25:00',
         seconds: null
       };
-    case 'UPDATE_TIMER':
+    case types.UPDATE_TIMER:
       return {
         ...state,
         active: true,
