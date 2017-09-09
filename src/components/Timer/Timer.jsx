@@ -1,3 +1,4 @@
+// TODO: set active to false after timeout
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import TimeField from 'react-simple-timefield';
@@ -23,44 +24,32 @@ const Time = styled(TimeField)`
   `;
 
 class Timer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      time: '00:25:00',
-      seconds: null,
-      active: false,
-    };
-  }
-  // console.log(window.Worker);
-
   componentWillUnmount() {
-    // clearInterval(this.timer);
   }
 
-  onTimeChange = time => this.setState({ time });
+  onTimeChange = time => this.props.onSetTimer(time);
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const seconds = this.secondsLeft(this.state.time);
-
-    this.setState({
-      active: true,
-      indicator: true,
-      seconds, 
-    });
-    this.countDown(seconds);
+    const seconds = this.secondsLeft(this.props.time);
+    this.startTimer(seconds);
   };
-  
-  // Convert timeLeft to secondsLeft and pass to countDown
+
+  // Convert to seconds for countdown interval
   secondsLeft(time) {
     time = time.split(':').map(Number);
     const [ hours, minutes, seconds ] = time;
     return (hours * 60 * 60) + (minutes * 60) + seconds;
   }
 
+  // Convert back to time string to display
   timeLeft(totalSeconds) {
     if (!totalSeconds || totalSeconds === 0) {
       clearInterval(this.timer);
+      // onComplete()
+      // this.setState({
+      //   active: !this.state.active
+      // })
       return '00:00:00';
     }
 
@@ -75,23 +64,26 @@ class Timer extends Component {
     return `${hours}:${minutes}:${seconds}`;
   }
 
-  countDown(seconds) {
+  startTimer(seconds) {
     this.timer = setInterval(() => {
-      this.setState({
-        time: this.timeLeft(seconds),
-        seconds: seconds--
-      })
+      this.props.onUpdateTimer(
+        this.timeLeft(seconds),
+        seconds--
+      );
     }, 1000);
   }
 
   render() {
-    const { time, active } = this.state;
-    // console.log(time);
+    const { time, active } = this.props;
     
     return (
       <Container>
         <form onSubmit={this.handleSubmit}>
-          <Time value={time} showSeconds onChange={this.onTimeChange} disabled={active} />
+          <Time 
+            value={time} 
+            showSeconds 
+            onChange={this.onTimeChange}
+            disabled={active} />
         </form>
       </Container>
     );

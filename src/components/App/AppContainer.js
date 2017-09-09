@@ -6,7 +6,7 @@ import * as FocusActionCreators from '../../actions/FocusActionCreators';
 import * as TimeActionCreators from '../../actions/TimeActionCreators';
 import * as BgActionCreators from '../../actions/BgActionCreators';
 import * as NameActionCreators from '../../actions/NameActionCreators';
-import { toggleTimer } from '../../reducers/timer';
+import { toggleTimer, setTimer, updateTimer } from '../../reducers/timer';
 
 const mapStateToProps=(state)=>{
   return {
@@ -22,6 +22,8 @@ const mapDispatchToProps=(dispatch)=>{
   const dispatchObj = Object.assign(
     {},
     { toggleTimer: () => dispatch(toggleTimer())},
+    { setTimer: time => dispatch(setTimer(time))},
+    { updateTimer: (time, seconds) => dispatch(updateTimer(time, seconds))},
     bindActionCreators(AppActionCreators,dispatch),
     bindActionCreators(FocusActionCreators,dispatch),
     bindActionCreators(TimeActionCreators,dispatch),

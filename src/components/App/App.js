@@ -87,6 +87,8 @@ class App extends Component {
       time,
       timer,
       toggleTimer,
+      setTimer,
+      updateTimer,
       focus,
       setFocus,
       deleteFocus,
@@ -121,9 +123,14 @@ class App extends Component {
             </header>
 
             <main className="main">
-              <TimerIcon timer={timer} onToggleTimer={toggleTimer} />
-              {timer 
-                ? <Timer />
+              <TimerIcon timer={timer.showing} onToggleTimer={toggleTimer} />
+              {timer.showing 
+                ? <Timer 
+                    time={timer.time} 
+                    active={timer.active} 
+                    onSetTimer={setTimer} 
+                    onUpdateTimer={updateTimer} 
+                  />
                 : <Clock time={time} updateTime={updateTime}/>
               }
               <Message state={apps.message} time={time} name={name}/>
