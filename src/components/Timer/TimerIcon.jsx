@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import alarmIcon from '../Timer/alarm.svg';
-import clockIcon from '../Timer/clock.svg';
+import clockIcon from '../Timer/clock2.svg';
+// import timerIcon from '../Timer/timer.svg';
 
 const Container = styled.div`
   max-width: 700px;
@@ -13,27 +14,18 @@ const Container = styled.div`
       cursor: pointer;
     }
   }
+  
 }
 `;
 
 const TimerIcon = ({ timer, onToggleTimer }) => {
-  console.log(timer);
   return (
     <Container>
-      {timer && 
-        <img 
-          onClick={onToggleTimer}
-          src={alarmIcon} 
-          alt="alarm icon" 
-        />
-      }
-      {!timer &&
-        <img 
-          onClick={onToggleTimer}
-          src={clockIcon} 
-          alt="clock icon" 
-        />
-      }
+      <img 
+        onClick={onToggleTimer}
+        src={timer ? alarmIcon : clockIcon} 
+        alt={timer ? 'alarm icon' : 'clock icon'} 
+      />
     </Container>
   );
 };
