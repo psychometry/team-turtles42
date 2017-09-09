@@ -9,6 +9,8 @@ import CurrentQuoteContainer from '../CurrentQuote/CurrentQuoteContainer';
 import ListContainer from '../Todo/containers/ListContainer';
 //import backgrounds from '../../background.json';
 import Clock from '../Clock/Clock';
+import Timer from '../Timer/Timer';
+import TimerIcon from '../Timer/TimerIcon.jsx';
 import Welcome from '../Welcome/Welcome';
 import Message from '../Message/Message';
 import './App.scss';
@@ -83,6 +85,8 @@ class App extends Component {
     const {
       background,
       time,
+      timer,
+      toggleTimer,
       focus,
       setFocus,
       deleteFocus,
@@ -92,6 +96,7 @@ class App extends Component {
       setName,
       apps
     } = this.props;
+    
     if (!name || name === '') {
       return (
         <div className="App" style={{
@@ -116,7 +121,11 @@ class App extends Component {
             </header>
 
             <main className="main">
-              <Clock time={time} updateTime={updateTime}/>
+              <TimerIcon timer={timer} onToggleTimer={toggleTimer} />
+              {timer 
+                ? <Timer />
+                : <Clock time={time} updateTime={updateTime}/>
+              }
               <Message state={apps.message} time={time} name={name}/>
               <Focus state={apps.focus} focus={focus} setFocus={setFocus} deleteFocus={deleteFocus} toggleFocus={toggleFocus}/>
             </main>
