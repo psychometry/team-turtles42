@@ -77,14 +77,30 @@ class App extends Component {
     }
   }*/
   componentDidMount() {
-    const {option, updateTime}= this.props;
-    if(!option||option==='unsplash'){
-      this.props.fetchBackground();
-    }else if(option==='local'){
-      this.props.fetchBackgroundLocal();
-    }
-    if(!updateTime){
+    const {updateTime, option,list} = this.props.background;
+    if(!updateTime||(new Date()-updateTime)>60*60*24*1000){
       this.props.update(new Date());
+      this.props.fetchBackground();
+    }
+    if(!option){
+      this.props.setOption('unsplash');
+    }
+    if(list){
+      this.props.selectBackground(list, Math.floor(Math.random() * list.length));
+    }
+  }
+  componentDidUpdate(prevProp){
+    if(this.props.background.list!==prevProp.background.list){
+      const {list}=this.props.background;
+      this.props.selectBackground(list, Math.floor(Math.random() * list.length));
+    }
+    if(this.props.background.option!==prevProp.background.option){
+      const {option}=this.props.background;
+      if(option==='local'){
+        this.props.fetchBackgroundLocal();
+      }else{
+        this.props.fetchBackground();
+      }
     }
   }
   render() {

@@ -1,4 +1,4 @@
-import {SET_BACKGROUND, SET_UPDATE_TIME, SET_OPTION} from '../actions/BgActionCreators';
+import {SET_BACKGROUND, SET_UPDATE_TIME, SET_OPTION, SET_BG_LIST} from '../actions/BgActionCreators';
 import {combineReducers} from 'redux';
 function bgReducer(state='',action){
   switch(action.type){
@@ -24,9 +24,18 @@ function optionReducer(state='unsplash',action){
       return state;
   }
 }
+function listReducer(state=[],action){
+  switch(action.type){
+    case SET_BG_LIST:
+      return action.json
+    default:
+      return state;
+  }
+}
 const backgroundReducer=combineReducers(
   {
     bg:bgReducer,
+    list:listReducer,
     updateTime:updateReducer,
     option:optionReducer
   }

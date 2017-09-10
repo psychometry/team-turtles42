@@ -22,8 +22,9 @@ const defaultState={
     quote:true,
   },
   time:new Date(),
-  background:{
+  background:loadFromStorage('background')||{
     bg:null,
+    list:null,
     updateTime:null,
     option:null,
   },
@@ -55,6 +56,7 @@ store.subscribe(
       saveToStorage('focus',store.getState().focus);
       saveToStorage('todo',store.getState().todo.todo);
       saveToStorage('name',store.getState().name);
+      saveToStorage('background',store.getState().background);
       saveToStorage('react-dash-quotes', store.getState().quotes);
   },5000));
 ReactDOM.render(
