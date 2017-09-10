@@ -15,6 +15,7 @@ const Container = styled.div`
   transform: translateX(-50%);
   text-align: center;
   font-weight: 300;
+  text-shadow: 0 1px 5px ${({ theme }) => theme.black};
   blockquote {
     margin: 0;
   }

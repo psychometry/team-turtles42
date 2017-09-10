@@ -9,6 +9,7 @@ const Container = styled.div`
   position: fixed;
   top: 20px;
   right: 20px;
+  text-shadow: 0 1px 5px ${({ theme }) => theme.black};
   .location {
     font-size: .8em;
     letter-spacing: 1px;
@@ -54,6 +55,7 @@ const Weather = ({ code, temp, unit, location }) => {
     '16': 'W', // snow
     '18': 'X', // sleet
     '20': 'M', // foggy
+    '23': 'F', // blustery
     '24': 'F', // windy
     '25': 'G', // cold
     '26': 'Y', // cloudy

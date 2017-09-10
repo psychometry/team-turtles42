@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import clockIcon from '../Timer/clock.svg';
-import timerIcon from '../Timer/timer.svg';
+import clockIcon from './clock.svg';
+import timerIcon from './timer.svg';
 // import alarmIcon from '../Timer/alarm.svg';
 
 const Container = styled.div`

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Tabs from '../components/Tabs';
 import GeneralSettingContainer from '../../GeneralSetting/GeneralSettingContainer';
 import QuoteSettingsContainer from '../../Quotes/containers/QuoteSettingsContainer';
+import BgSettingContainer from '../../BgSetting/BgSettingContainer';
 
 const Container = styled.div`
   z-index: 100;
@@ -48,21 +49,13 @@ const tabs = [
    content: <GeneralSettingContainer />
   },
   {
-    name: 'Todo',
-    content: 'Todo'
-  },
-  {
     name: 'Background',
-    content: 'Background'
+    content: <BgSettingContainer/>
   },
   {
     name: 'Quotes',
     content: <QuoteSettingsContainer />
   },
-  {
-    name: 'Links',
-    content: 'Links'
-  }
 ];
 
 class SettingsContainer extends Component {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Links from './Links';
+import toggleOnOff from '../../HOC';
 
 class LinksContainer extends Component {
   render() {
@@ -9,4 +10,5 @@ class LinksContainer extends Component {
   }
 }
 
-export default LinksContainer;
+export default toggleOnOff(LinksContainer);
+

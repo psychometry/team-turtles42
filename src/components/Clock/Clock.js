@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import styled from 'styled-components';
+import toggleOnOff from '../../HOC';
 //import {bindActionCreators} from 'redux';
 //import {connect} from 'react-redux';
 //import * as TimeActionCreator from '../../actions/TimeActionCreator';
@@ -17,15 +18,8 @@ const Container = styled.div`
   letter-spacing: -5px;
 `;
 
+
 class Clock extends Component{
-/*  constructor(props){
-    super(props);
-    this.state={Time:new Date()};
-  }
-  getTime=()=>{
-    const  today= new Date();
-    this.setState({Time:today});
-  }*/
   componentDidMount(){
     this.timer=setInterval(()=>{this.props.updateTime()},1000);
   }
@@ -42,4 +36,4 @@ class Clock extends Component{
     );
   }
 }
-export default Clock;
+export default toggleOnOff(Clock);

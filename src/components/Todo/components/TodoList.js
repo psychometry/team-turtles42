@@ -6,6 +6,7 @@ import FilterTab from './FilterTab';
 import './TodoList.scss';
 import '../containers/ListContainer.scss';
 import './AddForm.scss'
+
 const TodoList=({todo, addTodo, setFilter, toggleList,...rest})=>{
   let renderList=todo.todo;
   if(todo.viewFilter==='done'){
@@ -29,7 +30,9 @@ const TodoList=({todo, addTodo, setFilter, toggleList,...rest})=>{
             <AddForm className='AddForm' focus={true} submit={addTodo} placeholder='New Todo'/>
             <FilterTab viewFilter={todo.viewFilter} setFilter={setFilter}/>
           </div>
+          <i className="pointer" />
         </div>
+
       }
       <div className="todo-toggle" onClick={()=>{toggleList("todo")}}>
         Todo

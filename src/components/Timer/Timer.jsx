@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import TimeField from 'react-simple-timefield';
 import bell from './bell.wav';
+import toggleOnOff from '../../HOC';
 
 const notification = new Audio(bell);
 
@@ -22,6 +23,7 @@ const Time = styled(TimeField)`
   font-weight: 500;
   background: transparent;
   color: ${({ theme}) => theme.white };
+  text-shadow: 0 1px 5px ${({ theme }) => theme.black};
   border: none;
   &:focus {
     outline: none;
@@ -140,4 +142,4 @@ const Timer = ({
   );
 }
 
-export default Timer;
+export default toggleOnOff(Timer);
