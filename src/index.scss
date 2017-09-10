@@ -5,4 +5,8 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: $white;
 }
+::selection {
+  color: $white;
+  background-color: $blue;
+}
 

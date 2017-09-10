@@ -13,21 +13,21 @@ const ListItem = styled.li`
     width: 100%;
     margin-right: 20px;
     padding: 20px 0;
-    color: white;
+    color: ${({theme}) => theme.white};
     &:focus {
       border-bottom: 1px solid ${({ theme }) => theme.white};
       outline: none;
     }
   }
-  .remove, .heart {
+  i {
+    visibility: hidden;
     opacity: .75;
     cursor: pointer;
   }
   .remove {
     margin-left: 5px;
-    visibility: hidden;
   }
-  &:hover .remove {
+  &:hover i {
     visibility: visible;
   }
 `;

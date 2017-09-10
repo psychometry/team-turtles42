@@ -9,6 +9,7 @@ const Container = styled.div`
   position: fixed;
   top: 20px;
   right: 20px;
+  text-shadow: 0 1px 5px ${({ theme }) => theme.black};
   .location {
     font-size: .8em;
     letter-spacing: 1px;
@@ -54,6 +55,7 @@ const Weather = ({ code, temp, unit, location }) => {
     '16': 'W', // snow
     '18': 'X', // sleet
     '20': 'M', // foggy
+    '23': 'F', // blustery
     '24': 'F', // windy
     '25': 'G', // cold
     '26': 'Y', // cloudy
@@ -65,6 +67,7 @@ const Weather = ({ code, temp, unit, location }) => {
     '32': 'B', // sunny
     '33': 'C', // fair-night
     '34': 'B', // fair-day
+    '39': 'O', // scattered thunderstorms
     '3200': ')', // not-available
     'C': '*', // C°
     'F': '+' // F°

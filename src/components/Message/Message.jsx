@@ -1,21 +1,35 @@
 import React from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import "./Message.scss";
 import toggleOnOff from '../../HOC';
-const Message=({time,name})=>{
-  const hour=time.getHours();
-  let greeting="";
-  if(hour<12){
-    greeting="Good Morning! ";
-  }else if(hour<17){
-    greeting="Good Afternoon! ";
-  }else if(hour<21){
-    greeting="Good Evening! ";
-  }else{
-    greeting="Good Night! ";
+
+const Greeting = styled.p`
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // height: 200px;
+  font-size: 4em;
+  white-space: nowrap;
+`;
+
+const greeting = time => {
+  const hour = time.getHours();
+  switch (true) {
+    case hour < 12:
+      return 'Good Morning';
+    case hour < 17:
+     return 'Good Afternoon';
+    case hour < 21:
+      return 'Good Evening';
+    default:
+      return 'Good Night'; 
   }
+};
+
+const Message=({time,name})=>{
   return (
-    <div className='Message'>{greeting} {name}. </div>
+    <Greeting>{greeting(time)}, {name}. </Greeting>
   )
 }
 Message.PropTypes={

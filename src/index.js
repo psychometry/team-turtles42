@@ -14,14 +14,29 @@ import './index.scss';
 
 const defaultState={
   apps:{
-    todo:true,
-    focus:true,
-    message:true,
+    links:true,
     weather:true,
+    clock:true,
+    timer:true,
+    message:true,
+    focus:true,
     quote:true,
+    todo:true
   },
   time:new Date(),
-  background:null,
+  timer: {
+    showing: false,
+    active: false,
+    time: '00:25:00',
+    seconds: null,
+    id: null
+  },
+  background:loadFromStorage('background')||{
+    bg:null,
+    list:null,
+    updateTime:null,
+    option:null,
+  },
   focus:loadFromStorage('focus')||{text:null,
     done:false,
     set:false,
@@ -50,9 +65,9 @@ store.subscribe(
       saveToStorage('focus',store.getState().focus);
       saveToStorage('todo',store.getState().todo.todo);
       saveToStorage('name',store.getState().name);
+      saveToStorage('background',store.getState().background);
       saveToStorage('react-dash-quotes', store.getState().quotes);
   },5000));
-
 ReactDOM.render(
   <Provider store={store}>
     <AppContainer />

@@ -3,10 +3,15 @@ import './Item.scss';
 class Item extends Component{
   render(){
     const {item, className, toggleItem, deleteItem}=this.props;
+    
     return (
       <div className={className}>
         <span>
-          <input type='Checkbox' checked={item.done} onChange={()=>toggleItem(item.id)}/>
+          <input 
+            className="checkbox" 
+            type='Checkbox' checked={item.done} 
+            onChange={() => toggleItem(item.id)}
+          />
         </span>
         <span className={item.done?'checked':''}>
           {item.text}

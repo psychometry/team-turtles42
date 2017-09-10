@@ -4,17 +4,24 @@ import styled from 'styled-components';
 import { randomIndex } from '../../utilities.js';
 
 const Container = styled.div`
+  max-height: 100px;
+  max-width: 700px;
+  margin: 20px auto;
+  width: 100%;
   color: ${({theme}) => theme.white};
   position: fixed;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 10px;
-  width: 100%;
-  max-width: 700px;
   text-align: center;
   font-weight: 300;
+  text-shadow: 0 1px 5px ${({ theme }) => theme.black};
+  blockquote {
+    margin: 0;
+  }
   `;
 const Quote = styled.p`
+  margin-bottom: 5px;
   font-size: 1.25em;
   `;
 const Source = styled.p`
