@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import TimeField from 'react-simple-timefield';
+import bell from './bell.wav';
+
+const notification = new Audio(bell);
 
 const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  form .row {
-    // margin-top: -20px;
-  }
 `;
   
 const Time = styled(TimeField)`
@@ -18,7 +18,7 @@ const Time = styled(TimeField)`
   padding: 0;
   margin: 0 auto;
   text-align: center;
-  font-size: 12em;
+  font-size: 10em;
   font-weight: 500;
   background: transparent;
   color: ${({ theme}) => theme.white };
@@ -56,10 +56,10 @@ const Timer = ({
   };
 
   // Convert back to time string to display
-  const timeLeft = totalSeconds => {
-    if (!totalSeconds) {
-      clearInterval(this.timer);
-      this.stopTimer();
+  const timeLeft = (totalSeconds, id) => {
+    if (totalSeconds === 0 || !totalSeconds) {
+      stopTimer(id);
+      notification.play();
     }
 
     let hours = Math.floor(totalSeconds / 60 / 60); 
@@ -74,7 +74,11 @@ const Timer = ({
   };
 
   const startTimer = (totalSeconds) => {
-    if (!totalSeconds) return;
+    if (!totalSeconds) {
+      totalSeconds = 1500;
+    }
+    
+    notification.load();
 
     const start = Date.now();
 
@@ -87,21 +91,24 @@ const Timer = ({
       // Seconds
       const elapsed = Math.floor(delta / 1000);
       const remaining = totalSeconds - elapsed;
-      console.log(timeLeft(remaining));
+      // console.log(timeLeft(remaining));
 
       onUpdateTimer(
-        timeLeft(remaining),
+        timeLeft(remaining, id),
         remaining,
         id
       );
     }, 1000);
   };
 
-  const stopTimer = () => {
-    console.log('stop', id);
+  const stopTimer = id => {
+    // console.log('stop', id);
     clearInterval(id);
-    onResetTimer();
+    onResetTimer()
   }; 
+  
+  const restart = active && time === '00:00:00';
+  if (restart) active = !active;
 
   return (
     <Container>
@@ -114,8 +121,18 @@ const Timer = ({
         />
         <div className="one column centered row">
           <div className="column">
-            {!active && <Button className="ui mini green button" type="submit">Start</Button>}
-            {active && <Button className="ui mini red button" onClick={stopTimer}>Stop</Button>}
+            {!active && 
+              <Button className="ui mini green button" type="submit">
+                {restart ? 'Restart' : 'Start'}
+              </Button>}
+            {active &&  
+              <Button 
+                className="ui mini red button" 
+                onClick={() => stopTimer(id)}
+              >
+                Stop
+              </Button>
+            }
           </div>
         </div>
       </form>

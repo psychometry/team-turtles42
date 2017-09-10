@@ -12,7 +12,7 @@ const mapDispatchToProps=(dispatch)=>{
 
 const Container = styled.div`
   padding: 0 20px;
-  font-size: 12em;
+  font-size: 10em;
   font-weight: 500;
   letter-spacing: -5px;
 `;

@@ -9,6 +9,7 @@
     flex: 1;
     font-size: 3em;
     .checkbox {
+      cursor: pointer;
       height: 20px !important;
     }
     &:nth-child(1),&:nth-last-child(1){
@@ -37,6 +38,14 @@
     margin: 10px auto;
     font-weight: 300;
     font-size: 2.5em;
+  }
+  .FocusItem {
+    .delete {
+      font-size: 20px;
+      button {
+        cursor: pointer;
+      }
+    }
   }
 }
 .AddFocus{
