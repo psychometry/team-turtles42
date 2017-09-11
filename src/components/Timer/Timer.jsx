@@ -59,11 +59,6 @@ const Timer = ({
 
   // Convert back to time string to display
   const timeLeft = (totalSeconds, id) => {
-    if (totalSeconds === 0 || !totalSeconds) {
-      stopTimer(id);
-      notification.play();
-    }
-
     let hours = Math.floor(totalSeconds / 60 / 60); 
     let minutes = Math.floor(totalSeconds / 60 % 60);
     let seconds = totalSeconds % 60;
@@ -76,12 +71,12 @@ const Timer = ({
   };
 
   const startTimer = (totalSeconds) => {
+    // Set default start time
     if (!totalSeconds) {
       totalSeconds = 1500;
     }
     
     notification.load();
-
     const start = Date.now();
 
     this.timer = setInterval(() => {
@@ -89,29 +84,28 @@ const Timer = ({
 
       // Change in milliseconds
       const delta = Date.now() - start;
-
       // Seconds
       const elapsed = Math.floor(delta / 1000);
       const remaining = totalSeconds - elapsed;
-      // console.log(timeLeft(remaining));
 
-      onUpdateTimer(
-        timeLeft(remaining, id),
-        remaining,
-        id
-      );
+      if (!remaining) {
+        notification.play();
+        return stopTimer(this.timer);
+      } else {
+        onUpdateTimer(
+          timeLeft(remaining, id),
+          remaining,
+          id
+        );
+      }
     }, 1000);
   };
-
+  
   const stopTimer = id => {
-    // console.log('stop', id);
     clearInterval(id);
     onResetTimer()
   }; 
   
-  const restart = active && time === '00:00:00';
-  if (restart) active = !active;
-
   return (
     <Container>
       <form onSubmit={event => handleSubmit(event)}>
@@ -125,7 +119,7 @@ const Timer = ({
           <div className="column">
             {!active && 
               <Button className="ui mini green button" type="submit">
-                {restart ? 'Restart' : 'Start'}
+                Start
               </Button>}
             {active &&  
               <Button 

@@ -1,7 +1,7 @@
 import types from '../actions/TimerActionCreators';
 
 const timer = (state = {}, action) =>{
-  console.log(state, action);
+  // console.log(state, action);
   switch (action.type) {
     case types.TOGGLE_TIMER:
       return {
@@ -17,7 +17,7 @@ const timer = (state = {}, action) =>{
       return {
         ...state,
         active: !state.active,
-        time: '00:25:00',
+        time: '00:00:00',
         seconds: null
       };
     case types.UPDATE_TIMER:
