@@ -11,6 +11,7 @@ const timer = (state = {}, action) =>{
     case types.SET_TIMER:
       return {
         ...state,
+        id: null,
         time: action.time
       };
     case types.RESET_TIMER:

@@ -12,7 +12,20 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
 `;
-  
+
+const Display = styled.div`
+  position: relative;
+  input {
+    opacity: ${({ paused }) => paused ? .75 : 1 };
+  }
+  &:hover input {
+    opacity: ${({ active }) => active ? .75 : 1};
+  }
+  &:hover i {
+    visibility: visible;
+  }
+`;
+
 const Time = styled(TimeField)`
   font-family: inherit;
   width: 100% !important;
@@ -34,10 +47,20 @@ const Button = styled.button`
   margin: 0 auto !important;
 `;
 
+const PauseIcon = styled.i`
+  visibility: hidden;
+  padding-right: 5px;
+  position: absolute;
+  top: 60px;
+  left: 320px;
+  cursor: pointer;
+`;
+
 const Timer = ({ 
   time, 
   active, 
-  id, 
+  id: timerId, 
+  seconds,
   onSetTimer, 
   onResetTimer, 
   onUpdateTimer 
@@ -50,6 +73,15 @@ const Timer = ({
     startTimer(seconds);
   };
 
+  const handlePause = () => {
+    if (timerId) {
+      clearInterval(timerId);
+      onSetTimer(time);
+    } else {
+      startTimer(seconds);      
+    }
+  };
+
   // Convert to seconds for countdown interval
   const secondsLeft = time => {
     time = time.split(':').map(Number);
@@ -58,7 +90,7 @@ const Timer = ({
   };
 
   // Convert back to time string to display
-  const timeLeft = (totalSeconds, id) => {
+  const timeLeft = (totalSeconds) => {
     let hours = Math.floor(totalSeconds / 60 / 60); 
     let minutes = Math.floor(totalSeconds / 60 % 60);
     let seconds = totalSeconds % 60;
@@ -80,11 +112,11 @@ const Timer = ({
     const start = Date.now();
 
     this.timer = setInterval(() => {
-      const id = this.timer;
+      const timerId = this.timer;
 
       // Change in milliseconds
       const delta = Date.now() - start;
-      // Seconds
+      // Remaining seconds
       const elapsed = Math.floor(delta / 1000);
       const remaining = totalSeconds - elapsed;
 
@@ -93,28 +125,39 @@ const Timer = ({
         return stopTimer(this.timer);
       } else {
         onUpdateTimer(
-          timeLeft(remaining, id),
+          timeLeft(remaining),
           remaining,
-          id
+          timerId
         );
       }
     }, 1000);
   };
   
-  const stopTimer = id => {
-    clearInterval(id);
+  const stopTimer = timerId => {
+    clearInterval(timerId);
     onResetTimer()
   }; 
-  
+
+  const paused = active && timerId === null;
+
   return (
     <Container>
       <form onSubmit={event => handleSubmit(event)}>
+        <Display paused={paused} active={active}>
         <Time 
+          autoFocus
           value={time} 
           showSeconds
           onChange={onTimeChange}
           disabled={active} 
         />
+        {active &&
+          <PauseIcon
+            className={paused ? "huge play icon" : "huge pause icon"}
+            onClick={() => handlePause()}
+          />
+        }
+        </Display>
         <div className="one column centered row">
           <div className="column">
             {!active && 
@@ -124,9 +167,9 @@ const Timer = ({
             {active &&  
               <Button 
                 className="ui mini red button" 
-                onClick={() => stopTimer(id)}
+                onClick={() => stopTimer(timerId)}
               >
-                Stop
+                Reset
               </Button>
             }
           </div>
