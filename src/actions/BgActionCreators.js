@@ -12,7 +12,7 @@ const unsplash = new Unsplash({
   callbackUrl: process.env.REACT_APP_UNSPLASH_CALLBACK_URL
 })
 export function setBackground(url){
-  console.log('fired');
+  // console.log('fired');
   return {type:SET_BACKGROUND,url};
 }
 export function selectBackground(bgList, index){
@@ -25,7 +25,7 @@ export function setBackgroundList(json){
   return {type:SET_BG_LIST,json}
 }
 export function fetchBackground(){
-  console.log('here');
+  // console.log('here');
   return function(dispatch){
     unsplash.photos.getRandomPhoto({collections:[611358],count:6})
     .then(toJson)
