@@ -18,7 +18,7 @@ export const setTimer = time => {
     time
   };
 }
-export const resetTimer = () => {
+export const resetTimer = id => {
   return {
     type: types.RESET_TIMER
   };

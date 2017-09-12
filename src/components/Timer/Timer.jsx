@@ -50,31 +50,34 @@ const Timer = ({
   const onTimeChange = time => onSetTimer(time);
 
   const handleSubmit = event => {
+    // Prevent rapid submissions
+    buttonRef.disabled = true;
     event.preventDefault();
-    const seconds = secondsLeft(time);
+
+    if (!seconds) {
+      seconds = secondsLeft(time);
+    }
+
     startTimer(seconds);
   };
 
   const handlePause = event => {
+    console.log('pause');
     event.preventDefault();
-
-    if (timerId) {
-      clearInterval(timerId);
-      onSetTimer(time);
-    } else {
-      startTimer(seconds);      
-    }
+    onSetTimer(time);
   };
 
   // Convert to seconds for countdown interval
   const secondsLeft = time => {
     time = time.split(':').map(Number);
     const [ hours, minutes, seconds ] = time;
-    return (hours * 60 * 60) + (minutes * 60) + seconds;
+    const totalSecs = (hours * 60 * 60) + (minutes * 60) + seconds;
+    // total seconds or set default to 25 minutes
+    return totalSecs || 1500;
   };
 
   // Convert back to time string to display
-  const timeLeft = (totalSeconds) => {
+  const timeLeft = totalSeconds => {
     let hours = Math.floor(totalSeconds / 60 / 60); 
     let minutes = Math.floor(totalSeconds / 60 % 60);
     let seconds = totalSeconds % 60;
@@ -86,12 +89,7 @@ const Timer = ({
     return `${hours}:${minutes}:${seconds}`;
   };
 
-  const startTimer = (totalSeconds) => {
-    // Set default start time
-    if (!totalSeconds) {
-      totalSeconds = 1500;
-    }
-    
+  const startTimer = seconds => {
     notification.load();
     const start = Date.now();
 
@@ -102,11 +100,11 @@ const Timer = ({
       const delta = Date.now() - start;
       // Remaining seconds
       const elapsed = Math.floor(delta / 1000);
-      const remaining = totalSeconds - elapsed;
+      const remaining = seconds - elapsed;
 
       if (!remaining) {
         notification.play();
-        return stopTimer(null, this.timer);
+        onResetTimer();
       } else {
         onUpdateTimer(
           timeLeft(remaining),
@@ -117,13 +115,13 @@ const Timer = ({
     }, 1000);
   };
   
-  const stopTimer = (event, timerId) => {
+  const stopTimer = event => {
     event.preventDefault();
-    clearInterval(timerId);
-    onResetTimer()
+    onResetTimer();
   }; 
 
-  const paused = active && timerId === null;
+  const paused = time && !timerId;
+  let buttonRef;
 
   return (
     <Container>
@@ -137,17 +135,24 @@ const Timer = ({
         />
         <div className="one column centered row">
           <div className="column">
-            {!active &&
-              <Button type="submit">
-                <i className="ui big play icon" />
+            {active && !paused &&
+              <Button 
+                onClick={event => handlePause(event)}
+                disabled={paused} 
+              >
+                <i className='ui big pause icon' />
               </Button>
             }
-            {active &&
-              <Button onClick={event => handlePause(event)}>
-                <i className={paused ? 'ui big play icon' : 'ui big pause icon'} />
+            {(!active || paused) &&
+              <Button 
+                type="submit" 
+                innerRef={comp => buttonRef = comp}
+              >
+                <i className="ui big play icon"/>
               </Button>
             }
-            <Button onClick={event => stopTimer(event, timerId)}>
+            <Button 
+              onClick={event => stopTimer(event)} disabled={!active}>
               <i className="ui big stop icon" />
             </Button>
           </div>
