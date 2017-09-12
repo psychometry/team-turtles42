@@ -13,19 +13,6 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const Display = styled.div`
-  position: relative;
-  input {
-    opacity: ${({ paused }) => paused ? .75 : 1 };
-  }
-  &:hover input {
-    opacity: ${({ active }) => active ? .75 : 1};
-  }
-  &:hover i {
-    visibility: visible;
-  }
-`;
-
 const Time = styled(TimeField)`
   font-family: inherit;
   width: 100% !important;
@@ -44,15 +31,10 @@ const Time = styled(TimeField)`
 `;
 
 const Button = styled.button`
-  margin: 0 auto !important;
-`;
-
-const PauseIcon = styled.i`
-  visibility: hidden;
-  padding-right: 5px;
-  position: absolute;
-  top: 60px;
-  left: 320px;
+  color: ${({ theme }) => theme.white};
+  background: none;
+  border: none;
+  outline: none;
   cursor: pointer;
 `;
 
@@ -73,7 +55,9 @@ const Timer = ({
     startTimer(seconds);
   };
 
-  const handlePause = () => {
+  const handlePause = event => {
+    event.preventDefault();
+
     if (timerId) {
       clearInterval(timerId);
       onSetTimer(time);
@@ -122,7 +106,7 @@ const Timer = ({
 
       if (!remaining) {
         notification.play();
-        return stopTimer(this.timer);
+        return stopTimer(null, this.timer);
       } else {
         onUpdateTimer(
           timeLeft(remaining),
@@ -133,7 +117,8 @@ const Timer = ({
     }, 1000);
   };
   
-  const stopTimer = timerId => {
+  const stopTimer = (event, timerId) => {
+    event.preventDefault();
     clearInterval(timerId);
     onResetTimer()
   }; 
@@ -143,7 +128,6 @@ const Timer = ({
   return (
     <Container>
       <form onSubmit={event => handleSubmit(event)}>
-        <Display paused={paused} active={active}>
         <Time 
           autoFocus
           value={time} 
@@ -151,27 +135,21 @@ const Timer = ({
           onChange={onTimeChange}
           disabled={active} 
         />
-        {active &&
-          <PauseIcon
-            className={paused ? "huge play icon" : "huge pause icon"}
-            onClick={() => handlePause()}
-          />
-        }
-        </Display>
         <div className="one column centered row">
           <div className="column">
-            {!active && 
-              <Button className="ui mini green button" type="submit">
-                Start
-              </Button>}
-            {active &&  
-              <Button 
-                className="ui mini red button" 
-                onClick={() => stopTimer(timerId)}
-              >
-                Reset
+            {!active &&
+              <Button type="submit">
+                <i className="ui big play icon" />
               </Button>
             }
+            {active &&
+              <Button onClick={event => handlePause(event)}>
+                <i className={paused ? 'ui big play icon' : 'ui big pause icon'} />
+              </Button>
+            }
+            <Button onClick={event => stopTimer(event, timerId)}>
+              <i className="ui big stop icon" />
+            </Button>
           </div>
         </div>
       </form>
