@@ -97,7 +97,6 @@ class App extends Component {
                 {(timer.showing || !apps.clock) &&
                   <Timer 
                     state={apps.timer}
-                    time={timer.time} 
                     seconds={timer.seconds}
                     id={timer.id}
                     active={timer.active} 

@@ -14,13 +14,14 @@ const timer = (state = {}, action) =>{
         showing: !state.showing
       };
     case types.SET_TIMER:
+      
       clearInterval(state.id);
 
       return {
         ...state,
         id: null,
         active: false,
-        time: action.time
+        seconds: action.seconds
       };
     case types.RESET_TIMER:
       clearInterval(state.id);
@@ -29,16 +30,14 @@ const timer = (state = {}, action) =>{
         ...state,
         id: null,
         active: false,
-        time: '00:00:00',
         seconds: null
       };
     case types.UPDATE_TIMER:
       return {
         ...state,
+        id: action.id,
         active: true,
-        time: action.time,
-        seconds: action.seconds,
-        id: action.id
+        seconds: action.seconds
       };
     default:
       return state;

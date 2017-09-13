@@ -39,7 +39,6 @@ const Button = styled.button`
 `;
 
 const Timer = ({ 
-  time, 
   active, 
   id: timerId, 
   seconds,
@@ -47,33 +46,27 @@ const Timer = ({
   onResetTimer, 
   onUpdateTimer 
 }) => {
-  const onTimeChange = time => onSetTimer(time);
+  const onTimeChange = time => onSetTimer(secondsLeft(time));
 
   const handleSubmit = event => {
+    // console.log('play');
     // Prevent rapid submissions
     buttonRef.disabled = true;
     event.preventDefault();
-
-    if (!seconds) {
-      seconds = secondsLeft(time);
-    }
-
-    startTimer(seconds);
+    startTimer(seconds || 1500); // default: 25 min
   };
 
   const handlePause = event => {
-    console.log('pause');
+    // console.log('pause');
     event.preventDefault();
-    onSetTimer(time);
+    onSetTimer(seconds);
   };
 
   // Convert to seconds for countdown interval
   const secondsLeft = time => {
     time = time.split(':').map(Number);
     const [ hours, minutes, seconds ] = time;
-    const totalSecs = (hours * 60 * 60) + (minutes * 60) + seconds;
-    // total seconds or set default to 25 minutes
-    return totalSecs || 1500;
+    return (hours * 60 * 60) + (minutes * 60) + seconds;
   };
 
   // Convert back to time string to display
@@ -107,20 +100,21 @@ const Timer = ({
         onResetTimer();
       } else {
         onUpdateTimer(
-          timeLeft(remaining),
-          remaining,
-          timerId
+          timerId,
+          remaining
         );
       }
     }, 1000);
   };
-  
-  const stopTimer = event => {
-    event.preventDefault();
-    onResetTimer();
-  }; 
 
-  const paused = time && !timerId;
+  const stopTimer = event => {
+    // console.log('stop');
+    event.preventDefault();
+    // Delay reset to prevent play interference
+    setTimeout(() => onResetTimer(), 700);
+  };
+
+  const paused = seconds && !timerId;
   let buttonRef;
 
   return (
@@ -128,7 +122,7 @@ const Timer = ({
       <form onSubmit={event => handleSubmit(event)}>
         <Time 
           autoFocus
-          value={time} 
+          value={timeLeft(seconds)} 
           showSeconds
           onChange={onTimeChange}
           disabled={active} 
@@ -152,7 +146,7 @@ const Timer = ({
               </Button>
             }
             <Button 
-              onClick={event => stopTimer(event)} disabled={!active}>
+              onClick={event => stopTimer(event)}>
               <i className="ui big stop icon" />
             </Button>
           </div>

@@ -12,22 +12,21 @@ export const toggleTimer = () => {
     type: types.TOGGLE_TIMER
   };
 }
-export const setTimer = time => {
+export const setTimer = seconds => {
   return {
     type: types.SET_TIMER,
-    time
+    seconds
   };
 }
-export const resetTimer = id => {
+export const resetTimer = () => {
   return {
     type: types.RESET_TIMER
   };
 }
-export const updateTimer = (time, seconds, id) => {
+export const updateTimer = (id, seconds) => {
   return {
     type: types.UPDATE_TIMER,
-    time,
-    seconds,
-    id
+    id,
+    seconds
   };
 }
