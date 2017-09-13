@@ -30,7 +30,7 @@ const timer = (state = {}, action) =>{
         ...state,
         id: null,
         active: false,
-        seconds: null
+        seconds: 1500
       };
     case types.UPDATE_TIMER:
       return {

@@ -40,7 +40,7 @@ export function fetchBackground(){
             user:{
               username:pic.user.username,
               name:pic.user.name,
-              link:pic.user.links.self+"?utm_source=ReactDash&utm_medium=referral&utm_campaign=api-credit",
+              link:pic.user.links.html+"?utm_source=ReactDash&utm_medium=referral&utm_campaign=api-credit",
             }
           }
           backgrounds.push(bg);

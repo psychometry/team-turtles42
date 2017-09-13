@@ -53,7 +53,7 @@ const Timer = ({
     // Prevent rapid submissions
     buttonRef.disabled = true;
     event.preventDefault();
-    startTimer(seconds || 1500); // default: 25 min
+    startTimer(seconds)
   };
 
   const handlePause = event => {

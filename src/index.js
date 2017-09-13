@@ -28,7 +28,7 @@ const defaultState={
     id: null,
     active: false,
     showing: false,
-    seconds: null,
+    seconds: 1500,
   },
   background:loadFromStorage('background')||{
     bg:null,
@@ -46,6 +46,10 @@ const defaultState={
     viewFilter:null,
     showList:false,
   },
+  imageInfo:{
+    displayInfo:false,
+    image:{}
+  },
   quotes: {
     feedsById,
     quotesById,
@@ -57,7 +61,6 @@ const defaultState={
     }
   }
 };
-
 const store=createStore(rootReducer,defaultState,applyMiddleware(thunk));
 store.subscribe(
   throttle(()=>{
