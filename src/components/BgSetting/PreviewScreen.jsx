@@ -7,14 +7,14 @@ const Container= styled.div`
   justify-content:space-between;
   width:100%;
 `;
-const PreviewScreen=({imageList,click})=>{
+const PreviewScreen=({imageList,...rest})=>{
   return(
     <div>
       <span>Today's Backgrounds</span>
       <Container>
         {
           imageList.map((img,i)=>{
-            return <PreviewImage img={img} key={i} click={click}/>
+            return <PreviewImage img={img} key={i} {...rest}/>
           })
         }
       </Container>

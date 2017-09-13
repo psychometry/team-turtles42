@@ -47,6 +47,10 @@ const defaultState={
     viewFilter:null,
     showList:false,
   },
+  imageInfo:{
+    displayInfo:false,
+    image:{}
+  },
   quotes: {
     feedsById,
     quotesById,
@@ -58,7 +62,6 @@ const defaultState={
     }
   }
 };
-
 const store=createStore(rootReducer,defaultState,applyMiddleware(thunk));
 store.subscribe(
   throttle(()=>{
