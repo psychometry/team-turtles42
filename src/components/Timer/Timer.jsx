@@ -12,7 +12,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
 `;
-  
+
 const Time = styled(TimeField)`
   font-family: inherit;
   width: 100% !important;
@@ -31,23 +31,35 @@ const Time = styled(TimeField)`
 `;
 
 const Button = styled.button`
-  margin: 0 auto !important;
+  color: ${({ theme }) => theme.white};
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
 `;
 
 const Timer = ({ 
-  time, 
   active, 
-  id, 
+  id: timerId, 
+  seconds,
   onSetTimer, 
   onResetTimer, 
   onUpdateTimer 
 }) => {
-  const onTimeChange = time => onSetTimer(time);
+  const onTimeChange = time => onSetTimer(secondsLeft(time));
 
   const handleSubmit = event => {
+    // console.log('play');
+    // Prevent rapid submissions
+    buttonRef.disabled = true;
     event.preventDefault();
-    const seconds = secondsLeft(time);
-    startTimer(seconds);
+    startTimer(seconds || 1500); // default: 25 min
+  };
+
+  const handlePause = event => {
+    // console.log('pause');
+    event.preventDefault();
+    onSetTimer(seconds);
   };
 
   // Convert to seconds for countdown interval
@@ -58,7 +70,7 @@ const Timer = ({
   };
 
   // Convert back to time string to display
-  const timeLeft = (totalSeconds, id) => {
+  const timeLeft = totalSeconds => {
     let hours = Math.floor(totalSeconds / 60 / 60); 
     let minutes = Math.floor(totalSeconds / 60 % 60);
     let seconds = totalSeconds % 60;
@@ -70,65 +82,73 @@ const Timer = ({
     return `${hours}:${minutes}:${seconds}`;
   };
 
-  const startTimer = (totalSeconds) => {
-    // Set default start time
-    if (!totalSeconds) {
-      totalSeconds = 1500;
-    }
-    
+  const startTimer = seconds => {
     notification.load();
     const start = Date.now();
 
     this.timer = setInterval(() => {
-      const id = this.timer;
+      const timerId = this.timer;
 
       // Change in milliseconds
       const delta = Date.now() - start;
-      // Seconds
+      // Remaining seconds
       const elapsed = Math.floor(delta / 1000);
-      const remaining = totalSeconds - elapsed;
+      const remaining = seconds - elapsed;
 
       if (!remaining) {
         notification.play();
-        return stopTimer(this.timer);
+        onResetTimer();
       } else {
         onUpdateTimer(
-          timeLeft(remaining, id),
-          remaining,
-          id
+          timerId,
+          remaining
         );
       }
     }, 1000);
   };
-  
-  const stopTimer = id => {
-    clearInterval(id);
-    onResetTimer()
-  }; 
-  
+
+  const stopTimer = event => {
+    // console.log('stop');
+    event.preventDefault();
+    // Delay reset to prevent play interference
+    setTimeout(() => onResetTimer(), 700);
+  };
+
+  const paused = seconds && !timerId;
+  let buttonRef;
+
   return (
     <Container>
       <form onSubmit={event => handleSubmit(event)}>
         <Time 
-          value={time} 
+          autoFocus
+          value={timeLeft(seconds)} 
           showSeconds
           onChange={onTimeChange}
           disabled={active} 
         />
         <div className="one column centered row">
           <div className="column">
-            {!active && 
-              <Button className="ui mini green button" type="submit">
-                Start
-              </Button>}
-            {active &&  
+            {active && !paused &&
               <Button 
-                className="ui mini red button" 
-                onClick={() => stopTimer(id)}
+                onClick={event => handlePause(event)}
+                disabled={paused} 
               >
-                Stop
+                <i className='ui big pause icon' />
               </Button>
             }
+            {(!active || paused) &&
+              <Button 
+                type="submit" 
+                innerRef={comp => buttonRef = comp}
+              >
+                <i className="ui big play icon"/>
+              </Button>
+            }
+            <Button 
+              onClick={event => stopTimer(event)}>
+              <i className="ui big stop icon" />
+            </Button>
           </div>
         </div>
       </form>

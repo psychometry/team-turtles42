@@ -94,24 +94,25 @@ class App extends Component {
                 {apps.clock && apps.timer && 
                   <TimeIcons timer={timer.showing} onToggleTimer={toggleTimer} />
                 }
-                  {/* FIXME: Write cleaner logic */}
-                  {timer.showing || (!apps.clock && apps.timer)
-                    ? <Timer 
-                        state={apps.timer}
-                        time={timer.time} 
-                        id={timer.id}
-                        active={timer.active} 
-                        onSetTimer={setTimer} 
-                        onResetTimer={resetTimer}
-                        onUpdateTimer={updateTimer} 
-                      />
-                    : <Clock 
-                        state={apps.clock}
-                        time={time} 
-                        updateTime={updateTime}
-                      /> 
-                  }
-                </div>
+                {(timer.showing || !apps.clock) &&
+                  <Timer 
+                    state={apps.timer}
+                    seconds={timer.seconds}
+                    id={timer.id}
+                    active={timer.active} 
+                    onSetTimer={setTimer} 
+                    onResetTimer={resetTimer}
+                    onUpdateTimer={updateTimer} 
+                  />
+                }
+                {(!timer.showing || !apps.timer) &&
+                  <Clock 
+                    state={apps.clock}
+                    time={time} 
+                    updateTime={updateTime}
+                  />
+                }
+              </div>
               
               <div className="bottom">
                 <Message state={apps.message} time={time} name={name}/>
