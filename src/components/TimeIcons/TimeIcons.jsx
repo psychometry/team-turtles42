@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import clockIcon from './clock.svg';
 import timerIcon from './timer.svg';
-// import alarmIcon from '../Timer/alarm.svg';
 
 const Container = styled.div`
   height: 50px;
@@ -15,7 +14,6 @@ const Container = styled.div`
       cursor: pointer;
     }
   }
-  
 }
 `;
 

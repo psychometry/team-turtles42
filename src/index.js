@@ -25,11 +25,10 @@ const defaultState={
   },
   time:new Date(),
   timer: {
-    showing: false,
+    id: null,
     active: false,
-    time: '00:00:00',
-    seconds: null,
-    id: null
+    showing: false,
+    seconds: 1500,
   },
   background:loadFromStorage('background')||{
     bg:null,
