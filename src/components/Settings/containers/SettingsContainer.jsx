@@ -11,7 +11,7 @@ const Container = styled.div`
   bottom: 20px;
   left: 10px;
   .setting.icon {
-    opacity: .75; 
+    opacity: .75;
     position: absolute;
     bottom: 0;
     left: 14px;
@@ -76,19 +76,38 @@ class SettingsContainer extends Component {
   changeTab = (index) => {
     this.setState({ activeTab: index });
   }
+  /* tried to add close settings on Clicks Outside, but seems to trigger a bug in
+   styled-components, for some reason it's recieving props that was not given when
+   child-components dispatch events.
 
+  handleClick=()=>{
+    if (!this.state.showing) {
+      document.addEventListener('click', this.handleOutsideClick, false);
+    } else {
+      document.removeEventListener('click', this.handleOutsideClick, false);
+    }
+    this.toggleSettings();
+  }
+  handleOutsideClick=(e)=>{
+    console.log(this.node);
+    console.log(e.target);
+    if(this.node.contains(e.target)){
+      return;
+    }
+    this.handleClick();
+  }*/
   render() {
     const { showing, activeTab} = this.state;
-
     return (
       <Container showing={showing}>
-        <Settings showing={showing}>
+      {/*innerRef meant for close setting on outside click*/}
+        <Settings showing={showing} innerRef={node=>{this.node=node;}}>
           <Tabs activeTab={activeTab} onChangeTab={this.changeTab}>
             {tabs}
           </Tabs>
         </Settings>
         <Pointer showing={showing} />
-        <i className={showing ? 'active setting icon' : 'setting icon' } onClick={this.toggleSettings}/>
+        <i className={showing ? 'active setting icon' : 'setting icon' } onClick={()=>this.toggleSettings()}/>
       </Container>
     );
   }
