@@ -1,4 +1,5 @@
 # [React Dash](https://react-dash.surge.sh/)
+[![Build Status](https://travis-ci.org/GR4296/team-turtles42.svg?branch=dev)](https://travis-ci.org/GR4296/team-turtles42)
 
 [React Dash] is a Chrome New Tab productivity dashboard, a [Momentum](https://momentumdash.com/) clone reverse engineered with React.
 
