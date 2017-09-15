@@ -59,13 +59,20 @@ class BgSetting extends Component{
         <CloseButton onClick={()=>this.props.closeImageInfo()}>{"<"}</CloseButton>
         <ImageInfo img={image}/>
       </ImageTab>
-    ):null;
-
+    ):(
+      <PreviewScreen
+        active={bg}
+        imageList={list}
+        click={this.props.setBackground}
+        showImageInfo={this.props.showImageInfo}
+        setImage={this.props.setImage}
+      />
+    );
     return(
       <Container>
         <div>Background:</div>
         <Cell>
-          <div>Unsplash backgrounds</div>
+          <div>Use Unsplash backgrounds</div>
           <div>
             <Slider
               checked={option==='unsplash'}
@@ -74,13 +81,6 @@ class BgSetting extends Component{
             />
           </div>
         </Cell>
-        <PreviewScreen
-          active={bg}
-          imageList={list}
-          click={this.props.setBackground}
-          showImageInfo={this.props.showImageInfo}
-          setImage={this.props.setImage}
-        />
         {
           renderInfo
         }
