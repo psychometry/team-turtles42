@@ -56,10 +56,6 @@ describe('#feedsById', () => {
   });
 
   it('should add a new quote feed', () => {
-    const newFeeds = reducers.feedsById(feedsById, {
-      type: types.ADD_FEED,
-      feedName: newFeedName
-    });
     const newFeedId = Object.keys(newFeeds)[1];
     const newFeed = newFeeds[newFeedId];
     

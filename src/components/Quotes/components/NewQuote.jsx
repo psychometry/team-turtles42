@@ -35,10 +35,8 @@ class NewQuote extends Component {
     if (text && source) {
       onAddQuote(activeTab, text, source);
       this.newQuote.value = '';
-    } else {
-      // TODO: Add user notification
-      throw new Error('Invalid quote. Format should be "text - source".');
     }
+    // TODO: Add user notification
   }
 
   render() {

@@ -28,10 +28,11 @@ const Time = styled(TimeField)`
   &:focus {
     outline: none;
   }
-`;
-
+  `;
+  
 const Button = styled.button`
   color: ${({ theme }) => theme.white};
+  text-shadow: 0 1px 5px ${({ theme }) => theme.black};
   background: none;
   border: none;
   outline: none;

@@ -1,7 +1,7 @@
 # [React Dash](https://react-dash.surge.sh/)
 [![Build Status](https://travis-ci.org/GR4296/team-turtles42.svg?branch=dev)](https://travis-ci.org/GR4296/team-turtles42)
 
-[React Dash] is a Chrome New Tab productivity dashboard, a [Momentum](https://momentumdash.com/) clone reverse engineered with React.
+React Dash is a Chrome New Tab productivity dashboard, a [Momentum](https://momentumdash.com/) clone reverse engineered with React.
 
 Demo: [https://react-dash.surge.sh/](https://react-dash.surge.sh/)
 
@@ -9,11 +9,11 @@ Demo: [https://react-dash.surge.sh/](https://react-dash.surge.sh/)
 
 ## Installation
 
-1. Clone [https://github.com/GR4296/team-turtles42.git](https://github.com/GR4296/team-turtles42.git).
-2. Open clone directory and run `npm install`.
+1. `git clone https://github.com/GR4296/team-turtles42.git`.
+2. Change to the clone directory and run `npm install`.
 3. Run `npm build`.
-4. Make sure Developer mode is turned on in the Chrome extension setting.
-5. Click load unpacked extension and go to the build folder of your clone directory.
+4. Navigate to `chrome://extensions/` and make sure "Developer mode" is checked.
+5. Click "Load unpacked extension..." and select the build folder in the cloned repository's directory.
 
 ## Features
 - [x] Unsplash background
