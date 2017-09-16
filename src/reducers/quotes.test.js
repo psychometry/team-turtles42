@@ -1,132 +1,162 @@
-// TODO: Refactor tests
-// import { quoteFeeds, currentFeed, quotes } from './quotes';
+import quotes, * as reducers from './quotes';
 import types from '../actions/QuotesActionCreators';
-import defaultFeeds from '../defaultFeeds.json';
+import { feedsById, quotesById, currentFeed } from '../utilities';
 
-describe('quotes reducer', () => {
-  const initialState = {
-    currentFeed: 'Default',
+// Initial State
+const initialState = {
+  feedsById,
+  quotesById,
+  currentFeed,
+  quotesUi: {
+    activeTab: 'Default',
     currentQuoteId: null,
-    quoteFeeds: defaultFeeds,
     showNewQuote: false
-  };
-  const testFeed = defaultFeeds[0];
-  const testQuotes = testFeed.quotes;
-  const testQuote = testQuotes[0];
-  const newFeedName = 'Favorite Quotes';
-  const newFeed = {
-    feedName: newFeedName,
-    quotes: [],
-  };
-  const updatedQuote = {
-    text: 'Updated Text',
-    source: 'Updated Source',
-    id: testQuote.id
-  };
+  }
+};
+const { quotesUi } = initialState;
 
+// Test Feeds
+const defaultFeedName = 'Default';
+const defaultFeedId = 'Default';
+const defaultFeed = feedsById[defaultFeedId];
+const newFeedName = 'Favorite Quotes';
+const newFeeds = reducers.feedsById(feedsById, {
+  type: types.ADD_FEED,
+  feedName: newFeedName
+});
+const newFeedId = Object.keys(newFeeds)[1];
+
+// Test Quotes
+const quotesBefore = Object.keys(quotesById)
+  .filter((id, i) => i < 2)
+  .reduce((nextState, id) => {
+    nextState[id] = quotesById[id];
+    return nextState;
+  }, {});
+const quoteIdsBefore = Object.keys(quotesBefore);
+const firstQuoteId = quoteIdsBefore[0];
+const secondQuoteId = quoteIdsBefore[1];
+const firstQuote = quotesBefore[firstQuoteId];
+const secondQuote = quotesBefore[secondQuoteId];
+const newQuote = {
+  text: 'New quote text',
+  source: 'New quote source'
+};
+
+describe('initial state', () => {
   it('should return initial state', () => {
-    expect(quotesReducer(initialState, {})).toEqual(initialState);
+    expect(quotes(initialState, {})).toEqual(initialState);
+  });
+});
+
+describe('#feedsById', () => {
+  it('should increase feedsById\'s length by 1', () => {
+    const newFeedIds = Object.keys(newFeeds);
+    expect(newFeedIds).toHaveLength(Object.keys(feedsById).length + 1);
   });
 
-  it('should add a quote feed', () => {
-    expect(quoteFeeds(defaultFeeds, {
+  it('should add a new quote feed', () => {
+    const newFeeds = reducers.feedsById(feedsById, {
       type: types.ADD_FEED,
       feedName: newFeedName
-    })).toEqual([
-      ...defaultFeeds,
-      newFeed
-    ]);
+    });
+    const newFeedId = Object.keys(newFeeds)[1];
+    const newFeed = newFeeds[newFeedId];
+    
+    expect(newFeeds).toEqual(expect.objectContaining({
+      [defaultFeedId]: defaultFeed,
+      [newFeedId]: newFeed
+    }));
   });
 
   it('should remove a quote feed', () => {
-    const feeds = quoteFeeds(defaultFeeds, {
-      type: types.ADD_FEED,
-      feedName: newFeedName
-    });
-    const testFeedIndex = feeds.findIndex(feed => {
-      return feed.feedName === newFeed.feedName
-    });
-
-    expect(quoteFeeds(feeds, {
+    expect(reducers.feedsById(feedsById, {
       type: types.REMOVE_FEED,
-      feedName: 'Favorite Quotes'
-    })).toEqual([
-      ...feeds.slice(0, testFeedIndex),
-      ...feeds.slice(testFeedIndex + 1)
-    ]);
+      feedId: defaultFeedName
+    })).toEqual({});
+  });
+});
+
+describe('#quotesById', () => {
+  it('should add a quote', () => {
+    const quoteIdsAfter = Object.keys(reducers.quotesById(quotesBefore, {
+      type: types.ADD_QUOTE,
+      feedName: defaultFeedName,
+      ...newQuote
+    }));
+    
+    expect(quoteIdsAfter).toHaveLength(quoteIdsBefore.length + 1);
+  });
+  
+  it('should remove a quote', () => {
+    const quoteIdsAfter = Object.keys(reducers.quotesById(quotesBefore, {
+      type: types.REMOVE_QUOTE,
+      feedName: defaultFeedName,
+      quoteId: firstQuoteId
+    }));
+    
+    expect(quoteIdsAfter).toHaveLength(quoteIdsBefore.length - 1);
+  });
+  
+  it('should update a quote', () => {
+    expect(reducers.quotesById(quotesBefore, {
+      type: types.UPDATE_QUOTE,
+      feedName: defaultFeedName,
+      quote: newQuote,
+      quoteId: secondQuoteId
+    })).toEqual(expect.objectContaining({
+      [firstQuoteId]: firstQuote,
+      [secondQuoteId]: {
+        ...newQuote
+      }
+    }));
   });
 
+  it('should toggle a quote like', () => {
+    expect(reducers.quotesById(quotesBefore, {
+      type: types.TOGGLE_FAVORITE,
+      feedId: defaultFeedId,
+      quoteId: secondQuoteId
+    })).toEqual(expect.objectContaining({
+      [firstQuoteId]: firstQuote,
+      [secondQuoteId]: {
+        ...secondQuote,
+        liked: !secondQuote.liked
+      }
+    }));
+  });
+});
+
+describe('#currentFeed', () => {
   it('should change the current quote feed to a new quote feed', () => {
-    expect(quotesReducer(initialState, {
+    expect(reducers.currentFeed(currentFeed, {
       type: types.CHANGE_FEED,
+      feedId: newFeedId,
       feedName: newFeedName
     })).toEqual({
-      ...initialState,
-      currentFeed: newFeedName
+      feedId: newFeedId,
+      feedName: newFeedName
     });
   });
+});
 
-  it('should add a quote', () => {
-    expect(quotes(testQuotes, {
-      type: types.ADD_QUOTE,
-      feedName: testFeed.feedName,
-      text: 'Test Text',
-      source: 'Test Source'
-    })).toHaveLength(testQuotes.length + 1);
-  });
-
-  it('should remove a quote', () => {
-    expect(quotes(testQuotes, {
-      type: types.REMOVE_QUOTE,
-      feedName: testFeed.feedName,
-      id: testQuotes[testQuotes.length - 1].id
-    })).toHaveLength(testQuotes.length - 1);
-  });
-
-  it('should update a quote', () => {
-    expect(quotes(testQuotes, {
-      type: types.UPDATE_QUOTE,
-      feedName: testFeed.feedName,
-      quote: updatedQuote,
-      id: testQuote.id
-    })).toEqual([
-      ...testQuotes.slice(0, 0),
-      updatedQuote,
-      ...testQuotes.slice(1)
-    ]);
-  });
-
+describe('#quotesUi', () => {
   it('should toggle the new quote input', () => {
-    expect(quotesReducer(initialState, {
+    expect(reducers.quotesUi(quotesUi, {
       type: types.TOGGLE_NEW_QUOTE
     })).toEqual({
-      ...initialState,
-      showNewQuote: !initialState.showNewQuote
+      ...quotesUi,
+      showNewQuote: !quotesUi.showNewQuote
     });
   });
 
-  // it('should toggle a quote like', () => {
-  //   expect(quotes(testQuotes, {
-  //     type: types.TOGGLE_FAVORITE,
-  //     feedName: testFeed.feedName,
-  //     id: testQuote.id
-  //   })).toEqual([
-  //     ...testQuotes.slice(0, testQuote.id),
-  //     {
-  //       ...testQuote,
-  //       liked: !testQuote.liked
-  //     },
-  //     ...testQuotes.slice(testQuote.id + 1)
-  //   ]);
-  // });
-
-  // it('should set a current quote', () => {
-  //   expect(quotesReducer(initialState, {
-  //     type: types.SET_CURRENT_QUOTE,
-  //     id: // random quote id
-  //   })).toEqual({
-  //     ...initialState,
-  //     currentQuoteId: // random quote id
-  //   });
-  // });
+  it('should set a current quote', () => {
+    expect(reducers.quotesUi(quotesUi, {
+      type: types.SET_CURRENT_QUOTE,
+      quoteId: firstQuoteId
+    })).toEqual(expect.objectContaining({
+      ...quotesUi,
+      currentQuoteId: firstQuoteId
+    }));
+  });
 });
