@@ -1,6 +1,6 @@
 import React from 'react';
 const toggleOnOff=(WrappedComponent)=>{
-  return (props)=>{
+  return function Toggle(props){
     const {state,...rest}=props;
     return (state?<WrappedComponent {...rest}/>:null);
   }

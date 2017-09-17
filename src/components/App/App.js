@@ -1,88 +1,61 @@
 import React, {Component} from 'react';
 import {ThemeProvider} from 'styled-components';
-//import Unsplash, { toJson } from 'unsplash-js';
 import Focus from '../Focus/Focus';
-import BookmarksContainer from '../Bookmarks/BookmarksContainer';
+import LinksContainer from '../Links/LinksContainer';
 import WeatherContainer from '../Weather/WeatherContainer';
+import TimeIcons from '../TimeIcons/TimeIcons';
+import Timer from '../Timer/Timer';
+import Clock from '../Clock/Clock';
 import SettingsContainer from '../Settings/containers/SettingsContainer';
 import CurrentQuoteContainer from '../CurrentQuote/CurrentQuoteContainer';
 import ListContainer from '../Todo/containers/ListContainer';
-//import backgrounds from '../../background.json';
-import Clock from '../Clock/Clock';
 import Welcome from '../Welcome/Welcome';
 import Message from '../Message/Message';
 import './App.scss';
 
-/*const unsplash = new Unsplash({
-  applicationId: process.env.REACT_APP_UNSPLASH_APP_ID,
-  secret: process.env.REACT_APP_UNSPLASH_APP_SECRET,
-  callbackUrl: process.env.REACT_APP_UNSPLASH_CALLBACK_URL
-});
-*/
-
 const theme = {
-  white: 'rgba(255,255,255,1)',
+  white: 'rgb(255,255,255)',
   grey: 'rgba(255,255,255,.15)',
   black: 'rgba(15, 15, 15, 0.925)'
 };
 
 class App extends Component {
-  /*
-  constructor() {
-    super();
-    this.state = {
-      // date: '',
-      time: '',
-      background: '',
-    }
-
-  }
   componentDidMount() {
-    this.setBackground();
-  }
-  setBackground() {
-    // const today = new Date().toLocaleDateString();
-    const time = new Date().getTime();
-    const oldTime = +localStorage.getItem('time');
-    const background = localStorage.getItem('background');
-    // Change background every 15 minutes (for development)
-    // OR set background if there isn't one in localStorage
-    // if (today !== this.state.date) { // Change background every day
-    if (time - oldTime > 15 * 60 * 1000 || background === null) {
-      unsplash.photos.getRandomPhoto()
-      .then(toJson)
-      .then(json => {
-        const { regular: background } = json.urls;
-        this.setState({
-          time,
-          background
-        });
-        localStorage.setItem('time', time);
-        localStorage.setItem('background', background);
-      }).catch(
-        err =>{
-          console.log(err);
-          const bgList=backgrounds.backgrounds;
-          const rand=Math.floor(Math.random()*(bgList.length));
-          this.setState({background:process.env.PUBLIC_URL+'./img/'+bgList[rand].filename});
-        }
-      );
-    // Get background from localStorage
-    } else {
-      this.setState({
-        // date: '',
-        time,
-        background
-      });
+    const {updateTime, option,list} = this.props.background;
+    if(!updateTime||(new Date()-updateTime)>60*60*24*1000){
+      this.props.update(new Date());
+      this.props.fetchBackground();
     }
-  }*/
-  componentDidMount() {
-    this.props.fetchBackground();
+    if(!option){
+      this.props.setOption('unsplash');
+    }
+    if(list){
+      this.props.selectBackground(list, Math.floor(Math.random() * list.length));
+    }
+  }
+  componentDidUpdate(prevProp){
+    if(this.props.background.list!==prevProp.background.list){
+      const {list}=this.props.background;
+      this.props.selectBackground(list, Math.floor(Math.random() * list.length));
+    }
+    if(this.props.background.option!==prevProp.background.option){
+      const {option}=this.props.background;
+      if(option==='local'){
+        this.props.fetchBackgroundLocal();
+      }else{
+        this.props.fetchBackground();
+      }
+    }
   }
   render() {
     const {
       background,
       time,
+      timer,
+      toggleTimer,
+      setTimer,
+      resetTimer,
+      updateTimer,
       focus,
       setFocus,
       deleteFocus,
@@ -92,13 +65,14 @@ class App extends Component {
       setName,
       apps
     } = this.props;
+
     if (!name || name === '') {
       return (
         <div className="App" style={{
-          backgroundImage: `url(${background})`
+          backgroundImage: `url(${background.bg})`
         }}>
           <header/>
-          <main>
+          <main className="main">
             <Welcome setName={setName}/>
           </main>
           <footer/>
@@ -108,22 +82,53 @@ class App extends Component {
       return (
         <ThemeProvider theme={theme}>
           <div className="App" style={{
-            backgroundImage: `url(${background})`
+            backgroundImage: `url(${background.bg})`
           }}>
             <header>
-              <BookmarksContainer />
-              <WeatherContainer/>
+              <LinksContainer state={apps.links} />
+              <WeatherContainer state={apps.weather} />
             </header>
 
             <main className="main">
-              <Clock time={time} updateTime={updateTime}/>
-              <Message state={apps.message} time={time} name={name}/>
-              <Focus state={apps.focus} focus={focus} setFocus={setFocus} deleteFocus={deleteFocus} toggleFocus={toggleFocus}/>
+              <div className="top">
+                {apps.clock && apps.timer && 
+                  <TimeIcons timer={timer.showing} onToggleTimer={toggleTimer} />
+                }
+                {(timer.showing || !apps.clock) &&
+                  <Timer 
+                    state={apps.timer}
+                    seconds={timer.seconds}
+                    id={timer.id}
+                    active={timer.active} 
+                    onSetTimer={setTimer} 
+                    onResetTimer={resetTimer}
+                    onUpdateTimer={updateTimer} 
+                  />
+                }
+                {(!timer.showing || !apps.timer) &&
+                  <Clock 
+                    state={apps.clock}
+                    time={time} 
+                    updateTime={updateTime}
+                  />
+                }
+              </div>
+              
+              <div className="bottom">
+                <Message state={apps.message} time={time} name={name}/>
+                <Focus 
+                  state={apps.focus} 
+                  focus={focus} 
+                  setFocus={setFocus} 
+                  deleteFocus={deleteFocus} 
+                  toggleFocus={toggleFocus}
+                />
+              </div>
             </main>
 
             <footer>
               <SettingsContainer />
-              <CurrentQuoteContainer />
+              <CurrentQuoteContainer state={apps.quote} />
               <ListContainer state={apps.todo} />
             </footer>
           </div>

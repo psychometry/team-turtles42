@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import CurrentQuote from './CurrentQuote';
 import { toggleFavorite, setCurrentQuote } from '../../actions/QuotesActionCreators.js';
+import toggleOnOff from '../../HOC';
 
 const mapStateToProps = state => {
   return {
@@ -24,4 +25,4 @@ const CurrentQuoteContainer = connect(
   mapDispatchToProps
 )(CurrentQuote);
 
-export default CurrentQuoteContainer;
+export default toggleOnOff(CurrentQuoteContainer);

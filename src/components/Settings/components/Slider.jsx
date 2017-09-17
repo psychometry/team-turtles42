@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 const Toggle = styled.div`
+  cursor: pointer;
   background-color:grey;
   display:inline-block;
   width:40px;

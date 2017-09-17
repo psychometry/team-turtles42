@@ -41,12 +41,12 @@ const propTypes = {
   onChangeTab: PropTypes.func.isRequired
 };
 
-const Tabs = ({ 
-  children: tabs, 
-  activeTab: index, 
+const Tabs = ({
+  children: tabs,
+  activeTab: index,
   onChangeTab,
 }) => {
-  
+
   const handleClick = (event, index) => {
     event.preventDefault();
     onChangeTab(index);
@@ -55,9 +55,9 @@ const Tabs = ({
     return tabs.map((tab, i) => {
       const active = i === index ? true : false;
       return (
-        <Link 
+        <Link
           active={active}
-          key={tab.name} 
+          key={tab.name}
           onClick={event => handleClick(event, i)}
         >
           {tab.name}
@@ -65,7 +65,7 @@ const Tabs = ({
       );
     });
   }
-  
+
   const renderPane = ({ name, content }) => <Pane key={name}>{content}</Pane>;
 
   return (

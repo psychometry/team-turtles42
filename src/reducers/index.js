@@ -5,7 +5,9 @@ import appReducer from './appReducer';
 import timeReducer from './timeReducer';
 import bgReducer from './bgReducer';
 import nameReducer from './nameReducer';
+import imageInfoReducer from './settingReducer';
 import quotes from './quotes';
+import timer from './timer';
 
 const rootReducer=combineReducers(
   {
@@ -15,7 +17,9 @@ const rootReducer=combineReducers(
     todo:todoReducers,
     background:bgReducer,
     name:nameReducer,
-    quotes
+    imageInfo:imageInfoReducer,
+    quotes,
+    timer
   }
 );
 

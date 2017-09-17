@@ -14,23 +14,41 @@ import './index.scss';
 
 const defaultState={
   apps:{
-    todo:true,
-    focus:true,
-    message:true,
+    links:true,
     weather:true,
+    clock:true,
+    timer:true,
+    message:true,
+    focus:true,
     quote:true,
+    todo:true
   },
   time:new Date(),
-  background:null,
-  focus:loadFromStorage('focus')||{text:null,
+  timer: {
+    id: null,
+    active: false,
+    showing: false,
+    seconds: 1500,
+  },
+  background:loadFromStorage('react-dash-background')||{
+    bg:null,
+    list:null,
+    updateTime:null,
+    option:null
+  },
+  focus:loadFromStorage('react-dash-focus')||{text:null,
     done:false,
     set:false,
   },
-  name:loadFromStorage('name')||'',
+  name:loadFromStorage('react-dash-name')||'',
   todo:{
-    todo:(loadFromStorage('todo'))||[],
+    todo:(loadFromStorage('react-dash-todo'))||[],
     viewFilter:null,
     showList:false,
+  },
+  imageInfo:{
+    displayInfo:false,
+    image:{}
   },
   quotes: {
     feedsById,
@@ -43,16 +61,15 @@ const defaultState={
     }
   }
 };
-
 const store=createStore(rootReducer,defaultState,applyMiddleware(thunk));
 store.subscribe(
   throttle(()=>{
-      saveToStorage('focus',store.getState().focus);
-      saveToStorage('todo',store.getState().todo.todo);
-      saveToStorage('name',store.getState().name);
+      saveToStorage('react-dash-focus',store.getState().focus);
+      saveToStorage('react-dash-todo',store.getState().todo.todo);
+      saveToStorage('react-dash-name',store.getState().name);
+      saveToStorage('react-dash-background',store.getState().background);
       saveToStorage('react-dash-quotes', store.getState().quotes);
   },5000));
-
 ReactDOM.render(
   <Provider store={store}>
     <AppContainer />

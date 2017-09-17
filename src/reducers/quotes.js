@@ -2,21 +2,27 @@ import { combineReducers } from 'redux';
 import uuid from 'uuid/v4';
 import types from '../actions/QuotesActionCreators';
 
-const currentFeed = (state = {}, action) =>{
+export const currentFeed = (state = {}, action) =>{
   // console.log('CURRENT FEED', state, action);
   
   switch (action.type) {
     case types.CHANGE_FEED:
-      return { feedId: action.feedId, feedName: action.feedName };
-    // Set currentFeed to 'Default' if a feed is removed
+      return { 
+        feedId: action.feedId, 
+        feedName: action.feedName
+      };
+    // Sets currentFeed to 'Default' if a feed is removed:
     case types.REMOVE_FEED:
-      return { feedId: 'Default', feedName: 'Default' };
+      return { 
+        feedId: 'Default', 
+        feedName: 'Default'
+      };
     default:
       return state;
   }
 };
 
-const quotesById = (state = {}, action) => {
+export const quotesById = (state = {}, action) => {
   // console.log('QUOTES BY ID', state, action);
 
   switch (action.type) {
@@ -60,7 +66,7 @@ const quotesById = (state = {}, action) => {
   }
 };
 
-const feedsById = (state = {}, action) => {
+export const feedsById = (state = {}, action) => {
   // console.log('FEEDS BY ID', state, action);
 
   switch (action.type) {
@@ -80,7 +86,7 @@ const feedsById = (state = {}, action) => {
   }
 };
 
-const quotesUi = (state = {}, action) => {
+export const quotesUi = (state = {}, action) => {
   // console.log('QUOTES UI', state, action);
 
   switch (action.type) {

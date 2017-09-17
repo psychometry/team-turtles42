@@ -4,6 +4,9 @@ class AddForm extends Component{
     super(props);
     this.state={value:''};
   }
+  componentDidMount() {
+    if (this.props.focus) this.inputRef.focus();
+  }
   handleChange=e=>{
     this.setState({value:e.target.value});
   }
@@ -20,14 +23,15 @@ class AddForm extends Component{
           <span className='input'>
             <input
               type='text'
+              ref={input => this.inputRef = input}
               value={this.state.value}
               placeholder={this.props.placeholder}
               onChange={this.handleChange}
             />
           </span>
-          <span className='submit'>
+          {/* <span className='submit'>
             <button type='submit'><i className='inverted add square icon'></i></button>
-          </span>
+          </span> */}
       </form>
     );
   }

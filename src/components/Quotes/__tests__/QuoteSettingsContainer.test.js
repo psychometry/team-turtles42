@@ -4,7 +4,7 @@ import QuoteSettingsContainer from '../containers/QuoteSettingsContainer';
 
 // console.log(localStorage.getItem);
 
-xit('should render CurrentQuote', () => {
+xit('should QuoteSettingsContainer', () => {
   const tree = renderer.create(<QuoteSettingsContainer />).toJSON();
   expect(tree).toMatchSnapshot();
 });

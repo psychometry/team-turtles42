@@ -4,6 +4,7 @@ import cityReverseGeocoder from 'city-reverse-geocoder';
 import { loadWeatherSettings } from '../../utilities';
 import { saveToStorage } from '../../localStorage';
 import Weather from './Weather';
+import toggleOnOff from '../../HOC';
 
 class WeatherContainer extends Component {
   constructor() {
@@ -52,4 +53,4 @@ class WeatherContainer extends Component {
   }
 }
 
-export default WeatherContainer;
+export default toggleOnOff(WeatherContainer);

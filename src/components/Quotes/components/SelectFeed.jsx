@@ -53,7 +53,10 @@ class SelectFeed extends Component {
       <Div>
         <label>
           Feed: 
-          <select value={currentFeed.feedName} onChange={event => this.handleChange(event)}>
+          <select 
+            value={currentFeed.feedName} 
+            onChange={event => this.handleChange(event)}
+          >
             {options}
           </select>
         </label>
