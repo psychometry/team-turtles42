@@ -96,7 +96,7 @@ class Timer extends Component {
 
       if (!remaining) {
         notification.play();
-        this.props.onResetTier();
+        this.props.onResetTimer();
       } else {
         this.props.onUpdateTimer(
           timerId,
