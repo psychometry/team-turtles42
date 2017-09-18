@@ -30,19 +30,19 @@ const defaultState={
     showing: false,
     seconds: 1500,
   },
-  background:loadFromStorage('background')||{
+  background:loadFromStorage('react-dash-background')||{
     bg:null,
     list:null,
     updateTime:null,
     option:null
   },
-  focus:loadFromStorage('focus')||{text:null,
+  focus:loadFromStorage('react-dash-focus')||{text:null,
     done:false,
     set:false,
   },
-  name:loadFromStorage('name')||'',
+  name:loadFromStorage('react-dash-name')||'',
   todo:{
-    todo:(loadFromStorage('todo'))||[],
+    todo:(loadFromStorage('react-dash-todo'))||[],
     viewFilter:null,
     showList:false,
   },
@@ -64,10 +64,10 @@ const defaultState={
 const store=createStore(rootReducer,defaultState,applyMiddleware(thunk));
 store.subscribe(
   throttle(()=>{
-      saveToStorage('focus',store.getState().focus);
-      saveToStorage('todo',store.getState().todo.todo);
-      saveToStorage('name',store.getState().name);
-      saveToStorage('background',store.getState().background);
+      saveToStorage('react-dash-focus',store.getState().focus);
+      saveToStorage('react-dash-todo',store.getState().todo.todo);
+      saveToStorage('react-dash-name',store.getState().name);
+      saveToStorage('react-dash-background',store.getState().background);
       saveToStorage('react-dash-quotes', store.getState().quotes);
   },5000));
 ReactDOM.render(

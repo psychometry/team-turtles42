@@ -5,7 +5,11 @@ const Welcome=({setName})=>{
   return(
     <div className="Welcome">
       <div className='Welcome_text'>Hello, what's your name?</div>
-      <AddForm className='Welcome_Add' focus={true} submit={setName}/>
+      <AddForm 
+        className='Welcome_Add' 
+        focus={true}
+        submit={setName}
+       />
     </div>
   )
 }

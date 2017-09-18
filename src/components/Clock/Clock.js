@@ -1,22 +1,12 @@
 import React,{Component} from 'react';
 import styled from 'styled-components';
 import toggleOnOff from '../../HOC';
-//import {bindActionCreators} from 'redux';
-//import {connect} from 'react-redux';
-//import * as TimeActionCreator from '../../actions/TimeActionCreator';
-/*const mapStateToProps=(state)=>{
-  return {time:state.time};
-}
-const mapDispatchToProps=(dispatch)=>{
-  return bindActionCreators(TimeActionCreator,dispatch);
-}*/
 
 const Container = styled.div`
   padding: 0 20px;
   font-size: 10em;
   font-weight: 500;
 `;
-
 
 class Clock extends Component{
   componentDidMount(){

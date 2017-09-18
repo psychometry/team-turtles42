@@ -14,6 +14,8 @@ const Cell=styled.div`
   display:flex;
   flex-flow:row nowrap;
   justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 5px;
   border-bottom:1px solid white;
   & :nth-child(odd){
     flex:3 1 inherited;

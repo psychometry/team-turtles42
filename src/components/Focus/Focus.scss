@@ -4,25 +4,47 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  .delete {
+    visibility: hidden;
+  }
+  &:hover .checkbox {
+    visibility: visible;
+  }
+  &:hover .delete {
+    visibility: visible;
+  }
   > span {
-    margin: 0;
-    flex: 1;
+    margin: 0 10px;
+    // flex: 1;
     font-size: 3em;
     .checkbox {
+      visibility: hidden;
+      vertical-align: middle;
       cursor: pointer;
-      height: 20px !important;
+      height: .5em !important;
+    }
+    .remove {
+      font-size: 1.5em;
     }
     &:nth-child(1),&:nth-last-child(1){
       flex:0 0 1em;
     }
     &.checked{
       text-decoration: line-through;
+      opacity: .75;
     }
     button{
+      opacity: .75;
       float: right;
       background-color: rgba(0, 0, 0, 0);
       border: none;
       padding: 0;
+      &:active {
+        outline: none;
+      }
+      &:hover {
+        opacity: 1;
+      }
     }
     input[type=checkbox]{
       width:100%;

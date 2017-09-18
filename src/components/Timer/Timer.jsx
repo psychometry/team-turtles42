@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import TimeField from 'react-simple-timefield';
 import bell from './bell.wav';
@@ -13,7 +13,7 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const Time = styled(TimeField)`
+const Time = styled.input`
   font-family: inherit;
   width: 100% !important;
   padding: 0;
@@ -29,48 +29,47 @@ const Time = styled(TimeField)`
     outline: none;
   }
 `;
-
+  
 const Button = styled.button`
   color: ${({ theme }) => theme.white};
+  text-shadow: 0 1px 5px ${({ theme }) => theme.black};
   background: none;
   border: none;
   outline: none;
   cursor: pointer;
 `;
 
-const Timer = ({ 
-  active, 
-  id: timerId, 
-  seconds,
-  onSetTimer, 
-  onResetTimer, 
-  onUpdateTimer 
-}) => {
-  const onTimeChange = time => onSetTimer(secondsLeft(time));
+class Timer extends Component {
+  componentDidMount() {
+    this.time.select();
+  }
+  onTimeChange = time => {
+    return this.props.onSetTimer(this.secondsLeft(time));
+  }
 
-  const handleSubmit = event => {
+  handleSubmit = event => {
     // console.log('play');
     // Prevent rapid submissions
-    buttonRef.disabled = true;
+    this.submit.disabled = true;
     event.preventDefault();
-    startTimer(seconds)
-  };
+    this.startTimer(this.props.seconds);
+  }
 
-  const handlePause = event => {
+  handlePause = event => {
     // console.log('pause');
     event.preventDefault();
-    onSetTimer(seconds);
-  };
+    this.props.onSetTimer(this.props.seconds);
+  }
 
   // Convert to seconds for countdown interval
-  const secondsLeft = time => {
+  secondsLeft = time => {
     time = time.split(':').map(Number);
     const [ hours, minutes, seconds ] = time;
     return (hours * 60 * 60) + (minutes * 60) + seconds;
-  };
+  }
 
   // Convert back to time string to display
-  const timeLeft = totalSeconds => {
+  timeLeft = totalSeconds => {
     let hours = Math.floor(totalSeconds / 60 / 60); 
     let minutes = Math.floor(totalSeconds / 60 % 60);
     let seconds = totalSeconds % 60;
@@ -80,9 +79,9 @@ const Timer = ({
     if (seconds < 10) seconds = '0' + seconds;
 
     return `${hours}:${minutes}:${seconds}`;
-  };
+  }
 
-  const startTimer = seconds => {
+  startTimer = seconds => {
     notification.load();
     const start = Date.now();
 
@@ -97,63 +96,65 @@ const Timer = ({
 
       if (!remaining) {
         notification.play();
-        onResetTimer();
+        this.props.onResetTimer();
       } else {
-        onUpdateTimer(
+        this.props.onUpdateTimer(
           timerId,
           remaining
         );
       }
     }, 1000);
-  };
+  }
 
-  const stopTimer = event => {
+  stopTimer = event => {
     // console.log('stop');
     event.preventDefault();
     // Delay reset to prevent play interference
-    setTimeout(() => onResetTimer(), 700);
-  };
+    setTimeout(() => this.props.onResetTimer(), 700);
+  }
 
-  const paused = seconds && !timerId;
-  let buttonRef;
+  render() {
+    const { active, id: timerId, seconds } = this.props;
+    const paused = seconds && !timerId;
 
-  return (
-    <Container>
-      <form onSubmit={event => handleSubmit(event)}>
-        <Time 
-          autoFocus
-          value={timeLeft(seconds)} 
-          showSeconds
-          onChange={onTimeChange}
-          disabled={active} 
-        />
-        <div className="one column centered row">
-          <div className="column">
-            {active && !paused &&
+    return (
+      <Container>
+        <form onSubmit={event => this.handleSubmit(event)}>
+          <TimeField 
+            value={this.timeLeft(seconds)} 
+            showSeconds
+            input={<Time innerRef={comp => this.time = comp}/>}
+            onChange={this.onTimeChange}
+            disabled={active} 
+          />
+          <div className="one column centered row">
+            <div className="column">
+              {active && !paused &&
+                <Button 
+                  onClick={event => this.handlePause(event)}
+                  disabled={paused} 
+                >
+                  <i className='ui big pause icon' />
+                </Button>
+              }
+              {(!active || paused) &&
+                <Button 
+                  type="submit" 
+                  innerRef={comp => this.submit = comp}
+                >
+                  <i className="ui big play icon"/>
+                </Button>
+              }
               <Button 
-                onClick={event => handlePause(event)}
-                disabled={paused} 
-              >
-                <i className='ui big pause icon' />
+                onClick={event => this.stopTimer(event)}>
+                <i className="ui big stop icon" />
               </Button>
-            }
-            {(!active || paused) &&
-              <Button 
-                type="submit" 
-                innerRef={comp => buttonRef = comp}
-              >
-                <i className="ui big play icon"/>
-              </Button>
-            }
-            <Button 
-              onClick={event => stopTimer(event)}>
-              <i className="ui big stop icon" />
-            </Button>
+            </div>
           </div>
-        </div>
-      </form>
-    </Container>
-  );
+        </form>
+      </Container>
+    );
+  }
 }
 
 export default toggleOnOff(Timer);
