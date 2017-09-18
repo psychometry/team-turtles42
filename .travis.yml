@@ -8,4 +8,5 @@ script:
   - npm run build
   - npm test
 after_success:
+  - mv build/index.html build/200.html
   - surge --project ./build --domain react-dash.surge.sh
