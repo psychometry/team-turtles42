@@ -19,7 +19,7 @@ const Cell=styled.div`
     text-transform:capitalize;
   }
 `;
-const CloseButton=styled.div`
+const CloseButton=styled.button`
   width:40px;
   height:100px;
   border:0;
@@ -27,6 +27,12 @@ const CloseButton=styled.div`
   background:transparent;
   font-size:x-large;
   color:white;
+  &:focus{
+    outline:none;
+  }
+  &:hover{
+    cursor:pointer;
+  }
 `;
 const ImageTab=styled.div`
   display:flex;
@@ -56,16 +62,27 @@ class BgSetting extends Component{
     const {image,displayInfo}=this.props.imageInfo;
     const renderInfo=displayInfo?(
       <ImageTab>
-        <CloseButton onClick={()=>this.props.closeImageInfo()}>{"<"}</CloseButton>
-        <ImageInfo img={image}/>
+        <CloseButton title="back to today's backgrounds" onClick={()=>this.props.closeImageInfo()}>{"<"}</CloseButton>
+        <ImageInfo
+          img={image}
+          active={bg}
+          setBackground={this.props.setBackground}
+        />
       </ImageTab>
-    ):null;
-
+    ):(
+      <PreviewScreen
+        active={bg}
+        imageList={list}
+        click={this.props.setBackground}
+        showImageInfo={this.props.showImageInfo}
+        setImage={this.props.setImage}
+      />
+    );
     return(
       <Container>
         <div>Background:</div>
         <Cell>
-          <div>Unsplash backgrounds</div>
+          <div>Use Unsplash backgrounds</div>
           <div>
             <Slider
               checked={option==='unsplash'}
@@ -74,13 +91,6 @@ class BgSetting extends Component{
             />
           </div>
         </Cell>
-        <PreviewScreen
-          active={bg}
-          imageList={list}
-          click={this.props.setBackground}
-          showImageInfo={this.props.showImageInfo}
-          setImage={this.props.setImage}
-        />
         {
           renderInfo
         }
