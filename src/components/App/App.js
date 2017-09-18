@@ -22,7 +22,7 @@ const theme = {
 class App extends Component {
   componentDidMount() {
     const {updateTime, option,list} = this.props.background;
-    if(!updateTime||(new Date()-updateTime)>60*60*24*1000){
+    if(!updateTime||(new Date()-new Date(updateTime))>60*60*24*1000){
       this.props.update(new Date());
       this.props.fetchBackground();
     }
@@ -91,36 +91,36 @@ class App extends Component {
 
             <main className="main">
               <div className="top">
-                {apps.clock && apps.timer && 
+                {apps.clock && apps.timer &&
                   <TimeIcons timer={timer.showing} onToggleTimer={toggleTimer} />
                 }
                 {(timer.showing || !apps.clock) &&
-                  <Timer 
+                  <Timer
                     state={apps.timer}
                     seconds={timer.seconds}
                     id={timer.id}
-                    active={timer.active} 
-                    onSetTimer={setTimer} 
+                    active={timer.active}
+                    onSetTimer={setTimer}
                     onResetTimer={resetTimer}
-                    onUpdateTimer={updateTimer} 
+                    onUpdateTimer={updateTimer}
                   />
                 }
                 {(!timer.showing || !apps.timer) &&
-                  <Clock 
+                  <Clock
                     state={apps.clock}
-                    time={time} 
+                    time={time}
                     updateTime={updateTime}
                   />
                 }
               </div>
-              
+
               <div className="bottom">
                 <Message state={apps.message} time={time} name={name}/>
-                <Focus 
-                  state={apps.focus} 
-                  focus={focus} 
-                  setFocus={setFocus} 
-                  deleteFocus={deleteFocus} 
+                <Focus
+                  state={apps.focus}
+                  focus={focus}
+                  setFocus={setFocus}
+                  deleteFocus={deleteFocus}
                   toggleFocus={toggleFocus}
                 />
               </div>
