@@ -14,13 +14,15 @@ const timer = (state = {}, action) =>{
         showing: !state.showing
       };
     case types.SET_TIMER:
-      
       clearInterval(state.id);
 
       return {
         ...state,
         id: null,
         active: false,
+        // duration is used in timer notification
+        // pausing does not set the id to null until duration is set
+        duration: state.id === null ? action.seconds: state.duration,
         seconds: action.seconds
       };
     case types.RESET_TIMER:
@@ -30,6 +32,7 @@ const timer = (state = {}, action) =>{
         ...state,
         id: null,
         active: false,
+        duration: null,
         seconds: 1500
       };
     case types.UPDATE_TIMER:

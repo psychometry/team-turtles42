@@ -28,6 +28,7 @@ const defaultState={
     id: null,
     active: false,
     showing: false,
+    duration: null,
     seconds: 1500,
   },
   background:loadFromStorage('react-dash-background')||{
