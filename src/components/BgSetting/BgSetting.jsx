@@ -82,6 +82,7 @@ class BgSetting extends Component{
     );
     return(
       <Container>
+        <div><h3>Backgrounds</h3></div>
         <Cell>
           <div><h3>Use Unsplash backgrounds</h3></div>
           <div>

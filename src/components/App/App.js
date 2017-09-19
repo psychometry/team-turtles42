@@ -11,6 +11,7 @@ import CurrentQuoteContainer from '../CurrentQuote/CurrentQuoteContainer';
 import ListContainer from '../Todo/containers/ListContainer';
 import Welcome from '../Welcome/Welcome';
 import Message from '../Message/Message';
+import BgInfo from '../BgInfo/BgInfo';
 import './App.scss';
 
 const theme = {
@@ -84,6 +85,7 @@ class App extends Component {
           <div className="App" style={{
             backgroundImage: `url(${background.bg})`
           }}>
+          {/*
             <header>
               <LinksContainer state={apps.links} />
               <WeatherContainer state={apps.weather} />
@@ -133,6 +135,56 @@ class App extends Component {
               <CurrentQuoteContainer state={apps.quote} />
               <ListContainer state={apps.todo} />
             </footer>
+            */}
+            <div className="top_left">
+              <LinksContainer state={apps.links} />
+            </div>
+            <div className="top_right">
+              <WeatherContainer state={apps.weather} />
+            </div>
+            <div className="middle">
+              <div>
+                {apps.clock && apps.timer &&
+                  <TimeIcons timer={timer.showing} onToggleTimer={toggleTimer} />
+                }
+                {(timer.showing || !apps.clock) &&
+                  <Timer
+                    state={apps.timer}
+                    duration={timer.duration}
+                    seconds={timer.seconds}
+                    settings={timer.settings}
+                    id={timer.id}
+                    active={timer.active}
+                    onSetTimer={setTimer}
+                    onResetTimer={resetTimer}
+                    onUpdateTimer={updateTimer}
+                  />
+                }
+                {(!timer.showing || !apps.timer) &&
+                  <Clock
+                    state={apps.clock}
+                    time={time}
+                    updateTime={updateTime}
+                  />
+                }
+              </div>
+              <Message state={apps.message} time={time} name={name}/>
+              <Focus
+                state={apps.focus}
+                focus={focus}
+                setFocus={setFocus}
+                deleteFocus={deleteFocus}
+                toggleFocus={toggleFocus}
+              />
+              <CurrentQuoteContainer state={apps.quote} />
+            </div>
+            <div className="bottom_left">
+              <SettingsContainer />
+            </div>
+            <div className="bottom_right">
+              <BgInfo background={background} />
+              <ListContainer state={apps.todo} />
+            </div>
           </div>
         </ThemeProvider>
       );

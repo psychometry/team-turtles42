@@ -4,8 +4,7 @@ import PropTypes from 'prop-types'
 import AddForm from './AddForm';
 import FilterTab from './FilterTab';
 import './TodoList.scss';
-import '../containers/ListContainer.scss';
-import './AddForm.scss'
+import './AddForm.scss';
 
 const TodoList=({todo, addTodo, setFilter, toggleList,...rest})=>{
   let renderList=todo.todo;

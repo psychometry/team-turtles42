@@ -10,6 +10,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  > form div{
+    text-align:center;
+  }
 `;
 
 const Time = styled.input`
@@ -28,7 +31,7 @@ const Time = styled.input`
     outline: none;
   }
 `;
-  
+
 const Button = styled.button`
   color: ${({ theme }) => theme.white};
   text-shadow: 0 1px 5px ${({ theme }) => theme.black};
@@ -69,7 +72,7 @@ class Timer extends Component {
 
   // Convert back to time string to display
   timeLeft = totalSeconds => {
-    let hours = Math.floor(totalSeconds / 60 / 60); 
+    let hours = Math.floor(totalSeconds / 60 / 60);
     let minutes = Math.floor(totalSeconds / 60 % 60);
     let seconds = totalSeconds % 60;
 
@@ -121,37 +124,35 @@ class Timer extends Component {
     return (
       <Container>
         <form onSubmit={event => this.handleSubmit(event)}>
-          <TimeField 
-            value={time} 
+          <TimeField
+            value={time}
             showSeconds
             input={<Time innerRef={comp => this.time = comp}/>}
             onChange={this.onTimeChange}
-            disabled={active} 
+            disabled={active}
           />
-          <div className="one column centered row">
-            <div className="column">
+            <div>
               {active && !paused &&
-                <Button 
+                <Button
                   onClick={event => this.handlePause(event)}
-                  disabled={paused} 
+                  disabled={paused}
                 >
                   <i className='ui big pause icon' />
                 </Button>
               }
               {(!active || paused) &&
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   innerRef={comp => this.submit = comp}
                 >
                   <i className="ui big play icon"/>
                 </Button>
               }
-              <Button 
+              <Button
                 onClick={event => this.stopTimer(event)}>
                 <i className="ui big stop icon" />
               </Button>
             </div>
-          </div>
         </form>
       </Container>
     );
