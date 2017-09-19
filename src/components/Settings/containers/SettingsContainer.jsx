@@ -4,6 +4,7 @@ import Settings from '../components/Settings';
 import GeneralSettingContainer from '../../GeneralSetting/GeneralSettingContainer';
 import QuoteSettingsContainer from '../../Quotes/containers/QuoteSettingsContainer';
 import BgSettingContainer from '../../BgSetting/BgSettingContainer';
+import TimerSettingsContainer from '../../TimerSettings/TimerSettingsContainer.js';
 
 const Container = styled.div`
   z-index: 100;
@@ -32,6 +33,10 @@ const tabs = [
   {
     name: 'Background',
     content: <BgSettingContainer/>
+  },
+  {
+    name: 'Timer',
+    content: <TimerSettingsContainer />
   },
   {
     name: 'Quotes',

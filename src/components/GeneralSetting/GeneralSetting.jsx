@@ -28,7 +28,7 @@ const Cell=styled.div`
 const GeneralSetting=({apps,toggle})=>{
   return (
     <Container>
-      <div>Show:</div>
+      <div><h3>Display</h3></div>
       {
         Object.keys(apps).map(
           (app, i)=>{

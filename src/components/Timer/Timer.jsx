@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import TimeField from 'react-simple-timefield';
-import bell from './bell.wav';
 import toggleOnOff from '../../HOC';
+import notify from './notify';
 
-const notification = new Audio(bell);
 
 const Container = styled.div`
   width: 100%;
@@ -74,15 +73,10 @@ class Timer extends Component {
     let minutes = Math.floor(totalSeconds / 60 % 60);
     let seconds = totalSeconds % 60;
 
-    if (hours < 10) hours = '0' + hours;
-    if (minutes < 10) minutes = '0' + minutes;
-    if (seconds < 10) seconds = '0' + seconds;
-
-    return `${hours}:${minutes}:${seconds}`;
+    return { hours, minutes, seconds };
   }
 
   startTimer = seconds => {
-    notification.load();
     const start = Date.now();
 
     this.timer = setInterval(() => {
@@ -95,7 +89,8 @@ class Timer extends Component {
       const remaining = seconds - elapsed;
 
       if (!remaining) {
-        notification.play();
+        const duration = this.timeLeft(this.props.duration);
+        notify(duration, this.props.settings);
         this.props.onResetTimer();
       } else {
         this.props.onUpdateTimer(
@@ -114,14 +109,20 @@ class Timer extends Component {
   }
 
   render() {
-    const { active, id: timerId, seconds } = this.props;
-    const paused = seconds && !timerId;
+    const { active, id: timerId, seconds: secondsLeft } = this.props;
+    const paused = secondsLeft && !timerId;
+    let { hours, minutes, seconds } = this.timeLeft(secondsLeft);
+
+    if (hours < 10) hours = '0' + hours;
+    if (minutes < 10) minutes = '0' + minutes;
+    if (seconds < 10) seconds = '0' + seconds;
+    const time = `${hours}:${minutes}:${seconds}`
 
     return (
       <Container>
         <form onSubmit={event => this.handleSubmit(event)}>
           <TimeField 
-            value={this.timeLeft(seconds)} 
+            value={time} 
             showSeconds
             input={<Time innerRef={comp => this.time = comp}/>}
             onChange={this.onTimeChange}

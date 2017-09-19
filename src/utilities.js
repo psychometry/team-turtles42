@@ -22,6 +22,20 @@ export const parseQuote = (quote) => {
     .map(item => typeof item === 'string' ? item.trim() : item);
 };
 
+// Timer
+const defaultTimerSettings = {
+  bell: true,
+  desktop: true
+}
+const timerSettings = loadFromStorage('react-dash-timer-settings') || defaultTimerSettings;
+
+export const loadTimerSettings = () => {
+  return {
+    bell: timerSettings.bell,
+    desktop: timerSettings.desktop
+  }
+};
+
 // Weather
 export const loadWeatherSettings = () => {
   return loadFromStorage('react-dash-weather-settings') || {};

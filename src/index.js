@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers/index';
 import throttle from 'lodash/throttle';
 import {loadFromStorage,saveToStorage} from './localStorage';
-import { feedsById, quotesById, currentFeed } from '../src/utilities';
+import { feedsById, quotesById, currentFeed, loadTimerSettings } from '../src/utilities';
 import 'semantic-ui-css/semantic.min.css';
 import './index.scss';
 //import registerServiceWorker from './registerServiceWorker';
@@ -28,7 +28,12 @@ const defaultState={
     id: null,
     active: false,
     showing: false,
+    duration: null,
     seconds: 1500,
+    settings: {
+      bell: loadTimerSettings().bell, 
+      desktop: loadTimerSettings().desktop
+    }
   },
   background:loadFromStorage('react-dash-background')||{
     bg:null,
@@ -62,13 +67,16 @@ const defaultState={
   }
 };
 const store=createStore(rootReducer,defaultState,applyMiddleware(thunk));
+
 store.subscribe(
+
   throttle(()=>{
       saveToStorage('react-dash-focus',store.getState().focus);
       saveToStorage('react-dash-todo',store.getState().todo.todo);
       saveToStorage('react-dash-name',store.getState().name);
       saveToStorage('react-dash-background',store.getState().background);
       saveToStorage('react-dash-quotes', store.getState().quotes);
+      saveToStorage('react-dash-timer-settings', store.getState().timer.settings);
   },5000));
 ReactDOM.render(
   <Provider store={store}>

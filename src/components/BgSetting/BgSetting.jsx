@@ -13,6 +13,8 @@ const Cell=styled.div`
   width:100%;
   display:flex;
   flex-flow:row nowrap;
+  align-items: flex-end;
+  padding-bottom: 5px;
   border-bottom:1px solid white;
   & :nth-child(odd){
     flex:5;
@@ -80,9 +82,8 @@ class BgSetting extends Component{
     );
     return(
       <Container>
-        <div>Background:</div>
         <Cell>
-          <div>Use Unsplash backgrounds</div>
+          <div><h3>Use Unsplash backgrounds</h3></div>
           <div>
             <Slider
               checked={option==='unsplash'}
