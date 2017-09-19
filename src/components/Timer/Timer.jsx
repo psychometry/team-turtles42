@@ -51,7 +51,8 @@ class Timer extends Component {
     // Prevent rapid submissions
     this.submit.disabled = true;
     event.preventDefault();
-    this.startTimer(this.props.seconds);
+    // Default to 25 min if updated and submitted with 0 seconds
+    this.startTimer(this.props.seconds || 1500);
   }
 
   handlePause = event => {
@@ -81,7 +82,6 @@ class Timer extends Component {
 
     this.timer = setInterval(() => {
       const timerId = this.timer;
-
       // Change in milliseconds
       const delta = Date.now() - start;
       // Remaining seconds
@@ -112,7 +112,7 @@ class Timer extends Component {
     const { active, id: timerId, seconds: secondsLeft } = this.props;
     const paused = secondsLeft && !timerId;
     let { hours, minutes, seconds } = this.timeLeft(secondsLeft);
-
+    
     if (hours < 10) hours = '0' + hours;
     if (minutes < 10) minutes = '0' + minutes;
     if (seconds < 10) seconds = '0' + seconds;
