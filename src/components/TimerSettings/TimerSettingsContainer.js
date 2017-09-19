@@ -1,20 +1,24 @@
-import { bindActionCreators } from 'redux';
+// import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import TimerSettings from './TimerSettings';
+import { toggleNotification } from '../../actions/TimerActionCreators';
+
 
 const mapStateToProps = state => {
   return {
-    timer: state.timer
+    settings: state.timer.settings
   };
-}
+};
 
-// const mapDispatchToProps = dispatch => {
-//   return bindActionCreators(TimerActionCreators ,dispatch);
-// }
+const mapDispatchToProps = dispatch => {
+  return {
+    onToggleNotification: item => dispatch(toggleNotification(item))
+  };
+};
 
 const TimerSettingsContainer = connect(
   mapStateToProps, 
-  // mapDispatchToProps
+  mapDispatchToProps
 )(TimerSettings);
 
 export default TimerSettingsContainer;

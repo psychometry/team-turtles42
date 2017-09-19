@@ -1,7 +1,7 @@
 import types from '../actions/TimerActionCreators';
 
 const timer = (state = {}, action) =>{
-  // console.log(state, action);
+  console.log(state, action);
 
   if (action.type === 'TOGGLE' && action.app === 'timer') {
     action.type = 'RESET_TIMER';
@@ -41,6 +41,13 @@ const timer = (state = {}, action) =>{
         id: action.id,
         active: true,
         seconds: action.seconds
+      };
+    case types.TOGGLE_NOTIFICATION:
+      return {
+        ...state,
+        settings: Object.assign({}, state.settings, {
+          [action.item]: !state.settings[action.item],
+        })
       };
     default:
       return state;

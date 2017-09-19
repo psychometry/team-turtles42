@@ -99,6 +99,7 @@ class App extends Component {
                     state={apps.timer}
                     duration={timer.duration}
                     seconds={timer.seconds}
+                    settings={timer.settings}
                     id={timer.id}
                     active={timer.active} 
                     onSetTimer={setTimer} 

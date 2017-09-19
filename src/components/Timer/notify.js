@@ -20,24 +20,22 @@ const format = ({ hours, minutes, seconds }) => {
   }
 };
 
-const notify = (duration) => {
+const notify = (duration, settings) => {
   const title = 'React Dash Timer';
   const body = `You have been working for ${format(duration)}`;
   
-  console.log(body);
-
   if (!window.Notification) {
     alert("This browser does not support desktop notification");
   }
   else if (Notification.permission === "granted") {
-    bellAudio.play();
-    const notification = new Notification(title, { body });
+    if (settings.bell) bellAudio.play();
+    if (settings.notification) new Notification(title, { body });
   }
   else if (Notification.permission !== "denied") {
     Notification.requestPermission(permission => {
       if (permission === "granted") {
-        bellAudio.play();
-        const notification = new Notification(title, { body });
+        if (settings.bell) bellAudio.play();
+        if (settings.notification) new Notification(title, { body });
       }
     });
   }
