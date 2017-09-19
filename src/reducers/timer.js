@@ -1,7 +1,7 @@
 import types from '../actions/TimerActionCreators';
 
 const timer = (state = {}, action) =>{
-  console.log(state, action);
+  // console.log(state, action);
 
   if (action.type === 'TOGGLE' && action.app === 'timer') {
     action.type = 'RESET_TIMER';

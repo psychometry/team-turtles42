@@ -13,7 +13,7 @@ const format = ({ hours, minutes, seconds }) => {
     return secondsFormatted;
   } else if (!hours && minutes) {
     return minutesFormatted;
-  } else if (hours && !minutes) {
+  } else if (hours) {
     return hoursFormatted;
   } else {
     return `${hours}:${minutes}:${seconds};`;
@@ -21,23 +21,35 @@ const format = ({ hours, minutes, seconds }) => {
 };
 
 const notify = (duration, settings) => {
-  const title = 'React Dash Timer';
-  const body = `You have been working for ${format(duration)}`;
-  
-  if (!window.Notification) {
-    alert("This browser does not support desktop notification");
+  // Bell
+  if (settings.bell) {
+    bellAudio.currentTime = 0;
+    bellAudio.play();    
   }
-  else if (Notification.permission === "granted") {
-    if (settings.bell) bellAudio.play();
-    if (settings.notification) new Notification(title, { body });
-  }
-  else if (Notification.permission !== "denied") {
-    Notification.requestPermission(permission => {
-      if (permission === "granted") {
-        if (settings.bell) bellAudio.play();
-        if (settings.notification) new Notification(title, { body });
-      }
-    });
+
+  // Desktop
+  if (settings.desktop) {
+    const title = 'React Dash Timer';
+    const body = duration 
+      ? `You have been working for ${format(duration)}`
+      : `Desktop notifcation test.`
+    const options = {
+      body, 
+    };
+
+    if (!window.Notification) {
+      alert("This browser does not support desktop notification");
+    }
+    else if (Notification.permission === "granted") {
+      new Notification(title, options);
+    }
+    else if (Notification.permission !== "denied") {
+      Notification.requestPermission(permission => {
+        if (permission === "granted") {
+          new Notification(title, options);
+        }
+      });
+    }
   }
 };
 

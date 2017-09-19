@@ -31,12 +31,12 @@ const tabs = [
    content: <GeneralSettingContainer />
   },
   {
-    name: 'Timer',
-    content: <TimerSettingsContainer />
-  },
-  {
     name: 'Background',
     content: <BgSettingContainer/>
+  },
+  {
+    name: 'Timer',
+    content: <TimerSettingsContainer />
   },
   {
     name: 'Quotes',

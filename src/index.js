@@ -7,11 +7,10 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers/index';
 import throttle from 'lodash/throttle';
 import {loadFromStorage,saveToStorage} from './localStorage';
-import { feedsById, quotesById, currentFeed } from '../src/utilities';
+import { feedsById, quotesById, currentFeed, loadTimerSettings } from '../src/utilities';
 import 'semantic-ui-css/semantic.min.css';
 import './index.scss';
 //import registerServiceWorker from './registerServiceWorker';
-console.log('HELLO', loadFromStorage('react-dash-timer-settings'));
 
 const defaultState={
   apps:{
@@ -32,8 +31,8 @@ const defaultState={
     duration: null,
     seconds: 1500,
     settings: {
-      bell: loadFromStorage('react-dash-timer-settings').bell,
-      notification: loadFromStorage('react-dash-timer-settings').notification
+      bell: loadTimerSettings().bell, 
+      desktop: loadTimerSettings().desktop
     }
   },
   background:loadFromStorage('react-dash-background')||{
