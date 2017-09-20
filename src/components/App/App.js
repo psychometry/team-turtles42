@@ -66,7 +66,10 @@ class App extends Component {
       setName,
       apps
     } = this.props;
-
+    const IconStyle={height:"50px"}
+    const timerIcon=apps.clock && apps.timer?(
+      <TimeIcons timer={timer.showing} onToggleTimer={toggleTimer} />
+    ):(<div style={IconStyle}></div>);
     if (!name || name === '') {
       return (
         <div className="App" style={{
@@ -144,8 +147,8 @@ class App extends Component {
             </div>
             <div className="middle">
               <div>
-                {apps.clock && apps.timer &&
-                  <TimeIcons timer={timer.showing} onToggleTimer={toggleTimer} />
+                {
+                  timerIcon
                 }
                 {(timer.showing || !apps.clock) &&
                   <Timer
