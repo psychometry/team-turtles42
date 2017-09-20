@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { randomIndex } from '../../utilities.js';
 
 const Container = styled.div`
-  max-height: 75px;
+  max-height: 100%;
   max-width: 700px;
   width: 100%;
   color: ${({theme}) => theme.white};
@@ -23,7 +23,7 @@ transform: translateX(-50%);
 */
 const Quote = styled.p`
   margin-bottom: 5px;
-  max-height:62px;
+  max-height:49px;
   overflow-y:auto;
   font-size: 1.25em;
   `;

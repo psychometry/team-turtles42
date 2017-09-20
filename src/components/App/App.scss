@@ -6,7 +6,7 @@
   background-size: cover;
   background-position: center;
   grid-template-columns:1fr 700px 1fr;
-  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-rows: 50px auto 80px;
   height: 100vh;
 }
 .main {
@@ -55,4 +55,5 @@
 }
 .bottom_center{
   grid-area:3/2/4/3;
+  align-self: end;
 }
