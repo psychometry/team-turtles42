@@ -8,7 +8,6 @@ const Container = styled.div`
   max-width: 700px;
   width: 100%;
   color: ${({theme}) => theme.white};
-  bottom: 0;
   text-align: center;
   font-weight: 300;
   text-shadow: 0 1px 5px ${({ theme }) => theme.black};
@@ -24,7 +23,7 @@ transform: translateX(-50%);
 */
 const Quote = styled.p`
   margin-bottom: 5px;
-  max-height:60px;
+  max-height:62px;
   overflow-y:auto;
   font-size: 1.25em;
   `;

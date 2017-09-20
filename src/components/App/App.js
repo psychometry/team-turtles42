@@ -176,10 +176,12 @@ class App extends Component {
                 deleteFocus={deleteFocus}
                 toggleFocus={toggleFocus}
               />
-              <CurrentQuoteContainer state={apps.quote} />
             </div>
             <div className="bottom_left">
               <SettingsContainer />
+            </div>
+            <div className='bottom_center'>
+              <CurrentQuoteContainer state={apps.quote} />
             </div>
             <div className="bottom_right">
               <BgInfo background={background} />
