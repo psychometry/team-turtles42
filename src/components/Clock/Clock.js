@@ -6,7 +6,8 @@ const Container = styled.div`
   padding-bottom:30px;
   font-size: 10em;
   font-weight: 500;
-  heigh:191px;
+  max-height:191px;
+  height:191px;
 `;
 
 class Clock extends Component{
