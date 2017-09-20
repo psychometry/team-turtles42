@@ -7,6 +7,7 @@ import notify from './notify';
 
 const Container = styled.div`
   width: 100%;
+  height:191px;
   display: flex;
   flex-direction: column;
   justify-content: center;
