@@ -11,6 +11,7 @@ import CurrentQuoteContainer from '../CurrentQuote/CurrentQuoteContainer';
 import ListContainer from '../Todo/containers/ListContainer';
 import Welcome from '../Welcome/Welcome';
 import Message from '../Message/Message';
+import BgInfo from '../BgInfo/BgInfo';
 import './App.scss';
 
 const theme = {
@@ -22,7 +23,7 @@ const theme = {
 class App extends Component {
   componentDidMount() {
     const {updateTime, option,list} = this.props.background;
-    if(!updateTime||(new Date()-updateTime)>60*60*24*1000){
+    if(!updateTime||(new Date()-new Date(updateTime))>60*60*24*1000){
       this.props.update(new Date());
       this.props.fetchBackground();
     }
@@ -65,7 +66,10 @@ class App extends Component {
       setName,
       apps
     } = this.props;
-
+    const IconStyle={height:"50px"}
+    const timerIcon=apps.clock && apps.timer?(
+      <TimeIcons timer={timer.showing} onToggleTimer={toggleTimer} />
+    ):(<div style={IconStyle}></div>);
     if (!name || name === '') {
       return (
         <div className="App" style={{
@@ -84,6 +88,7 @@ class App extends Component {
           <div className="App" style={{
             backgroundImage: `url(${background.bg})`
           }}>
+          {/*
             <header>
               <LinksContainer state={apps.links} />
               <WeatherContainer state={apps.weather} />
@@ -91,38 +96,38 @@ class App extends Component {
 
             <main className="main">
               <div className="top">
-                {apps.clock && apps.timer && 
+                {apps.clock && apps.timer &&
                   <TimeIcons timer={timer.showing} onToggleTimer={toggleTimer} />
                 }
                 {(timer.showing || !apps.clock) &&
-                  <Timer 
+                  <Timer
                     state={apps.timer}
                     duration={timer.duration}
                     seconds={timer.seconds}
                     settings={timer.settings}
                     id={timer.id}
-                    active={timer.active} 
-                    onSetTimer={setTimer} 
+                    active={timer.active}
+                    onSetTimer={setTimer}
                     onResetTimer={resetTimer}
-                    onUpdateTimer={updateTimer} 
+                    onUpdateTimer={updateTimer}
                   />
                 }
                 {(!timer.showing || !apps.timer) &&
-                  <Clock 
+                  <Clock
                     state={apps.clock}
-                    time={time} 
+                    time={time}
                     updateTime={updateTime}
                   />
                 }
               </div>
-              
+
               <div className="bottom">
                 <Message state={apps.message} time={time} name={name}/>
-                <Focus 
-                  state={apps.focus} 
-                  focus={focus} 
-                  setFocus={setFocus} 
-                  deleteFocus={deleteFocus} 
+                <Focus
+                  state={apps.focus}
+                  focus={focus}
+                  setFocus={setFocus}
+                  deleteFocus={deleteFocus}
                   toggleFocus={toggleFocus}
                 />
               </div>
@@ -133,6 +138,58 @@ class App extends Component {
               <CurrentQuoteContainer state={apps.quote} />
               <ListContainer state={apps.todo} />
             </footer>
+            */}
+            <div className="top_left">
+              <LinksContainer state={apps.links} />
+            </div>
+            <div className="top_right">
+              <WeatherContainer state={apps.weather} />
+            </div>
+            <div className="middle">
+              <div>
+                {
+                  timerIcon
+                }
+                {(timer.showing || !apps.clock) &&
+                  <Timer
+                    state={apps.timer}
+                    duration={timer.duration}
+                    seconds={timer.seconds}
+                    settings={timer.settings}
+                    id={timer.id}
+                    active={timer.active}
+                    onSetTimer={setTimer}
+                    onResetTimer={resetTimer}
+                    onUpdateTimer={updateTimer}
+                  />
+                }
+                {(!timer.showing || !apps.timer) &&
+                  <Clock
+                    state={apps.clock}
+                    time={time}
+                    updateTime={updateTime}
+                  />
+                }
+              </div>
+              <Message state={apps.message} time={time} name={name}/>
+              <Focus
+                state={apps.focus}
+                focus={focus}
+                setFocus={setFocus}
+                deleteFocus={deleteFocus}
+                toggleFocus={toggleFocus}
+              />
+            </div>
+            <div className="bottom_left">
+              <SettingsContainer />
+            </div>
+            <div className='bottom_center'>
+              <CurrentQuoteContainer state={apps.quote} />
+            </div>
+            <div className="bottom_right">
+              <BgInfo background={background} />
+              <ListContainer state={apps.todo} />
+            </div>
           </div>
         </ThemeProvider>
       );

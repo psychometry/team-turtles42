@@ -1,12 +1,18 @@
 @import '../../../styles/variables.scss';
 
+.ListContainer{
+  z-index: 1000;
+  position: fixed;
+  bottom: 60px;
+  right: 10px;
+}
 .TodoList {
   position: relative;
   border-radius: 3px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 300px;
+  width: 250px;
   background-color: $black;
   padding:.5em .5em 0 .5em;
   .inbox {
@@ -18,7 +24,7 @@
     margin: 10px 0;
     padding: 0;
     list-style-type: none;
-    max-height: 150px;
+    max-height: 375px;
     height: auto;
     overflow-y:auto;
   }

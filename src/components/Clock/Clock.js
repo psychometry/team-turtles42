@@ -3,9 +3,11 @@ import styled from 'styled-components';
 import toggleOnOff from '../../HOC';
 
 const Container = styled.div`
-  padding: 0 20px;
+  padding-bottom:30px;
   font-size: 10em;
   font-weight: 500;
+  max-height:191px;
+  height:191px;
 `;
 
 class Clock extends Component{
