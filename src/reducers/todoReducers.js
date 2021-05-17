@@ -1,5 +1,5 @@
 import { ADD_TODO, DELETE_TODO, TOGGLE_TODO, UPDATE_TODO, SET_FILTER, TOGGLE_LIST} from '../actions/TodoActionCreators';
-import v4 from 'uuid/v4';
+import {v4} from 'uuid';
 import {combineReducers} from 'redux';
 function todo(state=[],action){
   switch(action.type){

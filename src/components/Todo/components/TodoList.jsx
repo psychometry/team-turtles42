@@ -42,7 +42,7 @@ const TodoList=({todo, addTodo, setFilter, toggleList,...rest})=>{
     </div>
   );
 }
-TodoList.PropTypes={
+TodoList.propTypes={
   todo:PropTypes.shape({
     todo:PropTypes.array.isRequired,
     viewFilter:PropTypes.string.isRequired

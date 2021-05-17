@@ -1,16 +1,18 @@
-import Unsplash, { toJson } from 'unsplash-js';
+import {createApi} from 'unsplash-js';
 import backgrounds from '../background.json';
 export const SET_BACKGROUND = 'SET_BACKGROUND',
 SET_UPDATE_TIME='SET_UPDATE_TIME',
 SET_OPTION='SET_OPTION',
 SET_BG_LIST='SET_BG_LIST';
 
+const {VITE_ACCESS_KEY} = import.meta.env;
 
-const unsplash = new Unsplash({
-  applicationId: process.env.REACT_APP_UNSPLASH_APP_ID,
-  secret: process.env.REACT_APP_UNSPLASH_APP_SECRET,
-  callbackUrl: process.env.REACT_APP_UNSPLASH_CALLBACK_URL
-})
+const unsplash = createApi(
+  {
+    accessKey: VITE_ACCESS_KEY
+  }
+)
+
 export function setBackground(url){
   // console.log('fired');
   return {type:SET_BACKGROUND,url};
@@ -25,30 +27,30 @@ export function setBackgroundList(json){
   return {type:SET_BG_LIST,json}
 }
 export function fetchBackground(){
-  // console.log('here');
   return function(dispatch){
-    unsplash.photos.getRandomPhoto({collections:[611358],count:6})
-    .then(toJson)
-    .then(json => {
-      const backgrounds=[];
-      json.forEach(
-        (pic)=>{
-          const bg={
-            src:pic.urls.regular,
-            url:pic.links.html,
-            thumb:pic.urls.thumb,
+    unsplash.photos.getRandom({collections:[611358], count:6})
+    .then(response => {
+      if(response.errors){
+        throw new Error('Responded with a status code outside the 2xx range, and the response body is not recognisable.');
+      }
+      console.log(response);
+      const backgrounds=response.response.map(
+        img=>{
+          return {
+            src:img.urls.regular,
+            url:img.links.html,
+            thumb:img.urls.thumb,
             user:{
-              username:pic.user.username,
-              name:pic.user.name,
-              link:pic.user.links.html+"?utm_source=ReactDash&utm_medium=referral&utm_campaign=api-credit",
-            }
+              username:img.user.username,
+              name:img.user.name,
+              link:img.user.links.html+"?utm_source=ReactDash&utm_medium=referral&utm_campaign=api-credit",
           }
-          backgrounds.push(bg);
         }
-      );
+      });
       dispatch(setBackgroundList(backgrounds));
     }).catch(
       err=>{
+        console.log(err);
         dispatch(setOption('local'));
         dispatch(fetchBackgroundLocal());
       }
@@ -59,7 +61,9 @@ export function fetchBackgroundLocal(){
   return function(dispatch){
     const background=backgrounds.backgrounds.map(
       bg=>{
-        return {...bg,src:process.env.PUBLIC_URL+'./img/'+bg.src}
+        return {
+          ...bg,
+          src:'/img/'+bg.src}
       }
     )
     dispatch(setBackgroundList(background));

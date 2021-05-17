@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import TimeField from 'react-simple-timefield';
+// import TimeField from 'react-simple-timefield';
 import toggleOnOff from '../../HOC';
 import notify from './notify';
 
@@ -125,13 +125,13 @@ class Timer extends Component {
     return (
       <Container>
         <form onSubmit={event => this.handleSubmit(event)}>
-          <TimeField
+          {/* <TimeField
             value={time}
             showSeconds
             input={<Time innerRef={comp => this.time = comp}/>}
             onChange={this.onTimeChange}
             disabled={active}
-          />
+          /> */}
             <div>
               {active && !paused &&
                 <Button
