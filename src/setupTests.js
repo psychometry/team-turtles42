@@ -1,7 +1,6 @@
 import { LocalStorageMock } from './LocalStorageMock';
 
 const localStorage = new LocalStorageMock();
-
 global.localStorage = {
   // get store object
   get store() {
