@@ -52,22 +52,6 @@ class WeatherContainer extends Component {
           });
 
         // TODO: set temp unit 'c' (default) or 'f' in settings
-        // weather(location, unit)
-        //   .then((info) => {
-        //     // console.log(info);
-        //     const { code, temp } = info.item.condition;
-        //     const { temperature: unit } = info.units;
-
-        //     this.setState({
-        //       location,
-        //       code,
-        //       temp,
-        //       unit,
-        //     });
-        //   })
-        //   .catch((err) => {
-        //     console.log(err);
-        //   });
       });
     } else {
       console.log("Geolocation is not supported");

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-// import TimeField from 'react-simple-timefield';
+import TimeField from 'react-simple-timefield';
 import toggleOnOff from '../../HOC';
 import notify from './notify';
 
@@ -43,24 +43,18 @@ const Button = styled.button`
 `;
 
 class Timer extends Component {
-  componentDidMount() {
-    this.time.select();
-  }
-  onTimeChange = time => {
+  onTimeChange = (event, time) => {
     return this.props.onSetTimer(this.secondsLeft(time));
   }
 
   handleSubmit = event => {
-    // console.log('play');
     // Prevent rapid submissions
-    this.submit.disabled = true;
     event.preventDefault();
     // Default to 25 min if updated and submitted with 0 seconds
     this.startTimer(this.props.seconds || 1500);
   }
 
   handlePause = event => {
-    // console.log('pause');
     event.preventDefault();
     this.props.onSetTimer(this.props.seconds);
   }
@@ -125,13 +119,13 @@ class Timer extends Component {
     return (
       <Container>
         <form onSubmit={event => this.handleSubmit(event)}>
-          {/* <TimeField
+          <TimeField
             value={time}
             showSeconds
             input={<Time innerRef={comp => this.time = comp}/>}
             onChange={this.onTimeChange}
             disabled={active}
-          /> */}
+          />
             <div>
               {active && !paused &&
                 <Button
