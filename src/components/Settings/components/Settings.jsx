@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import onClickOutside from 'react-onclickoutside';
 import Tabs from '../components/Tabs';
 
 const Div = styled.div`
@@ -30,8 +29,25 @@ const Settings = ({
   onChangeTab, 
   onToggleSettings 
 }) => {
+  const wrapperRef = useRef(null);
+  useEffect(
+    ()=>{
+      document.addEventListener("mousedown", handleClickOutside)
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }
+  );
+  const handleClickOutside=(e)=>{
+    if(wrapperRef.current&&!wrapperRef.current.contains(e.target)){
+      if(e.target.className&&!e.target.className.includes('ignore-react-onclickoutside')){
+        onToggleSettings();
+      }
+      
+    }
+  }
   return (
-    <Div innerRef={node=>{this.node=node;}}>
+    <Div ref={wrapperRef}>
       <Tabs activeTab={activeTab} onChangeTab={onChangeTab}>
         {tabs}
       </Tabs>
@@ -40,8 +56,4 @@ const Settings = ({
   );
 };
 
-export default onClickOutside(Settings, {
-  handleClickOutside: instance => {
-    return instance.props.onToggleSettings;
-  }
-});
+export default Settings;
