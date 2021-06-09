@@ -27,25 +27,34 @@ class WeatherContainer extends Component {
           position.coords.longitude
         )[0];
 
+        // fetch(
+        //   openweatherURL +
+        //     `?lat=${location.latitude}&lon=${location.longitude}&units=${unit}&appid=${VITE_WEATHER_KEY}`
+        // )
+        //   .then((response) => response.json())
+        //   .then((data) => {
+        //     const { temp } = data.main;
+        //     const location = data.name;
+        //     const code =
+        //       data.weather[0].id == 800
+        //         ? data.weather[0].id
+        //         : Math.floor(data.weather[0].id / 100);
+        //     const unit = "F";
+        //     this.setState({
+        //       location,
+        //       code,
+        //       temp: Math.round(temp),
+        //       unit,
+        //     });
+        //   })
         fetch(
-          openweatherURL +
-            `?lat=${location.latitude}&lon=${location.longitude}&units=${unit}&appid=${VITE_WEATHER_KEY}`
+          `https://d2a14h9yei.execute-api.us-east-2.amazonaws.com/Prod/openweather?lat=${location.latitude}&lon=${location.longitude}&units=${unit}`
         )
-          .then((response) => response.json())
-          .then((data) => {
-            const { temp } = data.main;
-            const location = data.name;
-            const code =
-              data.weather[0].id == 800
-                ? data.weather[0].id
-                : Math.floor(data.weather[0].id / 100);
-            const unit = "F";
-            this.setState({
-              location,
-              code,
-              temp: Math.round(temp),
-              unit,
-            });
+          .then(res=>res.json())
+          .then(data=>{
+            this.setState(
+              data
+            )
           })
           .catch((error) => {
             console.error("Error:", error);
