@@ -28,33 +28,43 @@ export function setBackgroundList(json){
 }
 export function fetchBackground(){
   return function(dispatch){
-    unsplash.photos.getRandom({collections:[611358], count:6})
-    .then(response => {
-      if(response.errors){
-        throw new Error('Responded with a status code outside the 2xx range, and the response body is not recognisable.');
-      }
-      console.log(response);
-      const backgrounds=response.response.map(
-        img=>{
-          return {
-            src:img.urls.regular,
-            url:img.links.html,
-            thumb:img.urls.thumb,
-            user:{
-              username:img.user.username,
-              name:img.user.name,
-              link:img.user.links.html+"?utm_source=ReactDash&utm_medium=referral&utm_campaign=api-credit",
-          }
-        }
-      });
-      dispatch(setBackgroundList(backgrounds));
-    }).catch(
+    fetch('https://m4sfvhmcx2.execute-api.us-east-2.amazonaws.com/Prod/photo?collection_id=611358&count=6')
+    .then(response=> response.json())
+    .then(backgrounds=>dispatch(setBackgroundList(backgrounds)))
+    .catch(
       err=>{
         console.log(err);
         dispatch(setOption('local'));
         dispatch(fetchBackgroundLocal());
       }
-    );
+    )
+    // unsplash.photos.getRandom({collections:[611358], count:6})
+    // .then(response => {
+    //   if(response.errors){
+    //     throw new Error('Responded with a status code outside the 2xx range, and the response body is not recognisable.');
+    //   }
+    //   console.log(response);
+    //   const backgrounds=response.response.map(
+    //     img=>{
+    //       return {
+    //         src:img.urls.regular,
+    //         url:img.links.html,
+    //         thumb:img.urls.thumb,
+    //         user:{
+    //           username:img.user.username,
+    //           name:img.user.name,
+    //           link:img.user.links.html+"?utm_source=ReactDash&utm_medium=referral&utm_campaign=api-credit",
+    //       }
+    //     }
+    //   });
+    //   dispatch(setBackgroundList(backgrounds));
+    // }).catch(
+    //   err=>{
+    //     console.log(err);
+    //     dispatch(setOption('local'));
+    //     dispatch(fetchBackgroundLocal());
+    //   }
+    // );
   }
 }
 export function fetchBackgroundLocal(){
