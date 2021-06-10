@@ -32,7 +32,7 @@ const Message=({time,name})=>{
     <Greeting>{greeting(time)}, {name}. </Greeting>
   )
 }
-Message.PropTypes={
+Message.propTypes={
   name:PropTypes.string.isRequired,
 };
 export default toggleOnOff(Message);

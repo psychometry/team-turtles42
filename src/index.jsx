@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers/index';
 import throttle from 'lodash/throttle';
 import {loadFromStorage,saveToStorage} from './localStorage';
-import { feedsById, quotesById, currentFeed, loadTimerSettings } from '../src/utilities';
+import { feedsById, quotesById, currentFeed, loadTimerSettings } from './utilities';
 import 'semantic-ui-css/semantic.min.css';
 import './index.scss';
 //import registerServiceWorker from './registerServiceWorker';

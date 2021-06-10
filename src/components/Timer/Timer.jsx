@@ -43,24 +43,18 @@ const Button = styled.button`
 `;
 
 class Timer extends Component {
-  componentDidMount() {
-    this.time.select();
-  }
-  onTimeChange = time => {
+  onTimeChange = (event, time) => {
     return this.props.onSetTimer(this.secondsLeft(time));
   }
 
   handleSubmit = event => {
-    // console.log('play');
     // Prevent rapid submissions
-    this.submit.disabled = true;
     event.preventDefault();
     // Default to 25 min if updated and submitted with 0 seconds
     this.startTimer(this.props.seconds || 1500);
   }
 
   handlePause = event => {
-    // console.log('pause');
     event.preventDefault();
     this.props.onSetTimer(this.props.seconds);
   }

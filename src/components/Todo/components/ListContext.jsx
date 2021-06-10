@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
 import TodoItem from './TodoItem';
-import HTML5Backend from 'react-dnd-html5-backend';
-import {DragDropContext} from 'react-dnd';
+import {HTML5Backend} from 'react-dnd-html5-backend';
+import {DndProvider} from 'react-dnd';
 
 class ListContext extends Component{
   render(){
     const {renderList,...rest}=this.props;
     return(
-      <ul className='list-items'>
+      <DndProvider backend={HTML5Backend}>
+        <ul className='list-items'>
         {
           renderList.map((item, i)=>{
             return (
@@ -18,7 +19,8 @@ class ListContext extends Component{
           })
         }
       </ul>
+      </DndProvider>
     );
   }
 }
-export default DragDropContext(HTML5Backend)(ListContext);
+export default ListContext;
