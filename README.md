@@ -3,7 +3,7 @@
 
 React Dash is a Chrome New Tab productivity dashboard, a [Momentum](https://momentumdash.com/) clone reverse engineered with React.
 
-Demo: [https://r-dash.surge.sh/](https://r.surge.sh/)
+Demo: [https://r-dash.surge.sh/](https://r-dash.surge.sh/)
 
 ![React Dash](./screenshot.jpg)
 
