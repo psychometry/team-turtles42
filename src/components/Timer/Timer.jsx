@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import TimeField from 'react-simple-timefield';
+import TimeField from '../../esmWrapperTimefield';
 import toggleOnOff from '../../HOC';
 import notify from './notify';
 
