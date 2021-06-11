@@ -24,7 +24,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2.1.5
-
+        with:
+          node-version: '15.x'
+        run: npm install -g surge
       # Runs a single command using the runners shell
       - name: setup node
         run: npm ci
@@ -32,7 +34,5 @@ jobs:
         run: npm run test
       - name: build
         run: npm run build
-      - name: install surge
-        run: npm install surge
       - name: deploy
         run: surge ./dist/ ${{ secrets.SURGE_DOMAIN }} --token ${{secrets.SURGE_TOKEN}}
