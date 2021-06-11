@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  build-deploy:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -24,12 +24,16 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2.1.5
-
+        with:
+          node-version: '15.x'
+      - name: setup surge
+        run: npm install -g surge
       # Runs a single command using the runners shell
       - name: setup node
         run: npm ci
-        
       - name: run test
         run: npm run test
       - name: build
         run: npm run build
+      - name: deploy
+        run: surge ./dist/ ${{ secrets.SURGE_DOMAIN }} --token ${{secrets.SURGE_TOKEN}}
